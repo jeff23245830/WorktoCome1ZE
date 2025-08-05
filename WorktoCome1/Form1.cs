@@ -73,6 +73,12 @@ namespace WorktoCome1
         private void btnExit_Click(object sender, EventArgs e)
         {
 
+            //確認東西歸位
+            //if
+            //正確關閉
+            this.Close(); 
+            //else
+            //跳警告
         }
     }
 }

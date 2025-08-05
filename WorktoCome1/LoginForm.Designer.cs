@@ -31,25 +31,28 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnDeletUser = new System.Windows.Forms.Button();
+            this.btnCreaterUser = new System.Windows.Forms.Button();
+            this.tbLevel = new System.Windows.Forms.NumericUpDown();
+            this.tbCheckPassword = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbAccount = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbLoginAccount = new System.Windows.Forms.TextBox();
+            this.tbLoginPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -64,22 +67,23 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(233, 264);
+            this.tabPage1.Size = new System.Drawing.Size(233, 210);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "使用者清單";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.numericUpDown1);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.btnDeletUser);
+            this.tabPage2.Controls.Add(this.btnCreaterUser);
+            this.tabPage2.Controls.Add(this.tbLevel);
+            this.tabPage2.Controls.Add(this.tbCheckPassword);
+            this.tabPage2.Controls.Add(this.tbPassword);
+            this.tabPage2.Controls.Add(this.tbAccount);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
@@ -92,51 +96,51 @@
             this.tabPage2.Text = "新增";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnDeletUser
             // 
-            this.button2.Location = new System.Drawing.Point(139, 142);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(66, 47);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "刪除";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDeletUser.Location = new System.Drawing.Point(139, 142);
+            this.btnDeletUser.Name = "btnDeletUser";
+            this.btnDeletUser.Size = new System.Drawing.Size(66, 47);
+            this.btnDeletUser.TabIndex = 19;
+            this.btnDeletUser.Text = "刪除";
+            this.btnDeletUser.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCreaterUser
             // 
-            this.button1.Location = new System.Drawing.Point(27, 142);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 47);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "新增";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCreaterUser.Location = new System.Drawing.Point(27, 142);
+            this.btnCreaterUser.Name = "btnCreaterUser";
+            this.btnCreaterUser.Size = new System.Drawing.Size(66, 47);
+            this.btnCreaterUser.TabIndex = 18;
+            this.btnCreaterUser.Text = "新增";
+            this.btnCreaterUser.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // tbLevel
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(77, 57);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(150, 22);
-            this.numericUpDown1.TabIndex = 17;
+            this.tbLevel.Location = new System.Drawing.Point(77, 57);
+            this.tbLevel.Name = "tbLevel";
+            this.tbLevel.Size = new System.Drawing.Size(150, 22);
+            this.tbLevel.TabIndex = 17;
             // 
-            // textBox4
+            // tbCheckPassword
             // 
-            this.textBox4.Location = new System.Drawing.Point(77, 114);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(150, 22);
-            this.textBox4.TabIndex = 16;
+            this.tbCheckPassword.Location = new System.Drawing.Point(77, 114);
+            this.tbCheckPassword.Name = "tbCheckPassword";
+            this.tbCheckPassword.Size = new System.Drawing.Size(150, 22);
+            this.tbCheckPassword.TabIndex = 16;
             // 
-            // textBox3
+            // tbPassword
             // 
-            this.textBox3.Location = new System.Drawing.Point(77, 85);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 22);
-            this.textBox3.TabIndex = 15;
+            this.tbPassword.Location = new System.Drawing.Point(77, 85);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(150, 22);
+            this.tbPassword.TabIndex = 15;
             // 
-            // textBox2
+            // tbAccount
             // 
-            this.textBox2.Location = new System.Drawing.Point(77, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 22);
-            this.textBox2.TabIndex = 14;
+            this.tbAccount.Location = new System.Drawing.Point(77, 29);
+            this.tbAccount.Name = "tbAccount";
+            this.tbAccount.Size = new System.Drawing.Size(150, 22);
+            this.tbAccount.TabIndex = 14;
             // 
             // label5
             // 
@@ -183,19 +187,19 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "使用者帳戶";
             // 
-            // textBox1
+            // tbLoginAccount
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 22);
-            this.textBox1.TabIndex = 2;
+            this.tbLoginAccount.Location = new System.Drawing.Point(12, 49);
+            this.tbLoginAccount.Name = "tbLoginAccount";
+            this.tbLoginAccount.Size = new System.Drawing.Size(163, 22);
+            this.tbLoginAccount.TabIndex = 2;
             // 
-            // textBox5
+            // tbLoginPassword
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 102);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(163, 22);
-            this.textBox5.TabIndex = 4;
+            this.tbLoginPassword.Location = new System.Drawing.Point(12, 102);
+            this.tbLoginPassword.Name = "tbLoginPassword";
+            this.tbLoginPassword.Size = new System.Drawing.Size(163, 22);
+            this.tbLoginPassword.TabIndex = 4;
             // 
             // label6
             // 
@@ -214,6 +218,7 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "登入";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnCancel
             // 
@@ -223,6 +228,16 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(233, 210);
+            this.dataGridView1.TabIndex = 0;
             // 
             // LoginForm
             // 
@@ -231,17 +246,19 @@
             this.ClientSize = new System.Drawing.Size(446, 256);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbLoginPassword);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbLoginAccount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Name = "LoginForm";
             this.Text = "登入";
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,21 +269,22 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnDeletUser;
+        private System.Windows.Forms.Button btnCreaterUser;
+        private System.Windows.Forms.NumericUpDown tbLevel;
+        private System.Windows.Forms.TextBox tbCheckPassword;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox tbAccount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbLoginAccount;
+        private System.Windows.Forms.TextBox tbLoginPassword;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

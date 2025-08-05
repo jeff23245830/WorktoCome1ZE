@@ -16,8 +16,13 @@ namespace WorktoCome1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-
+            /*
+            LoginForm loginForm = new LoginForm();  
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            { 
+                Application.Run(new Form1());
+            }
+            */
             Application.Run(new Form1());
         }
     }
