@@ -39,10 +39,10 @@
             this.btnProgram = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnInitial = new System.Windows.Forms.Button();
+            this.btnStopProgram = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -169,10 +169,10 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button20);
-            this.panel2.Controls.Add(this.button19);
-            this.panel2.Controls.Add(this.button18);
-            this.panel2.Controls.Add(this.button17);
+            this.panel2.Controls.Add(this.btnStop);
+            this.panel2.Controls.Add(this.btnStart);
+            this.panel2.Controls.Add(this.btnInitial);
+            this.panel2.Controls.Add(this.btnStopProgram);
             this.panel2.Controls.Add(this.button16);
             this.panel2.Controls.Add(this.button15);
             this.panel2.Controls.Add(this.button14);
@@ -192,41 +192,41 @@
             this.panel2.Size = new System.Drawing.Size(170, 675);
             this.panel2.TabIndex = 1;
             // 
-            // button20
+            // btnStop
             // 
-            this.button20.Location = new System.Drawing.Point(10, 615);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(152, 35);
-            this.button20.TabIndex = 17;
-            this.button20.Text = "停止";
-            this.button20.UseVisualStyleBackColor = true;
+            this.btnStop.Location = new System.Drawing.Point(10, 615);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(152, 35);
+            this.btnStop.TabIndex = 17;
+            this.btnStop.Text = "停止";
+            this.btnStop.UseVisualStyleBackColor = true;
             // 
-            // button19
+            // btnStart
             // 
-            this.button19.Location = new System.Drawing.Point(10, 574);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(152, 35);
-            this.button19.TabIndex = 16;
-            this.button19.Text = "開始";
-            this.button19.UseVisualStyleBackColor = true;
+            this.btnStart.Location = new System.Drawing.Point(10, 574);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(152, 35);
+            this.btnStart.TabIndex = 16;
+            this.btnStart.Text = "開始";
+            this.btnStart.UseVisualStyleBackColor = true;
             // 
-            // button18
+            // btnInitial
             // 
-            this.button18.Location = new System.Drawing.Point(10, 533);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(152, 35);
-            this.button18.TabIndex = 15;
-            this.button18.Text = "初始化";
-            this.button18.UseVisualStyleBackColor = true;
+            this.btnInitial.Location = new System.Drawing.Point(10, 533);
+            this.btnInitial.Name = "btnInitial";
+            this.btnInitial.Size = new System.Drawing.Size(152, 35);
+            this.btnInitial.TabIndex = 15;
+            this.btnInitial.Text = "初始化";
+            this.btnInitial.UseVisualStyleBackColor = true;
             // 
-            // button17
+            // btnStopProgram
             // 
-            this.button17.Location = new System.Drawing.Point(10, 492);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(152, 35);
-            this.button17.TabIndex = 14;
-            this.button17.Text = "終止程序";
-            this.button17.UseVisualStyleBackColor = true;
+            this.btnStopProgram.Location = new System.Drawing.Point(10, 492);
+            this.btnStopProgram.Name = "btnStopProgram";
+            this.btnStopProgram.Size = new System.Drawing.Size(152, 35);
+            this.btnStopProgram.TabIndex = 14;
+            this.btnStopProgram.Text = "終止程序";
+            this.btnStopProgram.UseVisualStyleBackColor = true;
             // 
             // button16
             // 
@@ -601,10 +601,10 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnInitial;
+        private System.Windows.Forms.Button btnStopProgram;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button14;
