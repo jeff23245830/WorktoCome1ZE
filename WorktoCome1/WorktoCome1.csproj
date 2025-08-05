@@ -56,6 +56,36 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UcControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcControl.Designer.cs">
+      <DependentUpon>UcControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcLanguage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcLanguage.Designer.cs">
+      <DependentUpon>UcLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcMain.Designer.cs">
+      <DependentUpon>UcMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcProgram.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcProgram.Designer.cs">
+      <DependentUpon>UcProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcSetting.Designer.cs">
+      <DependentUpon>UcSetting.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -68,6 +98,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UcControl.resx">
+      <DependentUpon>UcControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcMain.resx">
+      <DependentUpon>UcMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcProgram.resx">
+      <DependentUpon>UcProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcSetting.resx">
+      <DependentUpon>UcSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

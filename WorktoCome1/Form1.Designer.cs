@@ -32,7 +32,7 @@
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnlanguage = new System.Windows.Forms.Button();
+            this.btnLanguage = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnControl = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
@@ -93,7 +93,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnExit);
-            this.panel1.Controls.Add(this.btnlanguage);
+            this.panel1.Controls.Add(this.btnLanguage);
             this.panel1.Controls.Add(this.btnInfo);
             this.panel1.Controls.Add(this.btnControl);
             this.panel1.Controls.Add(this.btnSetting);
@@ -113,14 +113,14 @@
             this.btnExit.Text = "離開";
             this.btnExit.UseVisualStyleBackColor = true;
             // 
-            // btnlanguage
+            // btnLanguage
             // 
-            this.btnlanguage.Location = new System.Drawing.Point(3, 343);
-            this.btnlanguage.Name = "btnlanguage";
-            this.btnlanguage.Size = new System.Drawing.Size(153, 62);
-            this.btnlanguage.TabIndex = 5;
-            this.btnlanguage.Text = "語言";
-            this.btnlanguage.UseVisualStyleBackColor = true;
+            this.btnLanguage.Location = new System.Drawing.Point(3, 343);
+            this.btnLanguage.Name = "btnLanguage";
+            this.btnLanguage.Size = new System.Drawing.Size(153, 62);
+            this.btnLanguage.TabIndex = 5;
+            this.btnLanguage.Text = "語言";
+            this.btnLanguage.UseVisualStyleBackColor = true;
             // 
             // btnInfo
             // 
@@ -571,7 +571,7 @@
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnlanguage;
+        private System.Windows.Forms.Button btnLanguage;
         private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Button btnControl;
         private System.Windows.Forms.Button btnSetting;
