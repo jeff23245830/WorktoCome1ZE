@@ -62,6 +62,12 @@
     <Compile Include="UcControl.Designer.cs">
       <DependentUpon>UcControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UcLanguage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +106,12 @@
     </Compile>
     <EmbeddedResource Include="UcControl.resx">
       <DependentUpon>UcControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcLanguage.resx">
+      <DependentUpon>UcLanguage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UcMain.resx">
       <DependentUpon>UcMain.cs</DependentUpon>

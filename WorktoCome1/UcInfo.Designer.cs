@@ -1,6 +1,6 @@
 ﻿namespace WorktoCome1
 {
-    partial class UcLanguage
+    partial class UcInfo
     {
         /// <summary> 
         /// 設計工具所需的變數。
@@ -30,11 +30,11 @@
         {
             this.SuspendLayout();
             // 
-            // UcLanguage
+            // UcInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "UcLanguage";
+            this.Name = "UcInfo";
             this.Size = new System.Drawing.Size(1083, 539);
             this.ResumeLayout(false);
 

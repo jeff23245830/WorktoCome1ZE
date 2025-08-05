@@ -79,7 +79,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.pnlContent = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,6 +112,7 @@
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "離開";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnLanguage
             // 
@@ -121,6 +122,7 @@
             this.btnLanguage.TabIndex = 5;
             this.btnLanguage.Text = "語言";
             this.btnLanguage.UseVisualStyleBackColor = true;
+            this.btnLanguage.Click += new System.EventHandler(this.btnLanguage_Click);
             // 
             // btnInfo
             // 
@@ -130,6 +132,7 @@
             this.btnInfo.TabIndex = 4;
             this.btnInfo.Text = "資訊";
             this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // btnControl
             // 
@@ -139,6 +142,7 @@
             this.btnControl.TabIndex = 3;
             this.btnControl.Text = "控制";
             this.btnControl.UseVisualStyleBackColor = true;
+            this.btnControl.Click += new System.EventHandler(this.btnControl_Click);
             // 
             // btnSetting
             // 
@@ -148,6 +152,7 @@
             this.btnSetting.TabIndex = 2;
             this.btnSetting.Text = "設定";
             this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // btnProgram
             // 
@@ -157,6 +162,7 @@
             this.btnProgram.TabIndex = 1;
             this.btnProgram.Text = "程式";
             this.btnProgram.UseVisualStyleBackColor = true;
+            this.btnProgram.Click += new System.EventHandler(this.btnProgram_Click);
             // 
             // btnMain
             // 
@@ -166,6 +172,7 @@
             this.btnMain.TabIndex = 0;
             this.btnMain.Text = "主畫面";
             this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
             // panel2
             // 
@@ -529,19 +536,19 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "左邊拉線區";
             // 
-            // panel8
+            // pnlContent
             // 
-            this.panel8.Location = new System.Drawing.Point(166, 137);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1083, 539);
-            this.panel8.TabIndex = 3;
+            this.pnlContent.Location = new System.Drawing.Point(166, 137);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(1083, 539);
+            this.pnlContent.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1429, 688);
-            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -618,7 +625,7 @@
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel pnlContent;
     }
 }
 
