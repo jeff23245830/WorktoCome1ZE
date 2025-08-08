@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="EtherCAT_DLL.cs" />
     <Compile Include="EtherCAT_DLL_Err.cs" />
-    <Compile Include="EtherCAT_DLL_x64.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -9,6 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using EtherCAT_DLL;
+
+using EtherCAT_DLL_Err;
+
+
+
 namespace WorktoCome1
 {
     public partial class Form1 : Form
