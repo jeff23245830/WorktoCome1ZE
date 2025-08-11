@@ -9,19 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using EtherCAT_DLL;
-
-using EtherCAT_DLL_Err;
 
 
 
 namespace WorktoCome1
 {
+
     public partial class Form1 : Form
     {
+        
+
         public Form1()
         {
             InitializeComponent();
+            TimCheckStatus.Interval = 100;
+            TimCheckStatus.Enabled = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -85,6 +87,17 @@ namespace WorktoCome1
             this.Close(); 
             //else
             //跳警告
+        }
+
+        private void btnInitial_Click(object sender, EventArgs e)
+        {
+           
+
+
+
+
+
+
         }
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLanguage = new System.Windows.Forms.Button();
@@ -80,6 +79,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -225,6 +225,7 @@
             this.btnInitial.TabIndex = 15;
             this.btnInitial.Text = "初始化";
             this.btnInitial.UseVisualStyleBackColor = true;
+            this.btnInitial.Click += new System.EventHandler(this.btnInitial_Click);
             // 
             // btnStopProgram
             // 
@@ -575,7 +576,6 @@
         }
 
         #endregion
-        private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnLanguage;
@@ -626,6 +626,7 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Panel pnlContent;
+        private System.Windows.Forms.Timer TimCheckStatus;
     }
 }
 

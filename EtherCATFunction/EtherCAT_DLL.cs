@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Runtime.InteropServices;
 
+
 namespace EtherCAT_DLL
 {
   public class CEtherCAT_DLL
