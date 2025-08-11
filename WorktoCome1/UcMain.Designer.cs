@@ -28,18 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.ChkBit00 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
+            // 
+            // ChkBit00
+            // 
+            this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit00.AutoSize = true;
+            this.ChkBit00.BackColor = System.Drawing.Color.Red;
+            this.ChkBit00.Location = new System.Drawing.Point(125, 147);
+            this.ChkBit00.Name = "ChkBit00";
+            this.ChkBit00.Size = new System.Drawing.Size(27, 22);
+            this.ChkBit00.TabIndex = 0;
+            this.ChkBit00.Text = "00";
+            this.ChkBit00.UseVisualStyleBackColor = false;
+            this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit00_CheckedChanged);
             // 
             // UcMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ChkBit00);
             this.Name = "UcMain";
             this.Size = new System.Drawing.Size(1083, 539);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.CheckBox ChkBit00;
     }
 }

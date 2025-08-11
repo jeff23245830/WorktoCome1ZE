@@ -69,7 +69,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtResult = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -80,6 +80,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
+            this.ChkBit00 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,6 +93,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ChkBit00);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.btnLanguage);
             this.panel1.Controls.Add(this.btnInfo);
@@ -440,7 +442,7 @@
             // 
             this.panel4.Controls.Add(this.textBox2);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.txtResult);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Location = new System.Drawing.Point(154, 3);
             this.panel4.Name = "panel4";
@@ -463,12 +465,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "錯誤訊息";
             // 
-            // textBox1
+            // txtResult
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtResult.Location = new System.Drawing.Point(3, 24);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(146, 22);
+            this.txtResult.TabIndex = 1;
             // 
             // label1
             // 
@@ -544,6 +546,19 @@
             this.pnlContent.Size = new System.Drawing.Size(1083, 539);
             this.pnlContent.TabIndex = 3;
             // 
+            // ChkBit00
+            // 
+            this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit00.AutoSize = true;
+            this.ChkBit00.BackColor = System.Drawing.Color.Red;
+            this.ChkBit00.Location = new System.Drawing.Point(31, 504);
+            this.ChkBit00.Name = "ChkBit00";
+            this.ChkBit00.Size = new System.Drawing.Size(27, 22);
+            this.ChkBit00.TabIndex = 7;
+            this.ChkBit00.Text = "00";
+            this.ChkBit00.UseVisualStyleBackColor = false;
+            this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit00_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -557,8 +572,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -599,7 +614,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox textBox6;
@@ -627,6 +642,7 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Panel pnlContent;
         private System.Windows.Forms.Timer TimCheckStatus;
+        private System.Windows.Forms.CheckBox ChkBit00;
     }
 }
 
