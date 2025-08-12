@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.CmbSlotID = new System.Windows.Forms.Panel();
-            this.ChkBit00 = new System.Windows.Forms.CheckBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLanguage = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
@@ -38,6 +37,7 @@
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnProgram = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
+            this.ChkBit00 = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
@@ -83,6 +83,8 @@
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
             this.cmbSlaves = new System.Windows.Forms.ComboBox();
             this.ChkBit01 = new System.Windows.Forms.CheckBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.CmbSlotID.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -106,19 +108,6 @@
             this.CmbSlotID.Name = "CmbSlotID";
             this.CmbSlotID.Size = new System.Drawing.Size(159, 675);
             this.CmbSlotID.TabIndex = 0;
-            // 
-            // ChkBit00
-            // 
-            this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
-            this.ChkBit00.AutoSize = true;
-            this.ChkBit00.BackColor = System.Drawing.Color.Red;
-            this.ChkBit00.Location = new System.Drawing.Point(1479, 94);
-            this.ChkBit00.Name = "ChkBit00";
-            this.ChkBit00.Size = new System.Drawing.Size(27, 22);
-            this.ChkBit00.TabIndex = 7;
-            this.ChkBit00.Text = "00";
-            this.ChkBit00.UseVisualStyleBackColor = false;
-            this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
             // btnExit
             // 
@@ -189,6 +178,19 @@
             this.btnMain.Text = "主畫面";
             this.btnMain.UseVisualStyleBackColor = true;
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
+            // 
+            // ChkBit00
+            // 
+            this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit00.AutoSize = true;
+            this.ChkBit00.BackColor = System.Drawing.Color.Red;
+            this.ChkBit00.Location = new System.Drawing.Point(1479, 94);
+            this.ChkBit00.Name = "ChkBit00";
+            this.ChkBit00.Size = new System.Drawing.Size(27, 22);
+            this.ChkBit00.TabIndex = 7;
+            this.ChkBit00.Text = "00";
+            this.ChkBit00.UseVisualStyleBackColor = false;
+            this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
             // panel2
             // 
@@ -582,11 +584,41 @@
             this.ChkBit01.UseVisualStyleBackColor = false;
             this.ChkBit01.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.SystemColors.Control;
+            this.radioButton1.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.radioButton1.Location = new System.Drawing.Point(1449, 290);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(73, 31);
+            this.radioButton1.TabIndex = 9;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "SVON";
+            this.radioButton1.UseVisualStyleBackColor = false;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.BackColor = System.Drawing.SystemColors.Control;
+            this.radioButton2.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.radioButton2.Location = new System.Drawing.Point(1549, 290);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(81, 31);
+            this.radioButton2.TabIndex = 10;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "SVOFF";
+            this.radioButton2.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1655, 688);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.ChkBit01);
             this.Controls.Add(this.ChkBit00);
             this.Controls.Add(this.cmbSlaves);
@@ -671,6 +703,8 @@
         private System.Windows.Forms.CheckBox ChkBit00;
         private System.Windows.Forms.ComboBox cmbSlaves;
         private System.Windows.Forms.CheckBox ChkBit01;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
 
