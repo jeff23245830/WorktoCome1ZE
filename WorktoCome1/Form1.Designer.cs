@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.CmbSlotID = new System.Windows.Forms.Panel();
+            this.ChkBit00 = new System.Windows.Forms.CheckBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLanguage = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
@@ -67,7 +68,7 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbError = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,8 +81,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
-            this.ChkBit00 = new System.Windows.Forms.CheckBox();
-            this.panel1.SuspendLayout();
+            this.cmbSlaves = new System.Windows.Forms.ComboBox();
+            this.ChkBit01 = new System.Windows.Forms.CheckBox();
+            this.CmbSlotID.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -91,20 +93,32 @@
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // CmbSlotID
             // 
-            this.panel1.Controls.Add(this.ChkBit00);
-            this.panel1.Controls.Add(this.btnExit);
-            this.panel1.Controls.Add(this.btnLanguage);
-            this.panel1.Controls.Add(this.btnInfo);
-            this.panel1.Controls.Add(this.btnControl);
-            this.panel1.Controls.Add(this.btnSetting);
-            this.panel1.Controls.Add(this.btnProgram);
-            this.panel1.Controls.Add(this.btnMain);
-            this.panel1.Location = new System.Drawing.Point(3, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(159, 675);
-            this.panel1.TabIndex = 0;
+            this.CmbSlotID.Controls.Add(this.btnExit);
+            this.CmbSlotID.Controls.Add(this.btnLanguage);
+            this.CmbSlotID.Controls.Add(this.btnInfo);
+            this.CmbSlotID.Controls.Add(this.btnControl);
+            this.CmbSlotID.Controls.Add(this.btnSetting);
+            this.CmbSlotID.Controls.Add(this.btnProgram);
+            this.CmbSlotID.Controls.Add(this.btnMain);
+            this.CmbSlotID.Location = new System.Drawing.Point(3, 1);
+            this.CmbSlotID.Name = "CmbSlotID";
+            this.CmbSlotID.Size = new System.Drawing.Size(159, 675);
+            this.CmbSlotID.TabIndex = 0;
+            // 
+            // ChkBit00
+            // 
+            this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit00.AutoSize = true;
+            this.ChkBit00.BackColor = System.Drawing.Color.Red;
+            this.ChkBit00.Location = new System.Drawing.Point(1479, 94);
+            this.ChkBit00.Name = "ChkBit00";
+            this.ChkBit00.Size = new System.Drawing.Size(27, 22);
+            this.ChkBit00.TabIndex = 7;
+            this.ChkBit00.Text = "00";
+            this.ChkBit00.UseVisualStyleBackColor = false;
+            this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
             // btnExit
             // 
@@ -440,7 +454,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.tbError);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.txtResult);
             this.panel4.Controls.Add(this.label1);
@@ -449,17 +463,17 @@
             this.panel4.Size = new System.Drawing.Size(152, 127);
             this.panel4.TabIndex = 1;
             // 
-            // textBox2
+            // tbError
             // 
-            this.textBox2.Location = new System.Drawing.Point(3, 82);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 22);
-            this.textBox2.TabIndex = 3;
+            this.tbError.Location = new System.Drawing.Point(1, 90);
+            this.tbError.Name = "tbError";
+            this.tbError.Size = new System.Drawing.Size(146, 22);
+            this.tbError.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 67);
+            this.label2.Location = new System.Drawing.Point(1, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 2;
@@ -546,34 +560,45 @@
             this.pnlContent.Size = new System.Drawing.Size(1083, 539);
             this.pnlContent.TabIndex = 3;
             // 
-            // ChkBit00
+            // cmbSlaves
             // 
-            this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
-            this.ChkBit00.AutoSize = true;
-            this.ChkBit00.BackColor = System.Drawing.Color.Red;
-            this.ChkBit00.Location = new System.Drawing.Point(31, 504);
-            this.ChkBit00.Name = "ChkBit00";
-            this.ChkBit00.Size = new System.Drawing.Size(27, 22);
-            this.ChkBit00.TabIndex = 7;
-            this.ChkBit00.Text = "00";
-            this.ChkBit00.UseVisualStyleBackColor = false;
-            this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit00_CheckedChanged);
+            this.cmbSlaves.FormattingEnabled = true;
+            this.cmbSlaves.Location = new System.Drawing.Point(1479, 30);
+            this.cmbSlaves.Name = "cmbSlaves";
+            this.cmbSlaves.Size = new System.Drawing.Size(132, 20);
+            this.cmbSlaves.TabIndex = 4;
+            this.cmbSlaves.SelectedIndexChanged += new System.EventHandler(this.cmbSlaves_SelectedIndexChanged);
+            // 
+            // ChkBit01
+            // 
+            this.ChkBit01.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit01.AutoSize = true;
+            this.ChkBit01.BackColor = System.Drawing.Color.Red;
+            this.ChkBit01.Location = new System.Drawing.Point(1521, 94);
+            this.ChkBit01.Name = "ChkBit01";
+            this.ChkBit01.Size = new System.Drawing.Size(27, 22);
+            this.ChkBit01.TabIndex = 8;
+            this.ChkBit01.Text = "01";
+            this.ChkBit01.UseVisualStyleBackColor = false;
+            this.ChkBit01.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1429, 688);
+            this.ClientSize = new System.Drawing.Size(1655, 688);
+            this.Controls.Add(this.ChkBit01);
+            this.Controls.Add(this.ChkBit00);
+            this.Controls.Add(this.cmbSlaves);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.CmbSlotID);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.CmbSlotID.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -587,11 +612,12 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel CmbSlotID;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnLanguage;
         private System.Windows.Forms.Button btnInfo;
@@ -612,7 +638,7 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbError;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Label label1;
@@ -643,6 +669,8 @@
         private System.Windows.Forms.Panel pnlContent;
         private System.Windows.Forms.Timer TimCheckStatus;
         private System.Windows.Forms.CheckBox ChkBit00;
+        private System.Windows.Forms.ComboBox cmbSlaves;
+        private System.Windows.Forms.CheckBox ChkBit01;
     }
 }
 

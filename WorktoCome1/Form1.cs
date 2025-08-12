@@ -17,7 +17,7 @@ namespace WorktoCome1
 
     public partial class Form1 : Form
     {
-
+        private EtherCATFunction.Initial cardManager;
         bool g_bInitialFlag = false;
         ushort g_uRet = 0;
         ushort g_nESCExistCards = 0, g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
@@ -29,6 +29,7 @@ namespace WorktoCome1
             TimCheckStatus.Interval = 100;
             TimCheckStatus.Enabled = true;
             g_pOutputLab[0] = ChkBit00;
+            g_pOutputLab[1] = ChkBit01;
         }
         private void loadUserControl(UserControl userControl)
         {
@@ -78,6 +79,16 @@ namespace WorktoCome1
             loadUserControl(ucLanguage);
         }
 
+        private void BtnFindSlave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbSlaves_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
 
@@ -92,11 +103,15 @@ namespace WorktoCome1
         private void btnInitial_Click(object sender, EventArgs e)
         {
             //Initial_Card();
-            EtherCATFunction.Initial cardManager = new EtherCATFunction.Initial();
+            //EtherCATFunction.Initial cardManager = new EtherCATFunction.Initial();
+            cardManager = new EtherCATFunction.Initial();
 
             bool success = cardManager.Initial_Card();
 
+            g_nESCExistCards = cardManager.CardCount;
 
+
+            
 
             //ucMain1.CardCount = g_nESCExistCards;
             // 根據結果來顯示訊息
@@ -113,13 +128,35 @@ namespace WorktoCome1
 
 
 
+            bool FindSlave_success = cardManager.Card_FindSlave();
+            //ucMain1.CardCount = g_nESCExistCards;
+            // 根據結果來顯示訊息
+            if (FindSlave_success)
+            {
+                g_uESCNodeID = cardManager.g_ESCNodeID_u;
+                g_uESCSlotID = cardManager.g_ESCSlotID_u;
+                tbError.Text = "所有卡片已成功FindSlave！";
+            }
+            else
+            {
+                // AddErrMsg("初始化失敗，請檢查卡片連線。", true);
+                tbError.Text = "FindSlave失敗，請檢查卡片連線。";
+            }
+
+            cmbSlaves.Items.Clear();
+            foreach (var slave in cardManager.FoundSlaves)
+            {
+                cmbSlaves.Items.Add($"NodeID:{slave.NodeID} SlotID:{slave.SlotID} {slave.Description}");
+            }
+            if (cmbSlaves.Items.Count > 0)
+                cmbSlaves.SelectedIndex = 0;
         }
 
-        private void ChkBit00_CheckedChanged(object sender, EventArgs e)
+        private void ChkBit_CheckedChanged(object sender, EventArgs e)
         {
             ushort uOutputStatus = 0;
             int nOutBit = 0, nStat = 0x0;
-            for (nOutBit = 0; nOutBit < 16; nOutBit++)
+            for (nOutBit = 0; nOutBit < 2; nOutBit++)
             {
                 if (g_pOutputLab[nOutBit].Checked == true)
                 {
@@ -132,7 +169,25 @@ namespace WorktoCome1
                 }
             }
             uOutputStatus = (ushort)nStat;
+            // 取得目前選到的從站
+            int selectedSlaveIndex = cmbSlaves.SelectedIndex;
+            if (selectedSlaveIndex >= 0 && cardManager != null && cardManager.FoundSlaves.Count > selectedSlaveIndex)
+            {
+                var slave = cardManager.FoundSlaves[selectedSlaveIndex];
+                ushort nodeId = slave.NodeID;
+                ushort slotId = slave.SlotID;
 
+                if (g_nESCExistCards > 0)
+                {
+                    g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_DIO_Set_Output_Value(g_uESCCardNo, nodeId, slotId, uOutputStatus);
+
+                    if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
+                    {
+                        //AddErrMsg("_ECAT_Slave_DIO_Set_Output, ErrorCode = " + g_uRet.ToString(), true);
+                    }
+                }
+            }
+            /*
             if (g_nESCExistCards > 0)
             {
                 g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_DIO_Set_Output_Value(g_uESCCardNo, g_uESCNodeID, g_uESCSlotID, uOutputStatus);
@@ -141,7 +196,7 @@ namespace WorktoCome1
                 {
                     //AddErrMsg("_ECAT_Slave_DIO_Set_Output, ErrorCode = " + g_uRet.ToString(), true);
                 }
-            }
+            }*/
         }
     }
 }
