@@ -85,6 +85,15 @@
             this.ChkBit01 = new System.Windows.Forms.CheckBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.TxtTargetPos = new System.Windows.Forms.TextBox();
+            this.TxtConstVel = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TxtAcceleration = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TxtDeceleration = new System.Windows.Forms.TextBox();
             this.CmbSlotID.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -184,7 +193,7 @@
             this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
             this.ChkBit00.AutoSize = true;
             this.ChkBit00.BackColor = System.Drawing.Color.Red;
-            this.ChkBit00.Location = new System.Drawing.Point(1479, 94);
+            this.ChkBit00.Location = new System.Drawing.Point(1583, 8);
             this.ChkBit00.Name = "ChkBit00";
             this.ChkBit00.Size = new System.Drawing.Size(27, 22);
             this.ChkBit00.TabIndex = 7;
@@ -565,7 +574,7 @@
             // cmbSlaves
             // 
             this.cmbSlaves.FormattingEnabled = true;
-            this.cmbSlaves.Location = new System.Drawing.Point(1479, 30);
+            this.cmbSlaves.Location = new System.Drawing.Point(1436, 9);
             this.cmbSlaves.Name = "cmbSlaves";
             this.cmbSlaves.Size = new System.Drawing.Size(132, 20);
             this.cmbSlaves.TabIndex = 4;
@@ -576,7 +585,7 @@
             this.ChkBit01.Appearance = System.Windows.Forms.Appearance.Button;
             this.ChkBit01.AutoSize = true;
             this.ChkBit01.BackColor = System.Drawing.Color.Red;
-            this.ChkBit01.Location = new System.Drawing.Point(1521, 94);
+            this.ChkBit01.Location = new System.Drawing.Point(1625, 8);
             this.ChkBit01.Name = "ChkBit01";
             this.ChkBit01.Size = new System.Drawing.Size(27, 22);
             this.ChkBit01.TabIndex = 8;
@@ -590,7 +599,7 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.BackColor = System.Drawing.SystemColors.Control;
             this.radioButton1.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.radioButton1.Location = new System.Drawing.Point(1449, 290);
+            this.radioButton1.Location = new System.Drawing.Point(1462, 497);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(73, 31);
             this.radioButton1.TabIndex = 9;
@@ -604,7 +613,7 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.BackColor = System.Drawing.SystemColors.Control;
             this.radioButton2.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.radioButton2.Location = new System.Drawing.Point(1549, 290);
+            this.radioButton2.Location = new System.Drawing.Point(1541, 497);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(81, 31);
             this.radioButton2.TabIndex = 10;
@@ -612,11 +621,93 @@
             this.radioButton2.Text = "SVOFF";
             this.radioButton2.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1436, 534);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 32);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "<---";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1507, 534);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(65, 32);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Stop";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1578, 534);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(65, 32);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "--->";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // TxtTargetPos
+            // 
+            this.TxtTargetPos.Location = new System.Drawing.Point(1507, 195);
+            this.TxtTargetPos.Name = "TxtTargetPos";
+            this.TxtTargetPos.Size = new System.Drawing.Size(126, 22);
+            this.TxtTargetPos.TabIndex = 14;
+            // 
+            // TxtConstVel
+            // 
+            this.TxtConstVel.Location = new System.Drawing.Point(1507, 230);
+            this.TxtConstVel.Name = "TxtConstVel";
+            this.TxtConstVel.Size = new System.Drawing.Size(126, 22);
+            this.TxtConstVel.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1445, 198);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 12);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "TargetPos";
+            // 
+            // TxtAcceleration
+            // 
+            this.TxtAcceleration.Location = new System.Drawing.Point(1506, 267);
+            this.TxtAcceleration.Name = "TxtAcceleration";
+            this.TxtAcceleration.Size = new System.Drawing.Size(127, 22);
+            this.TxtAcceleration.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1448, 233);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 12);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "ConstVel";
+            // 
+            // TxtDeceleration
+            // 
+            this.TxtDeceleration.Location = new System.Drawing.Point(1507, 299);
+            this.TxtDeceleration.Name = "TxtDeceleration";
+            this.TxtDeceleration.Size = new System.Drawing.Size(127, 22);
+            this.TxtDeceleration.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1655, 688);
+            this.Controls.Add(this.TxtDeceleration);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.TxtAcceleration);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.TxtConstVel);
+            this.Controls.Add(this.TxtTargetPos);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.ChkBit01);
@@ -705,6 +796,15 @@
         private System.Windows.Forms.CheckBox ChkBit01;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox TxtTargetPos;
+        private System.Windows.Forms.TextBox TxtConstVel;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TxtAcceleration;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox TxtDeceleration;
     }
 }
 
