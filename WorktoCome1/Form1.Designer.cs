@@ -606,6 +606,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "SVON";
             this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
