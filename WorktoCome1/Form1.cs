@@ -1,4 +1,6 @@
-﻿using EtherCATFunction;
+﻿using EtherCAT_DLL;
+using EtherCAT_DLL_Err;
+using EtherCATFunction;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,8 +11,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using EtherCAT_DLL;
-using EtherCAT_DLL_Err;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WorktoCome1
 {
@@ -23,6 +24,8 @@ namespace WorktoCome1
         ushort g_nESCExistCards = 0, g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
         ushort[] g_uESCCardNoList = new ushort[32];
         CheckBox[] g_pOutputLab = new CheckBox[16];
+        private List<ushort> slaveNodeIdList = new List<ushort>();
+        private List<ushort> slaveSlotIdList = new List<ushort>();
         public Form1()
         {
             InitializeComponent();
@@ -63,8 +66,14 @@ namespace WorktoCome1
 
         private void btnControl_Click(object sender, EventArgs e)
         {
-            UcControl ucControl = new UcControl();  
+            UcControl ucControl = new UcControl();
+            ucControl.SetNodeIDList(slaveNodeIdList);
+            ucControl.SetSlotIDList(slaveSlotIdList);
+
             loadUserControl(ucControl);
+
+            
+
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
@@ -90,6 +99,11 @@ namespace WorktoCome1
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
@@ -151,6 +165,10 @@ namespace WorktoCome1
             cmbSlaves.Items.Clear();
             foreach (var slave in cardManager.FoundSlaves)
             {
+                slaveNodeIdList.Add(slave.NodeID);
+
+                slaveSlotIdList.Add(slave.SlotID);
+
                 cmbSlaves.Items.Add($"NodeID:{slave.NodeID} SlotID:{slave.SlotID} {slave.Description}");
             }
             if (cmbSlaves.Items.Count > 0)
@@ -191,17 +209,7 @@ namespace WorktoCome1
                         //AddErrMsg("_ECAT_Slave_DIO_Set_Output, ErrorCode = " + g_uRet.ToString(), true);
                     }
                 }
-            }
-            /*
-            if (g_nESCExistCards > 0)
-            {
-                g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_DIO_Set_Output_Value(g_uESCCardNo, g_uESCNodeID, g_uESCSlotID, uOutputStatus);
-
-                if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
-                {
-                    //AddErrMsg("_ECAT_Slave_DIO_Set_Output, ErrorCode = " + g_uRet.ToString(), true);
-                }
-            }*/
+            }  
         }
     }
 }
