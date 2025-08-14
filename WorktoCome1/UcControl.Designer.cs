@@ -30,8 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.ChkBit08 = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.ChkBit00 = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -54,14 +57,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ChkBit08 = new System.Windows.Forms.CheckBox();
             this.ChkBit07 = new System.Windows.Forms.CheckBox();
             this.ChkBit06 = new System.Windows.Forms.CheckBox();
             this.ChkBit05 = new System.Windows.Forms.CheckBox();
             this.ChkBit04 = new System.Windows.Forms.CheckBox();
             this.ChkBit02 = new System.Windows.Forms.CheckBox();
             this.ChkBit01 = new System.Windows.Forms.CheckBox();
-            this.ChkBit00 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CbSlotId = new System.Windows.Forms.ComboBox();
@@ -97,8 +98,11 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CbDINodeId = new System.Windows.Forms.ComboBox();
+            this.CbDISlotId = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -120,38 +124,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label16);
-            this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.ChkBit15);
-            this.tabPage1.Controls.Add(this.ChkBit14);
-            this.tabPage1.Controls.Add(this.ChkBit13);
-            this.tabPage1.Controls.Add(this.ChkBit12);
-            this.tabPage1.Controls.Add(this.ChkBit11);
-            this.tabPage1.Controls.Add(this.ChkBit10);
-            this.tabPage1.Controls.Add(this.ChkBit09);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.ChkBit03);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.ChkBit08);
-            this.tabPage1.Controls.Add(this.ChkBit07);
-            this.tabPage1.Controls.Add(this.ChkBit06);
-            this.tabPage1.Controls.Add(this.ChkBit05);
-            this.tabPage1.Controls.Add(this.ChkBit04);
-            this.tabPage1.Controls.Add(this.ChkBit02);
-            this.tabPage1.Controls.Add(this.ChkBit01);
-            this.tabPage1.Controls.Add(this.ChkBit00);
+            this.tabPage1.Controls.Add(this.groupBox6);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -160,28 +133,99 @@
             this.tabPage1.Text = "IO控制";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.CbDISlotId);
+            this.groupBox6.Controls.Add(this.CbDINodeId);
+            this.groupBox6.Controls.Add(this.label16);
+            this.groupBox6.Controls.Add(this.ChkBit08);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.ChkBit00);
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.label13);
+            this.groupBox6.Controls.Add(this.label12);
+            this.groupBox6.Controls.Add(this.label11);
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Controls.Add(this.ChkBit15);
+            this.groupBox6.Controls.Add(this.ChkBit14);
+            this.groupBox6.Controls.Add(this.ChkBit13);
+            this.groupBox6.Controls.Add(this.ChkBit12);
+            this.groupBox6.Controls.Add(this.ChkBit11);
+            this.groupBox6.Controls.Add(this.ChkBit10);
+            this.groupBox6.Controls.Add(this.ChkBit09);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.label8);
+            this.groupBox6.Controls.Add(this.ChkBit03);
+            this.groupBox6.Controls.Add(this.label7);
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.label5);
+            this.groupBox6.Controls.Add(this.label4);
+            this.groupBox6.Controls.Add(this.label3);
+            this.groupBox6.Controls.Add(this.label2);
+            this.groupBox6.Controls.Add(this.label1);
+            this.groupBox6.Controls.Add(this.ChkBit07);
+            this.groupBox6.Controls.Add(this.ChkBit06);
+            this.groupBox6.Controls.Add(this.ChkBit05);
+            this.groupBox6.Controls.Add(this.ChkBit04);
+            this.groupBox6.Controls.Add(this.ChkBit02);
+            this.groupBox6.Controls.Add(this.ChkBit01);
+            this.groupBox6.Location = new System.Drawing.Point(6, 6);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(468, 378);
+            this.groupBox6.TabIndex = 32;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "DO";
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(302, 276);
+            this.label16.Location = new System.Drawing.Point(304, 295);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(122, 12);
             this.label16.TabIndex = 31;
             this.label16.Text = "入板區 馬達控制 開/關";
             // 
+            // ChkBit08
+            // 
+            this.ChkBit08.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit08.AutoSize = true;
+            this.ChkBit08.BackColor = System.Drawing.Color.Red;
+            this.ChkBit08.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit08.Location = new System.Drawing.Point(255, 25);
+            this.ChkBit08.Name = "ChkBit08";
+            this.ChkBit08.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit08.TabIndex = 7;
+            this.ChkBit08.Text = "08";
+            this.ChkBit08.UseVisualStyleBackColor = false;
+            this.ChkBit08.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(299, 241);
+            this.label15.Location = new System.Drawing.Point(301, 260);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(122, 12);
             this.label15.TabIndex = 30;
             this.label15.Text = "入板區 止檔氣缸 上/下";
             // 
+            // ChkBit00
+            // 
+            this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit00.AutoSize = true;
+            this.ChkBit00.BackColor = System.Drawing.Color.Red;
+            this.ChkBit00.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit00.Location = new System.Drawing.Point(16, 25);
+            this.ChkBit00.Name = "ChkBit00";
+            this.ChkBit00.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit00.TabIndex = 0;
+            this.ChkBit00.Text = "00";
+            this.ChkBit00.UseVisualStyleBackColor = false;
+            this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(299, 203);
+            this.label14.Location = new System.Drawing.Point(301, 222);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(122, 12);
             this.label14.TabIndex = 29;
@@ -190,7 +234,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(299, 166);
+            this.label13.Location = new System.Drawing.Point(301, 185);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(122, 12);
             this.label13.TabIndex = 28;
@@ -199,7 +243,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(299, 129);
+            this.label12.Location = new System.Drawing.Point(301, 148);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(128, 12);
             this.label12.TabIndex = 27;
@@ -208,7 +252,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(299, 92);
+            this.label11.Location = new System.Drawing.Point(301, 111);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(126, 12);
             this.label11.TabIndex = 26;
@@ -217,7 +261,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(299, 55);
+            this.label10.Location = new System.Drawing.Point(301, 74);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(131, 12);
             this.label10.TabIndex = 25;
@@ -229,7 +273,7 @@
             this.ChkBit15.AutoSize = true;
             this.ChkBit15.BackColor = System.Drawing.Color.Red;
             this.ChkBit15.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit15.Location = new System.Drawing.Point(253, 266);
+            this.ChkBit15.Location = new System.Drawing.Point(255, 285);
             this.ChkBit15.Name = "ChkBit15";
             this.ChkBit15.Size = new System.Drawing.Size(40, 31);
             this.ChkBit15.TabIndex = 24;
@@ -243,7 +287,7 @@
             this.ChkBit14.AutoSize = true;
             this.ChkBit14.BackColor = System.Drawing.Color.Red;
             this.ChkBit14.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit14.Location = new System.Drawing.Point(253, 229);
+            this.ChkBit14.Location = new System.Drawing.Point(255, 248);
             this.ChkBit14.Name = "ChkBit14";
             this.ChkBit14.Size = new System.Drawing.Size(40, 31);
             this.ChkBit14.TabIndex = 23;
@@ -257,7 +301,7 @@
             this.ChkBit13.AutoSize = true;
             this.ChkBit13.BackColor = System.Drawing.Color.Red;
             this.ChkBit13.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit13.Location = new System.Drawing.Point(253, 192);
+            this.ChkBit13.Location = new System.Drawing.Point(255, 211);
             this.ChkBit13.Name = "ChkBit13";
             this.ChkBit13.Size = new System.Drawing.Size(40, 31);
             this.ChkBit13.TabIndex = 22;
@@ -271,7 +315,7 @@
             this.ChkBit12.AutoSize = true;
             this.ChkBit12.BackColor = System.Drawing.Color.Red;
             this.ChkBit12.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit12.Location = new System.Drawing.Point(253, 155);
+            this.ChkBit12.Location = new System.Drawing.Point(255, 174);
             this.ChkBit12.Name = "ChkBit12";
             this.ChkBit12.Size = new System.Drawing.Size(40, 31);
             this.ChkBit12.TabIndex = 21;
@@ -285,7 +329,7 @@
             this.ChkBit11.AutoSize = true;
             this.ChkBit11.BackColor = System.Drawing.Color.Red;
             this.ChkBit11.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit11.Location = new System.Drawing.Point(253, 118);
+            this.ChkBit11.Location = new System.Drawing.Point(255, 137);
             this.ChkBit11.Name = "ChkBit11";
             this.ChkBit11.Size = new System.Drawing.Size(40, 31);
             this.ChkBit11.TabIndex = 20;
@@ -299,7 +343,7 @@
             this.ChkBit10.AutoSize = true;
             this.ChkBit10.BackColor = System.Drawing.Color.Red;
             this.ChkBit10.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit10.Location = new System.Drawing.Point(253, 80);
+            this.ChkBit10.Location = new System.Drawing.Point(255, 99);
             this.ChkBit10.Name = "ChkBit10";
             this.ChkBit10.Size = new System.Drawing.Size(40, 31);
             this.ChkBit10.TabIndex = 19;
@@ -313,7 +357,7 @@
             this.ChkBit09.AutoSize = true;
             this.ChkBit09.BackColor = System.Drawing.Color.Red;
             this.ChkBit09.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit09.Location = new System.Drawing.Point(253, 43);
+            this.ChkBit09.Location = new System.Drawing.Point(255, 62);
             this.ChkBit09.Name = "ChkBit09";
             this.ChkBit09.Size = new System.Drawing.Size(40, 31);
             this.ChkBit09.TabIndex = 18;
@@ -324,7 +368,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(299, 18);
+            this.label9.Location = new System.Drawing.Point(301, 37);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(131, 12);
             this.label9.TabIndex = 17;
@@ -333,7 +377,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(60, 278);
+            this.label8.Location = new System.Drawing.Point(62, 297);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(131, 12);
             this.label8.TabIndex = 16;
@@ -345,7 +389,7 @@
             this.ChkBit03.AutoSize = true;
             this.ChkBit03.BackColor = System.Drawing.Color.Red;
             this.ChkBit03.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit03.Location = new System.Drawing.Point(14, 118);
+            this.ChkBit03.Location = new System.Drawing.Point(16, 137);
             this.ChkBit03.Name = "ChkBit03";
             this.ChkBit03.Size = new System.Drawing.Size(40, 31);
             this.ChkBit03.TabIndex = 15;
@@ -356,7 +400,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(60, 241);
+            this.label7.Location = new System.Drawing.Point(62, 260);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(131, 12);
             this.label7.TabIndex = 14;
@@ -365,7 +409,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(60, 203);
+            this.label6.Location = new System.Drawing.Point(62, 222);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 12);
             this.label6.TabIndex = 13;
@@ -374,7 +418,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(60, 166);
+            this.label5.Location = new System.Drawing.Point(62, 185);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 12);
             this.label5.TabIndex = 12;
@@ -383,7 +427,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(60, 129);
+            this.label4.Location = new System.Drawing.Point(62, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 12);
             this.label4.TabIndex = 11;
@@ -392,7 +436,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 92);
+            this.label3.Location = new System.Drawing.Point(62, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 12);
             this.label3.TabIndex = 10;
@@ -401,7 +445,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 55);
+            this.label2.Location = new System.Drawing.Point(62, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(134, 12);
             this.label2.TabIndex = 9;
@@ -410,25 +454,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 18);
+            this.label1.Location = new System.Drawing.Point(62, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 12);
             this.label1.TabIndex = 8;
             this.label1.Text = "控制面板 開始狀態燈 開/關";
-            // 
-            // ChkBit08
-            // 
-            this.ChkBit08.Appearance = System.Windows.Forms.Appearance.Button;
-            this.ChkBit08.AutoSize = true;
-            this.ChkBit08.BackColor = System.Drawing.Color.Red;
-            this.ChkBit08.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit08.Location = new System.Drawing.Point(253, 6);
-            this.ChkBit08.Name = "ChkBit08";
-            this.ChkBit08.Size = new System.Drawing.Size(40, 31);
-            this.ChkBit08.TabIndex = 7;
-            this.ChkBit08.Text = "08";
-            this.ChkBit08.UseVisualStyleBackColor = false;
-            this.ChkBit08.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
             // ChkBit07
             // 
@@ -436,7 +466,7 @@
             this.ChkBit07.AutoSize = true;
             this.ChkBit07.BackColor = System.Drawing.Color.Red;
             this.ChkBit07.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit07.Location = new System.Drawing.Point(14, 266);
+            this.ChkBit07.Location = new System.Drawing.Point(16, 285);
             this.ChkBit07.Name = "ChkBit07";
             this.ChkBit07.Size = new System.Drawing.Size(40, 31);
             this.ChkBit07.TabIndex = 6;
@@ -450,7 +480,7 @@
             this.ChkBit06.AutoSize = true;
             this.ChkBit06.BackColor = System.Drawing.Color.Red;
             this.ChkBit06.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit06.Location = new System.Drawing.Point(14, 229);
+            this.ChkBit06.Location = new System.Drawing.Point(16, 248);
             this.ChkBit06.Name = "ChkBit06";
             this.ChkBit06.Size = new System.Drawing.Size(40, 31);
             this.ChkBit06.TabIndex = 5;
@@ -464,7 +494,7 @@
             this.ChkBit05.AutoSize = true;
             this.ChkBit05.BackColor = System.Drawing.Color.Red;
             this.ChkBit05.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit05.Location = new System.Drawing.Point(14, 192);
+            this.ChkBit05.Location = new System.Drawing.Point(16, 211);
             this.ChkBit05.Name = "ChkBit05";
             this.ChkBit05.Size = new System.Drawing.Size(40, 31);
             this.ChkBit05.TabIndex = 4;
@@ -478,7 +508,7 @@
             this.ChkBit04.AutoSize = true;
             this.ChkBit04.BackColor = System.Drawing.Color.Red;
             this.ChkBit04.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit04.Location = new System.Drawing.Point(14, 155);
+            this.ChkBit04.Location = new System.Drawing.Point(16, 174);
             this.ChkBit04.Name = "ChkBit04";
             this.ChkBit04.Size = new System.Drawing.Size(40, 31);
             this.ChkBit04.TabIndex = 3;
@@ -492,7 +522,7 @@
             this.ChkBit02.AutoSize = true;
             this.ChkBit02.BackColor = System.Drawing.Color.Red;
             this.ChkBit02.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit02.Location = new System.Drawing.Point(14, 80);
+            this.ChkBit02.Location = new System.Drawing.Point(16, 99);
             this.ChkBit02.Name = "ChkBit02";
             this.ChkBit02.Size = new System.Drawing.Size(40, 31);
             this.ChkBit02.TabIndex = 2;
@@ -506,27 +536,13 @@
             this.ChkBit01.AutoSize = true;
             this.ChkBit01.BackColor = System.Drawing.Color.Red;
             this.ChkBit01.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit01.Location = new System.Drawing.Point(14, 43);
+            this.ChkBit01.Location = new System.Drawing.Point(16, 62);
             this.ChkBit01.Name = "ChkBit01";
             this.ChkBit01.Size = new System.Drawing.Size(40, 31);
             this.ChkBit01.TabIndex = 1;
             this.ChkBit01.Text = "01";
             this.ChkBit01.UseVisualStyleBackColor = false;
             this.ChkBit01.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
-            // 
-            // ChkBit00
-            // 
-            this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
-            this.ChkBit00.AutoSize = true;
-            this.ChkBit00.BackColor = System.Drawing.Color.Red;
-            this.ChkBit00.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit00.Location = new System.Drawing.Point(14, 6);
-            this.ChkBit00.Name = "ChkBit00";
-            this.ChkBit00.Size = new System.Drawing.Size(40, 31);
-            this.ChkBit00.TabIndex = 0;
-            this.ChkBit00.Text = "00";
-            this.ChkBit00.UseVisualStyleBackColor = false;
-            this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
             // tabPage2
             // 
@@ -895,6 +911,24 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
+            // CbDINodeId
+            // 
+            this.CbDINodeId.FormattingEnabled = true;
+            this.CbDINodeId.Location = new System.Drawing.Point(34, 338);
+            this.CbDINodeId.Name = "CbDINodeId";
+            this.CbDINodeId.Size = new System.Drawing.Size(174, 20);
+            this.CbDINodeId.TabIndex = 32;
+            this.CbDINodeId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
+            // 
+            // CbDISlotId
+            // 
+            this.CbDISlotId.FormattingEnabled = true;
+            this.CbDISlotId.Location = new System.Drawing.Point(249, 338);
+            this.CbDISlotId.Name = "CbDISlotId";
+            this.CbDISlotId.Size = new System.Drawing.Size(174, 20);
+            this.CbDISlotId.TabIndex = 33;
+            this.CbDISlotId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
+            // 
             // UcControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -904,7 +938,8 @@
             this.Size = new System.Drawing.Size(1083, 539);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -991,5 +1026,8 @@
         private System.Windows.Forms.RadioButton RbSrveroOn;
         private System.Windows.Forms.ComboBox CbNodeId;
         private System.Windows.Forms.ComboBox CbSlotId;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.ComboBox CbDINodeId;
+        private System.Windows.Forms.ComboBox CbDISlotId;
     }
 }

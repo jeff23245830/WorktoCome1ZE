@@ -37,7 +37,6 @@
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnProgram = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
-            this.ChkBit00 = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
@@ -58,46 +57,33 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.pnlContent = new System.Windows.Forms.Panel();
-            this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
-            this.cmbSlaves = new System.Windows.Forms.ComboBox();
-            this.ChkBit01 = new System.Windows.Forms.CheckBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.TxtTargetPos = new System.Windows.Forms.TextBox();
-            this.TxtConstVel = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TxtAcceleration = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TxtDeceleration = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtResult = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbError = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbError = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtResult = new System.Windows.Forms.TextBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
             this.CmbSlotID.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CmbSlotID
@@ -146,6 +132,7 @@
             // 
             // btnControl
             // 
+            this.btnControl.Enabled = false;
             this.btnControl.Location = new System.Drawing.Point(3, 207);
             this.btnControl.Name = "btnControl";
             this.btnControl.Size = new System.Drawing.Size(153, 62);
@@ -183,19 +170,6 @@
             this.btnMain.Text = "主畫面";
             this.btnMain.UseVisualStyleBackColor = true;
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
-            // 
-            // ChkBit00
-            // 
-            this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
-            this.ChkBit00.AutoSize = true;
-            this.ChkBit00.BackColor = System.Drawing.Color.Red;
-            this.ChkBit00.Location = new System.Drawing.Point(1583, 8);
-            this.ChkBit00.Name = "ChkBit00";
-            this.ChkBit00.Size = new System.Drawing.Size(27, 22);
-            this.ChkBit00.TabIndex = 7;
-            this.ChkBit00.Text = "00";
-            this.ChkBit00.UseVisualStyleBackColor = false;
-            this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
             // panel2
             // 
@@ -387,220 +361,22 @@
             this.panel3.Size = new System.Drawing.Size(1081, 134);
             this.panel3.TabIndex = 1;
             // 
-            // button8
+            // groupBox5
             // 
-            this.button8.Location = new System.Drawing.Point(3, 6);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(146, 123);
-            this.button8.TabIndex = 0;
-            this.button8.Text = "緊急開關";
-            this.button8.UseVisualStyleBackColor = true;
+            this.groupBox5.Controls.Add(this.textBox7);
+            this.groupBox5.Location = new System.Drawing.Point(941, 6);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(137, 124);
+            this.groupBox5.TabIndex = 8;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "清膠區";
             // 
-            // pnlContent
+            // textBox7
             // 
-            this.pnlContent.Location = new System.Drawing.Point(166, 137);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1083, 539);
-            this.pnlContent.TabIndex = 3;
-            // 
-            // cmbSlaves
-            // 
-            this.cmbSlaves.FormattingEnabled = true;
-            this.cmbSlaves.Location = new System.Drawing.Point(1436, 9);
-            this.cmbSlaves.Name = "cmbSlaves";
-            this.cmbSlaves.Size = new System.Drawing.Size(132, 20);
-            this.cmbSlaves.TabIndex = 4;
-            this.cmbSlaves.SelectedIndexChanged += new System.EventHandler(this.cmbSlaves_SelectedIndexChanged);
-            // 
-            // ChkBit01
-            // 
-            this.ChkBit01.Appearance = System.Windows.Forms.Appearance.Button;
-            this.ChkBit01.AutoSize = true;
-            this.ChkBit01.BackColor = System.Drawing.Color.Red;
-            this.ChkBit01.Location = new System.Drawing.Point(1625, 8);
-            this.ChkBit01.Name = "ChkBit01";
-            this.ChkBit01.Size = new System.Drawing.Size(27, 22);
-            this.ChkBit01.TabIndex = 8;
-            this.ChkBit01.Text = "01";
-            this.ChkBit01.UseVisualStyleBackColor = false;
-            this.ChkBit01.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.SystemColors.Control;
-            this.radioButton1.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.radioButton1.Location = new System.Drawing.Point(1462, 497);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(73, 31);
-            this.radioButton1.TabIndex = 9;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "SVON";
-            this.radioButton1.UseVisualStyleBackColor = false;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.SystemColors.Control;
-            this.radioButton2.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.radioButton2.Location = new System.Drawing.Point(1541, 497);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(81, 31);
-            this.radioButton2.TabIndex = 10;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "SVOFF";
-            this.radioButton2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1436, 534);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 32);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "<---";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1507, 534);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 32);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Stop";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1578, 534);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 32);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "--->";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // TxtTargetPos
-            // 
-            this.TxtTargetPos.Location = new System.Drawing.Point(1507, 195);
-            this.TxtTargetPos.Name = "TxtTargetPos";
-            this.TxtTargetPos.Size = new System.Drawing.Size(126, 22);
-            this.TxtTargetPos.TabIndex = 14;
-            // 
-            // TxtConstVel
-            // 
-            this.TxtConstVel.Location = new System.Drawing.Point(1507, 230);
-            this.TxtConstVel.Name = "TxtConstVel";
-            this.TxtConstVel.Size = new System.Drawing.Size(126, 22);
-            this.TxtConstVel.TabIndex = 15;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1445, 198);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 12);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "TargetPos";
-            // 
-            // TxtAcceleration
-            // 
-            this.TxtAcceleration.Location = new System.Drawing.Point(1506, 267);
-            this.TxtAcceleration.Name = "TxtAcceleration";
-            this.TxtAcceleration.Size = new System.Drawing.Size(127, 22);
-            this.TxtAcceleration.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1448, 233);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 12);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "ConstVel";
-            // 
-            // TxtDeceleration
-            // 
-            this.TxtDeceleration.Location = new System.Drawing.Point(1507, 299);
-            this.TxtDeceleration.Name = "TxtDeceleration";
-            this.TxtDeceleration.Size = new System.Drawing.Size(127, 22);
-            this.TxtDeceleration.TabIndex = 19;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtResult);
-            this.groupBox1.Location = new System.Drawing.Point(155, 11);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(150, 54);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "目前型號";
-            // 
-            // txtResult
-            // 
-            this.txtResult.Location = new System.Drawing.Point(6, 21);
-            this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(138, 22);
-            this.txtResult.TabIndex = 0;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tbError);
-            this.groupBox2.Location = new System.Drawing.Point(155, 71);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(150, 54);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "錯誤訊息";
-            // 
-            // tbError
-            // 
-            this.tbError.Location = new System.Drawing.Point(6, 21);
-            this.tbError.Name = "tbError";
-            this.tbError.Size = new System.Drawing.Size(138, 22);
-            this.tbError.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Location = new System.Drawing.Point(313, 6);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(308, 124);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "左邊拉線區";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(6, 26);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(88, 22);
-            this.textBox3.TabIndex = 0;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(110, 26);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(88, 22);
-            this.textBox4.TabIndex = 1;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(214, 26);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(88, 22);
-            this.textBox5.TabIndex = 2;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(6, 87);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(88, 22);
-            this.textBox6.TabIndex = 3;
+            this.textBox7.Location = new System.Drawing.Point(6, 26);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(125, 22);
+            this.textBox7.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -635,42 +411,102 @@
             this.textBox10.Size = new System.Drawing.Size(88, 22);
             this.textBox10.TabIndex = 0;
             // 
-            // groupBox5
+            // groupBox3
             // 
-            this.groupBox5.Controls.Add(this.textBox7);
-            this.groupBox5.Location = new System.Drawing.Point(941, 6);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(137, 124);
-            this.groupBox5.TabIndex = 8;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "清膠區";
+            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Location = new System.Drawing.Point(313, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(308, 124);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "左邊拉線區";
             // 
-            // textBox7
+            // textBox6
             // 
-            this.textBox7.Location = new System.Drawing.Point(6, 26);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(125, 22);
-            this.textBox7.TabIndex = 0;
+            this.textBox6.Location = new System.Drawing.Point(6, 87);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(88, 22);
+            this.textBox6.TabIndex = 3;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(214, 26);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(88, 22);
+            this.textBox5.TabIndex = 2;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(110, 26);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(88, 22);
+            this.textBox4.TabIndex = 1;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(6, 26);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(88, 22);
+            this.textBox3.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tbError);
+            this.groupBox2.Location = new System.Drawing.Point(155, 71);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(150, 54);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "錯誤訊息";
+            // 
+            // tbError
+            // 
+            this.tbError.Location = new System.Drawing.Point(6, 21);
+            this.tbError.Name = "tbError";
+            this.tbError.Size = new System.Drawing.Size(138, 22);
+            this.tbError.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtResult);
+            this.groupBox1.Location = new System.Drawing.Point(155, 11);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(150, 54);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "目前型號";
+            // 
+            // txtResult
+            // 
+            this.txtResult.Location = new System.Drawing.Point(6, 21);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(138, 22);
+            this.txtResult.TabIndex = 0;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(3, 6);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(146, 123);
+            this.button8.TabIndex = 0;
+            this.button8.Text = "緊急開關";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.Location = new System.Drawing.Point(166, 137);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(1083, 539);
+            this.pnlContent.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1655, 688);
-            this.Controls.Add(this.TxtDeceleration);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.TxtAcceleration);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.TxtConstVel);
-            this.Controls.Add(this.TxtTargetPos);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.ChkBit01);
-            this.Controls.Add(this.ChkBit00);
-            this.Controls.Add(this.cmbSlaves);
+            this.ClientSize = new System.Drawing.Size(1432, 688);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -684,18 +520,17 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -731,20 +566,6 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Panel pnlContent;
         private System.Windows.Forms.Timer TimCheckStatus;
-        private System.Windows.Forms.CheckBox ChkBit00;
-        private System.Windows.Forms.ComboBox cmbSlaves;
-        private System.Windows.Forms.CheckBox ChkBit01;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox TxtTargetPos;
-        private System.Windows.Forms.TextBox TxtConstVel;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TxtAcceleration;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TxtDeceleration;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
