@@ -37,16 +37,16 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.ChkBit15 = new System.Windows.Forms.CheckBox();
+            this.ChkBit14 = new System.Windows.Forms.CheckBox();
+            this.ChkBit13 = new System.Windows.Forms.CheckBox();
+            this.ChkBit12 = new System.Windows.Forms.CheckBox();
+            this.ChkBit11 = new System.Windows.Forms.CheckBox();
+            this.ChkBit10 = new System.Windows.Forms.CheckBox();
+            this.ChkBit09 = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.ChkBit03 = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,14 +54,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ChkBit08 = new System.Windows.Forms.CheckBox();
+            this.ChkBit07 = new System.Windows.Forms.CheckBox();
+            this.ChkBit06 = new System.Windows.Forms.CheckBox();
+            this.ChkBit05 = new System.Windows.Forms.CheckBox();
+            this.ChkBit04 = new System.Windows.Forms.CheckBox();
+            this.ChkBit02 = new System.Windows.Forms.CheckBox();
+            this.ChkBit01 = new System.Windows.Forms.CheckBox();
+            this.ChkBit00 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CbSlotId = new System.Windows.Forms.ComboBox();
@@ -127,16 +127,16 @@
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.checkBox16);
-            this.tabPage1.Controls.Add(this.checkBox15);
-            this.tabPage1.Controls.Add(this.checkBox14);
-            this.tabPage1.Controls.Add(this.checkBox13);
-            this.tabPage1.Controls.Add(this.checkBox12);
-            this.tabPage1.Controls.Add(this.checkBox11);
-            this.tabPage1.Controls.Add(this.checkBox10);
+            this.tabPage1.Controls.Add(this.ChkBit15);
+            this.tabPage1.Controls.Add(this.ChkBit14);
+            this.tabPage1.Controls.Add(this.ChkBit13);
+            this.tabPage1.Controls.Add(this.ChkBit12);
+            this.tabPage1.Controls.Add(this.ChkBit11);
+            this.tabPage1.Controls.Add(this.ChkBit10);
+            this.tabPage1.Controls.Add(this.ChkBit09);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.checkBox9);
+            this.tabPage1.Controls.Add(this.ChkBit03);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
@@ -144,14 +144,14 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.checkBox8);
-            this.tabPage1.Controls.Add(this.checkBox7);
-            this.tabPage1.Controls.Add(this.checkBox6);
-            this.tabPage1.Controls.Add(this.checkBox5);
-            this.tabPage1.Controls.Add(this.checkBox4);
-            this.tabPage1.Controls.Add(this.checkBox3);
-            this.tabPage1.Controls.Add(this.checkBox2);
-            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.ChkBit08);
+            this.tabPage1.Controls.Add(this.ChkBit07);
+            this.tabPage1.Controls.Add(this.ChkBit06);
+            this.tabPage1.Controls.Add(this.ChkBit05);
+            this.tabPage1.Controls.Add(this.ChkBit04);
+            this.tabPage1.Controls.Add(this.ChkBit02);
+            this.tabPage1.Controls.Add(this.ChkBit01);
+            this.tabPage1.Controls.Add(this.ChkBit00);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -223,89 +223,103 @@
             this.label10.TabIndex = 25;
             this.label10.Text = "出線區 線材定位氣缸 夾";
             // 
-            // checkBox16
+            // ChkBit15
             // 
-            this.checkBox16.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox16.Location = new System.Drawing.Point(253, 266);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(40, 31);
-            this.checkBox16.TabIndex = 24;
-            this.checkBox16.Text = "15";
-            this.checkBox16.UseVisualStyleBackColor = true;
+            this.ChkBit15.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit15.AutoSize = true;
+            this.ChkBit15.BackColor = System.Drawing.Color.Red;
+            this.ChkBit15.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit15.Location = new System.Drawing.Point(253, 266);
+            this.ChkBit15.Name = "ChkBit15";
+            this.ChkBit15.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit15.TabIndex = 24;
+            this.ChkBit15.Text = "15";
+            this.ChkBit15.UseVisualStyleBackColor = false;
+            this.ChkBit15.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox15
+            // ChkBit14
             // 
-            this.checkBox15.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox15.Location = new System.Drawing.Point(253, 229);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(40, 31);
-            this.checkBox15.TabIndex = 23;
-            this.checkBox15.Text = "14";
-            this.checkBox15.UseVisualStyleBackColor = true;
+            this.ChkBit14.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit14.AutoSize = true;
+            this.ChkBit14.BackColor = System.Drawing.Color.Red;
+            this.ChkBit14.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit14.Location = new System.Drawing.Point(253, 229);
+            this.ChkBit14.Name = "ChkBit14";
+            this.ChkBit14.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit14.TabIndex = 23;
+            this.ChkBit14.Text = "14";
+            this.ChkBit14.UseVisualStyleBackColor = false;
+            this.ChkBit14.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox14
+            // ChkBit13
             // 
-            this.checkBox14.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox14.Location = new System.Drawing.Point(253, 192);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(40, 31);
-            this.checkBox14.TabIndex = 22;
-            this.checkBox14.Text = "13";
-            this.checkBox14.UseVisualStyleBackColor = true;
+            this.ChkBit13.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit13.AutoSize = true;
+            this.ChkBit13.BackColor = System.Drawing.Color.Red;
+            this.ChkBit13.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit13.Location = new System.Drawing.Point(253, 192);
+            this.ChkBit13.Name = "ChkBit13";
+            this.ChkBit13.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit13.TabIndex = 22;
+            this.ChkBit13.Text = "13";
+            this.ChkBit13.UseVisualStyleBackColor = false;
+            this.ChkBit13.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox13
+            // ChkBit12
             // 
-            this.checkBox13.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox13.Location = new System.Drawing.Point(253, 155);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(40, 31);
-            this.checkBox13.TabIndex = 21;
-            this.checkBox13.Text = "12";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.ChkBit12.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit12.AutoSize = true;
+            this.ChkBit12.BackColor = System.Drawing.Color.Red;
+            this.ChkBit12.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit12.Location = new System.Drawing.Point(253, 155);
+            this.ChkBit12.Name = "ChkBit12";
+            this.ChkBit12.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit12.TabIndex = 21;
+            this.ChkBit12.Text = "12";
+            this.ChkBit12.UseVisualStyleBackColor = false;
+            this.ChkBit12.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox12
+            // ChkBit11
             // 
-            this.checkBox12.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox12.Location = new System.Drawing.Point(253, 118);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(40, 31);
-            this.checkBox12.TabIndex = 20;
-            this.checkBox12.Text = "11";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.ChkBit11.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit11.AutoSize = true;
+            this.ChkBit11.BackColor = System.Drawing.Color.Red;
+            this.ChkBit11.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit11.Location = new System.Drawing.Point(253, 118);
+            this.ChkBit11.Name = "ChkBit11";
+            this.ChkBit11.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit11.TabIndex = 20;
+            this.ChkBit11.Text = "11";
+            this.ChkBit11.UseVisualStyleBackColor = false;
+            this.ChkBit11.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox11
+            // ChkBit10
             // 
-            this.checkBox11.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox11.Location = new System.Drawing.Point(253, 80);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(40, 31);
-            this.checkBox11.TabIndex = 19;
-            this.checkBox11.Text = "10";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.ChkBit10.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit10.AutoSize = true;
+            this.ChkBit10.BackColor = System.Drawing.Color.Red;
+            this.ChkBit10.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit10.Location = new System.Drawing.Point(253, 80);
+            this.ChkBit10.Name = "ChkBit10";
+            this.ChkBit10.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit10.TabIndex = 19;
+            this.ChkBit10.Text = "10";
+            this.ChkBit10.UseVisualStyleBackColor = false;
+            this.ChkBit10.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox10
+            // ChkBit09
             // 
-            this.checkBox10.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox10.Location = new System.Drawing.Point(253, 43);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(40, 31);
-            this.checkBox10.TabIndex = 18;
-            this.checkBox10.Text = "09";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.ChkBit09.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit09.AutoSize = true;
+            this.ChkBit09.BackColor = System.Drawing.Color.Red;
+            this.ChkBit09.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit09.Location = new System.Drawing.Point(253, 43);
+            this.ChkBit09.Name = "ChkBit09";
+            this.ChkBit09.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit09.TabIndex = 18;
+            this.ChkBit09.Text = "09";
+            this.ChkBit09.UseVisualStyleBackColor = false;
+            this.ChkBit09.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
             // label9
             // 
@@ -325,17 +339,19 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "出線區 出線夾持氣缸 夾";
             // 
-            // checkBox9
+            // ChkBit03
             // 
-            this.checkBox9.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox9.Location = new System.Drawing.Point(14, 118);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(40, 31);
-            this.checkBox9.TabIndex = 15;
-            this.checkBox9.Text = "03";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.ChkBit03.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit03.AutoSize = true;
+            this.ChkBit03.BackColor = System.Drawing.Color.Red;
+            this.ChkBit03.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit03.Location = new System.Drawing.Point(14, 118);
+            this.ChkBit03.Name = "ChkBit03";
+            this.ChkBit03.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit03.TabIndex = 15;
+            this.ChkBit03.Text = "03";
+            this.ChkBit03.UseVisualStyleBackColor = false;
+            this.ChkBit03.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
             // label7
             // 
@@ -400,101 +416,117 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "控制面板 開始狀態燈 開/關";
             // 
-            // checkBox8
+            // ChkBit08
             // 
-            this.checkBox8.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox8.Location = new System.Drawing.Point(253, 6);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(40, 31);
-            this.checkBox8.TabIndex = 7;
-            this.checkBox8.Text = "08";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.ChkBit08.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit08.AutoSize = true;
+            this.ChkBit08.BackColor = System.Drawing.Color.Red;
+            this.ChkBit08.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit08.Location = new System.Drawing.Point(253, 6);
+            this.ChkBit08.Name = "ChkBit08";
+            this.ChkBit08.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit08.TabIndex = 7;
+            this.ChkBit08.Text = "08";
+            this.ChkBit08.UseVisualStyleBackColor = false;
+            this.ChkBit08.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox7
+            // ChkBit07
             // 
-            this.checkBox7.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox7.Location = new System.Drawing.Point(14, 266);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(40, 31);
-            this.checkBox7.TabIndex = 6;
-            this.checkBox7.Text = "07";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.ChkBit07.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit07.AutoSize = true;
+            this.ChkBit07.BackColor = System.Drawing.Color.Red;
+            this.ChkBit07.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit07.Location = new System.Drawing.Point(14, 266);
+            this.ChkBit07.Name = "ChkBit07";
+            this.ChkBit07.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit07.TabIndex = 6;
+            this.ChkBit07.Text = "07";
+            this.ChkBit07.UseVisualStyleBackColor = false;
+            this.ChkBit07.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox6
+            // ChkBit06
             // 
-            this.checkBox6.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox6.Location = new System.Drawing.Point(14, 229);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(40, 31);
-            this.checkBox6.TabIndex = 5;
-            this.checkBox6.Text = "06";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.ChkBit06.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit06.AutoSize = true;
+            this.ChkBit06.BackColor = System.Drawing.Color.Red;
+            this.ChkBit06.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit06.Location = new System.Drawing.Point(14, 229);
+            this.ChkBit06.Name = "ChkBit06";
+            this.ChkBit06.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit06.TabIndex = 5;
+            this.ChkBit06.Text = "06";
+            this.ChkBit06.UseVisualStyleBackColor = false;
+            this.ChkBit06.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox5
+            // ChkBit05
             // 
-            this.checkBox5.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox5.Location = new System.Drawing.Point(14, 192);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(40, 31);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "05";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.ChkBit05.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit05.AutoSize = true;
+            this.ChkBit05.BackColor = System.Drawing.Color.Red;
+            this.ChkBit05.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit05.Location = new System.Drawing.Point(14, 192);
+            this.ChkBit05.Name = "ChkBit05";
+            this.ChkBit05.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit05.TabIndex = 4;
+            this.ChkBit05.Text = "05";
+            this.ChkBit05.UseVisualStyleBackColor = false;
+            this.ChkBit05.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox4
+            // ChkBit04
             // 
-            this.checkBox4.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox4.Location = new System.Drawing.Point(14, 155);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(40, 31);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "04";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.ChkBit04.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit04.AutoSize = true;
+            this.ChkBit04.BackColor = System.Drawing.Color.Red;
+            this.ChkBit04.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit04.Location = new System.Drawing.Point(14, 155);
+            this.ChkBit04.Name = "ChkBit04";
+            this.ChkBit04.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit04.TabIndex = 3;
+            this.ChkBit04.Text = "04";
+            this.ChkBit04.UseVisualStyleBackColor = false;
+            this.ChkBit04.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox3
+            // ChkBit02
             // 
-            this.checkBox3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox3.Location = new System.Drawing.Point(14, 80);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(40, 31);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "02";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.ChkBit02.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit02.AutoSize = true;
+            this.ChkBit02.BackColor = System.Drawing.Color.Red;
+            this.ChkBit02.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit02.Location = new System.Drawing.Point(14, 80);
+            this.ChkBit02.Name = "ChkBit02";
+            this.ChkBit02.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit02.TabIndex = 2;
+            this.ChkBit02.Text = "02";
+            this.ChkBit02.UseVisualStyleBackColor = false;
+            this.ChkBit02.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox2
+            // ChkBit01
             // 
-            this.checkBox2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox2.Location = new System.Drawing.Point(14, 43);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(40, 31);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "01";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.ChkBit01.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit01.AutoSize = true;
+            this.ChkBit01.BackColor = System.Drawing.Color.Red;
+            this.ChkBit01.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit01.Location = new System.Drawing.Point(14, 43);
+            this.ChkBit01.Name = "ChkBit01";
+            this.ChkBit01.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit01.TabIndex = 1;
+            this.ChkBit01.Text = "01";
+            this.ChkBit01.UseVisualStyleBackColor = false;
+            this.ChkBit01.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // checkBox1
+            // ChkBit00
             // 
-            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.checkBox1.Location = new System.Drawing.Point(14, 6);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(40, 31);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "00";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ChkBit00.AutoSize = true;
+            this.ChkBit00.BackColor = System.Drawing.Color.Red;
+            this.ChkBit00.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.ChkBit00.Location = new System.Drawing.Point(14, 6);
+            this.ChkBit00.Name = "ChkBit00";
+            this.ChkBit00.Size = new System.Drawing.Size(40, 31);
+            this.ChkBit00.TabIndex = 0;
+            this.ChkBit00.Text = "00";
+            this.ChkBit00.UseVisualStyleBackColor = false;
+            this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
             // tabPage2
             // 
@@ -893,29 +925,29 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ChkBit04;
+        private System.Windows.Forms.CheckBox ChkBit02;
+        private System.Windows.Forms.CheckBox ChkBit01;
+        private System.Windows.Forms.CheckBox ChkBit00;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.CheckBox ChkBit08;
+        private System.Windows.Forms.CheckBox ChkBit07;
+        private System.Windows.Forms.CheckBox ChkBit06;
+        private System.Windows.Forms.CheckBox ChkBit05;
+        private System.Windows.Forms.CheckBox ChkBit03;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox16;
-        private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.CheckBox ChkBit15;
+        private System.Windows.Forms.CheckBox ChkBit14;
+        private System.Windows.Forms.CheckBox ChkBit13;
+        private System.Windows.Forms.CheckBox ChkBit12;
+        private System.Windows.Forms.CheckBox ChkBit11;
+        private System.Windows.Forms.CheckBox ChkBit10;
+        private System.Windows.Forms.CheckBox ChkBit09;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;

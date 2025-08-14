@@ -112,5 +112,10 @@ namespace WorktoCome1
             ppmove.Deceleration = TxtDeceleration.Text;
             ppmove.AxisMove(0, false); 
         }
+
+        private void ChkBit_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
