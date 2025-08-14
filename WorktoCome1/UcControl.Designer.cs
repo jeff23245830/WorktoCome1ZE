@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -98,8 +99,30 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CbDoNodeId = new System.Windows.Forms.ComboBox();
+            this.CbDoSlotId = new System.Windows.Forms.ComboBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.LabBit00 = new System.Windows.Forms.Label();
+            this.LabBit01 = new System.Windows.Forms.Label();
+            this.LabBit02 = new System.Windows.Forms.Label();
+            this.LabBit03 = new System.Windows.Forms.Label();
+            this.LabBit04 = new System.Windows.Forms.Label();
+            this.LabBit05 = new System.Windows.Forms.Label();
+            this.LabBit06 = new System.Windows.Forms.Label();
+            this.LabBit07 = new System.Windows.Forms.Label();
+            this.LabBit08 = new System.Windows.Forms.Label();
+            this.LabBit09 = new System.Windows.Forms.Label();
+            this.LabBit10 = new System.Windows.Forms.Label();
+            this.LabBit11 = new System.Windows.Forms.Label();
+            this.LabBit12 = new System.Windows.Forms.Label();
+            this.LabBit13 = new System.Windows.Forms.Label();
+            this.LabBit14 = new System.Windows.Forms.Label();
+            this.LabBit15 = new System.Windows.Forms.Label();
             this.CbDINodeId = new System.Windows.Forms.ComboBox();
             this.CbDISlotId = new System.Windows.Forms.ComboBox();
+            this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -110,6 +133,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -124,6 +148,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label22);
+            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.groupBox7);
             this.tabPage1.Controls.Add(this.groupBox6);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -135,8 +162,8 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.CbDISlotId);
-            this.groupBox6.Controls.Add(this.CbDINodeId);
+            this.groupBox6.Controls.Add(this.CbDoSlotId);
+            this.groupBox6.Controls.Add(this.CbDoNodeId);
             this.groupBox6.Controls.Add(this.label16);
             this.groupBox6.Controls.Add(this.ChkBit08);
             this.groupBox6.Controls.Add(this.label15);
@@ -911,23 +938,279 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
+            // CbDoNodeId
+            // 
+            this.CbDoNodeId.FormattingEnabled = true;
+            this.CbDoNodeId.Location = new System.Drawing.Point(34, 338);
+            this.CbDoNodeId.Name = "CbDoNodeId";
+            this.CbDoNodeId.Size = new System.Drawing.Size(174, 20);
+            this.CbDoNodeId.TabIndex = 32;
+            this.CbDoNodeId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
+            // 
+            // CbDoSlotId
+            // 
+            this.CbDoSlotId.FormattingEnabled = true;
+            this.CbDoSlotId.Location = new System.Drawing.Point(249, 338);
+            this.CbDoSlotId.Name = "CbDoSlotId";
+            this.CbDoSlotId.Size = new System.Drawing.Size(174, 20);
+            this.CbDoSlotId.TabIndex = 33;
+            this.CbDoSlotId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.CbDISlotId);
+            this.groupBox7.Controls.Add(this.CbDINodeId);
+            this.groupBox7.Controls.Add(this.LabBit15);
+            this.groupBox7.Controls.Add(this.LabBit14);
+            this.groupBox7.Controls.Add(this.LabBit13);
+            this.groupBox7.Controls.Add(this.LabBit12);
+            this.groupBox7.Controls.Add(this.LabBit11);
+            this.groupBox7.Controls.Add(this.LabBit10);
+            this.groupBox7.Controls.Add(this.LabBit09);
+            this.groupBox7.Controls.Add(this.LabBit08);
+            this.groupBox7.Controls.Add(this.LabBit07);
+            this.groupBox7.Controls.Add(this.LabBit06);
+            this.groupBox7.Controls.Add(this.LabBit05);
+            this.groupBox7.Controls.Add(this.LabBit04);
+            this.groupBox7.Controls.Add(this.LabBit03);
+            this.groupBox7.Controls.Add(this.LabBit02);
+            this.groupBox7.Controls.Add(this.LabBit01);
+            this.groupBox7.Controls.Add(this.LabBit00);
+            this.groupBox7.Location = new System.Drawing.Point(492, 6);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(251, 420);
+            this.groupBox7.TabIndex = 33;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "DI";
+            // 
+            // LabBit00
+            // 
+            this.LabBit00.BackColor = System.Drawing.Color.Gray;
+            this.LabBit00.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit00.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit00.Location = new System.Drawing.Point(34, 23);
+            this.LabBit00.Name = "LabBit00";
+            this.LabBit00.Size = new System.Drawing.Size(47, 33);
+            this.LabBit00.TabIndex = 0;
+            this.LabBit00.Text = "00";
+            this.LabBit00.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit01
+            // 
+            this.LabBit01.BackColor = System.Drawing.Color.Gray;
+            this.LabBit01.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit01.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit01.Location = new System.Drawing.Point(34, 61);
+            this.LabBit01.Name = "LabBit01";
+            this.LabBit01.Size = new System.Drawing.Size(47, 33);
+            this.LabBit01.TabIndex = 1;
+            this.LabBit01.Text = "01";
+            this.LabBit01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit02
+            // 
+            this.LabBit02.BackColor = System.Drawing.Color.Gray;
+            this.LabBit02.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit02.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit02.Location = new System.Drawing.Point(34, 99);
+            this.LabBit02.Name = "LabBit02";
+            this.LabBit02.Size = new System.Drawing.Size(47, 33);
+            this.LabBit02.TabIndex = 2;
+            this.LabBit02.Text = "02";
+            this.LabBit02.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit03
+            // 
+            this.LabBit03.BackColor = System.Drawing.Color.Gray;
+            this.LabBit03.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit03.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit03.Location = new System.Drawing.Point(34, 137);
+            this.LabBit03.Name = "LabBit03";
+            this.LabBit03.Size = new System.Drawing.Size(47, 33);
+            this.LabBit03.TabIndex = 3;
+            this.LabBit03.Text = "03";
+            this.LabBit03.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit04
+            // 
+            this.LabBit04.BackColor = System.Drawing.Color.Gray;
+            this.LabBit04.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit04.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit04.Location = new System.Drawing.Point(34, 175);
+            this.LabBit04.Name = "LabBit04";
+            this.LabBit04.Size = new System.Drawing.Size(47, 33);
+            this.LabBit04.TabIndex = 4;
+            this.LabBit04.Text = "04";
+            this.LabBit04.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit05
+            // 
+            this.LabBit05.BackColor = System.Drawing.Color.Gray;
+            this.LabBit05.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit05.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit05.Location = new System.Drawing.Point(34, 213);
+            this.LabBit05.Name = "LabBit05";
+            this.LabBit05.Size = new System.Drawing.Size(47, 33);
+            this.LabBit05.TabIndex = 5;
+            this.LabBit05.Text = "05";
+            this.LabBit05.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit06
+            // 
+            this.LabBit06.BackColor = System.Drawing.Color.Gray;
+            this.LabBit06.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit06.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit06.Location = new System.Drawing.Point(34, 251);
+            this.LabBit06.Name = "LabBit06";
+            this.LabBit06.Size = new System.Drawing.Size(47, 33);
+            this.LabBit06.TabIndex = 6;
+            this.LabBit06.Text = "06";
+            this.LabBit06.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit07
+            // 
+            this.LabBit07.BackColor = System.Drawing.Color.Gray;
+            this.LabBit07.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit07.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit07.Location = new System.Drawing.Point(34, 289);
+            this.LabBit07.Name = "LabBit07";
+            this.LabBit07.Size = new System.Drawing.Size(47, 33);
+            this.LabBit07.TabIndex = 7;
+            this.LabBit07.Text = "07";
+            this.LabBit07.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit08
+            // 
+            this.LabBit08.BackColor = System.Drawing.Color.Gray;
+            this.LabBit08.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit08.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit08.Location = new System.Drawing.Point(149, 23);
+            this.LabBit08.Name = "LabBit08";
+            this.LabBit08.Size = new System.Drawing.Size(47, 33);
+            this.LabBit08.TabIndex = 8;
+            this.LabBit08.Text = "08";
+            this.LabBit08.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit09
+            // 
+            this.LabBit09.BackColor = System.Drawing.Color.Gray;
+            this.LabBit09.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit09.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit09.Location = new System.Drawing.Point(149, 61);
+            this.LabBit09.Name = "LabBit09";
+            this.LabBit09.Size = new System.Drawing.Size(47, 33);
+            this.LabBit09.TabIndex = 9;
+            this.LabBit09.Text = "09";
+            this.LabBit09.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit10
+            // 
+            this.LabBit10.BackColor = System.Drawing.Color.Gray;
+            this.LabBit10.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit10.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit10.Location = new System.Drawing.Point(149, 99);
+            this.LabBit10.Name = "LabBit10";
+            this.LabBit10.Size = new System.Drawing.Size(47, 33);
+            this.LabBit10.TabIndex = 10;
+            this.LabBit10.Text = "10";
+            this.LabBit10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit11
+            // 
+            this.LabBit11.BackColor = System.Drawing.Color.Gray;
+            this.LabBit11.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit11.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit11.Location = new System.Drawing.Point(149, 137);
+            this.LabBit11.Name = "LabBit11";
+            this.LabBit11.Size = new System.Drawing.Size(47, 33);
+            this.LabBit11.TabIndex = 11;
+            this.LabBit11.Text = "11";
+            this.LabBit11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit12
+            // 
+            this.LabBit12.BackColor = System.Drawing.Color.Gray;
+            this.LabBit12.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit12.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit12.Location = new System.Drawing.Point(149, 175);
+            this.LabBit12.Name = "LabBit12";
+            this.LabBit12.Size = new System.Drawing.Size(47, 33);
+            this.LabBit12.TabIndex = 12;
+            this.LabBit12.Text = "12";
+            this.LabBit12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit13
+            // 
+            this.LabBit13.BackColor = System.Drawing.Color.Gray;
+            this.LabBit13.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit13.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit13.Location = new System.Drawing.Point(149, 213);
+            this.LabBit13.Name = "LabBit13";
+            this.LabBit13.Size = new System.Drawing.Size(47, 33);
+            this.LabBit13.TabIndex = 13;
+            this.LabBit13.Text = "13";
+            this.LabBit13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit14
+            // 
+            this.LabBit14.BackColor = System.Drawing.Color.Gray;
+            this.LabBit14.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit14.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit14.Location = new System.Drawing.Point(149, 251);
+            this.LabBit14.Name = "LabBit14";
+            this.LabBit14.Size = new System.Drawing.Size(47, 33);
+            this.LabBit14.TabIndex = 14;
+            this.LabBit14.Text = "14";
+            this.LabBit14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabBit15
+            // 
+            this.LabBit15.BackColor = System.Drawing.Color.Gray;
+            this.LabBit15.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LabBit15.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.LabBit15.Location = new System.Drawing.Point(149, 289);
+            this.LabBit15.Name = "LabBit15";
+            this.LabBit15.Size = new System.Drawing.Size(47, 33);
+            this.LabBit15.TabIndex = 15;
+            this.LabBit15.Text = "15";
+            this.LabBit15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CbDINodeId
             // 
             this.CbDINodeId.FormattingEnabled = true;
-            this.CbDINodeId.Location = new System.Drawing.Point(34, 338);
+            this.CbDINodeId.Location = new System.Drawing.Point(26, 338);
             this.CbDINodeId.Name = "CbDINodeId";
-            this.CbDINodeId.Size = new System.Drawing.Size(174, 20);
-            this.CbDINodeId.TabIndex = 32;
-            this.CbDINodeId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
+            this.CbDINodeId.Size = new System.Drawing.Size(170, 20);
+            this.CbDINodeId.TabIndex = 16;
             // 
             // CbDISlotId
             // 
             this.CbDISlotId.FormattingEnabled = true;
-            this.CbDISlotId.Location = new System.Drawing.Point(249, 338);
+            this.CbDISlotId.Location = new System.Drawing.Point(26, 376);
             this.CbDISlotId.Name = "CbDISlotId";
-            this.CbDISlotId.Size = new System.Drawing.Size(174, 20);
-            this.CbDISlotId.TabIndex = 33;
-            this.CbDISlotId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
+            this.CbDISlotId.Size = new System.Drawing.Size(170, 20);
+            this.CbDISlotId.TabIndex = 17;
+            // 
+            // TimCheckStatus
+            // 
+            this.TimCheckStatus.Tick += new System.EventHandler(this.TimCheckStatus_Tick);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(139, 390);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(118, 20);
+            this.comboBox2.TabIndex = 34;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(68, 393);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 12);
+            this.label22.TabIndex = 35;
+            this.label22.Text = "CmbCardNo";
             // 
             // UcControl
             // 
@@ -938,6 +1221,7 @@
             this.Size = new System.Drawing.Size(1083, 539);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -951,6 +1235,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1027,7 +1312,29 @@
         private System.Windows.Forms.ComboBox CbNodeId;
         private System.Windows.Forms.ComboBox CbSlotId;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.ComboBox CbDINodeId;
+        private System.Windows.Forms.ComboBox CbDoNodeId;
+        private System.Windows.Forms.ComboBox CbDoSlotId;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label LabBit00;
+        private System.Windows.Forms.Label LabBit01;
+        private System.Windows.Forms.Label LabBit15;
+        private System.Windows.Forms.Label LabBit14;
+        private System.Windows.Forms.Label LabBit13;
+        private System.Windows.Forms.Label LabBit12;
+        private System.Windows.Forms.Label LabBit11;
+        private System.Windows.Forms.Label LabBit10;
+        private System.Windows.Forms.Label LabBit09;
+        private System.Windows.Forms.Label LabBit08;
+        private System.Windows.Forms.Label LabBit07;
+        private System.Windows.Forms.Label LabBit06;
+        private System.Windows.Forms.Label LabBit05;
+        private System.Windows.Forms.Label LabBit04;
+        private System.Windows.Forms.Label LabBit03;
+        private System.Windows.Forms.Label LabBit02;
         private System.Windows.Forms.ComboBox CbDISlotId;
+        private System.Windows.Forms.ComboBox CbDINodeId;
+        private System.Windows.Forms.Timer TimCheckStatus;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label22;
     }
 }

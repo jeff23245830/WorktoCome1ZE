@@ -19,6 +19,7 @@ namespace WorktoCome1
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
         CheckBox[] g_pOutputLab = new CheckBox[16];
+        Label[] g_pInputLab = new Label[16];
         // 將原本的
         // private EtherCATFunction.PPMove;
         // 修正為正確的欄位宣告，假設 EtherCATFunction.PPMove 是型別名稱
@@ -34,12 +35,16 @@ namespace WorktoCome1
             foreach (var slave in slaveNodeIdList)
             {
                 CbNodeId.Items.Add(slave);
+                CbDoNodeId.Items.Add(slave);
                 CbDINodeId.Items.Add(slave);
             }
             if (CbNodeId.Items.Count > 0)
                 CbNodeId.SelectedIndex = 0;
-            if (CbDINodeId.Items.Count > 0)
+            if (CbDoNodeId.Items.Count > 0)
+                CbDoNodeId.SelectedIndex = 0;
+           if (CbDINodeId.Items.Count > 0)
                 CbDINodeId.SelectedIndex = 0;
+
         }
 
         public void SetSlotIDList(List<ushort> slotId)
@@ -49,10 +54,13 @@ namespace WorktoCome1
             foreach (var slave in slaveSlotIdList)
             {
                 CbSlotId.Items.Add(slave);
+                CbDoSlotId.Items.Add(slave);
                 CbDISlotId.Items.Add(slave);
             }
             if (CbSlotId.Items.Count > 0)
                 CbSlotId.SelectedIndex = 0;
+            if (CbDoSlotId.Items.Count > 0)
+                CbDoSlotId.SelectedIndex = 0;
             if (CbDISlotId.Items.Count > 0)
                 CbDISlotId.SelectedIndex = 0;
 
@@ -68,6 +76,9 @@ namespace WorktoCome1
             iOControl.g_nESCExistCards = Set_nESCExistCards;
 
             InitializeComponent();
+
+            TimCheckStatus.Interval = 100;
+            TimCheckStatus.Enabled = true;
 
             ChkBit00.Enabled = false;
             ChkBit01.Enabled = false;
@@ -103,7 +114,22 @@ namespace WorktoCome1
             g_pOutputLab[14] = ChkBit14;
             g_pOutputLab[15] = ChkBit15;
 
-            
+            g_pInputLab[0] = LabBit00;
+            g_pInputLab[1] = LabBit01;
+            g_pInputLab[2] = LabBit02;
+            g_pInputLab[3] = LabBit03;
+            g_pInputLab[4] = LabBit04;
+            g_pInputLab[5] = LabBit05;
+            g_pInputLab[6] = LabBit06;
+            g_pInputLab[7] = LabBit07;
+            g_pInputLab[8] = LabBit08;
+            g_pInputLab[9] = LabBit09;
+            g_pInputLab[10] = LabBit10;
+            g_pInputLab[11] = LabBit11;
+            g_pInputLab[12] = LabBit12;
+            g_pInputLab[13] = LabBit13;
+            g_pInputLab[14] = LabBit14;
+            g_pInputLab[15] = LabBit15;
 
             dataGridView1.Rows.Clear();
             dataGridView1.Rows.Add("就緒", "");
@@ -186,10 +212,10 @@ namespace WorktoCome1
 
             //進行輸出狀態設定 到dll檔裡面
             //iOControl.g_uESCNodeID = (ushort)CbNodeId.SelectedItem;
-            ushort ESCNodeID = (ushort)CbDINodeId.SelectedItem;
-            ushort ESCSlotID = (ushort)CbDISlotId.SelectedItem;
+            ushort ESCNodeID = (ushort)CbDoNodeId.SelectedItem;
+            ushort ESCSlotID = (ushort)CbDoSlotId.SelectedItem;
 
-
+            //之後要加入Set_nESCExistCards
             iOControl.DOcontorlOutOrOff(uOutputStatus, ESCNodeID , ESCSlotID);
 
 
@@ -198,7 +224,7 @@ namespace WorktoCome1
 
         private void CbDI_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CbDINodeId.SelectedIndex > -1 && CbDISlotId.SelectedIndex > -1 )
+            if (CbDoNodeId.SelectedIndex > -1 && CbDoSlotId.SelectedIndex > -1 )
             {
                 ChkBit00.Enabled = true;
                 ChkBit01.Enabled = true;
@@ -219,26 +245,37 @@ namespace WorktoCome1
             }
         }
 
-        /*
-         if(CbDINodeId.SelectedIndex > 0 &&)
+        private void TimCheckStatus_Tick(object sender, EventArgs e)
+        {
+            ushort uInitialDone = 0, uValue = 0, uRet = 0;
+            ushort g_uESCNodeID = 0 , g_uESCSlotID = 0 , g_uESCCardNo = 0;
+            int nBit = 0;
+            if (Set_nESCExistCards > 0)
             {
-                ChkBit00.Enabled = true;
-                ChkBit01.Enabled = true;
-                ChkBit02.Enabled = true;
-                ChkBit03.Enabled = true;
-                ChkBit04.Enabled = true;
-                ChkBit05.Enabled = true;
-                ChkBit06.Enabled = true;
-                ChkBit07.Enabled = true;
-                ChkBit08.Enabled = true;
-                ChkBit09.Enabled = true;
-                ChkBit10.Enabled = true;
-                ChkBit11.Enabled = true;
-                ChkBit12.Enabled = true;
-                ChkBit13.Enabled = true;
-                ChkBit14.Enabled = true;
-                ChkBit15.Enabled = true;
+
+                //亮亮
+                if ( true)
+                {
+
+                    //g_uESCCardNo = Set_nESCExistCards;
+                    g_uESCNodeID = (ushort)CbDINodeId.SelectedItem;
+                    g_uESCSlotID = (ushort)CbDISlotId.SelectedItem;
+
+                    uRet = CEtherCAT_DLL.CS_ECAT_Slave_DIO_Get_Input_Value(g_uESCCardNo, g_uESCNodeID, g_uESCSlotID, ref uValue);
+
+                    if (uRet == CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
+                    {
+                        for (nBit = 0; nBit < 16; nBit++)
+                        {
+                            if ((uValue & (0x1 << nBit)) == (0x1 << nBit))
+                                g_pInputLab[nBit].BackColor = Color.Green;
+                            else
+                                g_pInputLab[nBit].BackColor = Color.Red;
+                        }
+                    }
+                }
+                 
             }
-        */
+        }
     }
 }

@@ -129,6 +129,14 @@ namespace EtherCATFunction
 
                             Cnt++;
                         }
+                        if ((uVendorID == 0x1A05 || uVendorID == 0x1DD) && (uProductCode == 0x6002 || uProductCode == 0x6022 || uProductCode == 0x6032 || uProductCode == 0x6142)) //Ec16DI
+                        {
+                            nSID = 0;
+                            FoundSlaves.Add(new SlaveInfo { NodeID = uNID, SlotID = (ushort)nSID, Description = "Ec16DI" }); 
+                             
+                            Cnt++;
+                        }
+
                     }
                     /*
                     if (Cnt > 0)
