@@ -499,14 +499,14 @@
             // 
             this.pnlContent.Location = new System.Drawing.Point(166, 137);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1083, 539);
+            this.pnlContent.Size = new System.Drawing.Size(1083, 628);
             this.pnlContent.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1432, 688);
+            this.ClientSize = new System.Drawing.Size(1432, 777);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
