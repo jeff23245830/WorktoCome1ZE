@@ -26,9 +26,9 @@ namespace WorktoCome1
         private EtherCATFunction.MotorMove ppmove;
         private EtherCATFunction.IOControl iOControl;
 
-        public ushort Set_nESCExistCards;
+        public ushort nESCExistCards;
 
-        public void SetNodeIDList(List<ushort> nodeId)
+        public void SetNodeIDtoCombobox(List<ushort> nodeId)
         {
             this.slaveNodeIdList = nodeId;
             // 你可以在這裡更新 UI，例如 ComboBox
@@ -47,7 +47,7 @@ namespace WorktoCome1
 
         }
 
-        public void SetSlotIDList(List<ushort> slotId)
+        public void SetSlotIDtoCombobox(List<ushort> slotId)
         {
             this.slaveSlotIdList = slotId;
             // 你可以在這裡更新 UI，例如 ComboBox
@@ -73,7 +73,7 @@ namespace WorktoCome1
             ppmove = new EtherCATFunction.MotorMove();
             iOControl = new EtherCATFunction.IOControl();
 
-            iOControl.g_nESCExistCards = Set_nESCExistCards;
+            iOControl.g_nESCExistCards = nESCExistCards;
 
             InitializeComponent();
 
@@ -172,22 +172,21 @@ namespace WorktoCome1
         }
 
         private void BtnMoveRight_Click(object sender, EventArgs e)
-        {
-            ppmove.TargetPos = TxtTargetPos.Text;
-            ppmove.ConstVel = "1000";
-            ppmove.Acceleration = TxtAcceleration.Text;
-            ppmove.Deceleration = TxtDeceleration.Text;
-            ppmove.AxisMove(1, false); // 1 代表正方向移動
+        { 
+
+            uint ConstVel = Convert.ToUInt32(TxtConstVel.Text); ;
+            uint Acceleration = Convert.ToUInt32(TxtAcceleration.Text); 
+            uint Deceleration = Convert.ToUInt32(TxtDeceleration.Text); 
+            ppmove.AxisMove(1, false , 1000 , ConstVel , Acceleration, Deceleration);//順時針
 
         }
 
         private void BtnMoveLeft_Click(object sender, EventArgs e)
         {
-            ppmove.TargetPos = TxtTargetPos.Text;
-            ppmove.ConstVel = "1000";
-            ppmove.Acceleration = TxtAcceleration.Text;
-            ppmove.Deceleration = TxtDeceleration.Text;
-            ppmove.AxisMove(0, false); 
+            uint ConstVel = Convert.ToUInt32(TxtConstVel.Text); ;
+            uint Acceleration = Convert.ToUInt32(TxtAcceleration.Text);
+            uint Deceleration = Convert.ToUInt32(TxtDeceleration.Text);
+            ppmove.AxisMove(0, false, 1000, ConstVel, Acceleration, Deceleration); //逆時針
         }
 
         private void ChkBit_CheckedChanged(object sender, EventArgs e)
@@ -247,10 +246,10 @@ namespace WorktoCome1
 
         private void TimCheckStatus_Tick(object sender, EventArgs e)
         {
-            ushort uInitialDone = 0, uValue = 0, uRet = 0;
-            ushort g_uESCNodeID = 0 , g_uESCSlotID = 0 , g_uESCCardNo = 0;
+            ushort  uValue = 0, uRet = 0;
+            ushort g_uESCNodeID , g_uESCSlotID , g_uESCCardNo = 0;
             int nBit = 0;
-            if (Set_nESCExistCards > 0)
+            if (nESCExistCards > 0)
             {
 
                 //亮亮

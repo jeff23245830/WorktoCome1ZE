@@ -26,6 +26,16 @@ namespace WorktoCome1
         CheckBox[] g_pOutputLab = new CheckBox[16];
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
+
+
+        UcProgram ucProgram = new UcProgram();
+        UcMain ucMain = new UcMain();
+        UcSetting ucSetting = new UcSetting();
+        UcControl ucControl = new UcControl();
+        UcInfo ucInfo = new UcInfo();
+        UcLanguage ucLanguage = new UcLanguage();
+
+
         public Form1()
         {
             InitializeComponent();
@@ -48,28 +58,28 @@ namespace WorktoCome1
 
         private void btnProgram_Click(object sender, EventArgs e)
         {
-            UcProgram ucProgram = new UcProgram();
+            
             loadUserControl(ucProgram);
         }
 
         private void btnMain_Click(object sender, EventArgs e)
         {
-            UcMain ucMain = new UcMain();
+            
             loadUserControl(ucMain);
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            UcSetting ucSetting = new UcSetting();  
+              
             loadUserControl(ucSetting);
         }
 
         private void btnControl_Click(object sender, EventArgs e)
         {
-            UcControl ucControl = new UcControl();
-            ucControl.SetNodeIDList(slaveNodeIdList);
-            ucControl.SetSlotIDList(slaveSlotIdList);
-            ucControl.Set_nESCExistCards = cardManager.CardCount  ;
+            
+            ucControl.SetNodeIDtoCombobox(slaveNodeIdList);
+            ucControl.SetSlotIDtoCombobox(slaveSlotIdList);
+            ucControl.nESCExistCards = cardManager.CardCount  ;
 
             loadUserControl(ucControl);
 
@@ -79,13 +89,13 @@ namespace WorktoCome1
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            UcInfo ucInfo = new UcInfo();    
+               
             loadUserControl(ucInfo);
         }
 
         private void btnLanguage_Click(object sender, EventArgs e)
         {
-            UcLanguage ucLanguage = new UcLanguage();
+           
             loadUserControl(ucLanguage);
         }
 
@@ -112,29 +122,17 @@ namespace WorktoCome1
         private void btnExit_Click(object sender, EventArgs e)
         {
 
-            //確認東西歸位
-            //if
-            //正確關閉
             this.Close(); 
-            //else
-            //跳警告
         }
 
         private void btnInitial_Click(object sender, EventArgs e)
         {
-            //Initial_Card();
-            //EtherCATFunction.Initial cardManager = new EtherCATFunction.Initial();
             cardManager = new EtherCATFunction.Initial();
 
             bool success = cardManager.Initial_Card();
 
             g_nESCExistCards = cardManager.CardCount;
             
-            
-
-
-            //ucMain1.CardCount = g_nESCExistCards;
-            // 根據結果來顯示訊息
             if (success)
             {
                 // AddErrMsg("所有卡片已成功初始化！", false);
@@ -149,8 +147,6 @@ namespace WorktoCome1
 
 
             bool FindSlave_success = cardManager.Card_FindSlave();
-            //ucMain1.CardCount = g_nESCExistCards;
-            // 根據結果來顯示訊息
             if (FindSlave_success)
             {
                 g_uESCNodeID = cardManager.g_ESCNodeID_u;
