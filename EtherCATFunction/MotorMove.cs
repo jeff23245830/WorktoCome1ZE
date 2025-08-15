@@ -13,11 +13,10 @@ namespace EtherCATFunction
 {
     public class MotorMove
     {
-        bool g_bInitialFlag = false;
-        ushort g_uRet = 0;
-        ushort g_nESCExistCards = 0, g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
-        ushort[] g_uESCCardNoList = new ushort[32];
-
+         ushort g_uRet = 0;
+        ushort  g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
+ 
+ 
 
 
 

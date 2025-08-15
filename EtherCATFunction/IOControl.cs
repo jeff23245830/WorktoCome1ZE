@@ -23,12 +23,7 @@ namespace EtherCATFunction
                     //AddErrMsg("_ECAT_Slave_DIO_Set_Output, ErrorCode = " + g_uRet.ToString(), true);
                 } 
 
-        }
-        public void DIcontorlInLight()
-        {
-
-
-        }
+        } 
 
 
 

@@ -19,7 +19,7 @@ namespace EtherCATFunction
     }
     public class Initial
     {
-        bool g_bInitialFlag = false;
+         
         ushort g_uRet = 0;
         ushort g_nESCExistCards = 0, g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
         ushort[] g_uESCCardNoList = new ushort[32];
@@ -66,7 +66,7 @@ namespace EtherCATFunction
             }
 
             // 如果 g_bInitialFlag 這個變數一定要用
-            g_bInitialFlag = allCardsInitialized;
+            //g_bInitialFlag = allCardsInitialized;
 
             // 3. 回傳最終的初始化狀態
             // 這裡回傳的是「所有卡片都成功初始化」的狀態
@@ -116,7 +116,7 @@ namespace EtherCATFunction
                         {
                             nSID = 0;
                             //CmbNode.Items.Add("NodeID:" + uNID + " - SlotID:" + nSID + "-Ec16DI");
-                            FoundSlaves.Add(new SlaveInfo { NodeID = uNID, SlotID = (ushort)nSID, Description = "Ec16DI" });
+                            FoundSlaves.Add(new SlaveInfo { NodeID = uNID, SlotID = (ushort)nSID, Description = "Ec16Out" });
 
                             Cnt++;
                         }
@@ -137,15 +137,8 @@ namespace EtherCATFunction
                             Cnt++;
                         }
 
-                    }
-                    /*
-                    if (Cnt > 0)
-                    {
-                        CmbNode.SelectedIndex = 0;
-                        CmbNodeID.SelectedIndex = 0;
-                        CmbSlotID.SelectedIndex = 0;
-                    }
-                    */
+                    } 
+                    
                     //只有一個的話
                     int nSelectNode = 0;
                     

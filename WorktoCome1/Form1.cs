@@ -127,7 +127,7 @@ namespace WorktoCome1
 
         private void btnInitial_Click(object sender, EventArgs e)
         {
-            cardManager = new EtherCATFunction.Initial();
+            cardManager = new EtherCATFunction.Initial();//要注意這問題
 
             bool success = cardManager.Initial_Card();
 
