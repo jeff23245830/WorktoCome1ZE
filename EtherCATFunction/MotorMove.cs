@@ -11,7 +11,7 @@ using EtherCAT_DLL_Err;
 
 namespace EtherCATFunction
 {
-    public class PPMove
+    public class MotorMove
     {
         bool g_bInitialFlag = false;
         ushort g_uRet = 0;

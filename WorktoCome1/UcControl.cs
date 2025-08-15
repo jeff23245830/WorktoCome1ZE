@@ -23,7 +23,7 @@ namespace WorktoCome1
         // 將原本的
         // private EtherCATFunction.PPMove;
         // 修正為正確的欄位宣告，假設 EtherCATFunction.PPMove 是型別名稱
-        private EtherCATFunction.PPMove ppmove;
+        private EtherCATFunction.MotorMove ppmove;
         private EtherCATFunction.IOControl iOControl;
 
         public ushort Set_nESCExistCards;
@@ -70,7 +70,7 @@ namespace WorktoCome1
 
         public UcControl()
         {
-            ppmove = new EtherCATFunction.PPMove();
+            ppmove = new EtherCATFunction.MotorMove();
             iOControl = new EtherCATFunction.IOControl();
 
             iOControl.g_nESCExistCards = Set_nESCExistCards;

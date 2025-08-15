@@ -45,7 +45,7 @@
     <Compile Include="EtherCAT_DLL_Err.cs" />
     <Compile Include="Initial.cs" />
     <Compile Include="IOControl.cs" />
-    <Compile Include="PPMove.cs" />
+    <Compile Include="MotorMove.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
