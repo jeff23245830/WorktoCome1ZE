@@ -55,15 +55,8 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.CbDoSlotId = new System.Windows.Forms.ComboBox();
             this.CbDoNodeId = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.ChkBit08 = new System.Windows.Forms.CheckBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.ChkBit00 = new System.Windows.Forms.CheckBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.ChkBit15 = new System.Windows.Forms.CheckBox();
             this.ChkBit14 = new System.Windows.Forms.CheckBox();
             this.ChkBit13 = new System.Windows.Forms.CheckBox();
@@ -71,16 +64,7 @@
             this.ChkBit11 = new System.Windows.Forms.CheckBox();
             this.ChkBit10 = new System.Windows.Forms.CheckBox();
             this.ChkBit09 = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.ChkBit03 = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.ChkBit07 = new System.Windows.Forms.CheckBox();
             this.ChkBit06 = new System.Windows.Forms.CheckBox();
             this.ChkBit05 = new System.Windows.Forms.CheckBox();
@@ -123,6 +107,38 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.textBox34 = new System.Windows.Forms.TextBox();
+            this.textBox35 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -179,12 +195,28 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.textBox28);
+            this.groupBox7.Controls.Add(this.textBox29);
+            this.groupBox7.Controls.Add(this.textBox30);
+            this.groupBox7.Controls.Add(this.textBox31);
+            this.groupBox7.Controls.Add(this.textBox32);
+            this.groupBox7.Controls.Add(this.textBox33);
+            this.groupBox7.Controls.Add(this.textBox34);
+            this.groupBox7.Controls.Add(this.textBox35);
+            this.groupBox7.Controls.Add(this.textBox20);
             this.groupBox7.Controls.Add(this.CbDISlotId);
+            this.groupBox7.Controls.Add(this.textBox21);
             this.groupBox7.Controls.Add(this.CbDINodeId);
+            this.groupBox7.Controls.Add(this.textBox22);
             this.groupBox7.Controls.Add(this.LabBit15);
+            this.groupBox7.Controls.Add(this.textBox23);
             this.groupBox7.Controls.Add(this.LabBit14);
+            this.groupBox7.Controls.Add(this.textBox24);
             this.groupBox7.Controls.Add(this.LabBit13);
+            this.groupBox7.Controls.Add(this.textBox25);
             this.groupBox7.Controls.Add(this.LabBit12);
+            this.groupBox7.Controls.Add(this.textBox26);
+            this.groupBox7.Controls.Add(this.textBox27);
             this.groupBox7.Controls.Add(this.LabBit11);
             this.groupBox7.Controls.Add(this.LabBit10);
             this.groupBox7.Controls.Add(this.LabBit09);
@@ -199,7 +231,7 @@
             this.groupBox7.Controls.Add(this.LabBit00);
             this.groupBox7.Location = new System.Drawing.Point(492, 6);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(251, 420);
+            this.groupBox7.Size = new System.Drawing.Size(511, 378);
             this.groupBox7.TabIndex = 33;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "DI";
@@ -207,7 +239,7 @@
             // CbDISlotId
             // 
             this.CbDISlotId.FormattingEnabled = true;
-            this.CbDISlotId.Location = new System.Drawing.Point(26, 376);
+            this.CbDISlotId.Location = new System.Drawing.Point(307, 338);
             this.CbDISlotId.Name = "CbDISlotId";
             this.CbDISlotId.Size = new System.Drawing.Size(170, 20);
             this.CbDISlotId.TabIndex = 17;
@@ -215,7 +247,7 @@
             // CbDINodeId
             // 
             this.CbDINodeId.FormattingEnabled = true;
-            this.CbDINodeId.Location = new System.Drawing.Point(26, 338);
+            this.CbDINodeId.Location = new System.Drawing.Point(63, 338);
             this.CbDINodeId.Name = "CbDINodeId";
             this.CbDINodeId.Size = new System.Drawing.Size(170, 20);
             this.CbDINodeId.TabIndex = 16;
@@ -225,7 +257,7 @@
             this.LabBit15.BackColor = System.Drawing.Color.Gray;
             this.LabBit15.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit15.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit15.Location = new System.Drawing.Point(149, 289);
+            this.LabBit15.Location = new System.Drawing.Point(264, 289);
             this.LabBit15.Name = "LabBit15";
             this.LabBit15.Size = new System.Drawing.Size(47, 33);
             this.LabBit15.TabIndex = 15;
@@ -237,7 +269,7 @@
             this.LabBit14.BackColor = System.Drawing.Color.Gray;
             this.LabBit14.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit14.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit14.Location = new System.Drawing.Point(149, 251);
+            this.LabBit14.Location = new System.Drawing.Point(264, 251);
             this.LabBit14.Name = "LabBit14";
             this.LabBit14.Size = new System.Drawing.Size(47, 33);
             this.LabBit14.TabIndex = 14;
@@ -249,7 +281,7 @@
             this.LabBit13.BackColor = System.Drawing.Color.Gray;
             this.LabBit13.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit13.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit13.Location = new System.Drawing.Point(149, 213);
+            this.LabBit13.Location = new System.Drawing.Point(264, 213);
             this.LabBit13.Name = "LabBit13";
             this.LabBit13.Size = new System.Drawing.Size(47, 33);
             this.LabBit13.TabIndex = 13;
@@ -261,7 +293,7 @@
             this.LabBit12.BackColor = System.Drawing.Color.Gray;
             this.LabBit12.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit12.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit12.Location = new System.Drawing.Point(149, 175);
+            this.LabBit12.Location = new System.Drawing.Point(264, 175);
             this.LabBit12.Name = "LabBit12";
             this.LabBit12.Size = new System.Drawing.Size(47, 33);
             this.LabBit12.TabIndex = 12;
@@ -273,7 +305,7 @@
             this.LabBit11.BackColor = System.Drawing.Color.Gray;
             this.LabBit11.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit11.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit11.Location = new System.Drawing.Point(149, 137);
+            this.LabBit11.Location = new System.Drawing.Point(264, 137);
             this.LabBit11.Name = "LabBit11";
             this.LabBit11.Size = new System.Drawing.Size(47, 33);
             this.LabBit11.TabIndex = 11;
@@ -285,7 +317,7 @@
             this.LabBit10.BackColor = System.Drawing.Color.Gray;
             this.LabBit10.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit10.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit10.Location = new System.Drawing.Point(149, 99);
+            this.LabBit10.Location = new System.Drawing.Point(264, 99);
             this.LabBit10.Name = "LabBit10";
             this.LabBit10.Size = new System.Drawing.Size(47, 33);
             this.LabBit10.TabIndex = 10;
@@ -297,7 +329,7 @@
             this.LabBit09.BackColor = System.Drawing.Color.Gray;
             this.LabBit09.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit09.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit09.Location = new System.Drawing.Point(149, 61);
+            this.LabBit09.Location = new System.Drawing.Point(264, 61);
             this.LabBit09.Name = "LabBit09";
             this.LabBit09.Size = new System.Drawing.Size(47, 33);
             this.LabBit09.TabIndex = 9;
@@ -309,7 +341,7 @@
             this.LabBit08.BackColor = System.Drawing.Color.Gray;
             this.LabBit08.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit08.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit08.Location = new System.Drawing.Point(149, 23);
+            this.LabBit08.Location = new System.Drawing.Point(264, 23);
             this.LabBit08.Name = "LabBit08";
             this.LabBit08.Size = new System.Drawing.Size(47, 33);
             this.LabBit08.TabIndex = 8;
@@ -414,17 +446,26 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.textBox12);
+            this.groupBox6.Controls.Add(this.textBox13);
+            this.groupBox6.Controls.Add(this.textBox14);
+            this.groupBox6.Controls.Add(this.textBox15);
+            this.groupBox6.Controls.Add(this.textBox16);
+            this.groupBox6.Controls.Add(this.textBox17);
+            this.groupBox6.Controls.Add(this.textBox18);
+            this.groupBox6.Controls.Add(this.textBox19);
+            this.groupBox6.Controls.Add(this.textBox11);
+            this.groupBox6.Controls.Add(this.textBox10);
+            this.groupBox6.Controls.Add(this.textBox9);
+            this.groupBox6.Controls.Add(this.textBox8);
+            this.groupBox6.Controls.Add(this.textBox7);
+            this.groupBox6.Controls.Add(this.textBox4);
+            this.groupBox6.Controls.Add(this.textBox3);
+            this.groupBox6.Controls.Add(this.textBox2);
             this.groupBox6.Controls.Add(this.CbDoSlotId);
             this.groupBox6.Controls.Add(this.CbDoNodeId);
-            this.groupBox6.Controls.Add(this.label16);
             this.groupBox6.Controls.Add(this.ChkBit08);
-            this.groupBox6.Controls.Add(this.label15);
             this.groupBox6.Controls.Add(this.ChkBit00);
-            this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Controls.Add(this.label12);
-            this.groupBox6.Controls.Add(this.label11);
-            this.groupBox6.Controls.Add(this.label10);
             this.groupBox6.Controls.Add(this.ChkBit15);
             this.groupBox6.Controls.Add(this.ChkBit14);
             this.groupBox6.Controls.Add(this.ChkBit13);
@@ -432,16 +473,7 @@
             this.groupBox6.Controls.Add(this.ChkBit11);
             this.groupBox6.Controls.Add(this.ChkBit10);
             this.groupBox6.Controls.Add(this.ChkBit09);
-            this.groupBox6.Controls.Add(this.label9);
-            this.groupBox6.Controls.Add(this.label8);
             this.groupBox6.Controls.Add(this.ChkBit03);
-            this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Controls.Add(this.label4);
-            this.groupBox6.Controls.Add(this.label3);
-            this.groupBox6.Controls.Add(this.label2);
-            this.groupBox6.Controls.Add(this.label1);
             this.groupBox6.Controls.Add(this.ChkBit07);
             this.groupBox6.Controls.Add(this.ChkBit06);
             this.groupBox6.Controls.Add(this.ChkBit05);
@@ -450,7 +482,7 @@
             this.groupBox6.Controls.Add(this.ChkBit01);
             this.groupBox6.Location = new System.Drawing.Point(6, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(468, 378);
+            this.groupBox6.Size = new System.Drawing.Size(480, 378);
             this.groupBox6.TabIndex = 32;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "DO";
@@ -473,15 +505,6 @@
             this.CbDoNodeId.TabIndex = 32;
             this.CbDoNodeId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(304, 295);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(122, 12);
-            this.label16.TabIndex = 31;
-            this.label16.Text = "入板區 馬達控制 開/關";
-            // 
             // ChkBit08
             // 
             this.ChkBit08.Appearance = System.Windows.Forms.Appearance.Button;
@@ -496,15 +519,6 @@
             this.ChkBit08.UseVisualStyleBackColor = false;
             this.ChkBit08.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(301, 260);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(122, 12);
-            this.label15.TabIndex = 30;
-            this.label15.Text = "入板區 止檔氣缸 上/下";
-            // 
             // ChkBit00
             // 
             this.ChkBit00.Appearance = System.Windows.Forms.Appearance.Button;
@@ -518,51 +532,6 @@
             this.ChkBit00.Text = "00";
             this.ChkBit00.UseVisualStyleBackColor = false;
             this.ChkBit00.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(301, 222);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(122, 12);
-            this.label14.TabIndex = 29;
-            this.label14.Text = "功能區 壓板氣缸 上/下";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(301, 185);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(122, 12);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "功能區 點膠氣缸 上/下";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(301, 148);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(128, 12);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "功能區 裁刀氣缸 上/下  ";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(301, 111);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(126, 12);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "功能區 UV燈氣缸 上/下";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(301, 74);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(131, 12);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "出線區 線材定位氣缸 夾";
             // 
             // ChkBit15
             // 
@@ -662,24 +631,6 @@
             this.ChkBit09.UseVisualStyleBackColor = false;
             this.ChkBit09.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(301, 37);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(131, 12);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "出線區 線材定位氣缸 開";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(62, 297);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(131, 12);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "出線區 出線夾持氣缸 夾";
-            // 
             // ChkBit03
             // 
             this.ChkBit03.Appearance = System.Windows.Forms.Appearance.Button;
@@ -693,69 +644,6 @@
             this.ChkBit03.Text = "03";
             this.ChkBit03.UseVisualStyleBackColor = false;
             this.ChkBit03.CheckedChanged += new System.EventHandler(this.ChkBit_CheckedChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(62, 260);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(131, 12);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "出線區 出線夾持氣缸 開";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(62, 222);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 12);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "警示燈號 蜂鳴 開/關";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(62, 185);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 12);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "警示燈號 綠燈 開/關";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(62, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 12);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "警示燈號 黃燈 開/關";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(62, 111);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 12);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "警示燈號 紅燈 開/關";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 12);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "控制面板 停止狀態 開/關";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 12);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "控制面板 開始狀態燈 開/關";
             // 
             // ChkBit07
             // 
@@ -1212,6 +1100,238 @@
             // 
             this.TimCheckStatus.Tick += new System.EventHandler(this.TimCheckStatus_Tick);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(62, 29);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(160, 22);
+            this.textBox2.TabIndex = 34;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(62, 66);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(160, 22);
+            this.textBox3.TabIndex = 35;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(62, 103);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(160, 22);
+            this.textBox4.TabIndex = 36;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(62, 140);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(160, 22);
+            this.textBox7.TabIndex = 37;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(62, 177);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(160, 22);
+            this.textBox8.TabIndex = 38;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(62, 214);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(160, 22);
+            this.textBox9.TabIndex = 39;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(62, 251);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(160, 22);
+            this.textBox10.TabIndex = 40;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(62, 288);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(160, 22);
+            this.textBox11.TabIndex = 41;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(301, 288);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(160, 22);
+            this.textBox12.TabIndex = 49;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(301, 251);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(160, 22);
+            this.textBox13.TabIndex = 48;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(301, 214);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(160, 22);
+            this.textBox14.TabIndex = 47;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(301, 177);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(160, 22);
+            this.textBox15.TabIndex = 46;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(301, 140);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(160, 22);
+            this.textBox16.TabIndex = 45;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(301, 103);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(160, 22);
+            this.textBox17.TabIndex = 44;
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(301, 66);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(160, 22);
+            this.textBox18.TabIndex = 43;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(301, 29);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(160, 22);
+            this.textBox19.TabIndex = 42;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(87, 295);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(160, 22);
+            this.textBox20.TabIndex = 57;
+            this.textBox20.TextChanged += new System.EventHandler(this.textBox20_TextChanged);
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(87, 257);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(160, 22);
+            this.textBox21.TabIndex = 56;
+            this.textBox21.TextChanged += new System.EventHandler(this.textBox21_TextChanged);
+            // 
+            // textBox22
+            // 
+            this.textBox22.Location = new System.Drawing.Point(87, 219);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(160, 22);
+            this.textBox22.TabIndex = 55;
+            this.textBox22.TextChanged += new System.EventHandler(this.textBox22_TextChanged);
+            // 
+            // textBox23
+            // 
+            this.textBox23.Location = new System.Drawing.Point(87, 181);
+            this.textBox23.Name = "textBox23";
+            this.textBox23.Size = new System.Drawing.Size(160, 22);
+            this.textBox23.TabIndex = 54;
+            this.textBox23.TextChanged += new System.EventHandler(this.textBox23_TextChanged);
+            // 
+            // textBox24
+            // 
+            this.textBox24.Location = new System.Drawing.Point(87, 143);
+            this.textBox24.Name = "textBox24";
+            this.textBox24.Size = new System.Drawing.Size(160, 22);
+            this.textBox24.TabIndex = 53;
+            this.textBox24.TextChanged += new System.EventHandler(this.textBox24_TextChanged);
+            // 
+            // textBox25
+            // 
+            this.textBox25.Location = new System.Drawing.Point(87, 105);
+            this.textBox25.Name = "textBox25";
+            this.textBox25.Size = new System.Drawing.Size(160, 22);
+            this.textBox25.TabIndex = 52;
+            this.textBox25.TextChanged += new System.EventHandler(this.textBox25_TextChanged);
+            // 
+            // textBox26
+            // 
+            this.textBox26.Location = new System.Drawing.Point(87, 67);
+            this.textBox26.Name = "textBox26";
+            this.textBox26.Size = new System.Drawing.Size(160, 22);
+            this.textBox26.TabIndex = 51;
+            this.textBox26.TextChanged += new System.EventHandler(this.textBox26_TextChanged);
+            // 
+            // textBox27
+            // 
+            this.textBox27.Location = new System.Drawing.Point(87, 29);
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(160, 22);
+            this.textBox27.TabIndex = 50;
+            this.textBox27.TextChanged += new System.EventHandler(this.textBox27_TextChanged);
+            // 
+            // textBox28
+            // 
+            this.textBox28.Location = new System.Drawing.Point(317, 295);
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(160, 22);
+            this.textBox28.TabIndex = 65;
+            // 
+            // textBox29
+            // 
+            this.textBox29.Location = new System.Drawing.Point(317, 257);
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(160, 22);
+            this.textBox29.TabIndex = 64;
+            // 
+            // textBox30
+            // 
+            this.textBox30.Location = new System.Drawing.Point(317, 219);
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(160, 22);
+            this.textBox30.TabIndex = 63;
+            // 
+            // textBox31
+            // 
+            this.textBox31.Location = new System.Drawing.Point(317, 181);
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(160, 22);
+            this.textBox31.TabIndex = 62;
+            // 
+            // textBox32
+            // 
+            this.textBox32.Location = new System.Drawing.Point(317, 143);
+            this.textBox32.Name = "textBox32";
+            this.textBox32.Size = new System.Drawing.Size(160, 22);
+            this.textBox32.TabIndex = 61;
+            // 
+            // textBox33
+            // 
+            this.textBox33.Location = new System.Drawing.Point(317, 105);
+            this.textBox33.Name = "textBox33";
+            this.textBox33.Size = new System.Drawing.Size(160, 22);
+            this.textBox33.TabIndex = 60;
+            // 
+            // textBox34
+            // 
+            this.textBox34.Location = new System.Drawing.Point(317, 67);
+            this.textBox34.Name = "textBox34";
+            this.textBox34.Size = new System.Drawing.Size(160, 22);
+            this.textBox34.TabIndex = 59;
+            // 
+            // textBox35
+            // 
+            this.textBox35.Location = new System.Drawing.Point(317, 29);
+            this.textBox35.Name = "textBox35";
+            this.textBox35.Size = new System.Drawing.Size(160, 22);
+            this.textBox35.TabIndex = 58;
+            // 
             // UcControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1223,6 +1343,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1249,18 +1370,11 @@
         private System.Windows.Forms.CheckBox ChkBit02;
         private System.Windows.Forms.CheckBox ChkBit01;
         private System.Windows.Forms.CheckBox ChkBit00;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox ChkBit08;
         private System.Windows.Forms.CheckBox ChkBit07;
         private System.Windows.Forms.CheckBox ChkBit06;
         private System.Windows.Forms.CheckBox ChkBit05;
         private System.Windows.Forms.CheckBox ChkBit03;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox ChkBit15;
         private System.Windows.Forms.CheckBox ChkBit14;
         private System.Windows.Forms.CheckBox ChkBit13;
@@ -1268,15 +1382,6 @@
         private System.Windows.Forms.CheckBox ChkBit11;
         private System.Windows.Forms.CheckBox ChkBit10;
         private System.Windows.Forms.CheckBox ChkBit09;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -1336,5 +1441,37 @@
         private System.Windows.Forms.Timer TimCheckStatus;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.TextBox textBox26;
+        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox28;
+        private System.Windows.Forms.TextBox textBox29;
+        private System.Windows.Forms.TextBox textBox30;
+        private System.Windows.Forms.TextBox textBox31;
+        private System.Windows.Forms.TextBox textBox32;
+        private System.Windows.Forms.TextBox textBox33;
+        private System.Windows.Forms.TextBox textBox34;
+        private System.Windows.Forms.TextBox textBox35;
     }
 }

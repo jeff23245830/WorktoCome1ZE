@@ -110,6 +110,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UcControl.resx">
       <DependentUpon>UcControl.cs</DependentUpon>
@@ -147,6 +148,9 @@
       <Project>{7e689c66-b1b0-4ad0-9788-d5ac454b94df}</Project>
       <Name>EtherCATFunction</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\去背2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

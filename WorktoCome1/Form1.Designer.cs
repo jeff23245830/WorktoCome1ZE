@@ -55,7 +55,6 @@
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -75,15 +74,16 @@
             this.button8 = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CmbSlotID.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // CmbSlotID
@@ -173,6 +173,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.btnStop);
             this.panel2.Controls.Add(this.btnStart);
             this.panel2.Controls.Add(this.btnInitial);
@@ -190,7 +191,6 @@
             this.panel2.Controls.Add(this.textBox14);
             this.panel2.Controls.Add(this.textBox13);
             this.panel2.Controls.Add(this.textBox12);
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Location = new System.Drawing.Point(1255, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 675);
@@ -244,7 +244,7 @@
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(3, 454);
+            this.button15.Location = new System.Drawing.Point(10, 454);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(67, 32);
             this.button15.TabIndex = 12;
@@ -262,7 +262,7 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(3, 389);
+            this.button13.Location = new System.Drawing.Point(10, 389);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(67, 59);
             this.button13.TabIndex = 10;
@@ -280,7 +280,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(3, 343);
+            this.button11.Location = new System.Drawing.Point(10, 343);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(67, 40);
             this.button11.TabIndex = 8;
@@ -298,7 +298,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(3, 278);
+            this.button9.Location = new System.Drawing.Point(10, 278);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(67, 59);
             this.button9.TabIndex = 6;
@@ -307,46 +307,38 @@
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(3, 250);
+            this.textBox16.Location = new System.Drawing.Point(10, 250);
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(162, 22);
+            this.textBox16.Size = new System.Drawing.Size(152, 22);
             this.textBox16.TabIndex = 5;
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(3, 222);
+            this.textBox15.Location = new System.Drawing.Point(10, 222);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(162, 22);
+            this.textBox15.Size = new System.Drawing.Size(152, 22);
             this.textBox15.TabIndex = 4;
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(3, 194);
+            this.textBox14.Location = new System.Drawing.Point(10, 194);
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(162, 22);
+            this.textBox14.Size = new System.Drawing.Size(152, 22);
             this.textBox14.TabIndex = 3;
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(3, 166);
+            this.textBox13.Location = new System.Drawing.Point(10, 166);
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(162, 22);
+            this.textBox13.Size = new System.Drawing.Size(152, 22);
             this.textBox13.TabIndex = 2;
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(3, 138);
+            this.textBox12.Location = new System.Drawing.Point(10, 138);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(162, 22);
+            this.textBox12.Size = new System.Drawing.Size(152, 22);
             this.textBox12.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(1, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(168, 129);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // panel3
             // 
@@ -499,14 +491,23 @@
             // 
             this.pnlContent.Location = new System.Drawing.Point(166, 137);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1083, 628);
+            this.pnlContent.Size = new System.Drawing.Size(1083, 539);
             this.pnlContent.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WorktoCome1.Properties.Resources.去背2;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 125);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1432, 777);
+            this.ClientSize = new System.Drawing.Size(1432, 679);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -518,7 +519,6 @@
             this.CmbSlotID.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -530,6 +530,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -546,7 +547,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnInitial;
@@ -581,6 +581,7 @@
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

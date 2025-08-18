@@ -33,16 +33,15 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,8 +49,9 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -65,10 +65,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(0, 3);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1083, 582);
+            this.tabControl1.Size = new System.Drawing.Size(1083, 539);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -77,7 +77,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1075, 556);
+            this.tabPage1.Size = new System.Drawing.Size(1075, 513);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "定點設定";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -90,7 +90,7 @@
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1079, 560);
+            this.tabControl2.Size = new System.Drawing.Size(1079, 513);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage4
@@ -98,7 +98,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1071, 491);
+            this.tabPage4.Size = new System.Drawing.Size(1071, 487);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "黃金樣品";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -111,40 +111,27 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1071, 534);
+            this.tabPage5.Size = new System.Drawing.Size(1071, 487);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "點位架設";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
+            // label1
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1071, 491);
-            this.tabPage6.TabIndex = 2;
-            this.tabPage6.Text = "校正";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(74, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "區域別";
             // 
-            // tabPage2
+            // comboBox1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1075, 513);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "參數設定";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1075, 600);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "速度設定";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(121, 6);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(295, 20);
+            this.comboBox1.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -154,12 +141,59 @@
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(6, 32);
+            this.groupBox1.Location = new System.Drawing.Point(3, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(629, 496);
+            this.groupBox1.Size = new System.Drawing.Size(629, 455);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "供料區";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(6, 389);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(36, 27);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "▼";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("新細明體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button4.Location = new System.Drawing.Point(6, 422);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(36, 27);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "↓↓";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 54);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(36, 27);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "▲";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("新細明體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button2.Location = new System.Drawing.Point(6, 21);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(36, 27);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "↑↑";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(581, 413);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(42, 36);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "存檔";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -175,56 +209,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(48, 21);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(527, 439);
+            this.dataGridView1.Size = new System.Drawing.Size(527, 428);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(581, 424);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(42, 36);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "存檔";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("新細明體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(6, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(36, 27);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "↑↑";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(6, 54);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(36, 27);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "▲";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("新細明體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(6, 433);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(36, 27);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "↓↓";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(6, 400);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(36, 27);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "▼";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // Column1
             // 
@@ -274,22 +261,35 @@
             this.Column7.Name = "Column7";
             this.Column7.Width = 50;
             // 
-            // comboBox1
+            // tabPage6
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(121, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(295, 20);
-            this.comboBox1.TabIndex = 1;
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1071, 534);
+            this.tabPage6.TabIndex = 2;
+            this.tabPage6.Text = "校正";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // tabPage2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "區域別";
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1075, 556);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "參數設定";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1075, 556);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "速度設定";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // UcSetting
             // 
@@ -297,7 +297,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Name = "UcSetting";
-            this.Size = new System.Drawing.Size(1083, 584);
+            this.Size = new System.Drawing.Size(1083, 538);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);

@@ -122,7 +122,7 @@ namespace WorktoCome1
         private void btnExit_Click(object sender, EventArgs e)
         {
 
-            this.Close(); 
+            //this.Close(); 
         }
 
         private void btnInitial_Click(object sender, EventArgs e)

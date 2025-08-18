@@ -276,5 +276,45 @@ namespace WorktoCome1
                  
             }
         }
+
+        private void textBox20_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox21_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox22_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox23_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox24_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox25_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox26_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox27_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
