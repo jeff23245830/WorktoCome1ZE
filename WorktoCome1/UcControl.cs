@@ -1,4 +1,6 @@
-﻿using EtherCAT_DLL;
+﻿//using EtherCAT_DLL;
+//using EtherCAT_DLL_Err;
+using EtherCAT_DLL;
 using EtherCAT_DLL_Err;
 using EtherCATFunction;
 using System;
@@ -247,6 +249,7 @@ namespace WorktoCome1
         private void TimCheckStatus_Tick(object sender, EventArgs e)
         {
             ushort  uValue = 0, uRet = 0;
+            bool bRet ;
             ushort g_uESCNodeID , g_uESCSlotID , g_uESCCardNo = 0;
             int nBit = 0;
             if (nESCExistCards > 0)
@@ -260,9 +263,9 @@ namespace WorktoCome1
                     g_uESCNodeID = (ushort)CbDINodeId.SelectedItem;
                     g_uESCSlotID = (ushort)CbDISlotId.SelectedItem;
 
-                    uRet = CEtherCAT_DLL.CS_ECAT_Slave_DIO_Get_Input_Value(g_uESCCardNo, g_uESCNodeID, g_uESCSlotID, ref uValue);
+                    bRet = iOControl.DIcontrolInOrOff( (ushort)CbDINodeId.SelectedItem ,(ushort)CbDISlotId.SelectedItem ,ref uValue);
 
-                    if (uRet == CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
+                    if (bRet)
                     {
                         for (nBit = 0; nBit < 16; nBit++)
                         {
@@ -272,6 +275,22 @@ namespace WorktoCome1
                                 g_pInputLab[nBit].BackColor = Color.Red;
                         }
                     }
+
+                    //uRet = CEtherCAT_DLL.CS_ECAT_Slave_DIO_Get_Input_Value(g_uESCCardNo, g_uESCNodeID, g_uESCSlotID, ref uValue);
+
+                    //if (uRet == CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
+                    //{
+                    //    for (nBit = 0; nBit < 16; nBit++)
+                    //    {
+                    //        if ((uValue & (0x1 << nBit)) == (0x1 << nBit))
+                    //            g_pInputLab[nBit].BackColor = Color.Green;
+                    //        else
+                    //            g_pInputLab[nBit].BackColor = Color.Red;
+                    //    }
+                    //}
+
+
+
                 }
                  
             }
