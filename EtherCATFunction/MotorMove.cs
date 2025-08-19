@@ -65,5 +65,24 @@ namespace EtherCATFunction
             }
         }
 
+
+        public void MoveHome(ushort ESCNodeID, ushort ESCSlotID, ushort uMode, int nOffset,uint nFV, uint nSV, uint uAcceleration)
+        { 
+            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_Home_Config(g_uESCCardNo, ESCNodeID , ESCSlotID, uMode, nOffset, nFV, nSV, uAcceleration);
+            if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
+            {
+                //AddErrMsg("_ECAT_Slave_Home_Config, ErrorCode = " + g_uRet.ToString(), true);
+            }
+            else
+            {
+                g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_Home_Move(g_uESCCardNo, ESCNodeID, ESCSlotID);
+                if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
+                {
+                    //AddErrMsg("_ECAT_Slave_Home_Move, ErrorCode = " + g_uRet.ToString(), true);
+                }
+            }
+        }
+
+
     }
 }

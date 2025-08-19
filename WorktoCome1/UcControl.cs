@@ -206,15 +206,9 @@ namespace WorktoCome1
             }
 
             uOutputStatus = (ushort)nStat;//
-
-
-            //進行輸出狀態設定 到dll檔裡面
-            //iOControl.g_uESCNodeID = (ushort)CbNodeId.SelectedItem;
-            ushort ESCNodeID = (ushort)CbDoNodeId.SelectedItem;
-            ushort ESCSlotID = (ushort)CbDoSlotId.SelectedItem;
-
+             
             //之後要加入Set_nESCExistCards
-            iOControl.DOcontorlOutOrOff(uOutputStatus, ESCNodeID , ESCSlotID);
+            iOControl.DOcontorlOutOrOff(uOutputStatus, (ushort)CbDoNodeId.SelectedItem, (ushort)CbDoSlotId.SelectedItem);
 
 
             
@@ -254,11 +248,7 @@ namespace WorktoCome1
 
                 //亮亮
                 if ( true)
-                {
-
-                    //g_uESCCardNo = Set_nESCExistCards;
-                    g_uESCNodeID = (ushort)CbDINodeId.SelectedItem;
-                    g_uESCSlotID = (ushort)CbDISlotId.SelectedItem;
+                { 
 
                     bRet = iOControl.DIcontrolInOrOff( (ushort)CbDINodeId.SelectedItem ,(ushort)CbDISlotId.SelectedItem ,ref uValue);
 
@@ -323,6 +313,15 @@ namespace WorktoCome1
         {
             ushort uValue = 0;
             iOControl.DOcontrolRead((ushort)CbDoNodeId.SelectedItem, (ushort)CbDoSlotId.SelectedItem, ref uValue);
+        }
+
+        private void BtHome_Click(object sender, EventArgs e)
+        {
+            uint Acceleration = Convert.ToUInt32(TxtAcceleration.Text);
+            uint FV = Convert.ToUInt32(txtFv.Text);
+            uint SV = Convert.ToUInt32(txtSV.Text);
+
+            ppmove.MoveHome((ushort)CbDoNodeId.SelectedItem, (ushort)CbDoSlotId.SelectedItem, (ushort)NudHomeMod.Value, int.Parse(TxtOffset.Text), FV, SV, Acceleration);
         }
     }
 }

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.bt_cheak = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -110,7 +111,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.RbSrveroOff = new System.Windows.Forms.RadioButton();
             this.RbSrveroOn = new System.Windows.Forms.RadioButton();
-            this.button6 = new System.Windows.Forms.Button();
+            this.BtHome = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
@@ -125,6 +126,7 @@
             this.TxtConstVel = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -138,8 +140,14 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.bt_cheak = new System.Windows.Forms.Button();
+            this.NudHomeMod = new System.Windows.Forms.NumericUpDown();
+            this.TxtOffset = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtFv = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSV = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -148,10 +156,11 @@
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NudHomeMod)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -178,6 +187,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "IO控制";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // bt_cheak
+            // 
+            this.bt_cheak.Location = new System.Drawing.Point(417, 419);
+            this.bt_cheak.Name = "bt_cheak";
+            this.bt_cheak.Size = new System.Drawing.Size(137, 36);
+            this.bt_cheak.TabIndex = 36;
+            this.bt_cheak.Text = "checkOUT";
+            this.bt_cheak.UseVisualStyleBackColor = true;
+            this.bt_cheak.Click += new System.EventHandler(this.bt_cheak_Click);
             // 
             // label22
             // 
@@ -977,6 +996,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtSV);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtFv);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.TxtOffset);
+            this.groupBox1.Controls.Add(this.NudHomeMod);
             this.groupBox1.Controls.Add(this.CbSlotId);
             this.groupBox1.Controls.Add(this.CbNodeId);
             this.groupBox1.Controls.Add(this.groupBox5);
@@ -1012,7 +1039,7 @@
             // 
             this.groupBox5.Controls.Add(this.RbSrveroOff);
             this.groupBox5.Controls.Add(this.RbSrveroOn);
-            this.groupBox5.Controls.Add(this.button6);
+            this.groupBox5.Controls.Add(this.BtHome);
             this.groupBox5.Controls.Add(this.textBox6);
             this.groupBox5.Controls.Add(this.label21);
             this.groupBox5.Controls.Add(this.button5);
@@ -1060,15 +1087,16 @@
             this.RbSrveroOn.UseVisualStyleBackColor = true;
             this.RbSrveroOn.CheckedChanged += new System.EventHandler(this.RbSrveroOn_CheckedChanged);
             // 
-            // button6
+            // BtHome
             // 
-            this.button6.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button6.Location = new System.Drawing.Point(470, 65);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(98, 38);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "Home";
-            this.button6.UseVisualStyleBackColor = true;
+            this.BtHome.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.BtHome.Location = new System.Drawing.Point(470, 65);
+            this.BtHome.Name = "BtHome";
+            this.BtHome.Size = new System.Drawing.Size(98, 38);
+            this.BtHome.TabIndex = 15;
+            this.BtHome.Text = "Home";
+            this.BtHome.UseVisualStyleBackColor = true;
+            this.BtHome.Click += new System.EventHandler(this.BtHome_Click);
             // 
             // textBox6
             // 
@@ -1199,6 +1227,13 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "距離設定(mm)";
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(165, 20);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 5;
+            // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
@@ -1327,22 +1362,69 @@
             // 
             this.TimCheckStatus.Tick += new System.EventHandler(this.TimCheckStatus_Tick);
             // 
-            // numericUpDown1
+            // NudHomeMod
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(165, 20);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 5;
+            this.NudHomeMod.Location = new System.Drawing.Point(662, 244);
+            this.NudHomeMod.Name = "NudHomeMod";
+            this.NudHomeMod.Size = new System.Drawing.Size(155, 22);
+            this.NudHomeMod.TabIndex = 8;
             // 
-            // bt_cheak
+            // TxtOffset
             // 
-            this.bt_cheak.Location = new System.Drawing.Point(417, 419);
-            this.bt_cheak.Name = "bt_cheak";
-            this.bt_cheak.Size = new System.Drawing.Size(137, 36);
-            this.bt_cheak.TabIndex = 36;
-            this.bt_cheak.Text = "checkOUT";
-            this.bt_cheak.UseVisualStyleBackColor = true;
-            this.bt_cheak.Click += new System.EventHandler(this.bt_cheak_Click);
+            this.TxtOffset.Location = new System.Drawing.Point(662, 281);
+            this.TxtOffset.Name = "TxtOffset";
+            this.TxtOffset.Size = new System.Drawing.Size(100, 22);
+            this.TxtOffset.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(623, 284);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "offset";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(623, 312);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 12);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "FV";
+            // 
+            // txtFv
+            // 
+            this.txtFv.Location = new System.Drawing.Point(662, 309);
+            this.txtFv.Name = "txtFv";
+            this.txtFv.Size = new System.Drawing.Size(100, 22);
+            this.txtFv.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(623, 340);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 12);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "SV";
+            // 
+            // txtSV
+            // 
+            this.txtSV.Location = new System.Drawing.Point(662, 337);
+            this.txtSV.Name = "txtSV";
+            this.txtSV.Size = new System.Drawing.Size(100, 22);
+            this.txtSV.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(618, 246);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 12);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "MODE";
             // 
             // UcControl
             // 
@@ -1365,11 +1447,12 @@
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NudHomeMod)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1408,7 +1491,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button BtHome;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button5;
@@ -1487,5 +1570,13 @@
         private System.Windows.Forms.TextBox textBox35;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button bt_cheak;
+        private System.Windows.Forms.NumericUpDown NudHomeMod;
+        private System.Windows.Forms.TextBox TxtOffset;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtSV;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFv;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
     }
 }
