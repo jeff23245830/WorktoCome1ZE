@@ -139,6 +139,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.bt_cheak = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -165,6 +166,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.bt_cheak);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.comboBox2);
             this.tabPage1.Controls.Add(this.groupBox7);
@@ -1332,6 +1334,16 @@
             this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown1.TabIndex = 5;
             // 
+            // bt_cheak
+            // 
+            this.bt_cheak.Location = new System.Drawing.Point(417, 419);
+            this.bt_cheak.Name = "bt_cheak";
+            this.bt_cheak.Size = new System.Drawing.Size(137, 36);
+            this.bt_cheak.TabIndex = 36;
+            this.bt_cheak.Text = "checkOUT";
+            this.bt_cheak.UseVisualStyleBackColor = true;
+            this.bt_cheak.Click += new System.EventHandler(this.bt_cheak_Click);
+            // 
             // UcControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1474,5 +1486,6 @@
         private System.Windows.Forms.TextBox textBox34;
         private System.Windows.Forms.TextBox textBox35;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button bt_cheak;
     }
 }

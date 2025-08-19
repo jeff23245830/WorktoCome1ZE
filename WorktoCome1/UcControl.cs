@@ -318,5 +318,11 @@ namespace WorktoCome1
         {
 
         }
+
+        private void bt_cheak_Click(object sender, EventArgs e)
+        {
+            ushort uValue = 0;
+            iOControl.DOcontrolRead((ushort)CbDoNodeId.SelectedItem, (ushort)CbDoSlotId.SelectedItem, ref uValue);
+        }
     }
 }
