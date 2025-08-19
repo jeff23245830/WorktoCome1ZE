@@ -1,7 +1,4 @@
-﻿//using EtherCAT_DLL;
-//using EtherCAT_DLL_Err;
-using EtherCAT_DLL;
-using EtherCAT_DLL_Err;
+﻿
 using EtherCATFunction;
 using System;
 using System.Collections.Generic;
@@ -25,8 +22,8 @@ namespace WorktoCome1
         // 將原本的
         // private EtherCATFunction.PPMove;
         // 修正為正確的欄位宣告，假設 EtherCATFunction.PPMove 是型別名稱
-        private EtherCATFunction.MotorMove ppmove;
-        private EtherCATFunction.IOControl iOControl;
+        private MotorMove ppmove;
+        private IOControl iOControl;
 
         public ushort nESCExistCards;
 
@@ -72,8 +69,8 @@ namespace WorktoCome1
 
         public UcControl()
         {
-            ppmove = new EtherCATFunction.MotorMove();
-            iOControl = new EtherCATFunction.IOControl();
+            ppmove = new MotorMove();
+            iOControl = new IOControl();
 
             iOControl.g_nESCExistCards = nESCExistCards;
 
@@ -275,20 +272,6 @@ namespace WorktoCome1
                                 g_pInputLab[nBit].BackColor = Color.Red;
                         }
                     }
-
-                    //uRet = CEtherCAT_DLL.CS_ECAT_Slave_DIO_Get_Input_Value(g_uESCCardNo, g_uESCNodeID, g_uESCSlotID, ref uValue);
-
-                    //if (uRet == CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
-                    //{
-                    //    for (nBit = 0; nBit < 16; nBit++)
-                    //    {
-                    //        if ((uValue & (0x1 << nBit)) == (0x1 << nBit))
-                    //            g_pInputLab[nBit].BackColor = Color.Green;
-                    //        else
-                    //            g_pInputLab[nBit].BackColor = Color.Red;
-                    //    }
-                    //}
-
 
 
                 }
