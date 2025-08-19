@@ -106,6 +106,14 @@
             this.ChkBit01 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSV = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtFv = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TxtOffset = new System.Windows.Forms.TextBox();
+            this.NudHomeMod = new System.Windows.Forms.NumericUpDown();
             this.CbSlotId = new System.Windows.Forms.ComboBox();
             this.CbNodeId = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -126,11 +134,11 @@
             this.TxtConstVel = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.NudTargetNumb = new System.Windows.Forms.NumericUpDown();
+            this.rb_TargetNumb = new System.Windows.Forms.RadioButton();
+            this.rb_Target1 = new System.Windows.Forms.RadioButton();
+            this.rb_Target0_1 = new System.Windows.Forms.RadioButton();
+            this.rb_Target0_01 = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -140,27 +148,19 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
-            this.NudHomeMod = new System.Windows.Forms.NumericUpDown();
-            this.TxtOffset = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFv = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtSV = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NudHomeMod)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NudTargetNumb)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NudHomeMod)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1019,6 +1019,70 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "馬達測試介面";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(618, 246);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 12);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "MODE";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(623, 340);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 12);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "SV";
+            // 
+            // txtSV
+            // 
+            this.txtSV.Location = new System.Drawing.Point(662, 337);
+            this.txtSV.Name = "txtSV";
+            this.txtSV.Size = new System.Drawing.Size(100, 22);
+            this.txtSV.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(623, 312);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 12);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "FV";
+            // 
+            // txtFv
+            // 
+            this.txtFv.Location = new System.Drawing.Point(662, 309);
+            this.txtFv.Name = "txtFv";
+            this.txtFv.Size = new System.Drawing.Size(100, 22);
+            this.txtFv.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(623, 284);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "offset";
+            // 
+            // TxtOffset
+            // 
+            this.TxtOffset.Location = new System.Drawing.Point(662, 281);
+            this.TxtOffset.Name = "TxtOffset";
+            this.TxtOffset.Size = new System.Drawing.Size(100, 22);
+            this.TxtOffset.TabIndex = 9;
+            // 
+            // NudHomeMod
+            // 
+            this.NudHomeMod.Location = new System.Drawing.Point(662, 244);
+            this.NudHomeMod.Name = "NudHomeMod";
+            this.NudHomeMod.Size = new System.Drawing.Size(155, 22);
+            this.NudHomeMod.TabIndex = 8;
+            // 
             // CbSlotId
             // 
             this.CbSlotId.FormattingEnabled = true;
@@ -1215,11 +1279,11 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.numericUpDown1);
-            this.groupBox4.Controls.Add(this.radioButton4);
-            this.groupBox4.Controls.Add(this.radioButton3);
-            this.groupBox4.Controls.Add(this.radioButton2);
-            this.groupBox4.Controls.Add(this.radioButton1);
+            this.groupBox4.Controls.Add(this.NudTargetNumb);
+            this.groupBox4.Controls.Add(this.rb_TargetNumb);
+            this.groupBox4.Controls.Add(this.rb_Target1);
+            this.groupBox4.Controls.Add(this.rb_Target0_1);
+            this.groupBox4.Controls.Add(this.rb_Target0_01);
             this.groupBox4.Location = new System.Drawing.Point(489, 20);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(328, 54);
@@ -1227,59 +1291,64 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "距離設定(mm)";
             // 
-            // numericUpDown1
+            // NudTargetNumb
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(165, 20);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 5;
+            this.NudTargetNumb.Location = new System.Drawing.Point(165, 20);
+            this.NudTargetNumb.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.NudTargetNumb.Name = "NudTargetNumb";
+            this.NudTargetNumb.Size = new System.Drawing.Size(120, 22);
+            this.NudTargetNumb.TabIndex = 5;
             // 
-            // radioButton4
+            // rb_TargetNumb
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(145, 25);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(14, 13);
-            this.radioButton4.TabIndex = 4;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rb_TargetNumb.AutoSize = true;
+            this.rb_TargetNumb.Location = new System.Drawing.Point(145, 25);
+            this.rb_TargetNumb.Name = "rb_TargetNumb";
+            this.rb_TargetNumb.Size = new System.Drawing.Size(14, 13);
+            this.rb_TargetNumb.TabIndex = 4;
+            this.rb_TargetNumb.TabStop = true;
+            this.rb_TargetNumb.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rb_Target1
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.BackColor = System.Drawing.Color.LightGray;
-            this.radioButton3.Location = new System.Drawing.Point(100, 23);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(29, 16);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "1";
-            this.radioButton3.UseVisualStyleBackColor = false;
+            this.rb_Target1.AutoSize = true;
+            this.rb_Target1.BackColor = System.Drawing.Color.LightGray;
+            this.rb_Target1.Location = new System.Drawing.Point(100, 23);
+            this.rb_Target1.Name = "rb_Target1";
+            this.rb_Target1.Size = new System.Drawing.Size(29, 16);
+            this.rb_Target1.TabIndex = 2;
+            this.rb_Target1.TabStop = true;
+            this.rb_Target1.Text = "1";
+            this.rb_Target1.UseVisualStyleBackColor = false;
             // 
-            // radioButton2
+            // rb_Target0_1
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.LightGray;
-            this.radioButton2.Location = new System.Drawing.Point(56, 23);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(38, 16);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "0.1";
-            this.radioButton2.UseVisualStyleBackColor = false;
+            this.rb_Target0_1.AutoSize = true;
+            this.rb_Target0_1.BackColor = System.Drawing.Color.LightGray;
+            this.rb_Target0_1.Location = new System.Drawing.Point(56, 23);
+            this.rb_Target0_1.Name = "rb_Target0_1";
+            this.rb_Target0_1.Size = new System.Drawing.Size(38, 16);
+            this.rb_Target0_1.TabIndex = 1;
+            this.rb_Target0_1.TabStop = true;
+            this.rb_Target0_1.Text = "0.1";
+            this.rb_Target0_1.UseVisualStyleBackColor = false;
             // 
-            // radioButton1
+            // rb_Target0_01
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Gainsboro;
-            this.radioButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radioButton1.Location = new System.Drawing.Point(6, 23);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(44, 16);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "0.01";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.rb_Target0_01.AutoSize = true;
+            this.rb_Target0_01.BackColor = System.Drawing.Color.Gainsboro;
+            this.rb_Target0_01.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rb_Target0_01.Location = new System.Drawing.Point(6, 23);
+            this.rb_Target0_01.Name = "rb_Target0_01";
+            this.rb_Target0_01.Size = new System.Drawing.Size(44, 16);
+            this.rb_Target0_01.TabIndex = 0;
+            this.rb_Target0_01.TabStop = true;
+            this.rb_Target0_01.Text = "0.01";
+            this.rb_Target0_01.UseVisualStyleBackColor = false;
             // 
             // groupBox3
             // 
@@ -1362,70 +1431,6 @@
             // 
             this.TimCheckStatus.Tick += new System.EventHandler(this.TimCheckStatus_Tick);
             // 
-            // NudHomeMod
-            // 
-            this.NudHomeMod.Location = new System.Drawing.Point(662, 244);
-            this.NudHomeMod.Name = "NudHomeMod";
-            this.NudHomeMod.Size = new System.Drawing.Size(155, 22);
-            this.NudHomeMod.TabIndex = 8;
-            // 
-            // TxtOffset
-            // 
-            this.TxtOffset.Location = new System.Drawing.Point(662, 281);
-            this.TxtOffset.Name = "TxtOffset";
-            this.TxtOffset.Size = new System.Drawing.Size(100, 22);
-            this.TxtOffset.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(623, 284);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 12);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "offset";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(623, 312);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 12);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "FV";
-            // 
-            // txtFv
-            // 
-            this.txtFv.Location = new System.Drawing.Point(662, 309);
-            this.txtFv.Name = "txtFv";
-            this.txtFv.Size = new System.Drawing.Size(100, 22);
-            this.txtFv.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(623, 340);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 12);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "SV";
-            // 
-            // txtSV
-            // 
-            this.txtSV.Location = new System.Drawing.Point(662, 337);
-            this.txtSV.Name = "txtSV";
-            this.txtSV.Size = new System.Drawing.Size(100, 22);
-            this.txtSV.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(618, 246);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 12);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "MODE";
-            // 
             // UcControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1443,16 +1448,16 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NudHomeMod)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NudTargetNumb)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NudHomeMod)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1484,10 +1489,10 @@
         private System.Windows.Forms.CheckBox checkBox17;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rb_TargetNumb;
+        private System.Windows.Forms.RadioButton rb_Target1;
+        private System.Windows.Forms.RadioButton rb_Target0_1;
+        private System.Windows.Forms.RadioButton rb_Target0_01;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1568,7 +1573,7 @@
         private System.Windows.Forms.TextBox textBox33;
         private System.Windows.Forms.TextBox textBox34;
         private System.Windows.Forms.TextBox textBox35;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown NudTargetNumb;
         private System.Windows.Forms.Button bt_cheak;
         private System.Windows.Forms.NumericUpDown NudHomeMod;
         private System.Windows.Forms.TextBox TxtOffset;

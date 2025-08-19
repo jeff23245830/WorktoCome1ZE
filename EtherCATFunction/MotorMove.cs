@@ -20,7 +20,7 @@ namespace EtherCATFunction
 
 
 
-        public void AxisMove(int nDir ,bool ChkAbsMove , int nTargetPos , uint uConstVel, uint uAcceleration, uint uDeceleration)
+        public void AxisMove(int nDir ,bool ChkAbsMove , int nTargetPos , uint uConstVel, uint uAcceleration, uint uDeceleration , ushort ESCNodeID, ushort ESCSlotID)
         { 
             ushort uAbsMove = 0; 
 
@@ -30,7 +30,7 @@ namespace EtherCATFunction
             if (nDir == 0)
                 nTargetPos = 0 - nTargetPos;
 
-            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_PP_Start_Move(g_uESCCardNo, g_uESCNodeID, g_uESCSlotID, nTargetPos, uConstVel, uAcceleration, uDeceleration, uAbsMove);
+            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_PP_Start_Move(g_uESCCardNo, ESCNodeID, ESCSlotID, nTargetPos, uConstVel, uAcceleration, uDeceleration, uAbsMove);
 
             if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
             {
@@ -66,9 +66,9 @@ namespace EtherCATFunction
         }
 
 
-        public void MoveHome(ushort ESCNodeID, ushort ESCSlotID, ushort uMode, int nOffset,uint nFV, uint nSV, uint uAcceleration)
+        public void MoveHome(ushort ESCNodeID, ushort ESCSlotID, ushort uMode, int nOffset,uint nFV, uint nSV, uint uDeceleration)
         { 
-            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_Home_Config(g_uESCCardNo, ESCNodeID , ESCSlotID, uMode, nOffset, nFV, nSV, uAcceleration);
+            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_Home_Config(g_uESCCardNo, ESCNodeID , ESCSlotID, uMode, nOffset, nFV, nSV, uDeceleration);
             if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
             {
                 //AddErrMsg("_ECAT_Slave_Home_Config, ErrorCode = " + g_uRet.ToString(), true);

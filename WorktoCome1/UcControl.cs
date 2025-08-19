@@ -175,8 +175,27 @@ namespace WorktoCome1
 
             uint ConstVel = Convert.ToUInt32(TxtConstVel.Text); ;
             uint Acceleration = Convert.ToUInt32(TxtAcceleration.Text); 
-            uint Deceleration = Convert.ToUInt32(TxtDeceleration.Text); 
-            ppmove.AxisMove(1, false , 1000 , ConstVel , Acceleration, Deceleration);//順時針
+            uint Deceleration = Convert.ToUInt32(TxtDeceleration.Text);
+            int TargetNumb = (int)NudTargetNumb.Value;
+            if (rb_TargetNumb.Checked == true)
+            {
+                ppmove.AxisMove(1, false, TargetNumb , ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); //順時針
+            }
+            if (rb_Target0_01.Checked == true)
+            {
+                ppmove.AxisMove(1, false, 10, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+            }
+
+            if (rb_Target0_1.Checked == true)
+            {
+                ppmove.AxisMove(1, false, 100, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+            }
+
+            if (rb_Target1.Checked == true)
+            {
+                ppmove.AxisMove(1, false, 1000, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+            }
+            //ppmove.AxisMove(1, false , 1000 , ConstVel , Acceleration, Deceleration);//順時針
 
         }
 
@@ -185,7 +204,27 @@ namespace WorktoCome1
             uint ConstVel = Convert.ToUInt32(TxtConstVel.Text); ;
             uint Acceleration = Convert.ToUInt32(TxtAcceleration.Text);
             uint Deceleration = Convert.ToUInt32(TxtDeceleration.Text);
-            ppmove.AxisMove(0, false, 1000, ConstVel, Acceleration, Deceleration); //逆時針
+            int TargetNumb = (int)NudTargetNumb.Value;
+            if (rb_TargetNumb.Checked == true) 
+            { 
+                ppmove.AxisMove(0, false, TargetNumb, ConstVel, Acceleration, Deceleration , (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); //逆時針
+            }
+            if(rb_Target0_01.Checked == true)
+            {
+                ppmove.AxisMove(0, false, 10, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+            }
+
+            if (rb_Target0_1.Checked == true)
+            {
+                ppmove.AxisMove(0, false, 100, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+            }
+
+            if (rb_Target1.Checked == true)
+            {
+                ppmove.AxisMove(0, false, 1000, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+            }
+
+
         }
 
         private void ChkBit_CheckedChanged(object sender, EventArgs e)
@@ -317,11 +356,12 @@ namespace WorktoCome1
 
         private void BtHome_Click(object sender, EventArgs e)
         {
-            uint Acceleration = Convert.ToUInt32(TxtAcceleration.Text);
+            uint Deceleration = Convert.ToUInt32(TxtDeceleration.Text);
             uint FV = Convert.ToUInt32(txtFv.Text);
             uint SV = Convert.ToUInt32(txtSV.Text);
+            ushort Mode = (ushort)NudHomeMod.Value;
 
-            ppmove.MoveHome((ushort)CbDoNodeId.SelectedItem, (ushort)CbDoSlotId.SelectedItem, (ushort)NudHomeMod.Value, int.Parse(TxtOffset.Text), FV, SV, Acceleration);
+            ppmove.MoveHome((ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem, Mode, int.Parse(TxtOffset.Text), FV, SV, Deceleration);
         }
     }
 }
