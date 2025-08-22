@@ -31,6 +31,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnDeletUser = new System.Windows.Forms.Button();
             this.btnCreaterUser = new System.Windows.Forms.Button();
@@ -48,8 +50,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -90,6 +90,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(233, 210);
             this.dataGridView1.TabIndex = 0;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Account";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Level";
+            this.Column2.Name = "Column2";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnDeletUser);
@@ -127,6 +137,7 @@
             this.btnCreaterUser.TabIndex = 18;
             this.btnCreaterUser.Text = "新增";
             this.btnCreaterUser.UseVisualStyleBackColor = true;
+            this.btnCreaterUser.Click += new System.EventHandler(this.btnCreaterUser_Click);
             // 
             // tbLevel
             // 
@@ -243,16 +254,6 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Account";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Level";
-            this.Column2.Name = "Column2";
             // 
             // LoginForm
             // 
