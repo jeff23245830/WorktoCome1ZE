@@ -1,17 +1,6 @@
-﻿using EtherCAT_DLL;
-using EtherCAT_DLL_Err;
-using EtherCATFunction;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WorktoCome1
 {
@@ -19,14 +8,9 @@ namespace WorktoCome1
     public partial class Form1 : Form
     {
         private EtherCATFunction.Initial cardManager;
-        bool g_bInitialFlag = false;
-        ushort g_uRet = 0;
-        ushort g_nESCExistCards = 0, g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
-        ushort[] g_uESCCardNoList = new ushort[32];
-        CheckBox[] g_pOutputLab = new CheckBox[16];
+        //private ushort g_nESCExistCards = 0, g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
-
 
         UcProgram ucProgram = new UcProgram();
         UcMain ucMain = new UcMain();
@@ -35,13 +19,11 @@ namespace WorktoCome1
         UcInfo ucInfo = new UcInfo();
         UcLanguage ucLanguage = new UcLanguage();
 
-
         public Form1()
         {
             InitializeComponent();
             TimCheckStatus.Interval = 100;
             TimCheckStatus.Enabled = true;
-
             btnControl.Enabled = false; 
         }
         private void loadUserControl(UserControl userControl)
@@ -58,7 +40,6 @@ namespace WorktoCome1
 
         private void btnProgram_Click(object sender, EventArgs e)
         {
-            
             loadUserControl(ucProgram);
         }
 
@@ -70,32 +51,24 @@ namespace WorktoCome1
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-              
             loadUserControl(ucSetting);
         }
 
         private void btnControl_Click(object sender, EventArgs e)
         {
-            
             ucControl.SetNodeIDtoCombobox(slaveNodeIdList);
             ucControl.SetSlotIDtoCombobox(slaveSlotIdList);
-            ucControl.nESCExistCards = cardManager.CardCount  ;
-
+            ucControl.nESCExistCards = cardManager.CardCount;
             loadUserControl(ucControl);
-
-            
-
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-               
             loadUserControl(ucInfo);
         }
 
         private void btnLanguage_Click(object sender, EventArgs e)
         {
-           
             loadUserControl(ucLanguage);
         }
 
@@ -121,7 +94,6 @@ namespace WorktoCome1
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
             //this.Close(); 
         }
 
@@ -131,7 +103,7 @@ namespace WorktoCome1
 
             bool success = cardManager.Initial_Card();
 
-            g_nESCExistCards = cardManager.CardCount;
+            //g_nESCExistCards = cardManager.CardCount;
             
             if (success)
             {
@@ -144,13 +116,11 @@ namespace WorktoCome1
                 txtResult.Text = "初始化失敗，請檢查卡片連線。";
             }
 
-
-
             bool FindSlave_success = cardManager.Card_FindSlave();
             if (FindSlave_success)
             {
-                g_uESCNodeID = cardManager.g_ESCNodeID_u;
-                g_uESCSlotID = cardManager.g_ESCSlotID_u;
+                //g_uESCNodeID = cardManager.g_ESCNodeID_u;
+                //g_uESCSlotID = cardManager.g_ESCSlotID_u;
                 btnControl.Enabled = true;
                 tbError.Text = "所有卡片已成功FindSlave！";
             }
@@ -163,9 +133,7 @@ namespace WorktoCome1
             foreach (var slave in cardManager.FoundSlaves)
             {
                 slaveNodeIdList.Add(slave.NodeID);
-
                 slaveSlotIdList.Add(slave.SlotID);
-                 
             }
              
         }

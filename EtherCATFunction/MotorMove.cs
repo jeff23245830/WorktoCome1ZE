@@ -1,25 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using EtherCAT_DLL;
+﻿using EtherCAT_DLL;
 using EtherCAT_DLL_Err;
-
-
 
 namespace EtherCATFunction
 {
     public class MotorMove
     {
-         ushort g_uRet = 0;
-        ushort  g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
+        private ushort g_uRet = 0;
+        ushort g_uESCCardNo = 0;
  
- 
-
-
-
         public void AxisMove(int nDir ,bool ChkAbsMove , int nTargetPos , uint uConstVel, uint uAcceleration, uint uDeceleration , ushort ESCNodeID, ushort ESCSlotID)
         { 
             ushort uAbsMove = 0; 
@@ -37,6 +25,7 @@ namespace EtherCATFunction
                 //AddErrMsg("CS_ECAT_Slave_PP_Start_Move, ErrorCode = " + g_uRet.ToString(), true);
             }
         }
+
         //public void StopMove()
         //{
 
@@ -50,14 +39,12 @@ namespace EtherCATFunction
         //        //AddErrMsg("_ECAT_Slave_Motion_Sd_Stop, ErrorCode = " + g_uRet.ToString(), true);
         //    }
         //}
+
         public void ServoOnOrOff(bool RdoSVON, ushort ESCNodeID , ushort ESCSlotID)
         {
-            ushort uCheckOnOff = 0;
-            if (RdoSVON == true)
-                uCheckOnOff = 1;
-            g_uESCNodeID = ESCNodeID;
-            g_uESCSlotID = ESCSlotID;
-            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_Motion_Set_Svon(g_uESCCardNo, g_uESCNodeID, g_uESCSlotID, uCheckOnOff);
+            ushort uCheckOnOff = RdoSVON == false ? (ushort)0 : (ushort)1;
+
+            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_Motion_Set_Svon(g_uESCCardNo, ESCNodeID, ESCSlotID, uCheckOnOff);
 
             if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
             {
@@ -65,10 +52,10 @@ namespace EtherCATFunction
             }
         }
 
-
         public void MoveHome(ushort ESCNodeID, ushort ESCSlotID, ushort uMode, int nOffset,uint nFV, uint nSV, uint uDeceleration)
         { 
             g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_Home_Config(g_uESCCardNo, ESCNodeID , ESCSlotID, uMode, nOffset, nFV, nSV, uDeceleration);
+
             if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
             {
                 //AddErrMsg("_ECAT_Slave_Home_Config, ErrorCode = " + g_uRet.ToString(), true);
@@ -82,7 +69,5 @@ namespace EtherCATFunction
                 }
             }
         }
-
-
     }
 }
