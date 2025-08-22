@@ -196,7 +196,7 @@
             this.bt_cheak.TabIndex = 36;
             this.bt_cheak.Text = "checkOUT";
             this.bt_cheak.UseVisualStyleBackColor = true;
-            this.bt_cheak.Click += new System.EventHandler(this.bt_cheak_Click);
+            this.bt_cheak.Click += new System.EventHandler(this.btn_check_Click);
             // 
             // label22
             // 

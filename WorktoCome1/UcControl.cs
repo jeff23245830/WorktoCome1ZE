@@ -2,19 +2,13 @@
 using EtherCATFunction;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WorktoCome1
 {
     public partial class UcControl : UserControl
     {
-
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
         CheckBox[] g_pOutputLab = new CheckBox[16];
@@ -43,7 +37,6 @@ namespace WorktoCome1
                 CbDoNodeId.SelectedIndex = 0;
            if (CbDINodeId.Items.Count > 0)
                 CbDINodeId.SelectedIndex = 0;
-
         }
 
         public void SetSlotIDtoCombobox(List<ushort> slotId)
@@ -56,16 +49,14 @@ namespace WorktoCome1
                 CbDoSlotId.Items.Add(slave);
                 CbDISlotId.Items.Add(slave);
             }
+
             if (CbSlotId.Items.Count > 0)
                 CbSlotId.SelectedIndex = 0;
             if (CbDoSlotId.Items.Count > 0)
                 CbDoSlotId.SelectedIndex = 0;
             if (CbDISlotId.Items.Count > 0)
                 CbDISlotId.SelectedIndex = 0;
-
         }
-
-
 
         public UcControl()
         {
@@ -171,32 +162,30 @@ namespace WorktoCome1
         }
 
         private void BtnMoveRight_Click(object sender, EventArgs e)
-        { 
-
+        {
             uint ConstVel = Convert.ToUInt32(TxtConstVel.Text); ;
             uint Acceleration = Convert.ToUInt32(TxtAcceleration.Text); 
             uint Deceleration = Convert.ToUInt32(TxtDeceleration.Text);
-            int TargetNumb = (int)NudTargetNumb.Value;
+            int TargetNumb = 0;
+
             if (rb_TargetNumb.Checked == true)
             {
-                ppmove.AxisMove(1, false, TargetNumb , ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); //順時針
+                TargetNumb = (int)NudTargetNumb.Value;
             }
             if (rb_Target0_01.Checked == true)
             {
-                ppmove.AxisMove(1, false, 10, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+                TargetNumb = 10;
             }
-
             if (rb_Target0_1.Checked == true)
             {
-                ppmove.AxisMove(1, false, 100, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+                TargetNumb = 100;
             }
-
             if (rb_Target1.Checked == true)
             {
-                ppmove.AxisMove(1, false, 1000, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+                TargetNumb = 1000;
             }
-            //ppmove.AxisMove(1, false , 1000 , ConstVel , Acceleration, Deceleration);//順時針
 
+            ppmove.AxisMove(1, false, 1000, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
         }
 
         private void BtnMoveLeft_Click(object sender, EventArgs e)
@@ -204,32 +193,30 @@ namespace WorktoCome1
             uint ConstVel = Convert.ToUInt32(TxtConstVel.Text); ;
             uint Acceleration = Convert.ToUInt32(TxtAcceleration.Text);
             uint Deceleration = Convert.ToUInt32(TxtDeceleration.Text);
-            int TargetNumb = (int)NudTargetNumb.Value;
+            int TargetNumb = 0;
+
             if (rb_TargetNumb.Checked == true) 
-            { 
-                ppmove.AxisMove(0, false, TargetNumb, ConstVel, Acceleration, Deceleration , (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); //逆時針
+            {
+                TargetNumb = (int)NudTargetNumb.Value;
             }
             if(rb_Target0_01.Checked == true)
             {
-                ppmove.AxisMove(0, false, 10, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+                TargetNumb = 10;
             }
-
             if (rb_Target0_1.Checked == true)
             {
-                ppmove.AxisMove(0, false, 100, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+                TargetNumb = 100;
             }
-
             if (rb_Target1.Checked == true)
             {
-                ppmove.AxisMove(0, false, 1000, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+                TargetNumb = 1000;
             }
 
-
+            ppmove.AxisMove(0, false, TargetNumb, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
         }
 
         private void ChkBit_CheckedChanged(object sender, EventArgs e)
         {
-            ushort uOutputStatus = 0;
             int nOutBit = 0, nStat = 0x0;
             for (nOutBit = 0; nOutBit < 16; nOutBit++)
             {
@@ -243,14 +230,9 @@ namespace WorktoCome1
                     g_pOutputLab[nOutBit].BackColor = Color.Red;
                 }
             }
-
-            uOutputStatus = (ushort)nStat;//
              
             //之後要加入Set_nESCExistCards
-            iOControl.DOcontorlOutOrOff(uOutputStatus, (ushort)CbDoNodeId.SelectedItem, (ushort)CbDoSlotId.SelectedItem);
-
-
-            
+            bool Ret = iOControl.DOcontorlOutOrOff((ushort)nStat, (ushort)CbDoNodeId.SelectedItem, (ushort)CbDoSlotId.SelectedItem);
         }
 
         private void CbDI_SelectedIndexChanged(object sender, EventArgs e)
@@ -278,18 +260,15 @@ namespace WorktoCome1
 
         private void TimCheckStatus_Tick(object sender, EventArgs e)
         {
-            ushort  uValue = 0, uRet = 0;
             bool bRet ;
-            ushort g_uESCNodeID , g_uESCSlotID , g_uESCCardNo = 0;
+            ushort uValue = 0;
             int nBit = 0;
             if (nESCExistCards > 0)
             {
-
                 //亮亮
-                if ( true)
-                { 
-
-                    bRet = iOControl.DIcontrolInOrOff( (ushort)CbDINodeId.SelectedItem ,(ushort)CbDISlotId.SelectedItem ,ref uValue);
+                if (true)
+                {
+                    bRet = iOControl.DIcontrolInOrOff((ushort)CbDINodeId.SelectedItem, (ushort)CbDISlotId.SelectedItem, ref uValue);
 
                     if (bRet)
                     {
@@ -301,10 +280,7 @@ namespace WorktoCome1
                                 g_pInputLab[nBit].BackColor = Color.Red;
                         }
                     }
-
-
                 }
-                 
             }
         }
 
@@ -348,7 +324,7 @@ namespace WorktoCome1
 
         }
 
-        private void bt_cheak_Click(object sender, EventArgs e)
+        private void btn_check_Click(object sender, EventArgs e)
         {
             ushort uValue = 0;
             iOControl.DOcontrolRead((ushort)CbDoNodeId.SelectedItem, (ushort)CbDoSlotId.SelectedItem, ref uValue);
