@@ -230,7 +230,38 @@ namespace WorktoCome1
 
         private void btnDeletUser_Click(object sender, EventArgs e)
         {
+            string accountToDelete = tbAccount.Text.Trim();
 
+            if (string.IsNullOrEmpty(accountToDelete))
+            {
+                MessageBox.Show("請輸入要刪除的帳號。", "錯誤");
+                return;
+            }
+
+            if (!allUsers.Data.ContainsKey(accountToDelete))
+            {
+                MessageBox.Show("找不到此帳號。", "錯誤");
+                return;
+            }
+
+            if (accountToDelete == "admin")
+            {
+                MessageBox.Show("管理員帳號不可刪除。", "錯誤");
+                return;
+            }
+
+            var result = MessageBox.Show($"確定要刪除帳號 {accountToDelete} 嗎？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                allUsers.Data.Remove(accountToDelete);
+                SaveUsersData();
+                LoadUsersData();
+                MessageBox.Show($"帳號 {accountToDelete} 已刪除。", "成功");
+                tbAccount.Clear();
+                tbPassword.Clear();
+                tbLevel.Value = 1;
+                tbCheckPassword.Clear();
+            }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
