@@ -213,6 +213,10 @@ namespace WorktoCome1
             }
 
             ppmove.AxisMove(0, false, TargetNumb, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+        
+        
+        
+        
         }
 
         private void ChkBit_CheckedChanged(object sender, EventArgs e)
@@ -338,6 +342,18 @@ namespace WorktoCome1
             ushort Mode = (ushort)NudHomeMod.Value;
 
             ppmove.MoveHome((ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem, Mode, int.Parse(TxtOffset.Text), FV, SV, Deceleration);
+        }
+
+        private void bt_check_Click(object sender, EventArgs e)
+        {
+            if(ppmove.checkDone((ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem))
+            {
+                MessageBox.Show("到位");
+            }
+            else
+            {
+                MessageBox.Show("未到位");
+            }
         }
     }
 }

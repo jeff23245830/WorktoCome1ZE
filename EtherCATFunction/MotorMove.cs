@@ -25,7 +25,7 @@ namespace EtherCATFunction
                 //AddErrMsg("CS_ECAT_Slave_PP_Start_Move, ErrorCode = " + g_uRet.ToString(), true);
             }
         }
-
+        
         //public void StopMove()
         //{
 
@@ -69,5 +69,22 @@ namespace EtherCATFunction
                 }
             }
         }
+
+
+        public bool checkDone(ushort ESCNodeID, ushort ESCSlotID)
+        {
+            ushort uDone = 0;
+            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_Motion_Get_Mdone(g_uESCCardNo, ESCNodeID, ESCSlotID, ref uDone);
+            if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
+            {
+                //AddErrMsg("CS_ECAT_Slave_PP_Get_Done, ErrorCode = " + g_uRet.ToString(), true);
+                return false;
+            }
+            if (uDone == 1)
+                return true;
+            else
+                return false;
+        }
+
     }
 }

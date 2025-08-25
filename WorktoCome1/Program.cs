@@ -16,14 +16,31 @@ namespace WorktoCome1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            LoginForm loginForm = new LoginForm();  
-            if (loginForm.ShowDialog() == DialogResult.OK)
-            { 
-                Application.Run(new Form1());
+
+
+
+
+            while (true)
+            {
+                using (var loginForm = new LoginForm())
+                {
+                    if (loginForm.ShowDialog() == DialogResult.OK)
+                    {
+                        string loginAccount = loginForm.Tag as string;
+                        using (var mainForm = new Form1(loginAccount))
+                        {
+                            if (mainForm.ShowDialog() != DialogResult.Retry)
+                                break; // 不是登出就結束程式
+                        }
+                    }
+                    else
+                    {
+                        break; // 取消登入就結束程式
+                    }
+                }
             }
-            
-            //Application.Run(new Form1());
-        }
+
+                //Application.Run(new Form1());
+            }
     }
 }

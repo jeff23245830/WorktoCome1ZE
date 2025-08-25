@@ -8,6 +8,7 @@ namespace WorktoCome1
     public partial class Form1 : Form
     {
         private EtherCATFunction.Initial cardManager;
+        private string _loginAccount;
         //private ushort g_nESCExistCards = 0, g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
@@ -18,10 +19,12 @@ namespace WorktoCome1
         UcControl ucControl = new UcControl();
         UcInfo ucInfo = new UcInfo();
         UcLanguage ucLanguage = new UcLanguage();
-
-        public Form1()
+        
+        public Form1(string loginAccount)
         {
             InitializeComponent();
+            _loginAccount = loginAccount;
+             
             TimCheckStatus.Interval = 100;
             TimCheckStatus.Enabled = true;
             btnControl.Enabled = false; 
@@ -138,6 +141,27 @@ namespace WorktoCome1
              
         }
 
-         
+        private void Bt_Logout_Click(object sender, EventArgs e)
+        {
+            this.Hide(); 
+            using (var loginForm = new LoginForm())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    _loginAccount = null;
+                    this.Show();
+                }
+            }
+        }
+
+        private void btnUserInfo_Click(object sender, EventArgs e)
+        {
+            var loginForm = new LoginForm();
+            if(_loginAccount == "管理員")
+                loginForm.IsManageMode = 1;
+            else
+                loginForm.IsManageMode = 2;
+            loginForm.ShowDialog();
+        }
     }
 }
