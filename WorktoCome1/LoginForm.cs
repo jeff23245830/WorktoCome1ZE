@@ -11,6 +11,8 @@ namespace WorktoCome1
     {
         private string jsonFilePath = "users.json";
         private Users allUsers;
+        public string Account;
+        public string Level;
         public int IsManageMode { get; set; } = 0;
         #region User的JSON定義
         public class UserInfo
@@ -121,7 +123,8 @@ namespace WorktoCome1
                 {
                     // 登入成功
                     MessageBox.Show($"登入成功！您的等級是：{userInfo.Level}", "登入成功");
-                    this.Tag = userInfo.Level;
+                    this.Account = inputAccount;
+                    this.Level = userInfo.Level;
                     // 在這裡可以執行登入後的動作，例如開啟主視窗
                     this.DialogResult = DialogResult.OK;
                     this.Close();

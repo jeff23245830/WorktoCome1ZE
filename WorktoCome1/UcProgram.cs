@@ -1,24 +1,169 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Net.NetworkInformation;
+using System.Text.Json;
 using System.Windows.Forms;
+using System.Xml;
+
+
 
 namespace WorktoCome1
 {
     public partial class UcProgram : UserControl
     {
+        string filePath = "Recipe.json";
         public UcProgram()
         {
             InitializeComponent();
+            LoadProductList();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+        }
+        public void LoadProductList()
+        {
+            //string filePath = "recipes.json";
+
+            // 清空現有的清單
+            LbProducts.Items.Clear();
+
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    string jsonString = File.ReadAllText(filePath);
+
+                    // 確保您的 RootObject 類別與之前的定義一致
+                    var rootObject = JsonSerializer.Deserialize<RootObject>(jsonString);
+
+                    // 如果檔案中有產品資料
+                    if (rootObject != null && rootObject.Products != null)
+                    {
+                        // 遍歷字典中的每個產品名稱，並加入到 ListBox
+                        foreach (var productName in rootObject.Products.Keys)
+                        {
+                            LbProducts.Items.Add(productName);
+                        }
+                    }
+                }
+                catch (JsonException ex)
+                {
+                    // 處理 JSON 格式錯誤
+                    MessageBox.Show($"讀取 JSON 檔案時發生格式錯誤：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    // 處理其他檔案讀取錯誤
+                    MessageBox.Show($"讀取檔案時發生錯誤：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void btCreateRecipe_Click(object sender, EventArgs e)
+        {
+            using (var inputForm = new InputProductNameForm())
+            {
+                if (inputForm.ShowDialog() == DialogResult.OK)
+                {
+                    string productName = inputForm.ProductName; 
+
+                    RootObject rootObject;
+
+                    try
+                    {
+                        // 檢查檔案是否存在
+                        if (File.Exists(filePath))
+                        {
+                            // 檔案存在，讀取並反序列化
+                            string jsonString = File.ReadAllText(filePath);
+                            rootObject = JsonSerializer.Deserialize<RootObject>(jsonString);
+                        }
+                        else
+                        {
+                            // 檔案不存在，建立新的物件
+                            rootObject = new RootObject { Products = new Dictionary<string, Recipe>() };
+                        }
+
+                        // 建立新的食譜 (Recipe) 物件
+                        // 這裡您可以根據需要填入預設的資料
+                        var newRecipe = new Recipe
+                        {
+                            MotionName = new Motion
+                            {
+                                Groups = new Dictionary<string, Group>()
+                            },
+                            DIOName = new Dictionary<string, Dictionary<string, string>>()
+                        };
+
+                        // 將新的產品名稱與食譜物件加入字典
+                        // 如果字典已包含該產品名稱，會被覆蓋
+                        rootObject.Products[productName] = newRecipe;
+
+                        // 設定 JSON 序列化選項，讓輸出更美觀
+                        var options = new JsonSerializerOptions
+                        {
+                            WriteIndented = true // 讓 JSON 格式化，方便閱讀
+                        };
+
+                        // 將更新後的物件序列化為 JSON 字串
+                        string updatedJsonString = JsonSerializer.Serialize(rootObject, options);
+
+                        // 將 JSON 字串寫入檔案
+                        File.WriteAllText(filePath, updatedJsonString);
+
+                        MessageBox.Show($"已成功新增產品：{productName}，並寫入 {filePath}");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"新增產品時發生錯誤：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                // 若取消則不做事
+            }
+        }
+
+        private void LbProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 檢查是否有選取的項目
+            if (LbProducts.SelectedItem != null)
+            {
+                // 取得選取的產品名稱
+                string selectedProductName = LbProducts.SelectedItem.ToString();
+
+                // 將選取的產品名稱顯示到「產品選擇」文字框中
+                txtSelectedProduct.Text = selectedProductName;
+
+                // 同時更新全域變數，供其他地方使用
+                AppState.SelectedProduct = selectedProductName;
+            }
+            else
+            {
+                // 如果沒有選取項目，則清空文字框
+                txtSelectedProduct.Text = string.Empty;
+                AppState.SelectedProduct = null;
+            }
+        }
+
+        private void btnLoadParameters_Click(object sender, EventArgs e)
+        {
+            // 檢查「產品選擇」文字框是否有內容
+            if (string.IsNullOrWhiteSpace(txtSelectedProduct.Text))
+            {
+                MessageBox.Show("請先選擇一個產品以載入參數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // 將「產品選擇」文字框的值，賦予「目前產品」文字框
+            txtCurrentProduct.Text = txtSelectedProduct.Text;
+
+            // 同時更新全域變數，這一步非常重要，
+            // 因為這表示這個產品現在是整個軟體的「目前產品」
+            AppState.SelectedProduct = txtCurrentProduct.Text;
+
+            MessageBox.Show($"產品 {txtCurrentProduct.Text} 的參數已載入。", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
     }

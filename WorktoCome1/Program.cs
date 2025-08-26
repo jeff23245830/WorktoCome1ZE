@@ -26,8 +26,9 @@ namespace WorktoCome1
                 {
                     if (loginForm.ShowDialog() == DialogResult.OK)
                     {
-                        string loginAccount = loginForm.Tag as string;
-                        using (var mainForm = new Form1(loginAccount))
+                        string loginAccount = loginForm.Account as string;
+                        string loginLevel = loginForm.Level as string;
+                        using (var mainForm = new Form1(loginAccount, loginLevel))
                         {
                             if (mainForm.ShowDialog() != DialogResult.Retry)
                                 break; // 不是登出就結束程式
