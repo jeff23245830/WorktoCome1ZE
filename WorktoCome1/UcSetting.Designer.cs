@@ -119,11 +119,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 9);
+            this.label1.Location = new System.Drawing.Point(86, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 2;
-            this.label1.Text = "區域別";
+            this.label1.Text = "區域";
             // 
             // comboBox1
             // 
@@ -132,6 +132,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(295, 20);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -146,7 +147,6 @@
             this.groupBox1.Size = new System.Drawing.Size(629, 455);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "供料區";
             // 
             // button5
             // 
@@ -266,7 +266,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1071, 534);
+            this.tabPage6.Size = new System.Drawing.Size(1071, 487);
             this.tabPage6.TabIndex = 2;
             this.tabPage6.Text = "校正";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -276,7 +276,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1075, 556);
+            this.tabPage2.Size = new System.Drawing.Size(1075, 513);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "參數設定";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -286,7 +286,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1075, 556);
+            this.tabPage3.Size = new System.Drawing.Size(1075, 513);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "速度設定";
             this.tabPage3.UseVisualStyleBackColor = true;

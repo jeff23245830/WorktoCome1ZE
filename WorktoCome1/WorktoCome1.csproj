@@ -90,6 +90,7 @@
     <Compile Include="InputProductNameForm.Designer.cs">
       <DependentUpon>InputProductNameForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="JsonFunction.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

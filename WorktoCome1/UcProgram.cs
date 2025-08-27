@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.NetworkInformation;
@@ -89,14 +90,7 @@ namespace WorktoCome1
 
                         // 建立新的食譜 (Recipe) 物件
                         // 這裡您可以根據需要填入預設的資料
-                        var newRecipe = new Recipe
-                        {
-                            MotionName = new Motion
-                            {
-                                Groups = new Dictionary<string, Group>()
-                            },
-                            DIOName = new Dictionary<string, Dictionary<string, string>>()
-                        };
+                        var newRecipe = new Recipe();
 
                         // 將新的產品名稱與食譜物件加入字典
                         // 如果字典已包含該產品名稱，會被覆蓋
