@@ -32,9 +32,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnDeleteRecipe = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.btCreateRecipe = new System.Windows.Forms.Button();
-            this.btnRecipeRename = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.btnLoadParameters = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -88,9 +88,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.LbProducts);
-            this.groupBox3.Controls.Add(this.btnDeleteRecipe);
+            this.groupBox3.Controls.Add(this.button7);
             this.groupBox3.Controls.Add(this.btCreateRecipe);
-            this.groupBox3.Controls.Add(this.btnRecipeRename);
+            this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.btnLoadParameters);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Location = new System.Drawing.Point(15, 143);
@@ -100,15 +100,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "產品清單";
             // 
-            // btnDeleteRecipe
+            // button7
             // 
-            this.btnDeleteRecipe.Location = new System.Drawing.Point(398, 291);
-            this.btnDeleteRecipe.Name = "btnDeleteRecipe";
-            this.btnDeleteRecipe.Size = new System.Drawing.Size(92, 51);
-            this.btnDeleteRecipe.TabIndex = 5;
-            this.btnDeleteRecipe.Text = "刪除";
-            this.btnDeleteRecipe.UseVisualStyleBackColor = true;
-            this.btnDeleteRecipe.Click += new System.EventHandler(this.btnDeleteRecipe_Click);
+            this.button7.Location = new System.Drawing.Point(398, 291);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(92, 51);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "刪除";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // btCreateRecipe
             // 
@@ -120,15 +119,14 @@
             this.btCreateRecipe.UseVisualStyleBackColor = true;
             this.btCreateRecipe.Click += new System.EventHandler(this.btCreateRecipe_Click);
             // 
-            // btnRecipeRename
+            // button5
             // 
-            this.btnRecipeRename.Location = new System.Drawing.Point(202, 291);
-            this.btnRecipeRename.Name = "btnRecipeRename";
-            this.btnRecipeRename.Size = new System.Drawing.Size(92, 51);
-            this.btnRecipeRename.TabIndex = 3;
-            this.btnRecipeRename.Text = "重新命名";
-            this.btnRecipeRename.UseVisualStyleBackColor = true;
-            this.btnRecipeRename.Click += new System.EventHandler(this.btnRecipeRename_Click);
+            this.button5.Location = new System.Drawing.Point(202, 291);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(92, 51);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "重新命名";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // btnLoadParameters
             // 
@@ -165,7 +163,6 @@
             this.txtSelectedProduct.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtSelectedProduct.Location = new System.Drawing.Point(6, 21);
             this.txtSelectedProduct.Name = "txtSelectedProduct";
-            this.txtSelectedProduct.ReadOnly = true;
             this.txtSelectedProduct.Size = new System.Drawing.Size(485, 33);
             this.txtSelectedProduct.TabIndex = 0;
             // 
@@ -184,7 +181,6 @@
             this.txtCurrentProduct.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtCurrentProduct.Location = new System.Drawing.Point(6, 21);
             this.txtCurrentProduct.Name = "txtCurrentProduct";
-            this.txtCurrentProduct.ReadOnly = true;
             this.txtCurrentProduct.Size = new System.Drawing.Size(485, 33);
             this.txtCurrentProduct.TabIndex = 0;
             // 
@@ -249,9 +245,9 @@
         private System.Windows.Forms.TextBox txtSelectedProduct;
         private System.Windows.Forms.TextBox txtCurrentProduct;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnDeleteRecipe;
+        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btCreateRecipe;
-        private System.Windows.Forms.Button btnRecipeRename;
+        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnLoadParameters;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox LbProducts;

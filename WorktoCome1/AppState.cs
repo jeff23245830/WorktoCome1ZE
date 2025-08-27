@@ -9,6 +9,5 @@ namespace WorktoCome1
     public class AppState
     {
         public static string SelectedProduct { get; set; }
-        public static string CurrentProduct { get; set; }
     }
 }
