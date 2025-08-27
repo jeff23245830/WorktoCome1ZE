@@ -36,10 +36,13 @@ namespace WorktoCome1
             {
                 try
                 {
-                    string jsonString = File.ReadAllText(filePath);
+                    string jsonString = JsonFunction.LoadJson(filePath);
 
-                    // 確保您的 RootObject 類別與之前的定義一致
+                    //// 確保您的 RootObject 類別與之前的定義一致
                     var rootObject = JsonSerializer.Deserialize<RootObject>(jsonString);
+
+                    //RootObject rootObject = JsonFunction.LoadJson(filePath);
+
 
                     // 如果檔案中有產品資料
                     if (rootObject != null && rootObject.Products != null)

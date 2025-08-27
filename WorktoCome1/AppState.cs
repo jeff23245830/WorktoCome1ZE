@@ -11,4 +11,15 @@ namespace WorktoCome1
         public static string SelectedProduct { get; set; }
         public static string CurrentProduct { get; set; }
     }
+
+    public class CurrentRespcie
+    {
+        public string ProductName { get; set; }
+        public string MotionName { get; set; }
+        public string GroupName { get; set; }
+        public string PointName { get; set; }
+        public string DioFunctionName { get; set; }
+    }
+
+
 }
