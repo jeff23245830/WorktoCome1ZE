@@ -17,6 +17,8 @@ namespace WorktoCome1
         public UcSetting()
         {
             InitializeComponent();
+            DgMotionPoint.Rows.Clear();
+            CbArea.Text = string.Empty;
         }
 
         public void LoadRecipe()
@@ -29,7 +31,7 @@ namespace WorktoCome1
                 MessageBox.Show("請先選擇一個產品以載入參數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            DgMotionPoint.Rows.Clear();
+            
             if (AppState.CurrentRecipe.Motions != null)
             {
                 //2.CbArea載入CurrentRecipe的Motions
@@ -308,6 +310,76 @@ namespace WorktoCome1
 
                 // 重新選取
                 DgMotionPoint.Rows[totalRows - 2].Selected = true;
+            }
+        }
+
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+            // 1. 檢查是否有選定的點位
+            if (DgMotionPoint.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("請先選擇要轉移的點位。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. 取得現有的所有 Motion 區域名稱
+            List<string> motionNames = new List<string>(AppState.CurrentRecipe.Motions.Keys);
+            string sourceMotionName = CbArea.Text;
+            motionNames.Remove(sourceMotionName); // 從列表中移除來源區域
+
+            if (motionNames.Count == 0)
+            {
+                MessageBox.Show("沒有其他可轉移的目的地。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            // 3. 顯示轉移視窗
+            using (var transferForm = new TransferForm(motionNames))
+            {
+                if (transferForm.ShowDialog() == DialogResult.OK)
+                {
+                    // 4. 取得使用者選擇的目的地
+                    string destinationMotionName = transferForm.SelectedDestinationMotion;
+
+                    // 5. 執行資料轉移
+                    try
+                    {
+                        var sourceMotion = AppState.CurrentRecipe.Motions[sourceMotionName];
+                        var destinationMotion = AppState.CurrentRecipe.Motions[destinationMotionName];
+
+                        // 準備要轉移的點位組別
+                        var groupsToTransfer = new Dictionary<string, Group>();
+                        foreach (DataGridViewRow row in DgMotionPoint.SelectedRows)
+                        {
+                            string groupName = row.Cells["點位名稱"].Value.ToString();
+                            Group group = sourceMotion.Groups[groupName]; // 從來源取得完整的 Group 物件
+                            groupsToTransfer.Add(groupName, group);
+                        }
+
+                        // 將點位從來源 Motion 移除，並加入目的 Motion
+                        foreach (var groupEntry in groupsToTransfer)
+                        {
+                            sourceMotion.Groups.Remove(groupEntry.Key);
+                            destinationMotion.Groups.Add(groupEntry.Key, groupEntry.Value);
+                        }
+
+                        // 6. 更新 DataGridView
+                        foreach (DataGridViewRow row in DgMotionPoint.SelectedRows)
+                        {
+                            DgMotionPoint.Rows.Remove(row);
+                        }
+
+                        // 7. 儲存 JSON 檔案
+                        JsonFunction.SaveJson(filePath, AppState.RootObject); 
+
+                        MessageBox.Show($"已成功將選定的點位組別轉移到 '{destinationMotionName}'。", "轉移完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"轉移時發生錯誤：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

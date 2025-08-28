@@ -52,6 +52,7 @@
             this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.R = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTransfer = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -137,6 +138,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnTransfer);
             this.groupBox1.Controls.Add(this.btnMoveDown);
             this.groupBox1.Controls.Add(this.btnMoveBottom);
             this.groupBox1.Controls.Add(this.btnMoveUp);
@@ -296,6 +298,16 @@
             this.R.Name = "R";
             this.R.Width = 50;
             // 
+            // btnTransfer
+            // 
+            this.btnTransfer.Location = new System.Drawing.Point(3, 224);
+            this.btnTransfer.Name = "btnTransfer";
+            this.btnTransfer.Size = new System.Drawing.Size(39, 36);
+            this.btnTransfer.TabIndex = 6;
+            this.btnTransfer.Text = "轉移";
+            this.btnTransfer.UseVisualStyleBackColor = true;
+            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
+            // 
             // UcSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -340,5 +352,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Y;
         private System.Windows.Forms.DataGridViewTextBoxColumn Z;
         private System.Windows.Forms.DataGridViewTextBoxColumn R;
+        private System.Windows.Forms.Button btnTransfer;
     }
 }
