@@ -36,22 +36,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CbArea = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMoveDown = new System.Windows.Forms.Button();
+            this.btnMoveBottom = new System.Windows.Forms.Button();
+            this.btnMoveUp = new System.Windows.Forms.Button();
+            this.btnMoveTop = new System.Windows.Forms.Button();
             this.btnMotionSave = new System.Windows.Forms.Button();
             this.DgMotionPoint = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.教導 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.移動 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.點位名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.R = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -133,13 +133,14 @@
             this.CbArea.Size = new System.Drawing.Size(295, 20);
             this.CbArea.TabIndex = 1;
             this.CbArea.SelectedIndexChanged += new System.EventHandler(this.CbArea_SelectedIndexChanged);
+            this.CbArea.TextChanged += new System.EventHandler(this.CbArea_TextChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnMoveDown);
+            this.groupBox1.Controls.Add(this.btnMoveBottom);
+            this.groupBox1.Controls.Add(this.btnMoveUp);
+            this.groupBox1.Controls.Add(this.btnMoveTop);
             this.groupBox1.Controls.Add(this.btnMotionSave);
             this.groupBox1.Controls.Add(this.DgMotionPoint);
             this.groupBox1.Location = new System.Drawing.Point(3, 32);
@@ -148,43 +149,47 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // button5
+            // btnMoveDown
             // 
-            this.button5.Location = new System.Drawing.Point(6, 389);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(36, 27);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "▼";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnMoveDown.Location = new System.Drawing.Point(6, 389);
+            this.btnMoveDown.Name = "btnMoveDown";
+            this.btnMoveDown.Size = new System.Drawing.Size(36, 27);
+            this.btnMoveDown.TabIndex = 5;
+            this.btnMoveDown.Text = "▼";
+            this.btnMoveDown.UseVisualStyleBackColor = true;
+            this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
             // 
-            // button4
+            // btnMoveBottom
             // 
-            this.button4.Font = new System.Drawing.Font("新細明體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(6, 422);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(36, 27);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "↓↓";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnMoveBottom.Font = new System.Drawing.Font("新細明體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMoveBottom.Location = new System.Drawing.Point(6, 422);
+            this.btnMoveBottom.Name = "btnMoveBottom";
+            this.btnMoveBottom.Size = new System.Drawing.Size(36, 27);
+            this.btnMoveBottom.TabIndex = 4;
+            this.btnMoveBottom.Text = "↓↓";
+            this.btnMoveBottom.UseVisualStyleBackColor = true;
+            this.btnMoveBottom.Click += new System.EventHandler(this.btnMoveBottom_Click);
             // 
-            // button3
+            // btnMoveUp
             // 
-            this.button3.Location = new System.Drawing.Point(6, 54);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(36, 27);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "▲";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnMoveUp.Location = new System.Drawing.Point(6, 54);
+            this.btnMoveUp.Name = "btnMoveUp";
+            this.btnMoveUp.Size = new System.Drawing.Size(36, 27);
+            this.btnMoveUp.TabIndex = 3;
+            this.btnMoveUp.Text = "▲";
+            this.btnMoveUp.UseVisualStyleBackColor = true;
+            this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
             // 
-            // button2
+            // btnMoveTop
             // 
-            this.button2.Font = new System.Drawing.Font("新細明體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(6, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(36, 27);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "↑↑";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMoveTop.Font = new System.Drawing.Font("新細明體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnMoveTop.Location = new System.Drawing.Point(6, 21);
+            this.btnMoveTop.Name = "btnMoveTop";
+            this.btnMoveTop.Size = new System.Drawing.Size(36, 27);
+            this.btnMoveTop.TabIndex = 2;
+            this.btnMoveTop.Text = "↑↑";
+            this.btnMoveTop.UseVisualStyleBackColor = true;
+            this.btnMoveTop.Click += new System.EventHandler(this.btnMoveTop_Click);
             // 
             // btnMotionSave
             // 
@@ -200,66 +205,18 @@
             // 
             this.DgMotionPoint.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgMotionPoint.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
+            this.教導,
+            this.移動,
+            this.點位名稱,
+            this.X,
+            this.Y,
+            this.Z,
+            this.R});
             this.DgMotionPoint.Location = new System.Drawing.Point(48, 21);
             this.DgMotionPoint.Name = "DgMotionPoint";
             this.DgMotionPoint.RowTemplate.Height = 24;
             this.DgMotionPoint.Size = new System.Drawing.Size(527, 428);
             this.DgMotionPoint.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 50F;
-            this.Column1.HeaderText = "教導";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 50F;
-            this.Column2.HeaderText = "移動";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 50;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "點位名稱";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 50F;
-            this.Column4.HeaderText = "X";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 50;
-            // 
-            // Column5
-            // 
-            this.Column5.FillWeight = 50F;
-            this.Column5.HeaderText = "Y";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 50;
-            // 
-            // Column6
-            // 
-            this.Column6.FillWeight = 50F;
-            this.Column6.HeaderText = "Z";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 50;
-            // 
-            // Column7
-            // 
-            this.Column7.FillWeight = 50F;
-            this.Column7.HeaderText = "R";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 50;
             // 
             // tabPage6
             // 
@@ -291,6 +248,54 @@
             this.tabPage3.Text = "速度設定";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // 教導
+            // 
+            this.教導.FillWeight = 50F;
+            this.教導.HeaderText = "教導";
+            this.教導.Name = "教導";
+            this.教導.Width = 50;
+            // 
+            // 移動
+            // 
+            this.移動.FillWeight = 50F;
+            this.移動.HeaderText = "移動";
+            this.移動.Name = "移動";
+            this.移動.Width = 50;
+            // 
+            // 點位名稱
+            // 
+            this.點位名稱.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.點位名稱.HeaderText = "點位名稱";
+            this.點位名稱.Name = "點位名稱";
+            // 
+            // X
+            // 
+            this.X.FillWeight = 50F;
+            this.X.HeaderText = "X";
+            this.X.Name = "X";
+            this.X.Width = 50;
+            // 
+            // Y
+            // 
+            this.Y.FillWeight = 50F;
+            this.Y.HeaderText = "Y";
+            this.Y.Name = "Y";
+            this.Y.Width = 50;
+            // 
+            // Z
+            // 
+            this.Z.FillWeight = 50F;
+            this.Z.HeaderText = "Z";
+            this.Z.Name = "Z";
+            this.Z.Width = 50;
+            // 
+            // R
+            // 
+            this.R.FillWeight = 50F;
+            this.R.HeaderText = "R";
+            this.R.Name = "R";
+            this.R.Width = 50;
+            // 
             // UcSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -320,20 +325,20 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMoveDown;
+        private System.Windows.Forms.Button btnMoveBottom;
+        private System.Windows.Forms.Button btnMoveUp;
+        private System.Windows.Forms.Button btnMoveTop;
         private System.Windows.Forms.Button btnMotionSave;
         private System.Windows.Forms.DataGridView DgMotionPoint;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CbArea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 教導;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 移動;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 點位名稱;
+        private System.Windows.Forms.DataGridViewTextBoxColumn X;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Z;
+        private System.Windows.Forms.DataGridViewTextBoxColumn R;
     }
 }
