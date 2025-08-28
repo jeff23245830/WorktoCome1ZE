@@ -91,13 +91,23 @@ namespace WorktoCome1
                             rootObject = new RootObject { Products = new Dictionary<string, Recipe>() };
                         }
 
+                        if (rootObject.Products.ContainsKey(productName))
+                        {
+                            // 如果存在，提醒使用者
+                            MessageBox.Show($"產品 '{productName}' 已存在。請使用其他名稱。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; // 終止後續的程式碼
+                        }
+
                         // 建立新的食譜 (Recipe) 物件
-                        // 這裡您可以根據需要填入預設的資料
-                        var newRecipe = new Recipe();
+                        // 根據您的結構，需要初始化 Motions 和 DioFunctions 字典
+                        var newRecipe = new Recipe
+                        {
+                            Motions = new Dictionary<string, Motion>(),
+                            DioFunctions = new Dictionary<string, Dio>()
+                        };
 
                         // 將新的產品名稱與食譜物件加入字典
-                        // 如果字典已包含該產品名稱，會被覆蓋
-                        rootObject.Products[productName] = newRecipe;
+                        rootObject.Products.Add(productName, newRecipe);
 
                         // 設定 JSON 序列化選項，讓輸出更美觀
                         var options = new JsonSerializerOptions
@@ -149,37 +159,26 @@ namespace WorktoCome1
 
         private void btnLoadParameters_Click(object sender, EventArgs e)
         {
-            // 檢查「產品選擇」文字框是否有內容
-            if (string.IsNullOrWhiteSpace(txtSelectedProduct.Text))
+            string SelectedProduct = AppState.SelectedProductTitle;
+            if (string.IsNullOrWhiteSpace(SelectedProduct))
             {
                 MessageBox.Show("請先選擇一個產品以載入參數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            // 將「產品選擇」文字框的值，賦予「目前產品」文字框
             txtCurrentProduct.Text = txtSelectedProduct.Text;
 
-            // 同時更新全域變數，這一步非常重要，
-            // 因為這表示這個產品現在是整個軟體的「目前產品」
             AppState.CurrentProducTitle = txtCurrentProduct.Text;
 
 
             string jsonString = JsonFunction.LoadJson(filePath);
-
-            //// 確保您的 RootObject 類別與之前的定義一致
             var rootObject = JsonSerializer.Deserialize<RootObject>(jsonString);
 
             AppState.RootObject = rootObject;
 
-
             string productName = AppState.CurrentProducTitle;
             if (AppState.RootObject.Products.ContainsKey(productName))
             {
-                // 使用索引器來取出指定的 Recipe
                 AppState.CurrentRecipe = AppState.RootObject.Products[productName];
-                // 您可以將這個 Recipe 物件儲存在另一個全域變數中，以方便存取
-                // 假設您有一個 AppState.CurrentRecipe 的屬性
-                // AppState.CurrentRecipe = selectedRecipe;
             }
             else
             {

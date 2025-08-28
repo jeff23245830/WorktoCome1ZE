@@ -56,6 +56,7 @@ namespace WorktoCome1
         private void btnSetting_Click(object sender, EventArgs e)
         {
             loadUserControl(ucSetting);
+            ucSetting.LoadRecipe();
         }
 
         private void btnControl_Click(object sender, EventArgs e)

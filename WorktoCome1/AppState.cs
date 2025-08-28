@@ -8,6 +8,7 @@ namespace WorktoCome1
 {
     public class AppState
     {
+
         public static string SelectedProductTitle { get; set; }
         public static string CurrentProducTitle { get; set; }
 
