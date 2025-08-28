@@ -8,18 +8,16 @@ namespace WorktoCome1
 {
     public class AppState
     {
-        public static string SelectedProduct { get; set; }
-        public static string CurrentProduct { get; set; }
+        public static string SelectedProductTitle { get; set; }
+        public static string CurrentProducTitle { get; set; }
+
+        public static RootObject RootObject { get; set; } = new RootObject();
+
+        public static Recipe CurrentRecipe { get; set; } 
+
+
     }
 
-    public class CurrentRespcie
-    {
-        public string ProductName { get; set; }
-        public string MotionName { get; set; }
-        public string GroupName { get; set; }
-        public string PointName { get; set; }
-        public string DioFunctionName { get; set; }
-    }
-
+   
 
 }

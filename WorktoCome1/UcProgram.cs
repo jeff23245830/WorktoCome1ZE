@@ -137,13 +137,13 @@ namespace WorktoCome1
                 txtSelectedProduct.Text = selectedProductName;
 
                 // 同時更新全域變數，供其他地方使用
-                AppState.SelectedProduct = selectedProductName;
+                AppState.SelectedProductTitle = selectedProductName;
             }
             else
             {
                 // 如果沒有選取項目，則清空文字框
                 txtSelectedProduct.Text = string.Empty;
-                AppState.SelectedProduct = null;
+                AppState.SelectedProductTitle = null;
             }
         }
 
@@ -161,8 +161,30 @@ namespace WorktoCome1
 
             // 同時更新全域變數，這一步非常重要，
             // 因為這表示這個產品現在是整個軟體的「目前產品」
-            AppState.CurrentProduct = txtCurrentProduct.Text;
+            AppState.CurrentProducTitle = txtCurrentProduct.Text;
 
+
+            string jsonString = JsonFunction.LoadJson(filePath);
+
+            //// 確保您的 RootObject 類別與之前的定義一致
+            var rootObject = JsonSerializer.Deserialize<RootObject>(jsonString);
+
+            AppState.RootObject = rootObject;
+
+
+            string productName = AppState.CurrentProducTitle;
+            if (AppState.RootObject.Products.ContainsKey(productName))
+            {
+                // 使用索引器來取出指定的 Recipe
+                AppState.CurrentRecipe = AppState.RootObject.Products[productName];
+                // 您可以將這個 Recipe 物件儲存在另一個全域變數中，以方便存取
+                // 假設您有一個 AppState.CurrentRecipe 的屬性
+                // AppState.CurrentRecipe = selectedRecipe;
+            }
+            else
+            {
+                MessageBox.Show($"找不到產品 '{productName}' 的資料。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             MessageBox.Show($"產品 {txtCurrentProduct.Text} 的參數已載入。", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
@@ -170,7 +192,7 @@ namespace WorktoCome1
         private void btnRecipeRename_Click(object sender, EventArgs e)
         {
             // 步驟 1: 檢查是否有選定產品
-            string oldProductName = AppState.SelectedProduct;
+            string oldProductName = AppState.SelectedProductTitle;
             if (string.IsNullOrEmpty(oldProductName))
             {
                 MessageBox.Show("請先選擇一個產品以重新命名。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -240,7 +262,7 @@ namespace WorktoCome1
                         // 假設您有一個 LoadProductList() 方法來更新清單
                         LoadProductList();
                         // 順便更新 AppState 中的選定產品名稱
-                        AppState.SelectedProduct = newProductName;
+                        AppState.SelectedProductTitle = newProductName;
                     }
                     catch (Exception ex)
                     {
@@ -253,7 +275,7 @@ namespace WorktoCome1
         private void btnDeleteRecipe_Click(object sender, EventArgs e)
         {
             // 步驟 1: 檢查是否有選定的產品
-            string productToDelete = AppState.SelectedProduct;
+            string productToDelete = AppState.SelectedProductTitle;
             if (string.IsNullOrEmpty(productToDelete))
             {
                 MessageBox.Show("請先選擇一個產品以刪除。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -302,7 +324,7 @@ namespace WorktoCome1
 
                     // 步驟 4: 更新介面與軟體狀態
                     LoadProductList(); // 重新整理產品清單
-                    AppState.SelectedProduct = null; // 清空選定的產品
+                    AppState.SelectedProductTitle = null; // 清空選定的產品
                                                      // 假設您還有「目前產品」的文字框，也一併清空
                                                      // txtCurrentProduct.Text = string.Empty;
                 }
