@@ -31,25 +31,25 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnDeleteRecipe = new System.Windows.Forms.Button();
+            this.btCreateRecipe = new System.Windows.Forms.Button();
+            this.btnRecipeRename = new System.Windows.Forms.Button();
+            this.btnLoadParameters = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtSelectedProduct = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCurrentProduct = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.LbProducts = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -85,45 +85,14 @@
             this.tabPage1.Text = "產品選擇";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1072, 510);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "探針教導";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(497, 63);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "目前產品";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Location = new System.Drawing.Point(15, 75);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(497, 62);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "產品選擇";
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button7);
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Controls.Add(this.LbProducts);
+            this.groupBox3.Controls.Add(this.btnDeleteRecipe);
+            this.groupBox3.Controls.Add(this.btCreateRecipe);
+            this.groupBox3.Controls.Add(this.btnRecipeRename);
+            this.groupBox3.Controls.Add(this.btnLoadParameters);
             this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.listBox1);
             this.groupBox3.Location = new System.Drawing.Point(15, 143);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(497, 348);
@@ -131,39 +100,45 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "產品清單";
             // 
-            // textBox1
+            // btnDeleteRecipe
             // 
-            this.textBox1.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox1.Location = new System.Drawing.Point(6, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(485, 33);
-            this.textBox1.TabIndex = 0;
+            this.btnDeleteRecipe.Location = new System.Drawing.Point(398, 291);
+            this.btnDeleteRecipe.Name = "btnDeleteRecipe";
+            this.btnDeleteRecipe.Size = new System.Drawing.Size(92, 51);
+            this.btnDeleteRecipe.TabIndex = 5;
+            this.btnDeleteRecipe.Text = "刪除";
+            this.btnDeleteRecipe.UseVisualStyleBackColor = true;
+            this.btnDeleteRecipe.Click += new System.EventHandler(this.btnDeleteRecipe_Click);
             // 
-            // textBox2
+            // btCreateRecipe
             // 
-            this.textBox2.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox2.Location = new System.Drawing.Point(6, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(485, 33);
-            this.textBox2.TabIndex = 0;
+            this.btCreateRecipe.Location = new System.Drawing.Point(300, 291);
+            this.btCreateRecipe.Name = "btCreateRecipe";
+            this.btCreateRecipe.Size = new System.Drawing.Size(92, 51);
+            this.btCreateRecipe.TabIndex = 4;
+            this.btCreateRecipe.Text = "新增";
+            this.btCreateRecipe.UseVisualStyleBackColor = true;
+            this.btCreateRecipe.Click += new System.EventHandler(this.btCreateRecipe_Click);
             // 
-            // button2
+            // btnRecipeRename
             // 
-            this.button2.Location = new System.Drawing.Point(834, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(232, 32);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "稼動時間歸零";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRecipeRename.Location = new System.Drawing.Point(202, 291);
+            this.btnRecipeRename.Name = "btnRecipeRename";
+            this.btnRecipeRename.Size = new System.Drawing.Size(92, 51);
+            this.btnRecipeRename.TabIndex = 3;
+            this.btnRecipeRename.Text = "重新命名";
+            this.btnRecipeRename.UseVisualStyleBackColor = true;
+            this.btnRecipeRename.Click += new System.EventHandler(this.btnRecipeRename_Click);
             // 
-            // listBox1
+            // btnLoadParameters
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(6, 21);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(485, 268);
-            this.listBox1.TabIndex = 0;
+            this.btnLoadParameters.Location = new System.Drawing.Point(104, 291);
+            this.btnLoadParameters.Name = "btnLoadParameters";
+            this.btnLoadParameters.Size = new System.Drawing.Size(92, 51);
+            this.btnLoadParameters.TabIndex = 2;
+            this.btnLoadParameters.Text = "載入參數";
+            this.btnLoadParameters.UseVisualStyleBackColor = true;
+            this.btnLoadParameters.Click += new System.EventHandler(this.btnLoadParameters_Click);
             // 
             // button3
             // 
@@ -175,41 +150,73 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // groupBox2
             // 
-            this.button4.Location = new System.Drawing.Point(104, 291);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(92, 51);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "載入參數";
-            this.button4.UseVisualStyleBackColor = true;
+            this.groupBox2.Controls.Add(this.txtSelectedProduct);
+            this.groupBox2.Location = new System.Drawing.Point(15, 75);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(497, 62);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "產品選擇";
             // 
-            // button5
+            // txtSelectedProduct
             // 
-            this.button5.Location = new System.Drawing.Point(202, 291);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(92, 51);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "重新命名";
-            this.button5.UseVisualStyleBackColor = true;
+            this.txtSelectedProduct.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtSelectedProduct.Location = new System.Drawing.Point(6, 21);
+            this.txtSelectedProduct.Name = "txtSelectedProduct";
+            this.txtSelectedProduct.ReadOnly = true;
+            this.txtSelectedProduct.Size = new System.Drawing.Size(485, 33);
+            this.txtSelectedProduct.TabIndex = 0;
             // 
-            // button6
+            // groupBox1
             // 
-            this.button6.Location = new System.Drawing.Point(300, 291);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(92, 51);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "新增";
-            this.button6.UseVisualStyleBackColor = true;
+            this.groupBox1.Controls.Add(this.txtCurrentProduct);
+            this.groupBox1.Location = new System.Drawing.Point(15, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(497, 63);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "目前產品";
             // 
-            // button7
+            // txtCurrentProduct
             // 
-            this.button7.Location = new System.Drawing.Point(398, 291);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(92, 51);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "刪除";
-            this.button7.UseVisualStyleBackColor = true;
+            this.txtCurrentProduct.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtCurrentProduct.Location = new System.Drawing.Point(6, 21);
+            this.txtCurrentProduct.Name = "txtCurrentProduct";
+            this.txtCurrentProduct.ReadOnly = true;
+            this.txtCurrentProduct.Size = new System.Drawing.Size(485, 33);
+            this.txtCurrentProduct.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1072, 510);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "探針教導";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(834, 6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(232, 32);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "稼動時間歸零";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // LbProducts
+            // 
+            this.LbProducts.FormattingEnabled = true;
+            this.LbProducts.ItemHeight = 12;
+            this.LbProducts.Location = new System.Drawing.Point(6, 21);
+            this.LbProducts.Name = "LbProducts";
+            this.LbProducts.Size = new System.Drawing.Size(480, 256);
+            this.LbProducts.TabIndex = 6;
+            this.LbProducts.SelectedIndexChanged += new System.EventHandler(this.LbProducts_SelectedIndexChanged);
             // 
             // UcProgram
             // 
@@ -220,12 +227,12 @@
             this.Size = new System.Drawing.Size(1083, 539);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -239,14 +246,14 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSelectedProduct;
+        private System.Windows.Forms.TextBox txtCurrentProduct;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnDeleteRecipe;
+        private System.Windows.Forms.Button btCreateRecipe;
+        private System.Windows.Forms.Button btnRecipeRename;
+        private System.Windows.Forms.Button btnLoadParameters;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox LbProducts;
     }
 }

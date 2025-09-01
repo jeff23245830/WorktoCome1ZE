@@ -38,6 +38,7 @@
             this.btnProgram = new System.Windows.Forms.Button();
             this.btnMain = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnInitial = new System.Windows.Forms.Button();
@@ -48,8 +49,8 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.Bt_Logout = new System.Windows.Forms.Button();
+            this.btnUserInfo = new System.Windows.Forms.Button();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
@@ -74,16 +75,15 @@
             this.button8 = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CmbSlotID.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // CmbSlotID
@@ -184,8 +184,8 @@
             this.panel2.Controls.Add(this.button13);
             this.panel2.Controls.Add(this.button12);
             this.panel2.Controls.Add(this.button11);
-            this.panel2.Controls.Add(this.button10);
-            this.panel2.Controls.Add(this.button9);
+            this.panel2.Controls.Add(this.Bt_Logout);
+            this.panel2.Controls.Add(this.btnUserInfo);
             this.panel2.Controls.Add(this.textBox16);
             this.panel2.Controls.Add(this.textBox15);
             this.panel2.Controls.Add(this.textBox14);
@@ -195,6 +195,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 675);
             this.panel2.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WorktoCome1.Properties.Resources.去背2;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 125);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
             // 
             // btnStop
             // 
@@ -287,23 +296,25 @@
             this.button11.Text = "AOI";
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // Bt_Logout
             // 
-            this.button10.Location = new System.Drawing.Point(95, 278);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(67, 59);
-            this.button10.TabIndex = 7;
-            this.button10.Text = "登出";
-            this.button10.UseVisualStyleBackColor = true;
+            this.Bt_Logout.Location = new System.Drawing.Point(95, 278);
+            this.Bt_Logout.Name = "Bt_Logout";
+            this.Bt_Logout.Size = new System.Drawing.Size(67, 59);
+            this.Bt_Logout.TabIndex = 7;
+            this.Bt_Logout.Text = "登出";
+            this.Bt_Logout.UseVisualStyleBackColor = true;
+            this.Bt_Logout.Click += new System.EventHandler(this.Bt_Logout_Click);
             // 
-            // button9
+            // btnUserInfo
             // 
-            this.button9.Location = new System.Drawing.Point(10, 278);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(67, 59);
-            this.button9.TabIndex = 6;
-            this.button9.Text = "人員資訊";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnUserInfo.Location = new System.Drawing.Point(10, 278);
+            this.btnUserInfo.Name = "btnUserInfo";
+            this.btnUserInfo.Size = new System.Drawing.Size(67, 59);
+            this.btnUserInfo.TabIndex = 6;
+            this.btnUserInfo.Text = "人員資訊";
+            this.btnUserInfo.UseVisualStyleBackColor = true;
+            this.btnUserInfo.Click += new System.EventHandler(this.btnUserInfo_Click);
             // 
             // textBox16
             // 
@@ -494,15 +505,6 @@
             this.pnlContent.Size = new System.Drawing.Size(1083, 539);
             this.pnlContent.TabIndex = 3;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WorktoCome1.Properties.Resources.去背2;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 125);
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -512,6 +514,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.CmbSlotID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -519,6 +522,7 @@
             this.CmbSlotID.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -530,7 +534,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -557,8 +560,8 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button Bt_Logout;
+        private System.Windows.Forms.Button btnUserInfo;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox14;

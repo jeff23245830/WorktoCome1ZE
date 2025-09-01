@@ -148,6 +148,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
+            this.bt_check = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -996,6 +997,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.bt_check);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtSV);
@@ -1431,6 +1433,16 @@
             // 
             this.TimCheckStatus.Tick += new System.EventHandler(this.TimCheckStatus_Tick);
             // 
+            // bt_check
+            // 
+            this.bt_check.Location = new System.Drawing.Point(214, 302);
+            this.bt_check.Name = "bt_check";
+            this.bt_check.Size = new System.Drawing.Size(136, 89);
+            this.bt_check.TabIndex = 16;
+            this.bt_check.Text = "檢查到位";
+            this.bt_check.UseVisualStyleBackColor = true;
+            this.bt_check.Click += new System.EventHandler(this.bt_check_Click);
+            // 
             // UcControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1583,5 +1595,6 @@
         private System.Windows.Forms.TextBox txtFv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button bt_check;
     }
 }

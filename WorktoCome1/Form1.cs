@@ -8,6 +8,8 @@ namespace WorktoCome1
     public partial class Form1 : Form
     {
         private EtherCATFunction.Initial cardManager;
+        private string _loginAccount;
+        private string _loginLevel;
         //private ushort g_nESCExistCards = 0, g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
@@ -18,10 +20,12 @@ namespace WorktoCome1
         UcControl ucControl = new UcControl();
         UcInfo ucInfo = new UcInfo();
         UcLanguage ucLanguage = new UcLanguage();
-
-        public Form1()
+        
+        public Form1(string loginAccount,string loginLevel)
         {
             InitializeComponent();
+            _loginAccount = loginAccount;
+            _loginLevel = loginLevel;
             TimCheckStatus.Interval = 100;
             TimCheckStatus.Enabled = true;
             btnControl.Enabled = false; 
@@ -52,6 +56,7 @@ namespace WorktoCome1
         private void btnSetting_Click(object sender, EventArgs e)
         {
             loadUserControl(ucSetting);
+            ucSetting.LoadRecipe();
         }
 
         private void btnControl_Click(object sender, EventArgs e)
@@ -138,6 +143,22 @@ namespace WorktoCome1
              
         }
 
-         
+        private void Bt_Logout_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Retry;
+
+            // 關閉目前的主視窗，程式控制權會回到 Program.cs 的迴圈
+            this.Close();
+        }
+
+        private void btnUserInfo_Click(object sender, EventArgs e)
+        {
+            var loginForm = new LoginForm();
+            if(_loginLevel == "管理員")
+                loginForm.IsManageMode = 1;
+            else
+                loginForm.IsManageMode = 2;
+            loginForm.ShowDialog();
+        }
     }
 }
