@@ -36,15 +36,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.CbArea = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnTransfer = new System.Windows.Forms.Button();
             this.btnMoveDown = new System.Windows.Forms.Button();
             this.btnMoveBottom = new System.Windows.Forms.Button();
             this.btnMoveUp = new System.Windows.Forms.Button();
             this.btnMoveTop = new System.Windows.Forms.Button();
             this.btnMotionSave = new System.Windows.Forms.Button();
             this.DgMotionPoint = new System.Windows.Forms.DataGridView();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.教導 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.移動 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.點位名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +50,9 @@
             this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.R = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnTransfer = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -151,6 +151,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // btnTransfer
+            // 
+            this.btnTransfer.Location = new System.Drawing.Point(3, 224);
+            this.btnTransfer.Name = "btnTransfer";
+            this.btnTransfer.Size = new System.Drawing.Size(39, 36);
+            this.btnTransfer.TabIndex = 6;
+            this.btnTransfer.Text = "轉移";
+            this.btnTransfer.UseVisualStyleBackColor = true;
+            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
+            // 
             // btnMoveDown
             // 
             this.btnMoveDown.Location = new System.Drawing.Point(6, 389);
@@ -219,36 +229,7 @@
             this.DgMotionPoint.RowTemplate.Height = 24;
             this.DgMotionPoint.Size = new System.Drawing.Size(527, 428);
             this.DgMotionPoint.TabIndex = 0;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1071, 487);
-            this.tabPage6.TabIndex = 2;
-            this.tabPage6.Text = "校正";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1075, 513);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "參數設定";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1075, 513);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "速度設定";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.DgMotionPoint.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgMotionPoint_CellContentClick);
             // 
             // 教導
             // 
@@ -298,15 +279,35 @@
             this.R.Name = "R";
             this.R.Width = 50;
             // 
-            // btnTransfer
+            // tabPage6
             // 
-            this.btnTransfer.Location = new System.Drawing.Point(3, 224);
-            this.btnTransfer.Name = "btnTransfer";
-            this.btnTransfer.Size = new System.Drawing.Size(39, 36);
-            this.btnTransfer.TabIndex = 6;
-            this.btnTransfer.Text = "轉移";
-            this.btnTransfer.UseVisualStyleBackColor = true;
-            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1071, 487);
+            this.tabPage6.TabIndex = 2;
+            this.tabPage6.Text = "校正";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1075, 513);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "參數設定";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1075, 513);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "速度設定";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // UcSetting
             // 

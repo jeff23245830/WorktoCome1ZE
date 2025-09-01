@@ -17,10 +17,14 @@ namespace WorktoCome1
         public UcSetting()
         {
             InitializeComponent();
+            ClearData();
+        }
+        public void ClearData()
+        {
             DgMotionPoint.Rows.Clear();
+            CbArea.Items.Clear();
             CbArea.Text = string.Empty;
         }
-
         public void LoadRecipe()
         {
             
@@ -381,6 +385,11 @@ namespace WorktoCome1
                     }
                 }
             }
+        }
+
+        private void DgMotionPoint_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

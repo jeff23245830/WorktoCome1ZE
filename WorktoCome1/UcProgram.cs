@@ -185,7 +185,7 @@ namespace WorktoCome1
                 MessageBox.Show($"找不到產品 '{productName}' 的資料。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             MessageBox.Show($"產品 {txtCurrentProduct.Text} 的參數已載入。", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            
         }
 
         private void btnRecipeRename_Click(object sender, EventArgs e)
