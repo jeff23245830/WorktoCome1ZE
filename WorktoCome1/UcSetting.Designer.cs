@@ -33,6 +33,14 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.BtnSVOFF = new System.Windows.Forms.Button();
+            this.BtnSVON = new System.Windows.Forms.Button();
+            this.BtnStartMove = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CbR_NodeId = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,14 +67,6 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.CbR_NodeId = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.BtnStartMove = new System.Windows.Forms.Button();
-            this.BtnSVON = new System.Windows.Forms.Button();
-            this.BtnSVOFF = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -147,6 +147,75 @@
             this.tabPage5.Text = "點位架設";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // BtnSVOFF
+            // 
+            this.BtnSVOFF.Location = new System.Drawing.Point(732, 263);
+            this.BtnSVOFF.Name = "BtnSVOFF";
+            this.BtnSVOFF.Size = new System.Drawing.Size(110, 43);
+            this.BtnSVOFF.TabIndex = 18;
+            this.BtnSVOFF.Text = "SVON";
+            this.BtnSVOFF.UseVisualStyleBackColor = true;
+            // 
+            // BtnSVON
+            // 
+            this.BtnSVON.Location = new System.Drawing.Point(625, 263);
+            this.BtnSVON.Name = "BtnSVON";
+            this.BtnSVON.Size = new System.Drawing.Size(102, 43);
+            this.BtnSVON.TabIndex = 17;
+            this.BtnSVON.Text = "SVON";
+            this.BtnSVON.UseVisualStyleBackColor = true;
+            // 
+            // BtnStartMove
+            // 
+            this.BtnStartMove.Location = new System.Drawing.Point(848, 264);
+            this.BtnStartMove.Name = "BtnStartMove";
+            this.BtnStartMove.Size = new System.Drawing.Size(86, 42);
+            this.BtnStartMove.TabIndex = 16;
+            this.BtnStartMove.Text = "移動";
+            this.BtnStartMove.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(940, 204);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(71, 39);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "教導";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(647, 215);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(287, 22);
+            this.textBox1.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(582, 222);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "點位名稱";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(868, 151);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(13, 12);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "R";
+            // 
+            // CbR_NodeId
+            // 
+            this.CbR_NodeId.FormattingEnabled = true;
+            this.CbR_NodeId.Location = new System.Drawing.Point(846, 166);
+            this.CbR_NodeId.Name = "CbR_NodeId";
+            this.CbR_NodeId.Size = new System.Drawing.Size(57, 20);
+            this.CbR_NodeId.TabIndex = 11;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(919, 151);
@@ -155,6 +224,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "儲存NodeId";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -391,75 +461,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "速度設定";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(868, 151);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 12);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "R";
-            // 
-            // CbR_NodeId
-            // 
-            this.CbR_NodeId.FormattingEnabled = true;
-            this.CbR_NodeId.Location = new System.Drawing.Point(846, 166);
-            this.CbR_NodeId.Name = "CbR_NodeId";
-            this.CbR_NodeId.Size = new System.Drawing.Size(57, 20);
-            this.CbR_NodeId.TabIndex = 11;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(582, 222);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "點位名稱";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(647, 215);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(287, 22);
-            this.textBox1.TabIndex = 14;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(940, 204);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(71, 39);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "教導";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // BtnStartMove
-            // 
-            this.BtnStartMove.Location = new System.Drawing.Point(848, 264);
-            this.BtnStartMove.Name = "BtnStartMove";
-            this.BtnStartMove.Size = new System.Drawing.Size(86, 42);
-            this.BtnStartMove.TabIndex = 16;
-            this.BtnStartMove.Text = "移動";
-            this.BtnStartMove.UseVisualStyleBackColor = true;
-            // 
-            // BtnSVON
-            // 
-            this.BtnSVON.Location = new System.Drawing.Point(625, 263);
-            this.BtnSVON.Name = "BtnSVON";
-            this.BtnSVON.Size = new System.Drawing.Size(102, 43);
-            this.BtnSVON.TabIndex = 17;
-            this.BtnSVON.Text = "SVON";
-            this.BtnSVON.UseVisualStyleBackColor = true;
-            // 
-            // BtnSVOFF
-            // 
-            this.BtnSVOFF.Location = new System.Drawing.Point(732, 263);
-            this.BtnSVOFF.Name = "BtnSVOFF";
-            this.BtnSVOFF.Size = new System.Drawing.Size(110, 43);
-            this.BtnSVOFF.TabIndex = 18;
-            this.BtnSVOFF.Text = "SVON";
-            this.BtnSVOFF.UseVisualStyleBackColor = true;
             // 
             // UcSetting
             // 
