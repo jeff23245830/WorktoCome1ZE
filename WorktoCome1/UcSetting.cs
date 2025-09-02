@@ -159,6 +159,14 @@ namespace WorktoCome1
                 // 檢查 Groups 字典是否為空
                 if (selectedMotion.Groups != null)
                 {
+
+                    CbX_NodeId.Text = selectedMotion.Groups.X_NodeId.ToString();
+                    CbY_NodeId.Text = selectedMotion.Groups.Y_NodeId.ToString();
+                    CbZ_NodeId.Text = selectedMotion.Groups.Z_NodeId.ToString();
+                    CbR_NodeId.Text = selectedMotion.Groups.R_NodeId.ToString();
+
+                   
+
                     // 遍歷 Groups 字典，將資料載入到 DataGridView
                     foreach (var pointEntry in selectedMotion.Groups.Point)
                     {
@@ -171,6 +179,13 @@ namespace WorktoCome1
                         // 您可以根據需求自行調整
 
                         DgMotionPoint.Rows.Add( pointName, pointData.X, pointData.Y, pointData.Z, pointData.R);
+
+
+
+
+
+
+
                     }
                 }
             }
@@ -389,9 +404,27 @@ namespace WorktoCome1
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSaveNodeId_Click(object sender, EventArgs e)
         {
 
+
+
+
+
+
+        }
+
+        private void DgMotionPoint_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DgMotionPoint.CurrentRow != null && DgMotionPoint.CurrentRow.Cells["點位名稱"].Value != null)
+            {
+                txtPointName.Text = DgMotionPoint.CurrentRow.Cells["點位名稱"].Value.ToString();
+            }
+            else
+            {
+                txtPointName.Text = string.Empty;
+            }
+            //txtPointName.Text = DgMotionPoint.CurrentRow?.Cells["點位名稱"].Value?.ToString() ?? string.Empty;
         }
     }
 }

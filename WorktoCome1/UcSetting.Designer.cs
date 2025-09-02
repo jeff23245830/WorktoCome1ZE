@@ -37,11 +37,11 @@
             this.BtnSVON = new System.Windows.Forms.Button();
             this.BtnStartMove = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPointName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.CbR_NodeId = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveNodeId = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -124,11 +124,11 @@
             this.tabPage5.Controls.Add(this.BtnSVON);
             this.tabPage5.Controls.Add(this.BtnStartMove);
             this.tabPage5.Controls.Add(this.button2);
-            this.tabPage5.Controls.Add(this.textBox1);
+            this.tabPage5.Controls.Add(this.txtPointName);
             this.tabPage5.Controls.Add(this.label7);
             this.tabPage5.Controls.Add(this.label6);
             this.tabPage5.Controls.Add(this.CbR_NodeId);
-            this.tabPage5.Controls.Add(this.button1);
+            this.tabPage5.Controls.Add(this.btnSaveNodeId);
             this.tabPage5.Controls.Add(this.label5);
             this.tabPage5.Controls.Add(this.label4);
             this.tabPage5.Controls.Add(this.label3);
@@ -183,12 +183,12 @@
             this.button2.Text = "教導";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtPointName
             // 
-            this.textBox1.Location = new System.Drawing.Point(647, 215);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(287, 22);
-            this.textBox1.TabIndex = 14;
+            this.txtPointName.Location = new System.Drawing.Point(647, 215);
+            this.txtPointName.Name = "txtPointName";
+            this.txtPointName.Size = new System.Drawing.Size(287, 22);
+            this.txtPointName.TabIndex = 14;
             // 
             // label7
             // 
@@ -216,15 +216,15 @@
             this.CbR_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbR_NodeId.TabIndex = 11;
             // 
-            // button1
+            // btnSaveNodeId
             // 
-            this.button1.Location = new System.Drawing.Point(919, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "儲存NodeId";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSaveNodeId.Location = new System.Drawing.Point(919, 151);
+            this.btnSaveNodeId.Name = "btnSaveNodeId";
+            this.btnSaveNodeId.Size = new System.Drawing.Size(75, 35);
+            this.btnSaveNodeId.TabIndex = 10;
+            this.btnSaveNodeId.Text = "儲存NodeId";
+            this.btnSaveNodeId.UseVisualStyleBackColor = true;
+            this.btnSaveNodeId.Click += new System.EventHandler(this.btnSaveNodeId_Click);
             // 
             // label5
             // 
@@ -397,6 +397,7 @@
             this.DgMotionPoint.Size = new System.Drawing.Size(413, 428);
             this.DgMotionPoint.TabIndex = 0;
             this.DgMotionPoint.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgMotionPoint_CellContentClick);
+            this.DgMotionPoint.SelectionChanged += new System.EventHandler(this.DgMotionPoint_SelectionChanged);
             // 
             // 點位名稱
             // 
@@ -512,14 +513,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Y;
         private System.Windows.Forms.DataGridViewTextBoxColumn Z;
         private System.Windows.Forms.DataGridViewTextBoxColumn R;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveNodeId;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox CbR_NodeId;
         private System.Windows.Forms.Button BtnSVOFF;
         private System.Windows.Forms.Button BtnSVON;
         private System.Windows.Forms.Button BtnStartMove;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPointName;
         private System.Windows.Forms.Label label7;
     }
 }
