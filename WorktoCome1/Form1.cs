@@ -8,27 +8,37 @@ namespace WorktoCome1
     public partial class Form1 : Form
     {
         private EtherCATFunction.Initial cardManager;
+        private readonly AppState _appState;
+
         private string _loginAccount;
         private string _loginLevel;
         //private ushort g_nESCExistCards = 0, g_uESCCardNo = 0, g_uESCNodeID = 0, g_uESCSlotID;
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
 
-        UcProgram ucProgram = new UcProgram();
-        UcMain ucMain = new UcMain();
-        UcSetting ucSetting = new UcSetting();
-        UcControl ucControl = new UcControl();
-        UcInfo ucInfo = new UcInfo();
-        UcLanguage ucLanguage = new UcLanguage();
+        private UcProgram ucProgram;
+        private UcMain ucMain;
+        private UcSetting ucSetting;
+        private UcControl ucControl;
+        private UcInfo ucInfo;
+        private UcLanguage ucLanguage;
         
-        public Form1(string loginAccount,string loginLevel)
+        public Form1(string loginAccount,string loginLevel, AppState appState)
         {
             InitializeComponent();
             _loginAccount = loginAccount;
             _loginLevel = loginLevel;
             TimCheckStatus.Interval = 100;
             TimCheckStatus.Enabled = true;
-            btnControl.Enabled = false; 
+            btnControl.Enabled = false;
+            _appState = appState;
+            ucProgram = new UcProgram(_appState);
+            ucMain = new UcMain(_appState);
+            ucSetting = new UcSetting(_appState);
+            ucControl = new UcControl(_appState);
+            ucInfo = new UcInfo(_appState);
+            ucLanguage = new UcLanguage(_appState);
+
         }
         private void loadUserControl(UserControl userControl)
         {

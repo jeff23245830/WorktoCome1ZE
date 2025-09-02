@@ -9,6 +9,7 @@ namespace WorktoCome1
 {
     public partial class UcControl : UserControl
     {
+        private readonly AppState _appState;
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
         CheckBox[] g_pOutputLab = new CheckBox[16];
@@ -58,8 +59,10 @@ namespace WorktoCome1
                 CbDISlotId.SelectedIndex = 0;
         }
 
-        public UcControl()
+        public UcControl(AppState appState)
         {
+            _appState = appState;
+
             ppmove = new MotorMove();
             iOControl = new IOControl();
 

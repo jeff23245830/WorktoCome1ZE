@@ -12,9 +12,11 @@ namespace WorktoCome1
 {
     public partial class UcInfo : UserControl
     {
-        public UcInfo()
+        private readonly AppState _appState;
+        public UcInfo( AppState appState)
         {
             InitializeComponent();
+            _appState = appState;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

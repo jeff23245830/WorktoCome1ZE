@@ -12,9 +12,11 @@ namespace WorktoCome1
 {
     public partial class UcLanguage : UserControl
     {
-        public UcLanguage()
+        private readonly AppState _appState;
+        public UcLanguage(AppState appState)
         {
             InitializeComponent();
+            _appState = appState;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace WorktoCome1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            
+            var appState = new AppState();
 
 
             while (true)
@@ -36,7 +36,7 @@ namespace WorktoCome1
                     {
                         LoginAccount = loginForm.Account as string;
                          UserLevel = loginForm.Level as string;
-                        using (var mainForm = new Form1(LoginAccount, UserLevel))
+                        using (var mainForm = new Form1(LoginAccount, UserLevel, appState))
                         {
                             if (mainForm.ShowDialog() != DialogResult.Retry)
                                 break; // 不是登出就結束程式

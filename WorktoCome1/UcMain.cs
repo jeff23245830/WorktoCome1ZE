@@ -14,16 +14,21 @@ namespace WorktoCome1
 {
     public partial class UcMain : UserControl
     {
+        private readonly AppState _appState;
         public ushort CardCount {get;set;}
 
 
         CheckBox[] g_pOutputLab = new CheckBox[1];
-        public UcMain()
+        public UcMain(AppState appState)
         {
             InitializeComponent();
+            _appState = appState;
             //_pOutputLab[0] = ChkBit00;
         }
 
-        
+        private void UcMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

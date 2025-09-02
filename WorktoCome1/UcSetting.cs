@@ -13,11 +13,13 @@ namespace WorktoCome1
 {
     public partial class UcSetting : UserControl
     {
+        private readonly AppState _appState;
         string filePath = "Recipe.json";
-        public UcSetting()
+        public UcSetting(AppState appState  )
         {
             InitializeComponent();
             ClearData();
+            _appState = appState;
         }
         public void ClearData()
         {
@@ -29,18 +31,18 @@ namespace WorktoCome1
         {
             
             //1.載入存在APPSTATE的CurrentRecipe
-            string CurrentProduc = AppState.CurrentProducTitle;
+            string CurrentProduc = _appState.CurrentProducTitle;
             if (string.IsNullOrWhiteSpace(CurrentProduc))
             {
                 MessageBox.Show("請先選擇一個產品以載入參數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             
-            if (AppState.CurrentRecipe.Motions != null)
+            if (_appState.CurrentRecipe.Motions != null)
             {
                 //2.CbArea載入CurrentRecipe的Motions
                 CbArea.Items.Clear();   
-                foreach (var recipe in AppState.CurrentRecipe.Motions.Keys)
+                foreach (var recipe in _appState.CurrentRecipe.Motions.Keys)
                 {
                     CbArea.Items.Add(recipe);
                 }
@@ -55,7 +57,7 @@ namespace WorktoCome1
         private void btnMotionSave_Click(object sender, EventArgs e)
         {
             //1.先確認
-            string currentProducTitle = AppState.CurrentProducTitle;
+            string currentProducTitle = _appState.CurrentProducTitle;
             string selectedMotionName = CbArea.Text;  
 
             if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedMotionName))
@@ -68,14 +70,14 @@ namespace WorktoCome1
             try
             {
                 // 2. 確保 AppState.RootObject 已經載入
-                if (AppState.RootObject == null)
+                if (_appState.RootObject == null)
                 {
                     MessageBox.Show("資料尚未載入，請先載入產品。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 // 3. 取得目前產品的 Recipe 物件
-                if (!AppState.RootObject.Products.TryGetValue(currentProducTitle, out Recipe currentRecipe))
+                if (!_appState.RootObject.Products.TryGetValue(currentProducTitle, out Recipe currentRecipe))
                 {
                     MessageBox.Show($"找不到產品 '{currentProducTitle}' 的資料。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -90,14 +92,14 @@ namespace WorktoCome1
                 }
 
                 // 5. 遍歷 DataGridView，讀取每一行的點位資料並更新 Motion
-                currentMotion.Groups.Clear(); // 先清空舊資料，再重新寫入，確保同步
+                currentMotion.Groups.Point.Clear(); // 先清空舊資料，再重新寫入，確保同步
 
                 foreach (DataGridViewRow row in DgMotionPoint.Rows)
                 {
                     // 檢查是否為新行，並確保點位名稱不為空
                     if (!row.IsNewRow && row.Cells["點位名稱"].Value != null)
                     {
-                        string groupName = row.Cells["點位名稱"].Value.ToString();
+                        string pointName = row.Cells["點位名稱"].Value.ToString();
 
                         // 讀取 XY Z R 座標
                         double x = Convert.ToDouble(row.Cells["X"].Value);
@@ -118,12 +120,12 @@ namespace WorktoCome1
                         newGroup.Point.Add("1", newPoint);
 
                         // 將 Group 加入 Motion 的 Groups 字典中
-                        currentMotion.Groups.Add(groupName, newGroup);
+                        currentMotion.Groups.Point.Add(pointName, newPoint);
                     }
                 }
 
                 // 6. 將更新後的 AppState.RootObject 序列化並寫入檔案
-                JsonFunction.SaveJson(filePath, AppState.RootObject);
+                JsonFunction.SaveJson(filePath, _appState.RootObject);
 
                 MessageBox.Show($"產品 '{currentProducTitle}' 的區域 '{selectedMotionName}' 已成功儲存。", "儲存成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadRecipe();
@@ -152,31 +154,23 @@ namespace WorktoCome1
             string selectedMotionName = CbArea.SelectedItem.ToString();
 
             // 從 AppState.CurrentRecipe 中找到選定的 Motion
-            if (AppState.CurrentRecipe.Motions.TryGetValue(selectedMotionName, out Motion selectedMotion))
+            if (_appState.CurrentRecipe.Motions.TryGetValue(selectedMotionName, out Motion selectedMotion))
             {
                 // 檢查 Groups 字典是否為空
                 if (selectedMotion.Groups != null)
                 {
                     // 遍歷 Groups 字典，將資料載入到 DataGridView
-                    foreach (var groupEntry in selectedMotion.Groups)
+                    foreach (var pointEntry in selectedMotion.Groups.Point)
                     {
-                       
-                        string groupName = groupEntry.Key;
-                        Group group = groupEntry.Value;
+
+                        string pointName = pointEntry.Key;
+                        Point pointData = pointEntry.Value;
 
                         // 根據您的 DataGridView 欄位，新增一列並填入資料
                         // 假設您的 DataGridView 欄位順序為：點位名稱, X, Y, Z, R
                         // 您可以根據需求自行調整
 
-                        if (group.Point != null && group.Point.TryGetValue("1", out Point pointData))
-                        {
-                            // 這行程式碼會讀取 JSON 檔案中的 Point 資料
-                            DgMotionPoint.Rows.Add(null, null, groupName, pointData.X, pointData.Y, pointData.Z, pointData.R);
-                        }
-                        else
-                        {
-                            DgMotionPoint.Rows.Add(null, null, groupName);
-                        }
+                        DgMotionPoint.Rows.Add( pointName, pointData.X, pointData.Y, pointData.Z, pointData.R);
                     }
                 }
             }
@@ -327,7 +321,7 @@ namespace WorktoCome1
             }
 
             // 2. 取得現有的所有 Motion 區域名稱
-            List<string> motionNames = new List<string>(AppState.CurrentRecipe.Motions.Keys);
+            List<string> motionNames = new List<string>(_appState.CurrentRecipe.Motions.Keys);
             string sourceMotionName = CbArea.Text;
             motionNames.Remove(sourceMotionName); // 從列表中移除來源區域
 
@@ -349,23 +343,26 @@ namespace WorktoCome1
                     // 5. 執行資料轉移
                     try
                     {
-                        var sourceMotion = AppState.CurrentRecipe.Motions[sourceMotionName];
-                        var destinationMotion = AppState.CurrentRecipe.Motions[destinationMotionName];
+                        var sourceMotion = _appState.CurrentRecipe.Motions[sourceMotionName];
+                        var destinationMotion = _appState.CurrentRecipe.Motions[destinationMotionName];
 
                         // 準備要轉移的點位組別
-                        var groupsToTransfer = new Dictionary<string, Group>();
+                        var pointsToTransfer = new Dictionary<string, Point>();
                         foreach (DataGridViewRow row in DgMotionPoint.SelectedRows)
                         {
-                            string groupName = row.Cells["點位名稱"].Value.ToString();
-                            Group group = sourceMotion.Groups[groupName]; // 從來源取得完整的 Group 物件
-                            groupsToTransfer.Add(groupName, group);
+                            string pointName = row.Cells["點位名稱"].Value.ToString();
+                            // 從來源 Motion 的 Groups.Point 字典中取得完整的 Point 物件
+                            Point point = sourceMotion.Groups.Point[pointName];
+                            pointsToTransfer.Add(pointName, point);
                         }
 
-                        // 將點位從來源 Motion 移除，並加入目的 Motion
-                        foreach (var groupEntry in groupsToTransfer)
+                        // 將點位從來源 Motion 的 Point 字典移除，並加入目的 Motion 的 Point 字典
+                        foreach (var pointEntry in pointsToTransfer)
                         {
-                            sourceMotion.Groups.Remove(groupEntry.Key);
-                            destinationMotion.Groups.Add(groupEntry.Key, groupEntry.Value);
+                            // 從來源 Point 字典移除點位
+                            sourceMotion.Groups.Point.Remove(pointEntry.Key);
+                            // 將點位加入目的 Point 字典
+                            destinationMotion.Groups.Point.Add(pointEntry.Key, pointEntry.Value);
                         }
 
                         // 6. 更新 DataGridView
@@ -375,7 +372,7 @@ namespace WorktoCome1
                         }
 
                         // 7. 儲存 JSON 檔案
-                        JsonFunction.SaveJson(filePath, AppState.RootObject); 
+                        JsonFunction.SaveJson(filePath, _appState.RootObject); 
 
                         MessageBox.Show($"已成功將選定的點位組別轉移到 '{destinationMotionName}'。", "轉移完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

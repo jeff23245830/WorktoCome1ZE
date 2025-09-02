@@ -13,12 +13,13 @@ namespace WorktoCome1
 {
     public partial class UcProgram : UserControl
     {
+        private readonly AppState _appState;
         string filePath = "Recipe.json";
-        public UcProgram()
+        public UcProgram(AppState appState)
         {
             InitializeComponent();
             LoadProductList();
-
+            _appState = appState;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -147,19 +148,19 @@ namespace WorktoCome1
                 txtSelectedProduct.Text = selectedProductName;
 
                 // 同時更新全域變數，供其他地方使用
-                AppState.SelectedProductTitle = selectedProductName;
+               _appState.SelectedProductTitle = selectedProductName;
             }
             else
             {
                 // 如果沒有選取項目，則清空文字框
                 txtSelectedProduct.Text = string.Empty;
-                AppState.SelectedProductTitle = null;
+                _appState.SelectedProductTitle = null;
             }
         }
 
         private void btnLoadParameters_Click(object sender, EventArgs e)
         {
-            string SelectedProduct = AppState.SelectedProductTitle;
+            string SelectedProduct = _appState.SelectedProductTitle;
             if (string.IsNullOrWhiteSpace(SelectedProduct))
             {
                 MessageBox.Show("請先選擇一個產品以載入參數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -167,18 +168,18 @@ namespace WorktoCome1
             }
             txtCurrentProduct.Text = txtSelectedProduct.Text;
 
-            AppState.CurrentProducTitle = txtCurrentProduct.Text;
+            _appState.CurrentProducTitle = txtCurrentProduct.Text;
 
 
             string jsonString = JsonFunction.LoadJson(filePath);
             var rootObject = JsonSerializer.Deserialize<RootObject>(jsonString);
 
-            AppState.RootObject = rootObject;
+            _appState.RootObject = rootObject;
 
-            string productName = AppState.CurrentProducTitle;
-            if (AppState.RootObject.Products.ContainsKey(productName))
+            string productName = _appState.CurrentProducTitle;
+            if (_appState.RootObject.Products.ContainsKey(productName))
             {
-                AppState.CurrentRecipe = AppState.RootObject.Products[productName];
+                _appState.CurrentRecipe = _appState.RootObject.Products[productName];
             }
             else
             {
@@ -191,7 +192,7 @@ namespace WorktoCome1
         private void btnRecipeRename_Click(object sender, EventArgs e)
         {
             // 步驟 1: 檢查是否有選定產品
-            string oldProductName = AppState.SelectedProductTitle;
+            string oldProductName = _appState.SelectedProductTitle;
             if (string.IsNullOrEmpty(oldProductName))
             {
                 MessageBox.Show("請先選擇一個產品以重新命名。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -261,7 +262,7 @@ namespace WorktoCome1
                         // 假設您有一個 LoadProductList() 方法來更新清單
                         LoadProductList();
                         // 順便更新 AppState 中的選定產品名稱
-                        AppState.SelectedProductTitle = newProductName;
+                        _appState.SelectedProductTitle = newProductName;
                     }
                     catch (Exception ex)
                     {
@@ -274,7 +275,7 @@ namespace WorktoCome1
         private void btnDeleteRecipe_Click(object sender, EventArgs e)
         {
             // 步驟 1: 檢查是否有選定的產品
-            string productToDelete = AppState.SelectedProductTitle;
+            string productToDelete = _appState.SelectedProductTitle;
             if (string.IsNullOrEmpty(productToDelete))
             {
                 MessageBox.Show("請先選擇一個產品以刪除。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -323,7 +324,7 @@ namespace WorktoCome1
 
                     // 步驟 4: 更新介面與軟體狀態
                     LoadProductList(); // 重新整理產品清單
-                    AppState.SelectedProductTitle = null; // 清空選定的產品
+                    _appState.SelectedProductTitle = null; // 清空選定的產品
                                                      // 假設您還有「目前產品」的文字框，也一併清空
                                                      // txtCurrentProduct.Text = string.Empty;
                 }
