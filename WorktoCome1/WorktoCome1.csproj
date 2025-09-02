@@ -215,5 +215,8 @@
   <ItemGroup>
     <None Include="Resources\去背2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="新文字文件 %282%29.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

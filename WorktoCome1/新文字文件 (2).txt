@@ -1,0 +1,57 @@
+{
+  "Default_Recipe": "",
+  "Products": {
+    "產品1": {
+      "Motions": {
+        "區域1": {
+          "Groups": {
+            "點位1": {
+              "X_NodeId": 0,
+              "Y_NodeId": 0,
+              "Z_NodeId": 0,
+              "R_NodeId": 0,
+              "Point": {
+                "1": {
+                  "X": 1,
+                  "Y": 1,
+                  "Z": 1,
+                  "R": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "DioFunctions": {}
+    }
+  }
+}
+
+---------------------------------------------------
+{
+  "Default_Recipe": "",
+  "Products": {
+    "產品1": {
+      "Motions": {
+        "區域1": {
+          "Groups": {
+              "X_NodeId": 0,
+              "Y_NodeId": 0,
+              "Z_NodeId": 0,
+              "R_NodeId": 0,
+              "Point": {
+                "點位1": {
+                  "X": 1,
+                  "Y": 1,
+                  "Z": 1,
+                  "R": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "DioFunctions": {}
+    }
+  }
+}
