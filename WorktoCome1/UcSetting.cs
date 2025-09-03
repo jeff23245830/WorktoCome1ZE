@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -14,7 +15,11 @@ namespace WorktoCome1
     public partial class UcSetting : UserControl
     {
         private readonly AppState _appState;
-        string filePath = "Recipe.json";
+        string filePath = Path.Combine(
+    Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments),
+    "WorktoCome1",                 // 建議放一個你的資料夾，不要直接丟在根目錄
+    "Recipe.json"
+);
         public UcSetting(AppState appState  )
         {
             InitializeComponent();

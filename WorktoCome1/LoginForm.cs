@@ -9,7 +9,11 @@ namespace WorktoCome1
 {
     public partial class LoginForm : Form
     {
-        private string jsonFilePath = "users.json";
+        static readonly string DataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments), "WorktoCome1");
+        static readonly string UsersPath = Path.Combine(DataDir, "Users.json");
+
+
+
         private Users allUsers;
         public string Account;
         public string Level;
@@ -36,9 +40,9 @@ namespace WorktoCome1
 
         private void LoadUsersData()
         {
-            if (File.Exists(jsonFilePath))
+            if (File.Exists(UsersPath))
             {
-                string jsonString = File.ReadAllText(jsonFilePath);
+                string jsonString = File.ReadAllText(UsersPath);
                 try
                 {
                     // 將 JSON 字串反序列化成 Users 物件
@@ -221,9 +225,9 @@ namespace WorktoCome1
 
                 // 使用 JsonSerializer.Serialize 將 Users 物件轉換為 JSON 字串
                 string jsonString = JsonSerializer.Serialize(allUsers, options);
-
+                Directory.CreateDirectory(DataDir);
                 // 寫入檔案
-                File.WriteAllText(jsonFilePath, jsonString);
+                File.WriteAllText(UsersPath, jsonString);
             }
             catch (Exception ex)
             {
