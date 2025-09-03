@@ -21,6 +21,8 @@ namespace WorktoCome1
                 throw new FileNotFoundException("指定的檔案不存在。", FilePath);
             }
             string jsonString = File.ReadAllText(FilePath);
+            
+
 
             return jsonString;
         }

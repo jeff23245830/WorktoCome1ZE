@@ -25,7 +25,6 @@ namespace WorktoCome1
 
     public class Motion
     {
-        // 這裡使用字典來處理 "安全等待點" 或 "Group1" 這類動態鍵
         public Group Groups { get; set; } = new Group();
     }
 

@@ -39,6 +39,9 @@ namespace WorktoCome1
             ucInfo = new UcInfo(_appState);
             ucLanguage = new UcLanguage(_appState);
 
+
+            //讀Default recipe
+            ucProgram.LoadDefaultRecipe();
         }
         private void loadUserControl(UserControl userControl)
         {
@@ -106,7 +109,7 @@ namespace WorktoCome1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //把Default 
         }
 
         private void btnExit_Click(object sender, EventArgs e)

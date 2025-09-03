@@ -31,7 +31,7 @@ namespace WorktoCome1
         {
             
             //1.載入存在APPSTATE的CurrentRecipe
-            string CurrentProduc = _appState.CurrentProducTitle;
+            string CurrentProduc = _appState.CurrentProductTitle;
             if (string.IsNullOrWhiteSpace(CurrentProduc))
             {
                 MessageBox.Show("請先選擇一個產品以載入參數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -57,7 +57,7 @@ namespace WorktoCome1
         private void btnMotionSave_Click(object sender, EventArgs e)
         {
             //1.先確認
-            string currentProducTitle = _appState.CurrentProducTitle;
+            string currentProducTitle = _appState.CurrentProductTitle;
             string selectedMotionName = CbArea.Text;  
 
             if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedMotionName))
@@ -406,7 +406,71 @@ namespace WorktoCome1
 
         private void btnSaveNodeId_Click(object sender, EventArgs e)
         {
+            //1.先確認
+            string currentProducTitle = _appState.CurrentProductTitle;
+            string selectedMotionName = CbArea.Text;
 
+            if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedMotionName))
+            {
+                MessageBox.Show("請先載入產品並輸入或選擇一個區域別。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            try
+            {
+                // 2. 確保 AppState.RootObject 已經載入
+                if (_appState.RootObject == null)
+                {
+                    MessageBox.Show("資料尚未載入，請先載入產品。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 3. 取得目前產品的 Recipe 物件
+                if (!_appState.RootObject.Products.TryGetValue(currentProducTitle, out Recipe currentRecipe))
+                {
+                    MessageBox.Show($"找不到產品 '{currentProducTitle}' 的資料。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 4. 取得或建立新的 Motion 物件
+                if (!currentRecipe.Motions.TryGetValue(selectedMotionName, out Motion currentMotion))
+                {
+                    // 如果 Motion 不存在，就建立一個新的
+                    currentMotion = new Motion();
+                    currentRecipe.Motions.Add(selectedMotionName, currentMotion);
+                }
+
+                // 5) 讀取四個 NodeId（用 TryParse 比較穩）
+                if (!int.TryParse(CbX_NodeId.Text, out int xNode) ||
+                    !int.TryParse(CbY_NodeId.Text, out int yNode) ||
+                    !int.TryParse(CbZ_NodeId.Text, out int zNode) ||
+                    !int.TryParse(CbR_NodeId.Text, out int rNode))
+                {
+                    MessageBox.Show("NodeID 必須是整數。", "格式錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 6) 寫回 Group 的 NodeId 欄位（不清空、不改動 Points）
+                if (currentMotion.Groups == null)
+                    currentMotion.Groups = new Group();
+
+                currentMotion.Groups.X_NodeId = xNode;
+                currentMotion.Groups.Y_NodeId = yNode;
+                currentMotion.Groups.Z_NodeId = zNode;
+                currentMotion.Groups.R_NodeId = rNode;
+
+                 
+                // 6. 將更新後的 AppState.RootObject 序列化並寫入檔案
+                JsonFunction.SaveJson(filePath, _appState.RootObject);
+
+                MessageBox.Show($"產品 '{currentProducTitle}' 的區域 '{selectedMotionName}' 已成功儲存。", "儲存成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadRecipe();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"儲存時發生錯誤：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
 

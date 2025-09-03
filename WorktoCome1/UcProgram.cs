@@ -21,7 +21,99 @@ namespace WorktoCome1
             LoadProductList();
             _appState = appState;
         }
+        #region 非事件方法
+        public void LoadDefaultRecipe()
+        {
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show(
+                    "找不到 Recipe.json。\n請到「程式」頁面建立一個新的 Recipe 檔。",
+                    "找不到檔案",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
+            try
+            {
+
+
+                //先打讀JSOMN檔案
+                string jsonString = JsonFunction.LoadJson(filePath);
+
+                // 3) 檔案內容被清空（空字串/只有空白）→ 自訂訊息，不崩潰
+                if (string.IsNullOrWhiteSpace(jsonString))
+                {
+                    MessageBox.Show(
+                        "Recipe.json 目前是空的。\n請到「程式 → 載入」頁面重新選擇並儲存一個配方。",
+                        "沒有內容",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 4) 解析 JSON（如果格式壞掉，會丟 JsonException）
+                RootObject rootObject;
+                try
+                {
+                    rootObject = JsonSerializer.Deserialize<RootObject>(jsonString);
+                }
+                catch (JsonException)
+                {
+                    MessageBox.Show(
+                        "Recipe.json 內容格式不正確。\n請到「程式 → 載入」頁面重新產生或覆蓋此檔。",
+                        "格式錯誤",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (rootObject == null)
+                {
+                    MessageBox.Show("讀到的資料為空，請重新建立 Recipe。", "資料錯誤",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                //5) 取得 Default_Recipe 並檢查是否存在於 Products
+                string productName = rootObject.Default_Recipe;
+                if (string.IsNullOrWhiteSpace(productName))
+                {
+                    MessageBox.Show("尚未設定預設配方（Default_Recipe）。請先在「程式 → 載入」選一個配方。", "未設定預設",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // 4) 檢查是否存在於 Products
+                if (rootObject.Products == null || !rootObject.Products.ContainsKey(productName))
+                {
+                    MessageBox.Show($"找不到產品 '{productName}' 的資料。請用「載入」重新選擇。", "資料缺漏",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 5) 套用到狀態 + UI
+                _appState.RootObject = rootObject;
+                _appState.CurrentProductTitle = productName;
+                _appState.CurrentRecipe = rootObject.Products[productName];
+                txtCurrentProduct.Text = productName;
+
+                MessageBox.Show($"已載入預設配方：{productName}", "完成",
+           MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("讀取失敗：" + ex.Message, "錯誤",
+           MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+
+
+        public event EventHandler RequestCreateRecipeJson;
+        private void GoCreateRecipeJson()
+        {
+            RequestCreateRecipeJson?.Invoke(this, EventArgs.Empty);
+        }
+
+        #endregion
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -79,18 +171,49 @@ namespace WorktoCome1
 
                     try
                     {
-                        // 檢查檔案是否存在
                         if (File.Exists(filePath))
                         {
-                            // 檔案存在，讀取並反序列化
                             string jsonString = File.ReadAllText(filePath);
-                            rootObject = JsonSerializer.Deserialize<RootObject>(jsonString);
+
+                            // ✅ 檔案存在但內容被清空 → 當作新檔處理
+                            if (string.IsNullOrWhiteSpace(jsonString))
+                            {
+                                rootObject = new RootObject { Products = new Dictionary<string, Recipe>() };
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    rootObject = JsonSerializer.Deserialize<RootObject>(jsonString);
+                                    // 反序列化成功但 Products 可能是 null，補一個空字典
+                                    if (rootObject.Products == null)
+                                        rootObject.Products = new Dictionary<string, Recipe>();
+                                }
+                                catch (JsonException)
+                                {
+                                    // ✅ JSON 壞掉（不是空）→ 問是否用新內容覆蓋
+                                    var ans = MessageBox.Show(
+                                        "Recipe.json 格式錯誤，是否以全新內容覆蓋？",
+                                        "格式錯誤", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                                    if (ans == DialogResult.Yes)
+                                        rootObject = new RootObject { Products = new Dictionary<string, Recipe>() };
+                                    else
+                                        return; // 使用者拒絕覆蓋 → 中止建立
+                                }
+                            }
                         }
                         else
                         {
-                            // 檔案不存在，建立新的物件
+                            // 檔案不存在 → 新建
                             rootObject = new RootObject { Products = new Dictionary<string, Recipe>() };
                         }
+
+                        // ★(1) 反序列化後先保險：Products 不可為 null
+                        if (rootObject.Products == null)
+                            rootObject.Products = new Dictionary<string, Recipe>();
+
+
 
                         if (rootObject.Products.ContainsKey(productName))
                         {
@@ -109,6 +232,9 @@ namespace WorktoCome1
 
                         // 將新的產品名稱與食譜物件加入字典
                         rootObject.Products.Add(productName, newRecipe);
+
+                        if (string.IsNullOrWhiteSpace(rootObject.Default_Recipe))
+                            rootObject.Default_Recipe = productName;
 
                         // 設定 JSON 序列化選項，讓輸出更美觀
                         var options = new JsonSerializerOptions
@@ -157,7 +283,7 @@ namespace WorktoCome1
                 _appState.SelectedProductTitle = null;
             }
         }
-
+        
         private void btnLoadParameters_Click(object sender, EventArgs e)
         {
             string SelectedProduct = _appState.SelectedProductTitle;
@@ -168,18 +294,24 @@ namespace WorktoCome1
             }
             txtCurrentProduct.Text = txtSelectedProduct.Text;
 
-            _appState.CurrentProducTitle = txtCurrentProduct.Text;
+            _appState.CurrentProductTitle = txtCurrentProduct.Text;
 
 
+            //讀出JSON檔案
             string jsonString = JsonFunction.LoadJson(filePath);
             var rootObject = JsonSerializer.Deserialize<RootObject>(jsonString);
 
             _appState.RootObject = rootObject;
 
-            string productName = _appState.CurrentProducTitle;
+
+            string productName = _appState.CurrentProductTitle;
             if (_appState.RootObject.Products.ContainsKey(productName))
             {
                 _appState.CurrentRecipe = _appState.RootObject.Products[productName];
+
+                //存進DEFAULT RECIPE
+                _appState.RootObject.Default_Recipe = _appState.CurrentProductTitle;
+                JsonFunction.SaveJson(filePath, _appState.RootObject);
             }
             else
             {
