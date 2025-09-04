@@ -46,6 +46,16 @@ namespace WorktoCome1
         public double Y { get; set; } = 0;
         public double Z { get; set; } = 0;
         public double R { get; set; } = 0;
+
+        public double StrVel { get; set; } = 0;
+        public double ConstVel { get; set; } = 0;
+        public double EndVel { get; set; } = 0;
+        public double Tacc { get; set; } = 0;
+
+        public double Tdec { get; set; } = 0;
+        public double SCurve { get; set; } = 0;
+        public double IsAbs { get; set; } = 0; 
+
     }
 
     // 新增 DIO 類別以處理 DO 功能

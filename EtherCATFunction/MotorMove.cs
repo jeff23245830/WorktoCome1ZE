@@ -117,7 +117,7 @@ namespace EtherCATFunction
         //    if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
         //        AddErrMsg(strMsg);
         //}
-          
+
         //public void StopMove()
         //{
 
@@ -131,6 +131,36 @@ namespace EtherCATFunction
         //        //AddErrMsg("_ECAT_Slave_Motion_Sd_Stop, ErrorCode = " + g_uRet.ToString(), true);
         //    }
         //}
+
+        public void MultiServoOnOrOff(bool RdoSVON,int g_nSelectAxesCount, ushort[] g_uESCNodeID, ushort[] g_uESCSlotID)
+        {
+            if (g_uESCNodeID == null || g_uESCSlotID == null) return;
+            // 真實可用的軸數：以兩個陣列的最小長度為準；不信 caller 傳的 g_nSelectAxesCount
+            int count = Math.Min(g_uESCNodeID.Length, g_uESCSlotID.Length);
+            if (count <= 0) return;
+
+
+            ushort uCheckOnOff = RdoSVON == false ? (ushort)0 : (ushort)1;
+
+            for (int i = 0; i < count; i++)
+            {
+                int Errocount = 0;
+                ushort node = g_uESCNodeID[i];
+                ushort slot = g_uESCSlotID[i];
+
+                // 跳過未選的「洞」（例如 X/Z 被選，但 Y/R 沒選時，中間 0 不要下指令）
+                if (node == 0) continue;
+
+                ushort rt = CEtherCAT_DLL.CS_ECAT_Slave_Motion_Set_Svon(g_uESCCardNo, node, slot, uCheckOnOff);
+                if (rt != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
+                {
+                    Errocount++;
+                    // TODO: 串你的 logger / 回傳給 UI；類別庫先別彈視窗
+                    // Log($"SV{(onOff==1?"ON":"OFF")} Fail @i={i} Node={node}, Slot={slot}, Err=0x{rt:X4}");
+                }
+            }
+        }
+
 
         public void ServoOnOrOff(bool RdoSVON, ushort ESCNodeID , ushort ESCSlotID)
         {

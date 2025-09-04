@@ -9,7 +9,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using EtherCATFunction;
 namespace WorktoCome1
 {
     public partial class UcSetting : UserControl
@@ -19,6 +19,11 @@ namespace WorktoCome1
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
         private bool _suppressNodeCheck = false;
+        private EtherCATFunction.MotorMove cATFunction = new MotorMove();
+
+
+
+
         public UcSetting(AppState appState  )
         {
             InitializeComponent();
@@ -181,12 +186,6 @@ namespace WorktoCome1
             // 1.清空 DgMotionPoint 的舊內容
             DgMotionPoint.Rows.Clear();
 
-            // 檢查是否有選定的產品和 Motion 名稱
-            //if (AppState.CurrentRecipe == null || CbArea.SelectedItem == null)
-            //{
-            //    return;
-            //}
-
             // 取得選定的 Motion 名稱
             string selectedMotionName = CbArea.SelectedItem.ToString();
 
@@ -212,7 +211,14 @@ namespace WorktoCome1
                         Point pointData = pointEntry.Value;
 
                         // 根據您的 DataGridView 欄位，新增一列並填入資料
-                        // 假設您的 DataGridView 欄位順序為：點位名稱, X, Y, Z, R
+                        // 假設您的 DataGridView 欄位順序為：點位名稱, X, Y, Z, R ,馬達需要的參數
+                        //int StrVel,             // 起始速度 (pps)
+                        //int ConstVel,           // 最大/恆速 (pps)
+                        //int EndVel,             // 結束速度 (pps)
+                        //double Tacc,            // 加速時間 (sec)
+                        //double Tdec,            // 減速時間 (sec)
+                        //ushort SCurve,          // 1=S 曲線, 0=梯形
+                        //ushort IsAbs            // 1=絕對, 0=相對
                         // 您可以根據需求自行調整
 
                         DgMotionPoint.Rows.Add( pointName, pointData.X, pointData.Y, pointData.Z, pointData.R);
@@ -532,9 +538,52 @@ namespace WorktoCome1
             BtnSVON.Enabled = true;
             BtnSVOFF.Enabled = true;
         }
+
+        
+
         private void BtnSVON_Click(object sender, EventArgs e)
         {
             BtnStartMove.Enabled = true;
+            int g_nSelectAxesCount = 0;
+ 
+            //X有選擇的時候
+            if (CbX_NodeId.SelectedIndex >= 0 && CbY_NodeId.SelectedIndex < 0 && CbZ_NodeId.SelectedIndex < 0 && CbR_NodeId.SelectedIndex < 0)
+            {
+                g_nSelectAxesCount +=1;
+            }
+            //Y有選擇的時候
+            else if (CbX_NodeId.SelectedIndex < 0 && CbY_NodeId.SelectedIndex >= 0 && CbZ_NodeId.SelectedIndex < 0 && CbR_NodeId.SelectedIndex < 0)
+            {
+                g_nSelectAxesCount +=1;
+            }
+            //Z有選擇的時候
+            else if (CbX_NodeId.SelectedIndex < 0 && CbY_NodeId.SelectedIndex < 0 && CbZ_NodeId.SelectedIndex >= 0 && CbR_NodeId.SelectedIndex < 0)
+            {
+                g_nSelectAxesCount += 1;
+            }
+            //R有選擇的時候
+            else if (CbX_NodeId.SelectedIndex < 0 && CbY_NodeId.SelectedIndex < 0 && CbZ_NodeId.SelectedIndex < 0 && CbR_NodeId.SelectedIndex >= 0)
+            {
+                g_nSelectAxesCount += 1;
+            }
+            var nodeIds = new List<ushort>();
+
+            if (CbX_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbX_NodeId.SelectedItem.ToString()));
+            if (CbY_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbY_NodeId.SelectedItem.ToString()));
+            if (CbZ_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbZ_NodeId.SelectedItem.ToString()));
+            if (CbR_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbR_NodeId.SelectedItem.ToString()));
+
+            if (nodeIds.Count == 0)
+            {
+                MessageBox.Show("至少選一軸的 NodeID 才能上伺服～", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // SlotID 先全 0（長度要一致）
+            ushort[] g_uESCNodeID = nodeIds.ToArray();
+            ushort[] g_uESCSlotID = new ushort[nodeIds.Count]; // 預設全 0
+
+            cATFunction.MultiServoOnOrOff(true, g_nSelectAxesCount, g_uESCNodeID, g_uESCSlotID);
         }
 
         private void BtnStartMove_Click(object sender, EventArgs e)
