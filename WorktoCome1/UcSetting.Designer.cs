@@ -149,30 +149,35 @@
             // 
             // BtnSVOFF
             // 
+            this.BtnSVOFF.Enabled = false;
             this.BtnSVOFF.Location = new System.Drawing.Point(732, 263);
             this.BtnSVOFF.Name = "BtnSVOFF";
             this.BtnSVOFF.Size = new System.Drawing.Size(110, 43);
             this.BtnSVOFF.TabIndex = 18;
-            this.BtnSVOFF.Text = "SVON";
+            this.BtnSVOFF.Text = "SVOFF";
             this.BtnSVOFF.UseVisualStyleBackColor = true;
             // 
             // BtnSVON
             // 
+            this.BtnSVON.Enabled = false;
             this.BtnSVON.Location = new System.Drawing.Point(625, 263);
             this.BtnSVON.Name = "BtnSVON";
             this.BtnSVON.Size = new System.Drawing.Size(102, 43);
             this.BtnSVON.TabIndex = 17;
             this.BtnSVON.Text = "SVON";
             this.BtnSVON.UseVisualStyleBackColor = true;
+            this.BtnSVON.Click += new System.EventHandler(this.BtnSVON_Click);
             // 
             // BtnStartMove
             // 
+            this.BtnStartMove.Enabled = false;
             this.BtnStartMove.Location = new System.Drawing.Point(848, 264);
             this.BtnStartMove.Name = "BtnStartMove";
             this.BtnStartMove.Size = new System.Drawing.Size(86, 42);
             this.BtnStartMove.TabIndex = 16;
             this.BtnStartMove.Text = "移動";
             this.BtnStartMove.UseVisualStyleBackColor = true;
+            this.BtnStartMove.Click += new System.EventHandler(this.BtnStartMove_Click);
             // 
             // button2
             // 

@@ -492,5 +492,19 @@ namespace WorktoCome1
             }
             //txtPointName.Text = DgMotionPoint.CurrentRow?.Cells["點位名稱"].Value?.ToString() ?? string.Empty;
         }
+        public void EnabledServoOnOffBtn()
+        {
+            BtnSVON.Enabled = true;
+            BtnSVOFF.Enabled = false;
+        }
+        private void BtnSVON_Click(object sender, EventArgs e)
+        {
+            BtnStartMove.Enabled = true;
+        }
+
+        private void BtnStartMove_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

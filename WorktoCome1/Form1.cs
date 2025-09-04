@@ -143,6 +143,7 @@ namespace WorktoCome1
                 //g_uESCSlotID = cardManager.g_ESCSlotID_u;
                 btnControl.Enabled = true;
                 tbError.Text = "所有卡片已成功FindSlave！";
+                ucSetting.EnabledServoOnOffBtn();
             }
             else
             {
@@ -154,6 +155,7 @@ namespace WorktoCome1
             {
                 slaveNodeIdList.Add(slave.NodeID);
                 slaveSlotIdList.Add(slave.SlotID);
+               
             }
              
         }
