@@ -40,7 +40,7 @@ namespace WorktoCome1
         {
             if (File.Exists(jsonFilePath))
             {
-                string jsonString = File.ReadAllText(jsonFilePath);
+                string jsonString = JsonFunction.LoadJson(jsonFilePath);
                 try
                 {
                     // 將 JSON 字串反序列化成 Users 物件
@@ -219,13 +219,9 @@ namespace WorktoCome1
         {
             try
             {
-                var options = new JsonSerializerOptions { WriteIndented = true };
-
-                // 使用 JsonSerializer.Serialize 將 Users 物件轉換為 JSON 字串
-                string jsonString = JsonSerializer.Serialize(allUsers, options);
-                AppPaths.EnsureDataDir();
-                // 寫入檔案
-                File.WriteAllText(jsonFilePath, jsonString);
+                AppPaths.EnsureDataDir(); 
+                JsonFunction.SaveJson(jsonFilePath, allUsers);
+                 
             }
             catch (Exception ex)
             {
