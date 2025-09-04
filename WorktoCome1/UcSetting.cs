@@ -16,7 +16,7 @@ namespace WorktoCome1
     {
         private readonly AppState _appState;
         private string jsonFilePath = AppPaths.RecipePath;
-);
+
         public UcSetting(AppState appState  )
         {
             InitializeComponent();
