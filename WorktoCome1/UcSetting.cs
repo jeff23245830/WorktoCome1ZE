@@ -16,7 +16,9 @@ namespace WorktoCome1
     {
         private readonly AppState _appState;
         private string jsonFilePath = AppPaths.RecipePath;
-
+        private List<ushort> slaveNodeIdList = new List<ushort>();
+        private List<ushort> slaveSlotIdList = new List<ushort>();
+        private bool _suppressNodeCheck = false;
         public UcSetting(AppState appState  )
         {
             InitializeComponent();
@@ -54,6 +56,31 @@ namespace WorktoCome1
                 CbArea.Items.Clear();
             }
         }
+
+
+        public void SetNodeID(List<ushort> nodeId)
+        {
+            this.slaveNodeIdList = nodeId;
+            CbX_NodeId.Items.Add(0);
+            CbY_NodeId.Items.Add(0);
+            CbZ_NodeId.Items.Add(0);
+            CbR_NodeId.Items.Add(0);
+            foreach (var slave in slaveNodeIdList)
+            { 
+                CbX_NodeId.Items.Add(slave);
+                CbY_NodeId.Items.Add(slave);
+                CbZ_NodeId.Items.Add(slave);
+                CbR_NodeId.Items.Add(slave); 
+            } 
+        }
+
+        public void SetSlotID(List<ushort> slotId)
+        {
+            this.slaveSlotIdList = slotId;
+           
+        }
+
+
 
 
         private void btnMotionSave_Click(object sender, EventArgs e)
@@ -495,7 +522,7 @@ namespace WorktoCome1
         public void EnabledServoOnOffBtn()
         {
             BtnSVON.Enabled = true;
-            BtnSVOFF.Enabled = false;
+            BtnSVOFF.Enabled = true;
         }
         private void BtnSVON_Click(object sender, EventArgs e)
         {
@@ -505,6 +532,120 @@ namespace WorktoCome1
         private void BtnStartMove_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnSVOFF_Click(object sender, EventArgs e)
+        {
+            BtnStartMove.Enabled = false;
+        }
+        
+
+        
+        
+
+        private void CbXYZR_NodeId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CbX_NodeId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_suppressNodeCheck) return;
+
+            ComboBox cb = sender as ComboBox;
+            if (cb == null) return;
+
+            int x = CbX_NodeId.SelectedIndex;
+            int y = CbY_NodeId.SelectedIndex;
+            int z = CbZ_NodeId.SelectedIndex;
+            int r = CbR_NodeId.SelectedIndex;
+
+            // 還沒選好就先不檢查
+            //if (x < 0 || y < 0 || z < 0 || r < 0) return;
+
+            // 任兩個一樣就視為重複
+            if (x == y || x == z || x == r )
+            {
+                _suppressNodeCheck = true;
+                MessageBox.Show("Node 選擇重複", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb.SelectedIndex = -1;     // 回到初始（未選取）
+                _suppressNodeCheck = false;
+            }
+        }
+
+        private void CbY_NodeId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_suppressNodeCheck) return;
+
+            ComboBox cb = sender as ComboBox;
+            if (cb == null) return;
+
+            int x = CbX_NodeId.SelectedIndex;
+            int y = CbY_NodeId.SelectedIndex;
+            int z = CbZ_NodeId.SelectedIndex;
+            int r = CbR_NodeId.SelectedIndex;
+
+            // 還沒選好就先不檢查
+            //if (x < 0 || y < 0 || z < 0 || r < 0) return;
+
+            // 任兩個一樣就視為重複
+            if (y == x || y == z || y == r)
+            {
+                _suppressNodeCheck = true;
+                MessageBox.Show("Node 選擇重複", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb.SelectedIndex = -1;     // 回到初始（未選取）
+                _suppressNodeCheck = false;
+            }
+        }
+
+        private void CbZ_NodeId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_suppressNodeCheck) return;
+
+            ComboBox cb = sender as ComboBox;
+            if (cb == null) return;
+
+            int x = CbX_NodeId.SelectedIndex;
+            int y = CbY_NodeId.SelectedIndex;
+            int z = CbZ_NodeId.SelectedIndex;
+            int r = CbR_NodeId.SelectedIndex;
+
+            // 還沒選好就先不檢查
+            //if (x < 0 || y < 0 || z < 0 || r < 0) return;
+
+            // 任兩個一樣就視為重複
+            if (z == x || z == y || z == r)
+            {
+                _suppressNodeCheck = true;
+                MessageBox.Show("Node 選擇重複", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb.SelectedIndex = -1;     // 回到初始（未選取）
+                _suppressNodeCheck = false;
+            }
+        }
+
+        private void CbR_NodeId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_suppressNodeCheck) return;
+
+            ComboBox cb = sender as ComboBox;
+            if (cb == null) return;
+
+            int x = CbX_NodeId.SelectedIndex;
+            int y = CbY_NodeId.SelectedIndex;
+            int z = CbZ_NodeId.SelectedIndex;
+            int r = CbR_NodeId.SelectedIndex;
+
+            // 還沒選好就先不檢查
+            //if (x < 0 || y < 0 || z < 0 || r < 0) return;
+
+            // 任兩個一樣就視為重複
+            if (r == x || r == z || r == y)
+            {
+                _suppressNodeCheck = true;
+                MessageBox.Show("Node 選擇重複", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb.SelectedIndex = -1;     // 回到初始（未選取）
+                _suppressNodeCheck = false;
+            }
         }
     }
 }

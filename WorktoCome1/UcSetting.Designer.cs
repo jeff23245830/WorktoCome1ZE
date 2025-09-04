@@ -156,6 +156,7 @@
             this.BtnSVOFF.TabIndex = 18;
             this.BtnSVOFF.Text = "SVOFF";
             this.BtnSVOFF.UseVisualStyleBackColor = true;
+            this.BtnSVOFF.Click += new System.EventHandler(this.BtnSVOFF_Click);
             // 
             // BtnSVON
             // 
@@ -220,6 +221,7 @@
             this.CbR_NodeId.Name = "CbR_NodeId";
             this.CbR_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbR_NodeId.TabIndex = 11;
+            this.CbR_NodeId.SelectedIndexChanged += new System.EventHandler(this.CbR_NodeId_SelectedIndexChanged);
             // 
             // btnSaveNodeId
             // 
@@ -265,6 +267,7 @@
             this.CbZ_NodeId.Name = "CbZ_NodeId";
             this.CbZ_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbZ_NodeId.TabIndex = 6;
+            this.CbZ_NodeId.SelectedIndexChanged += new System.EventHandler(this.CbZ_NodeId_SelectedIndexChanged);
             // 
             // CbY_NodeId
             // 
@@ -273,6 +276,7 @@
             this.CbY_NodeId.Name = "CbY_NodeId";
             this.CbY_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbY_NodeId.TabIndex = 5;
+            this.CbY_NodeId.SelectedIndexChanged += new System.EventHandler(this.CbY_NodeId_SelectedIndexChanged);
             // 
             // CbX_NodeId
             // 
@@ -281,6 +285,7 @@
             this.CbX_NodeId.Name = "CbX_NodeId";
             this.CbX_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbX_NodeId.TabIndex = 4;
+            this.CbX_NodeId.SelectedIndexChanged += new System.EventHandler(this.CbX_NodeId_SelectedIndexChanged);
             // 
             // label2
             // 
