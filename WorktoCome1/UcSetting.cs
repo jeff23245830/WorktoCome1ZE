@@ -15,10 +15,7 @@ namespace WorktoCome1
     public partial class UcSetting : UserControl
     {
         private readonly AppState _appState;
-        string filePath = Path.Combine(
-    Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments),
-    "WorktoCome1",                 // 建議放一個你的資料夾，不要直接丟在根目錄
-    "Recipe.json"
+        private string jsonFilePath = AppPaths.RecipePath;
 );
         public UcSetting(AppState appState  )
         {
@@ -130,7 +127,7 @@ namespace WorktoCome1
                 }
 
                 // 6. 將更新後的 AppState.RootObject 序列化並寫入檔案
-                JsonFunction.SaveJson(filePath, _appState.RootObject);
+                JsonFunction.SaveJson(jsonFilePath, _appState.RootObject);
 
                 MessageBox.Show($"產品 '{currentProducTitle}' 的區域 '{selectedMotionName}' 已成功儲存。", "儲存成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadRecipe();
@@ -392,7 +389,7 @@ namespace WorktoCome1
                         }
 
                         // 7. 儲存 JSON 檔案
-                        JsonFunction.SaveJson(filePath, _appState.RootObject); 
+                        JsonFunction.SaveJson(jsonFilePath, _appState.RootObject); 
 
                         MessageBox.Show($"已成功將選定的點位組別轉移到 '{destinationMotionName}'。", "轉移完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -467,7 +464,7 @@ namespace WorktoCome1
 
                  
                 // 6. 將更新後的 AppState.RootObject 序列化並寫入檔案
-                JsonFunction.SaveJson(filePath, _appState.RootObject);
+                JsonFunction.SaveJson(jsonFilePath, _appState.RootObject);
 
                 MessageBox.Show($"產品 '{currentProducTitle}' 的區域 '{selectedMotionName}' 已成功儲存。", "儲存成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadRecipe();

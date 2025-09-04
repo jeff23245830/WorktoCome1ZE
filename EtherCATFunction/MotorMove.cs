@@ -1,5 +1,7 @@
 ﻿using EtherCAT_DLL;
 using EtherCAT_DLL_Err;
+using System;
+using System.Security.Cryptography;
 
 namespace EtherCATFunction
 {
@@ -26,6 +28,37 @@ namespace EtherCATFunction
             }
         }
         
+        //public void MultiaxesMove(int nDir)
+        //{
+        //    ushort uDir = 0, uCycleNum = 0, uSCurve = 0, uAbsMove = 0;
+        //    int[] nCenPot = { 0, 0 };
+        //    int[] nEndPot = { 0, 0 };
+        //    int[] nDist = { 0, 0, 0 };
+        //    int[] nDist2 = { 0, 0, 0 };
+        //    int nDepth = 0, nPitch = 0, nStrVel = 0, nConstVel = 0, nEndVel = 0;
+        //    int nSpiralInterval = 0;
+        //    double dTAcc = 0, dTDec = 0, dAngle = 0;
+        //    string strMsg = "";
+
+        //    nDist[0] = (nDir == 0) ? (0 - Convert.ToInt32(TxtParam01.Text)) : (Convert.ToInt32(TxtParam01.Text));
+        //    nDist[1] = (nDir == 0) ? (0 - Convert.ToInt32(TxtParam02.Text)) : (Convert.ToInt32(TxtParam02.Text));
+        //    nStrVel = Convert.ToInt32(TxtParam03.Text);
+        //    nConstVel = Convert.ToInt32(TxtParam04.Text);
+        //    nEndVel = Convert.ToInt32(TxtParam05.Text);
+        //    dTAcc = Convert.ToDouble(TxtParam06.Text);
+        //    dTDec = Convert.ToDouble(TxtParam07.Text);
+
+
+
+        //    g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_CSP_Start_Multiaxes_Move(g_uESCCardNo, 2, ref g_uESCNodeID[0], ref g_uESCSlotID[0], ref nDist[0], nStrVel, nConstVel, nEndVel, dTAcc, dTDec, uSCurve, uAbsMove);
+        //    //if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
+        //    //    strMsg = "_ECAT_Slave_CSP_Start_Multiaxes_Move, ErrorCode = " + g_uRet.ToString();
+
+        //}
+
+
+
+
         //public void StopMove()
         //{
 
