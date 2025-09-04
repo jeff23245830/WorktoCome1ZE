@@ -9,6 +9,20 @@ using System.Windows.Forms;
 
 namespace WorktoCome1
 {
+    public static class AppPaths
+    {
+        public static readonly string DataDir =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments),
+                         "WorktoCome1");
+
+        public static string UsersPath => Path.Combine(DataDir, "Users.json");
+        public static string RecipePath => Path.Combine(DataDir, "Recipe.json");
+
+        public static void EnsureDataDir()
+        {
+            Directory.CreateDirectory(DataDir); // 沒有就建
+        }
+    }
     public static class JsonFunction
     {
 

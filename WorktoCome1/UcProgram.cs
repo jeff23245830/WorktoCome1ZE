@@ -14,7 +14,7 @@ namespace WorktoCome1
     public partial class UcProgram : UserControl
     {
         private readonly AppState _appState;
-        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments),"WorktoCome1","Recipe.json");
+        string filePath = AppPaths.RecipePath;
         public UcProgram(AppState appState)
         {
             InitializeComponent();
