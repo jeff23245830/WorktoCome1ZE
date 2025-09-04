@@ -61,6 +61,14 @@ namespace WorktoCome1
         public void SetNodeID(List<ushort> nodeId)
         {
             this.slaveNodeIdList = nodeId;
+            CbX_NodeId.Items.Clear();
+            CbY_NodeId.Items.Clear();
+            CbZ_NodeId.Items.Clear();
+            CbR_NodeId.Items.Clear();
+
+
+
+
             CbX_NodeId.Items.Add(0);
             CbY_NodeId.Items.Add(0);
             CbZ_NodeId.Items.Add(0);
