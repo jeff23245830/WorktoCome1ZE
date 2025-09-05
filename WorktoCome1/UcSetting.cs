@@ -30,15 +30,14 @@ namespace WorktoCome1
             ClearData();
             _appState = appState;
         }
-        public void ClearData()
-        {
-            DgMotionPoint.Rows.Clear();
-            CbArea.Items.Clear();
-            CbArea.Text = string.Empty;
-        }
+
+
+        #region 特別(非介面事件)方法
+
+
         public void LoadRecipe()
         {
-            
+
             //1.載入存在APPSTATE的CurrentRecipe
             string CurrentProduc = _appState.CurrentProductTitle;
             if (string.IsNullOrWhiteSpace(CurrentProduc))
@@ -46,11 +45,11 @@ namespace WorktoCome1
                 MessageBox.Show("請先選擇一個產品以載入參數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            
+
             if (_appState.CurrentRecipe.Motions != null)
             {
                 //2.CbArea載入CurrentRecipe的Motions
-                CbArea.Items.Clear();   
+                CbArea.Items.Clear();
                 foreach (var recipe in _appState.CurrentRecipe.Motions.Keys)
                 {
                     CbArea.Items.Add(recipe);
@@ -79,19 +78,37 @@ namespace WorktoCome1
             CbZ_NodeId.Items.Add(0);
             CbR_NodeId.Items.Add(0);
             foreach (var slave in slaveNodeIdList)
-            { 
+            {
                 CbX_NodeId.Items.Add(slave);
                 CbY_NodeId.Items.Add(slave);
                 CbZ_NodeId.Items.Add(slave);
-                CbR_NodeId.Items.Add(slave); 
-            } 
+                CbR_NodeId.Items.Add(slave);
+            }
         }
 
         public void SetSlotID(List<ushort> slotId)
         {
             this.slaveSlotIdList = slotId;
-           
+
         }
+
+
+        public void EnabledServoOnOffBtn()
+        {
+            BtnSVON.Enabled = true;
+            BtnSVOFF.Enabled = true;
+        }
+
+        public void ClearData()
+        {
+            DgMotionPoint.Rows.Clear();
+            CbArea.Items.Clear();
+            CbArea.Text = string.Empty;
+        }
+
+
+        #endregion
+
 
 
 
@@ -560,11 +577,7 @@ namespace WorktoCome1
             }
             //txtPointName.Text = DgMotionPoint.CurrentRow?.Cells["點位名稱"].Value?.ToString() ?? string.Empty;
         }
-        public void EnabledServoOnOffBtn()
-        {
-            BtnSVON.Enabled = true;
-            BtnSVOFF.Enabled = true;
-        }
+       
 
         
 
@@ -663,15 +676,6 @@ namespace WorktoCome1
 
             cATFunction.MultiServoOnOrOff(false, g_nSelectAxesCount, g_uESCNodeID, g_uESCSlotID);
 
-        }
-        
-
-        
-        
-
-        private void CbXYZR_NodeId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void CbX_NodeId_SelectedIndexChanged(object sender, EventArgs e)

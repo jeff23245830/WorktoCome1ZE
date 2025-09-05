@@ -59,9 +59,6 @@
             this.btnMoveTop = new System.Windows.Forms.Button();
             this.btnMotionSave = new System.Windows.Forms.Button();
             this.DgMotionPoint = new System.Windows.Forms.DataGridView();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.點位名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +71,10 @@
             this.Tdec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SCurve = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsAbs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnStopMove = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -127,6 +128,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.btnStopMove);
             this.tabPage5.Controls.Add(this.BtnSVOFF);
             this.tabPage5.Controls.Add(this.BtnSVON);
             this.tabPage5.Controls.Add(this.BtnStartMove);
@@ -157,9 +159,9 @@
             // BtnSVOFF
             // 
             this.BtnSVOFF.Enabled = false;
-            this.BtnSVOFF.Location = new System.Drawing.Point(732, 263);
+            this.BtnSVOFF.Location = new System.Drawing.Point(625, 318);
             this.BtnSVOFF.Name = "BtnSVOFF";
-            this.BtnSVOFF.Size = new System.Drawing.Size(110, 43);
+            this.BtnSVOFF.Size = new System.Drawing.Size(102, 43);
             this.BtnSVOFF.TabIndex = 18;
             this.BtnSVOFF.Text = "SVOFF";
             this.BtnSVOFF.UseVisualStyleBackColor = true;
@@ -423,36 +425,6 @@
             this.DgMotionPoint.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgMotionPoint_CellContentClick);
             this.DgMotionPoint.SelectionChanged += new System.EventHandler(this.DgMotionPoint_SelectionChanged);
             // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1071, 487);
-            this.tabPage6.TabIndex = 2;
-            this.tabPage6.Text = "校正";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1075, 513);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "參數設定";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1075, 513);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "速度設定";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // 點位名稱
             // 
             this.點位名稱.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -548,6 +520,45 @@
             this.IsAbs.Name = "IsAbs";
             this.IsAbs.Width = 56;
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1071, 487);
+            this.tabPage6.TabIndex = 2;
+            this.tabPage6.Text = "校正";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1075, 513);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "參數設定";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1075, 513);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "速度設定";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnStopMove
+            // 
+            this.btnStopMove.Location = new System.Drawing.Point(848, 318);
+            this.btnStopMove.Name = "btnStopMove";
+            this.btnStopMove.Size = new System.Drawing.Size(86, 43);
+            this.btnStopMove.TabIndex = 19;
+            this.btnStopMove.Text = "停止";
+            this.btnStopMove.UseVisualStyleBackColor = true;
+            // 
             // UcSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -614,5 +625,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tdec;
         private System.Windows.Forms.DataGridViewTextBoxColumn SCurve;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsAbs;
+        private System.Windows.Forms.Button btnStopMove;
     }
 }
