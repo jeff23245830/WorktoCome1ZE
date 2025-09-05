@@ -85,6 +85,33 @@ namespace EtherCATFunction
                 ref g_uESCNodeID[0], ref g_uESCSlotID[0], ref nDist[0],
                 nStrVel, nConstVel, nEndVel, dTAcc, dTDec, uSCurve, uAbsMove
             );
+
+            if (rt != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
+            {
+                int iii = 0;
+            }
+
+                if (rt == CEtherCAT_DLL_Err.ERR_ECAT_NEED_RALM) // 4356 = 0x1104
+            {
+                for (int i = 0; i < g_uESCNodeID.Length; i++)
+                {
+                    CEtherCAT_DLL.CS_ECAT_Slave_Motion_Ralm(0, g_uESCNodeID[i], g_uESCSlotID[i]); // 清 Alarm
+                    CEtherCAT_DLL.CS_ECAT_Slave_Motion_Set_Svon(0, g_uESCNodeID[i], g_uESCSlotID[i], 1); // 重新上伺服
+                }
+                // 視需求：清命令/位置，避免殘值
+                // CEtherCAT_DLL.CS_ECAT_Slave_Motion_Set_Command(cardNo, nodeIds[i], slotIds[i], 0);
+                // CEtherCAT_DLL.CS_ECAT_Slave_Motion_Set_Position(cardNo, nodeIds[i], slotIds[i], 0);
+                // 然後再重送一次 Move
+
+
+
+            }
+
+
+
+
+
+
             return rt;
         }
 

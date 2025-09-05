@@ -1,4 +1,5 @@
-﻿using EtherCATFunction;
+﻿using EtherCAT_DLL;
+using EtherCATFunction;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -607,7 +608,7 @@ namespace WorktoCome1
             // 丟進 DLL 需要的是陣列
             ushort[] g_uESCNodeID = nodeIds.ToArray();
             ushort[] g_uESCSlotID = slotIds.ToArray(); // 都是 0
-
+           
             cATFunction.MultiServoOnOrOff(true, g_nSelectAxesCount, g_uESCNodeID, g_uESCSlotID);
 
         }
