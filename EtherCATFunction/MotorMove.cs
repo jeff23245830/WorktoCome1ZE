@@ -39,46 +39,53 @@ namespace EtherCATFunction
             }
         }
 
+
         /// <summary>
-        /// 
+        /// 多軸移動
         /// </summary>
-        /// <param name="nDir">Left:1/Right:0</param>
-        /// <param name="nStrVel">起始速</param>
-        /// <param name="nConstVel">最大速</param>
-        /// <param name="nEndVel">結束速</param>
-        /// <param name="bSCurve">S曲線</param>
-        /// <param name="bkAbsMove">0=相對移動、1=絕對位置</param>
-        /// <param name="MoveAxesCount">欲移動的軸數</param>
-        public void MultiAxesMove(int nDir,ushort[] g_uESCNodeID, ushort[] g_uESCSlotID, int nStrVel, int nConstVel, int nEndVel ,double dTAcc,double dTDec, bool bSCurve ,bool bkAbsMove, ushort MoveAxesCount)
+        /// <param name="nDir">方向</param>
+        /// <param name="g_uESCNodeID"></param>
+        /// <param name="g_uESCSlotID"></param>
+        /// <param name="X_Axis">X軸</param>
+        /// <param name="Y_Axis">Y軸</param>
+        /// <param name="Z_Axis">Z軸</param>
+        /// <param name="R_Axis">R軸</param>
+        /// <param name="nStrVel">初始速度</param>
+        /// <param name="nConstVel">最高速度</param>
+        /// <param name="nEndVel">結束速度</param>
+        /// <param name="dTAcc">加速度</param>
+        /// <param name="dTDec">負加速度</param>
+        /// <param name="bSCurve">S曲線 0:不/1:要</param>
+        /// <param name="bkAbsMove">絕對:1/相對:0</param>
+        /// <param name="MoveAxesCount">軸數量</param>
+        public ushort MultiAxesMove(
+    int nDir,
+    ushort[] g_uESCNodeID, ushort[] g_uESCSlotID,
+    int[] moveVals,
+    int nStrVel, int nConstVel, int nEndVel,
+    double dTAcc, double dTDec,
+    bool bSCurve, bool bkAbsMove)
         {
-            ushort uDir = 0, uCycleNum = 0, uSCurve = 0, uAbsMove = 0;
-            int[] nCenPot = { 0, 0 };
-            int[] nEndPot = { 0, 0 };
-            int[] nDist = { 0, 0, 0 };
-            int[] nDist2 = { 0, 0, 0 };
-            string strMsg = "";
+            if (g_uESCNodeID == null || g_uESCSlotID == null || moveVals == null) return 0xFFFF;
 
-            if (bSCurve == true)
-                uSCurve = 1;
+            int count = Math.Min(g_uESCNodeID.Length, Math.Min(g_uESCSlotID.Length, moveVals.Length));
+            if (count <= 0) return 0xFFFF;
 
-            if (bkAbsMove == true)
-                uAbsMove = 1;
+            ushort uSCurve = (ushort)(bSCurve ? 1 : 0);
+            ushort uAbsMove = (ushort)(bkAbsMove ? 1 : 0);
+            int sign = bkAbsMove ? 1 : (nDir == 0 ? -1 : +1);
 
-            g_uRet = (ushort)CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR;
+            int[] nDist = new int[count];
+            for (int i = 0; i < count; i++)
+                nDist[i] = bkAbsMove ? moveVals[i] : sign * moveVals[i];
 
-
-            //nDist[0] = (nDir == 0) ? (0 - Convert.ToInt32(TxtParam01.Text)) : (Convert.ToInt32(TxtParam01.Text));
-            //nDist[1] = (nDir == 0) ? (0 - Convert.ToInt32(TxtParam02.Text)) : (Convert.ToInt32(TxtParam02.Text));
-            
-
-            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_CSP_Start_Multiaxes_Move(g_uESCCardNo, MoveAxesCount, ref g_uESCNodeID[0], ref g_uESCSlotID[0], ref nDist[0], nStrVel, nConstVel, nEndVel, dTAcc, dTDec, uSCurve, uAbsMove);
-            //if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
-            //    strMsg = "_ECAT_Slave_CSP_Start_Multiaxes_Move, ErrorCode = " + g_uRet.ToString();
-            
-            if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
-            {
-                //AddErrMsg(strMsg);
-            }
+            // ★ 要接回傳值！
+            ushort rt = CEtherCAT_DLL.CS_ECAT_Slave_CSP_Start_Multiaxes_Move(
+                g_uESCCardNo, (ushort)count,
+                ref g_uESCNodeID[0], ref g_uESCSlotID[0], ref nDist[0],
+                nStrVel, nConstVel, nEndVel, dTAcc, dTDec, uSCurve, uAbsMove
+            );
+            return rt;
         }
 
         //public void StopMove()

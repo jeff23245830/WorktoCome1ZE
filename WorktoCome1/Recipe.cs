@@ -53,8 +53,8 @@ namespace WorktoCome1
         public double Tacc { get; set; } = 0;
 
         public double Tdec { get; set; } = 0;
-        public double SCurve { get; set; } = 0;
-        public double IsAbs { get; set; } = 0; 
+        public bool SCurve { get; set; } = false;
+        public bool IsAbs { get; set; } = false; 
 
     }
 

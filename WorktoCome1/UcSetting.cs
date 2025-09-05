@@ -1,15 +1,17 @@
-﻿using System;
+﻿using EtherCATFunction;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using EtherCATFunction;
 namespace WorktoCome1
 {
     public partial class UcSetting : UserControl
@@ -171,8 +173,8 @@ namespace WorktoCome1
                         double endVel = Convert.ToDouble(row.Cells["EndVel"].Value);
                         double tacc = Convert.ToDouble(row.Cells["Tacc"].Value);
                         double tdec = Convert.ToDouble(row.Cells["Tdec"].Value);
-                        double sCurve = Convert.ToDouble(row.Cells["SCurve"].Value);
-                        double isAbs = Convert.ToDouble(row.Cells["IsAbs"].Value);
+                        bool sCurve = row.Cells["SCurve"].Value is bool b1 ? b1  : Convert.ToBoolean(row.Cells["SCurve"].Value ?? false);
+                        bool isAbs = row.Cells["IsAbs"].Value is bool b2 ? b2 : Convert.ToBoolean(row.Cells["IsAbs"].Value ?? false);
 
 
                         // 建立新的 Group 和 Point 物件
@@ -584,52 +586,139 @@ namespace WorktoCome1
         private void BtnSVON_Click(object sender, EventArgs e)
         {
             BtnStartMove.Enabled = true;
-            int g_nSelectAxesCount = 0;
- 
-            //X有選擇的時候
-            if (CbX_NodeId.SelectedIndex >= 0 && CbY_NodeId.SelectedIndex < 0 && CbZ_NodeId.SelectedIndex < 0 && CbR_NodeId.SelectedIndex < 0)
-            {
-                g_nSelectAxesCount +=1;
-            }
-            //Y有選擇的時候
-            else if (CbX_NodeId.SelectedIndex < 0 && CbY_NodeId.SelectedIndex >= 0 && CbZ_NodeId.SelectedIndex < 0 && CbR_NodeId.SelectedIndex < 0)
-            {
-                g_nSelectAxesCount +=1;
-            }
-            //Z有選擇的時候
-            else if (CbX_NodeId.SelectedIndex < 0 && CbY_NodeId.SelectedIndex < 0 && CbZ_NodeId.SelectedIndex >= 0 && CbR_NodeId.SelectedIndex < 0)
-            {
-                g_nSelectAxesCount += 1;
-            }
-            //R有選擇的時候
-            else if (CbX_NodeId.SelectedIndex < 0 && CbY_NodeId.SelectedIndex < 0 && CbZ_NodeId.SelectedIndex < 0 && CbR_NodeId.SelectedIndex >= 0)
-            {
-                g_nSelectAxesCount += 1;
-            }
             var nodeIds = new List<ushort>();
+            var slotIds = new List<ushort>(); // 全 0 就好
 
-            if (CbX_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbX_NodeId.SelectedItem.ToString()));
-            if (CbY_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbY_NodeId.SelectedItem.ToString()));
-            if (CbZ_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbZ_NodeId.SelectedItem.ToString()));
-            if (CbR_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbR_NodeId.SelectedItem.ToString()));
+            if (TryGetNodeId(CbX_NodeId, out var xId, skipZero: true)) { nodeIds.Add(xId); slotIds.Add(0); }
+            if (TryGetNodeId(CbY_NodeId, out var yId, skipZero: true)) { nodeIds.Add(yId); slotIds.Add(0); }
+            if (TryGetNodeId(CbZ_NodeId, out var zId, skipZero: true)) { nodeIds.Add(zId); slotIds.Add(0); }
+            if (TryGetNodeId(CbR_NodeId, out var rId, skipZero: true)) { nodeIds.Add(rId); slotIds.Add(0); }
 
             if (nodeIds.Count == 0)
             {
-                MessageBox.Show("至少選一軸的 NodeID 才能上伺服～", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("至少選一軸的 NodeID（且不是 0）才能上伺服～", "提醒",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // SlotID 先全 0（長度要一致）
+            // ★ 軸數直接用陣列長度，最準
+            int g_nSelectAxesCount = nodeIds.Count;
+
+            // 丟進 DLL 需要的是陣列
             ushort[] g_uESCNodeID = nodeIds.ToArray();
-            ushort[] g_uESCSlotID = new ushort[nodeIds.Count]; // 預設全 0
+            ushort[] g_uESCSlotID = slotIds.ToArray(); // 都是 0
 
             cATFunction.MultiServoOnOrOff(true, g_nSelectAxesCount, g_uESCNodeID, g_uESCSlotID);
+
         }
 
         private void BtnStartMove_Click(object sender, EventArgs e)
         {
+            // 先把勾選/編輯中的值提交
+            DgMotionPoint.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            DgMotionPoint.EndEdit();
+
+            var row = DgMotionPoint.CurrentRow;
+            if (row == null) return;
+
+            var nodeIds = new List<ushort>();
+            var slotIds = new List<ushort>();
+            var moveVals = new List<int>();
+
+            // 讀 XYZR（注意大小寫）
+            int x = Convert.ToInt32(row.Cells["X"].Value);
+            int y = Convert.ToInt32(row.Cells["Y"].Value);
+            int z = Convert.ToInt32(row.Cells["Z"].Value);
+            int r = Convert.ToInt32(row.Cells["R"].Value);
+
+            // 只在成功取得且 nodeId>0 時才加入
+            if (TryGetNodeId(CbX_NodeId, out var nx)) { nodeIds.Add(nx); slotIds.Add(0); moveVals.Add(x); }
+            if (TryGetNodeId(CbY_NodeId, out var ny)) { nodeIds.Add(ny); slotIds.Add(0); moveVals.Add(y); }
+            if (TryGetNodeId(CbZ_NodeId, out var nz)) { nodeIds.Add(nz); slotIds.Add(0); moveVals.Add(z); }
+            if (TryGetNodeId(CbR_NodeId, out var nr)) { nodeIds.Add(nr); slotIds.Add(0); moveVals.Add(r); }
+
+            if (nodeIds.Count == 0)
+            {
+                MessageBox.Show("至少選一軸的 NodeID（且不是 0）才能移動", "提醒",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // 其他參數
+            int nStrVel = Convert.ToInt32(row.Cells["StrVel"].Value);
+            int nConstVel = Convert.ToInt32(row.Cells["ConstVel"].Value);
+            int nEndVel = Convert.ToInt32(row.Cells["EndVel"].Value);
+            double dTAcc = Convert.ToDouble(row.Cells["Tacc"].Value);
+            double dTDec = Convert.ToDouble(row.Cells["Tdec"].Value);
+            bool bSCurve = row.Cells["SCurve"].Value is bool b1 && b1;
+            bool bkAbsMove = row.Cells["IsAbs"].Value is bool b2 && b2;
+
+            int nDir = 1; // 相對移動才會用到
+
+
+
+            ushort[] nodeIdsArray = new ushort[nodeIds.Count]; 
+            // 2. 使用 for 迴圈來手動轉換並複製元素
+            for (int i = 0; i < nodeIds.Count; i++)
+            {
+                nodeIdsArray[i] = nodeIds[i];
+            }
+
+            ushort[] slotIdsArray = new ushort[slotIds.Count];
+            // 2. 使用 for 迴圈來手動轉換並複製元素
+            for (int i = 0; i < slotIds.Count; i++)
+            {
+                slotIdsArray[i] = slotIds[i];
+            }
+
+            int[] moveValsArray = new int[moveVals.Count];
+            // 2. 使用 for 迴圈來手動轉換並複製元素
+            for (int i = 0; i < moveVals.Count; i++)
+            {
+                moveValsArray[i] = moveVals[i];
+            }
+
+            // 呼叫（用 ToArray 確保長度一致）
+            ushort rt = cATFunction.MultiAxesMove(
+                nDir,
+                nodeIdsArray,
+                slotIdsArray,
+                moveValsArray,
+                nStrVel, nConstVel, nEndVel,
+                dTAcc, dTDec,
+                bSCurve, bkAbsMove
+            );
+
 
         }
+
+        private static bool TryGetNodeId(ComboBox cb, out ushort nodeId, bool skipZero = true)
+        {
+            nodeId = 0;
+            if (cb == null || cb.SelectedIndex < 0 || cb.SelectedItem == null) return false;
+
+            // SelectedItem 可能是 ushort / int / string（甚至 "NodeID:3 - SlotID:0"）
+            var item = cb.SelectedItem;
+            switch (item)
+            {
+                case ushort u: nodeId = u; break;
+                case int i: nodeId = (ushort)i; break;
+                default:
+                    var s = item.ToString();
+                    // 嘗試直接 parse
+                    if (!ushort.TryParse(s, out nodeId))
+                    {
+                        // 如果是 "NodeID:3 - SlotID:0" 這種，抓第一個數字
+                        var m = System.Text.RegularExpressions.Regex.Match(s, @"\d+");
+                        if (!m.Success || !ushort.TryParse(m.Value, out nodeId))
+                            return false;
+                    }
+                    break;
+            }
+            if (skipZero && nodeId == 0) return false; // <<< 關鍵：跳過 0
+            return true;
+        }
+
 
         private void BtnSVOFF_Click(object sender, EventArgs e)
         {

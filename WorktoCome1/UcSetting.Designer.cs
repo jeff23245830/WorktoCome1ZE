@@ -59,22 +59,22 @@
             this.btnMoveTop = new System.Windows.Forms.Button();
             this.btnMotionSave = new System.Windows.Forms.Button();
             this.DgMotionPoint = new System.Windows.Forms.DataGridView();
-            this.點位名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.R = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StrVel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConstVel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndVel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tacc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tdec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCurve = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsAbs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnStopMove = new System.Windows.Forms.Button();
+            this.IsAbs = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.SCurve = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Tdec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tacc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndVel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstVel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StrVel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.R = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.點位名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -425,101 +425,6 @@
             this.DgMotionPoint.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgMotionPoint_CellContentClick);
             this.DgMotionPoint.SelectionChanged += new System.EventHandler(this.DgMotionPoint_SelectionChanged);
             // 
-            // 點位名稱
-            // 
-            this.點位名稱.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.點位名稱.HeaderText = "點位名稱";
-            this.點位名稱.Name = "點位名稱";
-            this.點位名稱.Width = 78;
-            // 
-            // X
-            // 
-            this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.X.FillWeight = 50F;
-            this.X.HeaderText = "X";
-            this.X.Name = "X";
-            this.X.Width = 38;
-            // 
-            // Y
-            // 
-            this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Y.FillWeight = 50F;
-            this.Y.HeaderText = "Y";
-            this.Y.Name = "Y";
-            this.Y.Width = 38;
-            // 
-            // Z
-            // 
-            this.Z.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Z.FillWeight = 50F;
-            this.Z.HeaderText = "Z";
-            this.Z.Name = "Z";
-            this.Z.Width = 37;
-            // 
-            // R
-            // 
-            this.R.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.R.FillWeight = 50F;
-            this.R.HeaderText = "R";
-            this.R.Name = "R";
-            this.R.Width = 38;
-            // 
-            // StrVel
-            // 
-            this.StrVel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.StrVel.FillWeight = 50F;
-            this.StrVel.HeaderText = "StrVel";
-            this.StrVel.Name = "StrVel";
-            this.StrVel.Width = 59;
-            // 
-            // ConstVel
-            // 
-            this.ConstVel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.ConstVel.FillWeight = 50F;
-            this.ConstVel.HeaderText = "ConstVel";
-            this.ConstVel.Name = "ConstVel";
-            this.ConstVel.Width = 73;
-            // 
-            // EndVel
-            // 
-            this.EndVel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.EndVel.FillWeight = 50F;
-            this.EndVel.HeaderText = "EndVel";
-            this.EndVel.Name = "EndVel";
-            this.EndVel.Width = 65;
-            // 
-            // Tacc
-            // 
-            this.Tacc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Tacc.FillWeight = 50F;
-            this.Tacc.HeaderText = "Tacc";
-            this.Tacc.Name = "Tacc";
-            this.Tacc.Width = 52;
-            // 
-            // Tdec
-            // 
-            this.Tdec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Tdec.FillWeight = 50F;
-            this.Tdec.HeaderText = "Tdec";
-            this.Tdec.Name = "Tdec";
-            this.Tdec.Width = 53;
-            // 
-            // SCurve
-            // 
-            this.SCurve.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.SCurve.FillWeight = 50F;
-            this.SCurve.HeaderText = "SCurve";
-            this.SCurve.Name = "SCurve";
-            this.SCurve.Width = 65;
-            // 
-            // IsAbs
-            // 
-            this.IsAbs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.IsAbs.FillWeight = 50F;
-            this.IsAbs.HeaderText = "IsAbs";
-            this.IsAbs.Name = "IsAbs";
-            this.IsAbs.Width = 56;
-            // 
             // tabPage6
             // 
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
@@ -558,6 +463,105 @@
             this.btnStopMove.TabIndex = 19;
             this.btnStopMove.Text = "停止";
             this.btnStopMove.UseVisualStyleBackColor = true;
+            // 
+            // IsAbs
+            // 
+            this.IsAbs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.IsAbs.FillWeight = 50F;
+            this.IsAbs.HeaderText = "IsAbs";
+            this.IsAbs.Name = "IsAbs";
+            this.IsAbs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsAbs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.IsAbs.Width = 56;
+            // 
+            // SCurve
+            // 
+            this.SCurve.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.SCurve.FillWeight = 50F;
+            this.SCurve.HeaderText = "SCurve";
+            this.SCurve.Name = "SCurve";
+            this.SCurve.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.SCurve.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.SCurve.Width = 65;
+            // 
+            // Tdec
+            // 
+            this.Tdec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Tdec.FillWeight = 50F;
+            this.Tdec.HeaderText = "Tdec";
+            this.Tdec.Name = "Tdec";
+            this.Tdec.Width = 53;
+            // 
+            // Tacc
+            // 
+            this.Tacc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Tacc.FillWeight = 50F;
+            this.Tacc.HeaderText = "Tacc";
+            this.Tacc.Name = "Tacc";
+            this.Tacc.Width = 52;
+            // 
+            // EndVel
+            // 
+            this.EndVel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.EndVel.FillWeight = 50F;
+            this.EndVel.HeaderText = "EndVel";
+            this.EndVel.Name = "EndVel";
+            this.EndVel.Width = 65;
+            // 
+            // ConstVel
+            // 
+            this.ConstVel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ConstVel.FillWeight = 50F;
+            this.ConstVel.HeaderText = "ConstVel";
+            this.ConstVel.Name = "ConstVel";
+            this.ConstVel.Width = 73;
+            // 
+            // StrVel
+            // 
+            this.StrVel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.StrVel.FillWeight = 50F;
+            this.StrVel.HeaderText = "StrVel";
+            this.StrVel.Name = "StrVel";
+            this.StrVel.Width = 59;
+            // 
+            // R
+            // 
+            this.R.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.R.FillWeight = 50F;
+            this.R.HeaderText = "R";
+            this.R.Name = "R";
+            this.R.Width = 38;
+            // 
+            // Z
+            // 
+            this.Z.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Z.FillWeight = 50F;
+            this.Z.HeaderText = "Z";
+            this.Z.Name = "Z";
+            this.Z.Width = 37;
+            // 
+            // Y
+            // 
+            this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Y.FillWeight = 50F;
+            this.Y.HeaderText = "Y";
+            this.Y.Name = "Y";
+            this.Y.Width = 38;
+            // 
+            // X
+            // 
+            this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.X.FillWeight = 50F;
+            this.X.HeaderText = "X";
+            this.X.Name = "X";
+            this.X.Width = 38;
+            // 
+            // 點位名稱
+            // 
+            this.點位名稱.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.點位名稱.HeaderText = "點位名稱";
+            this.點位名稱.Name = "點位名稱";
+            this.點位名稱.Width = 78;
             // 
             // UcSetting
             // 
@@ -613,6 +617,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtPointName;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnStopMove;
         private System.Windows.Forms.DataGridViewTextBoxColumn 點位名稱;
         private System.Windows.Forms.DataGridViewTextBoxColumn X;
         private System.Windows.Forms.DataGridViewTextBoxColumn Y;
@@ -623,8 +628,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EndVel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tacc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tdec;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SCurve;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IsAbs;
-        private System.Windows.Forms.Button btnStopMove;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn SCurve;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsAbs;
     }
 }

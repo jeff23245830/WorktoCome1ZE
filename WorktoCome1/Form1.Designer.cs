@@ -132,7 +132,6 @@
             // 
             // btnControl
             // 
-            this.btnControl.Enabled = false;
             this.btnControl.Location = new System.Drawing.Point(3, 207);
             this.btnControl.Name = "btnControl";
             this.btnControl.Size = new System.Drawing.Size(153, 62);
