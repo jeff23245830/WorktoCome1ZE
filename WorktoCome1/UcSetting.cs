@@ -148,6 +148,15 @@ namespace WorktoCome1
                         double y = Convert.ToDouble(row.Cells["Y"].Value);
                         double z = Convert.ToDouble(row.Cells["Z"].Value);
                         double r = Convert.ToDouble(row.Cells["R"].Value);
+                        //讀取其他
+                        double strVel = Convert.ToDouble(row.Cells["StrVel"].Value);
+                        double constVel = Convert.ToDouble(row.Cells["ConstVel"].Value);
+                        double endVel = Convert.ToDouble(row.Cells["EndVel"].Value);
+                        double tacc = Convert.ToDouble(row.Cells["Tacc"].Value);
+                        double tdec = Convert.ToDouble(row.Cells["Tdec"].Value);
+                        double sCurve = Convert.ToDouble(row.Cells["SCurve"].Value);
+                        double isAbs = Convert.ToDouble(row.Cells["IsAbs"].Value);
+
 
                         // 建立新的 Group 和 Point 物件
                         var newGroup = new Group();
@@ -157,6 +166,15 @@ namespace WorktoCome1
                         newPoint.Y = y;
                         newPoint.Z = z;
                         newPoint.R = r;
+                        newPoint.StrVel = strVel;
+                        newPoint.ConstVel = constVel;
+                        newPoint.EndVel = endVel;
+                        newPoint.Tacc = tacc;
+                        newPoint.Tdec = tdec;
+                        newPoint.SCurve = sCurve;
+                        newPoint.IsAbs = isAbs;
+
+
 
                         // 將點位加入 Group 的 Point 字典中
                         newGroup.Point.Add("1", newPoint);
@@ -221,7 +239,16 @@ namespace WorktoCome1
                         //ushort IsAbs            // 1=絕對, 0=相對
                         // 您可以根據需求自行調整
 
-                        DgMotionPoint.Rows.Add( pointName, pointData.X, pointData.Y, pointData.Z, pointData.R);
+                        DgMotionPoint.Rows.Add(pointName, pointData.X, pointData.Y, pointData.Z, pointData.R, 
+                            pointData.StrVel,
+                            pointData.ConstVel,
+                            pointData.EndVel,
+                            pointData.Tacc,
+                            pointData.Tdec,
+                            pointData.SCurve,
+                            pointData.IsAbs
+                            );
+
 
 
 
@@ -594,6 +621,48 @@ namespace WorktoCome1
         private void BtnSVOFF_Click(object sender, EventArgs e)
         {
             BtnStartMove.Enabled = false;
+
+            int g_nSelectAxesCount = 0;
+
+            //X有選擇的時候
+            if (CbX_NodeId.SelectedIndex >= 0 && CbY_NodeId.SelectedIndex < 0 && CbZ_NodeId.SelectedIndex < 0 && CbR_NodeId.SelectedIndex < 0)
+            {
+                g_nSelectAxesCount += 1;
+            }
+            //Y有選擇的時候
+            else if (CbX_NodeId.SelectedIndex < 0 && CbY_NodeId.SelectedIndex >= 0 && CbZ_NodeId.SelectedIndex < 0 && CbR_NodeId.SelectedIndex < 0)
+            {
+                g_nSelectAxesCount += 1;
+            }
+            //Z有選擇的時候
+            else if (CbX_NodeId.SelectedIndex < 0 && CbY_NodeId.SelectedIndex < 0 && CbZ_NodeId.SelectedIndex >= 0 && CbR_NodeId.SelectedIndex < 0)
+            {
+                g_nSelectAxesCount += 1;
+            }
+            //R有選擇的時候
+            else if (CbX_NodeId.SelectedIndex < 0 && CbY_NodeId.SelectedIndex < 0 && CbZ_NodeId.SelectedIndex < 0 && CbR_NodeId.SelectedIndex >= 0)
+            {
+                g_nSelectAxesCount += 1;
+            }
+            var nodeIds = new List<ushort>();
+
+            if (CbX_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbX_NodeId.SelectedItem.ToString()));
+            if (CbY_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbY_NodeId.SelectedItem.ToString()));
+            if (CbZ_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbZ_NodeId.SelectedItem.ToString()));
+            if (CbR_NodeId.SelectedIndex >= 0) nodeIds.Add(Convert.ToUInt16(CbR_NodeId.SelectedItem.ToString()));
+
+            if (nodeIds.Count == 0)
+            {
+                MessageBox.Show("至少選一軸的 NodeID 才能上伺服～", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // SlotID 先全 0（長度要一致）
+            ushort[] g_uESCNodeID = nodeIds.ToArray();
+            ushort[] g_uESCSlotID = new ushort[nodeIds.Count]; // 預設全 0
+
+            cATFunction.MultiServoOnOrOff(false, g_nSelectAxesCount, g_uESCNodeID, g_uESCSlotID);
+
         }
         
 
