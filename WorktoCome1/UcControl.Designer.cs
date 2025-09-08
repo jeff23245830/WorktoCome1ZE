@@ -189,7 +189,11 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.bt_cheak);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.CbDIfunction);
             this.tabPage1.Controls.Add(this.label22);
+            this.tabPage1.Controls.Add(this.CbDOfunction);
             this.tabPage1.Controls.Add(this.comboBox2);
             this.tabPage1.Controls.Add(this.groupBox7);
             this.tabPage1.Controls.Add(this.groupBox6);
@@ -209,6 +213,7 @@
             this.bt_cheak.TabIndex = 36;
             this.bt_cheak.Text = "checkOUT";
             this.bt_cheak.UseVisualStyleBackColor = true;
+            this.bt_cheak.Visible = false;
             this.bt_cheak.Click += new System.EventHandler(this.btn_check_Click);
             // 
             // label22
@@ -219,6 +224,7 @@
             this.label22.Size = new System.Drawing.Size(65, 12);
             this.label22.TabIndex = 35;
             this.label22.Text = "CmbCardNo";
+            this.label22.Visible = false;
             // 
             // comboBox2
             // 
@@ -227,12 +233,11 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(118, 20);
             this.comboBox2.TabIndex = 34;
+            this.comboBox2.Visible = false;
             // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.btnDIDelete);
-            this.groupBox7.Controls.Add(this.label10);
-            this.groupBox7.Controls.Add(this.CbDIfunction);
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Controls.Add(this.label7);
             this.groupBox7.Controls.Add(this.btnDISave);
@@ -289,25 +294,28 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(296, 368);
+            this.label10.Location = new System.Drawing.Point(795, 436);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 12);
             this.label10.TabIndex = 68;
             this.label10.Text = "功能組";
+            this.label10.Visible = false;
             // 
             // CbDIfunction
             // 
+            this.CbDIfunction.Enabled = false;
             this.CbDIfunction.FormattingEnabled = true;
-            this.CbDIfunction.Location = new System.Drawing.Point(232, 383);
+            this.CbDIfunction.Location = new System.Drawing.Point(731, 451);
             this.CbDIfunction.Name = "CbDIfunction";
             this.CbDIfunction.Size = new System.Drawing.Size(164, 20);
             this.CbDIfunction.TabIndex = 67;
+            this.CbDIfunction.Visible = false;
             this.CbDIfunction.SelectedIndexChanged += new System.EventHandler(this.CbDIfunction_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(120, 366);
+            this.label8.Location = new System.Drawing.Point(112, 17);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 12);
             this.label8.TabIndex = 53;
@@ -316,7 +324,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 366);
+            this.label7.Location = new System.Drawing.Point(27, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 12);
             this.label7.TabIndex = 53;
@@ -324,73 +332,73 @@
             // 
             // btnDISave
             // 
-            this.btnDISave.Location = new System.Drawing.Point(402, 368);
+            this.btnDISave.Location = new System.Drawing.Point(403, 379);
             this.btnDISave.Name = "btnDISave";
             this.btnDISave.Size = new System.Drawing.Size(57, 35);
             this.btnDISave.TabIndex = 66;
             this.btnDISave.Text = "存檔";
             this.btnDISave.UseVisualStyleBackColor = true;
-            this.btnDISave.Click += new System.EventHandler(this.btnDISave_Click_1);
+            this.btnDISave.Click += new System.EventHandler(this.btnDISave_Click);
             // 
             // txtDI15
             // 
-            this.txtDI15.Location = new System.Drawing.Point(299, 326);
+            this.txtDI15.Location = new System.Drawing.Point(299, 340);
             this.txtDI15.Name = "txtDI15";
             this.txtDI15.Size = new System.Drawing.Size(160, 22);
             this.txtDI15.TabIndex = 65;
             // 
             // txtDI14
             // 
-            this.txtDI14.Location = new System.Drawing.Point(299, 288);
+            this.txtDI14.Location = new System.Drawing.Point(299, 302);
             this.txtDI14.Name = "txtDI14";
             this.txtDI14.Size = new System.Drawing.Size(160, 22);
             this.txtDI14.TabIndex = 64;
             // 
             // txtDI13
             // 
-            this.txtDI13.Location = new System.Drawing.Point(299, 250);
+            this.txtDI13.Location = new System.Drawing.Point(299, 264);
             this.txtDI13.Name = "txtDI13";
             this.txtDI13.Size = new System.Drawing.Size(160, 22);
             this.txtDI13.TabIndex = 63;
             // 
             // txtDI12
             // 
-            this.txtDI12.Location = new System.Drawing.Point(299, 212);
+            this.txtDI12.Location = new System.Drawing.Point(299, 226);
             this.txtDI12.Name = "txtDI12";
             this.txtDI12.Size = new System.Drawing.Size(160, 22);
             this.txtDI12.TabIndex = 62;
             // 
             // txtDI11
             // 
-            this.txtDI11.Location = new System.Drawing.Point(299, 174);
+            this.txtDI11.Location = new System.Drawing.Point(299, 188);
             this.txtDI11.Name = "txtDI11";
             this.txtDI11.Size = new System.Drawing.Size(160, 22);
             this.txtDI11.TabIndex = 61;
             // 
             // txtDI10
             // 
-            this.txtDI10.Location = new System.Drawing.Point(299, 136);
+            this.txtDI10.Location = new System.Drawing.Point(299, 150);
             this.txtDI10.Name = "txtDI10";
             this.txtDI10.Size = new System.Drawing.Size(160, 22);
             this.txtDI10.TabIndex = 60;
             // 
             // txtDI09
             // 
-            this.txtDI09.Location = new System.Drawing.Point(299, 98);
+            this.txtDI09.Location = new System.Drawing.Point(299, 112);
             this.txtDI09.Name = "txtDI09";
             this.txtDI09.Size = new System.Drawing.Size(160, 22);
             this.txtDI09.TabIndex = 59;
             // 
             // txtDI08
             // 
-            this.txtDI08.Location = new System.Drawing.Point(299, 60);
+            this.txtDI08.Location = new System.Drawing.Point(299, 74);
             this.txtDI08.Name = "txtDI08";
             this.txtDI08.Size = new System.Drawing.Size(160, 22);
             this.txtDI08.TabIndex = 58;
             // 
             // txtDI07
             // 
-            this.txtDI07.Location = new System.Drawing.Point(69, 326);
+            this.txtDI07.Location = new System.Drawing.Point(69, 340);
             this.txtDI07.Name = "txtDI07";
             this.txtDI07.Size = new System.Drawing.Size(160, 22);
             this.txtDI07.TabIndex = 57;
@@ -399,14 +407,15 @@
             // CbDISlotId
             // 
             this.CbDISlotId.FormattingEnabled = true;
-            this.CbDISlotId.Location = new System.Drawing.Point(103, 383);
+            this.CbDISlotId.Location = new System.Drawing.Point(95, 34);
             this.CbDISlotId.Name = "CbDISlotId";
             this.CbDISlotId.Size = new System.Drawing.Size(73, 20);
             this.CbDISlotId.TabIndex = 17;
+            this.CbDISlotId.SelectedIndexChanged += new System.EventHandler(this.CbDISlotId_SelectedIndexChanged);
             // 
             // txtDI06
             // 
-            this.txtDI06.Location = new System.Drawing.Point(69, 288);
+            this.txtDI06.Location = new System.Drawing.Point(69, 302);
             this.txtDI06.Name = "txtDI06";
             this.txtDI06.Size = new System.Drawing.Size(160, 22);
             this.txtDI06.TabIndex = 56;
@@ -415,14 +424,15 @@
             // CbDINodeId
             // 
             this.CbDINodeId.FormattingEnabled = true;
-            this.CbDINodeId.Location = new System.Drawing.Point(19, 383);
+            this.CbDINodeId.Location = new System.Drawing.Point(11, 34);
             this.CbDINodeId.Name = "CbDINodeId";
             this.CbDINodeId.Size = new System.Drawing.Size(78, 20);
             this.CbDINodeId.TabIndex = 16;
+            this.CbDINodeId.SelectedIndexChanged += new System.EventHandler(this.CbDINodeId_SelectedIndexChanged);
             // 
             // txtDI05
             // 
-            this.txtDI05.Location = new System.Drawing.Point(69, 250);
+            this.txtDI05.Location = new System.Drawing.Point(69, 264);
             this.txtDI05.Name = "txtDI05";
             this.txtDI05.Size = new System.Drawing.Size(160, 22);
             this.txtDI05.TabIndex = 55;
@@ -433,7 +443,7 @@
             this.LabBit15.BackColor = System.Drawing.Color.Gray;
             this.LabBit15.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit15.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit15.Location = new System.Drawing.Point(246, 320);
+            this.LabBit15.Location = new System.Drawing.Point(246, 334);
             this.LabBit15.Name = "LabBit15";
             this.LabBit15.Size = new System.Drawing.Size(47, 33);
             this.LabBit15.TabIndex = 15;
@@ -442,7 +452,7 @@
             // 
             // txtDI04
             // 
-            this.txtDI04.Location = new System.Drawing.Point(69, 212);
+            this.txtDI04.Location = new System.Drawing.Point(69, 226);
             this.txtDI04.Name = "txtDI04";
             this.txtDI04.Size = new System.Drawing.Size(160, 22);
             this.txtDI04.TabIndex = 54;
@@ -453,7 +463,7 @@
             this.LabBit14.BackColor = System.Drawing.Color.Gray;
             this.LabBit14.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit14.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit14.Location = new System.Drawing.Point(246, 282);
+            this.LabBit14.Location = new System.Drawing.Point(246, 296);
             this.LabBit14.Name = "LabBit14";
             this.LabBit14.Size = new System.Drawing.Size(47, 33);
             this.LabBit14.TabIndex = 14;
@@ -462,7 +472,7 @@
             // 
             // txtDI03
             // 
-            this.txtDI03.Location = new System.Drawing.Point(69, 174);
+            this.txtDI03.Location = new System.Drawing.Point(69, 188);
             this.txtDI03.Name = "txtDI03";
             this.txtDI03.Size = new System.Drawing.Size(160, 22);
             this.txtDI03.TabIndex = 53;
@@ -473,7 +483,7 @@
             this.LabBit13.BackColor = System.Drawing.Color.Gray;
             this.LabBit13.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit13.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit13.Location = new System.Drawing.Point(246, 244);
+            this.LabBit13.Location = new System.Drawing.Point(246, 258);
             this.LabBit13.Name = "LabBit13";
             this.LabBit13.Size = new System.Drawing.Size(47, 33);
             this.LabBit13.TabIndex = 13;
@@ -482,7 +492,7 @@
             // 
             // txtDI02
             // 
-            this.txtDI02.Location = new System.Drawing.Point(69, 136);
+            this.txtDI02.Location = new System.Drawing.Point(69, 150);
             this.txtDI02.Name = "txtDI02";
             this.txtDI02.Size = new System.Drawing.Size(160, 22);
             this.txtDI02.TabIndex = 52;
@@ -493,7 +503,7 @@
             this.LabBit12.BackColor = System.Drawing.Color.Gray;
             this.LabBit12.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit12.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit12.Location = new System.Drawing.Point(246, 206);
+            this.LabBit12.Location = new System.Drawing.Point(246, 220);
             this.LabBit12.Name = "LabBit12";
             this.LabBit12.Size = new System.Drawing.Size(47, 33);
             this.LabBit12.TabIndex = 12;
@@ -502,7 +512,7 @@
             // 
             // txtDI01
             // 
-            this.txtDI01.Location = new System.Drawing.Point(69, 98);
+            this.txtDI01.Location = new System.Drawing.Point(69, 112);
             this.txtDI01.Name = "txtDI01";
             this.txtDI01.Size = new System.Drawing.Size(160, 22);
             this.txtDI01.TabIndex = 51;
@@ -510,7 +520,7 @@
             // 
             // txtDI00
             // 
-            this.txtDI00.Location = new System.Drawing.Point(69, 60);
+            this.txtDI00.Location = new System.Drawing.Point(69, 74);
             this.txtDI00.Name = "txtDI00";
             this.txtDI00.Size = new System.Drawing.Size(160, 22);
             this.txtDI00.TabIndex = 50;
@@ -521,7 +531,7 @@
             this.LabBit11.BackColor = System.Drawing.Color.Gray;
             this.LabBit11.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit11.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit11.Location = new System.Drawing.Point(246, 168);
+            this.LabBit11.Location = new System.Drawing.Point(246, 182);
             this.LabBit11.Name = "LabBit11";
             this.LabBit11.Size = new System.Drawing.Size(47, 33);
             this.LabBit11.TabIndex = 11;
@@ -533,7 +543,7 @@
             this.LabBit10.BackColor = System.Drawing.Color.Gray;
             this.LabBit10.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit10.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit10.Location = new System.Drawing.Point(246, 130);
+            this.LabBit10.Location = new System.Drawing.Point(246, 144);
             this.LabBit10.Name = "LabBit10";
             this.LabBit10.Size = new System.Drawing.Size(47, 33);
             this.LabBit10.TabIndex = 10;
@@ -545,7 +555,7 @@
             this.LabBit09.BackColor = System.Drawing.Color.Gray;
             this.LabBit09.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit09.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit09.Location = new System.Drawing.Point(246, 92);
+            this.LabBit09.Location = new System.Drawing.Point(246, 106);
             this.LabBit09.Name = "LabBit09";
             this.LabBit09.Size = new System.Drawing.Size(47, 33);
             this.LabBit09.TabIndex = 9;
@@ -557,7 +567,7 @@
             this.LabBit08.BackColor = System.Drawing.Color.Gray;
             this.LabBit08.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit08.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit08.Location = new System.Drawing.Point(246, 54);
+            this.LabBit08.Location = new System.Drawing.Point(246, 68);
             this.LabBit08.Name = "LabBit08";
             this.LabBit08.Size = new System.Drawing.Size(47, 33);
             this.LabBit08.TabIndex = 8;
@@ -569,7 +579,7 @@
             this.LabBit07.BackColor = System.Drawing.Color.Gray;
             this.LabBit07.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit07.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit07.Location = new System.Drawing.Point(16, 320);
+            this.LabBit07.Location = new System.Drawing.Point(16, 334);
             this.LabBit07.Name = "LabBit07";
             this.LabBit07.Size = new System.Drawing.Size(47, 33);
             this.LabBit07.TabIndex = 7;
@@ -581,7 +591,7 @@
             this.LabBit06.BackColor = System.Drawing.Color.Gray;
             this.LabBit06.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit06.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit06.Location = new System.Drawing.Point(16, 282);
+            this.LabBit06.Location = new System.Drawing.Point(16, 296);
             this.LabBit06.Name = "LabBit06";
             this.LabBit06.Size = new System.Drawing.Size(47, 33);
             this.LabBit06.TabIndex = 6;
@@ -593,7 +603,7 @@
             this.LabBit05.BackColor = System.Drawing.Color.Gray;
             this.LabBit05.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit05.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit05.Location = new System.Drawing.Point(16, 244);
+            this.LabBit05.Location = new System.Drawing.Point(16, 258);
             this.LabBit05.Name = "LabBit05";
             this.LabBit05.Size = new System.Drawing.Size(47, 33);
             this.LabBit05.TabIndex = 5;
@@ -605,7 +615,7 @@
             this.LabBit04.BackColor = System.Drawing.Color.Gray;
             this.LabBit04.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit04.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit04.Location = new System.Drawing.Point(16, 206);
+            this.LabBit04.Location = new System.Drawing.Point(16, 220);
             this.LabBit04.Name = "LabBit04";
             this.LabBit04.Size = new System.Drawing.Size(47, 33);
             this.LabBit04.TabIndex = 4;
@@ -617,7 +627,7 @@
             this.LabBit03.BackColor = System.Drawing.Color.Gray;
             this.LabBit03.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit03.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit03.Location = new System.Drawing.Point(16, 168);
+            this.LabBit03.Location = new System.Drawing.Point(16, 182);
             this.LabBit03.Name = "LabBit03";
             this.LabBit03.Size = new System.Drawing.Size(47, 33);
             this.LabBit03.TabIndex = 3;
@@ -629,7 +639,7 @@
             this.LabBit02.BackColor = System.Drawing.Color.Gray;
             this.LabBit02.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit02.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit02.Location = new System.Drawing.Point(16, 130);
+            this.LabBit02.Location = new System.Drawing.Point(16, 144);
             this.LabBit02.Name = "LabBit02";
             this.LabBit02.Size = new System.Drawing.Size(47, 33);
             this.LabBit02.TabIndex = 2;
@@ -641,7 +651,7 @@
             this.LabBit01.BackColor = System.Drawing.Color.Gray;
             this.LabBit01.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit01.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit01.Location = new System.Drawing.Point(16, 92);
+            this.LabBit01.Location = new System.Drawing.Point(16, 106);
             this.LabBit01.Name = "LabBit01";
             this.LabBit01.Size = new System.Drawing.Size(47, 33);
             this.LabBit01.TabIndex = 1;
@@ -653,7 +663,7 @@
             this.LabBit00.BackColor = System.Drawing.Color.Gray;
             this.LabBit00.Cursor = System.Windows.Forms.Cursors.Default;
             this.LabBit00.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.LabBit00.Location = new System.Drawing.Point(16, 54);
+            this.LabBit00.Location = new System.Drawing.Point(16, 68);
             this.LabBit00.Name = "LabBit00";
             this.LabBit00.Size = new System.Drawing.Size(47, 33);
             this.LabBit00.TabIndex = 0;
@@ -663,8 +673,6 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.btnDODelete);
-            this.groupBox6.Controls.Add(this.label9);
-            this.groupBox6.Controls.Add(this.CbDOfunction);
             this.groupBox6.Controls.Add(this.label6);
             this.groupBox6.Controls.Add(this.label5);
             this.groupBox6.Controls.Add(this.btnDOSave);
@@ -711,7 +719,7 @@
             // 
             // btnDODelete
             // 
-            this.btnDODelete.Location = new System.Drawing.Point(405, 21);
+            this.btnDODelete.Location = new System.Drawing.Point(405, 12);
             this.btnDODelete.Name = "btnDODelete";
             this.btnDODelete.Size = new System.Drawing.Size(56, 24);
             this.btnDODelete.TabIndex = 55;
@@ -721,25 +729,27 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(299, 368);
+            this.label9.Location = new System.Drawing.Point(190, 436);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 12);
             this.label9.TabIndex = 54;
             this.label9.Text = "功能組";
+            this.label9.Visible = false;
             // 
             // CbDOfunction
             // 
+            this.CbDOfunction.Enabled = false;
             this.CbDOfunction.FormattingEnabled = true;
-            this.CbDOfunction.Location = new System.Drawing.Point(235, 383);
+            this.CbDOfunction.Location = new System.Drawing.Point(126, 451);
             this.CbDOfunction.Name = "CbDOfunction";
             this.CbDOfunction.Size = new System.Drawing.Size(164, 20);
             this.CbDOfunction.TabIndex = 53;
-            this.CbDOfunction.SelectedIndexChanged += new System.EventHandler(this.CbDOfunction_SelectedIndexChanged);
+            this.CbDOfunction.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(109, 366);
+            this.label6.Location = new System.Drawing.Point(112, 18);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 12);
             this.label6.TabIndex = 52;
@@ -748,7 +758,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 366);
+            this.label5.Location = new System.Drawing.Point(32, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 12);
             this.label5.TabIndex = 51;
@@ -756,7 +766,7 @@
             // 
             // btnDOSave
             // 
-            this.btnDOSave.Location = new System.Drawing.Point(405, 366);
+            this.btnDOSave.Location = new System.Drawing.Point(405, 379);
             this.btnDOSave.Name = "btnDOSave";
             this.btnDOSave.Size = new System.Drawing.Size(56, 37);
             this.btnDOSave.TabIndex = 50;
@@ -766,112 +776,112 @@
             // 
             // txtDO15
             // 
-            this.txtDO15.Location = new System.Drawing.Point(301, 320);
+            this.txtDO15.Location = new System.Drawing.Point(301, 337);
             this.txtDO15.Name = "txtDO15";
             this.txtDO15.Size = new System.Drawing.Size(160, 22);
             this.txtDO15.TabIndex = 49;
             // 
             // txtDO14
             // 
-            this.txtDO14.Location = new System.Drawing.Point(301, 283);
+            this.txtDO14.Location = new System.Drawing.Point(301, 300);
             this.txtDO14.Name = "txtDO14";
             this.txtDO14.Size = new System.Drawing.Size(160, 22);
             this.txtDO14.TabIndex = 48;
             // 
             // txtDO13
             // 
-            this.txtDO13.Location = new System.Drawing.Point(301, 246);
+            this.txtDO13.Location = new System.Drawing.Point(301, 263);
             this.txtDO13.Name = "txtDO13";
             this.txtDO13.Size = new System.Drawing.Size(160, 22);
             this.txtDO13.TabIndex = 47;
             // 
             // txtDO12
             // 
-            this.txtDO12.Location = new System.Drawing.Point(301, 209);
+            this.txtDO12.Location = new System.Drawing.Point(301, 226);
             this.txtDO12.Name = "txtDO12";
             this.txtDO12.Size = new System.Drawing.Size(160, 22);
             this.txtDO12.TabIndex = 46;
             // 
             // txtDO11
             // 
-            this.txtDO11.Location = new System.Drawing.Point(301, 172);
+            this.txtDO11.Location = new System.Drawing.Point(301, 189);
             this.txtDO11.Name = "txtDO11";
             this.txtDO11.Size = new System.Drawing.Size(160, 22);
             this.txtDO11.TabIndex = 45;
             // 
             // txtDO10
             // 
-            this.txtDO10.Location = new System.Drawing.Point(301, 135);
+            this.txtDO10.Location = new System.Drawing.Point(301, 152);
             this.txtDO10.Name = "txtDO10";
             this.txtDO10.Size = new System.Drawing.Size(160, 22);
             this.txtDO10.TabIndex = 44;
             // 
             // txtDO09
             // 
-            this.txtDO09.Location = new System.Drawing.Point(301, 98);
+            this.txtDO09.Location = new System.Drawing.Point(301, 115);
             this.txtDO09.Name = "txtDO09";
             this.txtDO09.Size = new System.Drawing.Size(160, 22);
             this.txtDO09.TabIndex = 43;
             // 
             // txtDO08
             // 
-            this.txtDO08.Location = new System.Drawing.Point(301, 61);
+            this.txtDO08.Location = new System.Drawing.Point(301, 78);
             this.txtDO08.Name = "txtDO08";
             this.txtDO08.Size = new System.Drawing.Size(160, 22);
             this.txtDO08.TabIndex = 42;
             // 
             // txtDO07
             // 
-            this.txtDO07.Location = new System.Drawing.Point(62, 320);
+            this.txtDO07.Location = new System.Drawing.Point(62, 337);
             this.txtDO07.Name = "txtDO07";
             this.txtDO07.Size = new System.Drawing.Size(160, 22);
             this.txtDO07.TabIndex = 41;
             // 
             // txtDO06
             // 
-            this.txtDO06.Location = new System.Drawing.Point(62, 283);
+            this.txtDO06.Location = new System.Drawing.Point(62, 300);
             this.txtDO06.Name = "txtDO06";
             this.txtDO06.Size = new System.Drawing.Size(160, 22);
             this.txtDO06.TabIndex = 40;
             // 
             // txtDO05
             // 
-            this.txtDO05.Location = new System.Drawing.Point(62, 246);
+            this.txtDO05.Location = new System.Drawing.Point(62, 263);
             this.txtDO05.Name = "txtDO05";
             this.txtDO05.Size = new System.Drawing.Size(160, 22);
             this.txtDO05.TabIndex = 39;
             // 
             // txtDO04
             // 
-            this.txtDO04.Location = new System.Drawing.Point(62, 209);
+            this.txtDO04.Location = new System.Drawing.Point(62, 226);
             this.txtDO04.Name = "txtDO04";
             this.txtDO04.Size = new System.Drawing.Size(160, 22);
             this.txtDO04.TabIndex = 38;
             // 
             // txtDO03
             // 
-            this.txtDO03.Location = new System.Drawing.Point(62, 172);
+            this.txtDO03.Location = new System.Drawing.Point(62, 189);
             this.txtDO03.Name = "txtDO03";
             this.txtDO03.Size = new System.Drawing.Size(160, 22);
             this.txtDO03.TabIndex = 37;
             // 
             // txtDO02
             // 
-            this.txtDO02.Location = new System.Drawing.Point(62, 135);
+            this.txtDO02.Location = new System.Drawing.Point(62, 152);
             this.txtDO02.Name = "txtDO02";
             this.txtDO02.Size = new System.Drawing.Size(160, 22);
             this.txtDO02.TabIndex = 36;
             // 
             // txtDO01
             // 
-            this.txtDO01.Location = new System.Drawing.Point(62, 98);
+            this.txtDO01.Location = new System.Drawing.Point(62, 115);
             this.txtDO01.Name = "txtDO01";
             this.txtDO01.Size = new System.Drawing.Size(160, 22);
             this.txtDO01.TabIndex = 35;
             // 
             // txtDO00
             // 
-            this.txtDO00.Location = new System.Drawing.Point(62, 61);
+            this.txtDO00.Location = new System.Drawing.Point(62, 78);
             this.txtDO00.Name = "txtDO00";
             this.txtDO00.Size = new System.Drawing.Size(160, 22);
             this.txtDO00.TabIndex = 34;
@@ -879,20 +889,20 @@
             // CbDOSlotId
             // 
             this.CbDOSlotId.FormattingEnabled = true;
-            this.CbDOSlotId.Location = new System.Drawing.Point(96, 383);
+            this.CbDOSlotId.Location = new System.Drawing.Point(99, 35);
             this.CbDOSlotId.Name = "CbDOSlotId";
             this.CbDOSlotId.Size = new System.Drawing.Size(75, 20);
             this.CbDOSlotId.TabIndex = 33;
-            this.CbDOSlotId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
+            this.CbDOSlotId.SelectedIndexChanged += new System.EventHandler(this.CbDOSlotId_SelectedIndexChanged);
             // 
             // CbDONodeId
             // 
             this.CbDONodeId.FormattingEnabled = true;
-            this.CbDONodeId.Location = new System.Drawing.Point(16, 383);
+            this.CbDONodeId.Location = new System.Drawing.Point(19, 35);
             this.CbDONodeId.Name = "CbDONodeId";
             this.CbDONodeId.Size = new System.Drawing.Size(74, 20);
             this.CbDONodeId.TabIndex = 32;
-            this.CbDONodeId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
+            this.CbDONodeId.SelectedIndexChanged += new System.EventHandler(this.CbDONodeId_SelectedIndexChanged);
             // 
             // ChkBit08
             // 
@@ -900,7 +910,7 @@
             this.ChkBit08.AutoSize = true;
             this.ChkBit08.BackColor = System.Drawing.Color.Red;
             this.ChkBit08.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit08.Location = new System.Drawing.Point(255, 57);
+            this.ChkBit08.Location = new System.Drawing.Point(255, 74);
             this.ChkBit08.Name = "ChkBit08";
             this.ChkBit08.Size = new System.Drawing.Size(40, 31);
             this.ChkBit08.TabIndex = 7;
@@ -914,7 +924,7 @@
             this.ChkBit00.AutoSize = true;
             this.ChkBit00.BackColor = System.Drawing.Color.Red;
             this.ChkBit00.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit00.Location = new System.Drawing.Point(16, 57);
+            this.ChkBit00.Location = new System.Drawing.Point(16, 74);
             this.ChkBit00.Name = "ChkBit00";
             this.ChkBit00.Size = new System.Drawing.Size(40, 31);
             this.ChkBit00.TabIndex = 0;
@@ -928,7 +938,7 @@
             this.ChkBit15.AutoSize = true;
             this.ChkBit15.BackColor = System.Drawing.Color.Red;
             this.ChkBit15.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit15.Location = new System.Drawing.Point(255, 317);
+            this.ChkBit15.Location = new System.Drawing.Point(255, 334);
             this.ChkBit15.Name = "ChkBit15";
             this.ChkBit15.Size = new System.Drawing.Size(40, 31);
             this.ChkBit15.TabIndex = 24;
@@ -942,7 +952,7 @@
             this.ChkBit14.AutoSize = true;
             this.ChkBit14.BackColor = System.Drawing.Color.Red;
             this.ChkBit14.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit14.Location = new System.Drawing.Point(255, 280);
+            this.ChkBit14.Location = new System.Drawing.Point(255, 297);
             this.ChkBit14.Name = "ChkBit14";
             this.ChkBit14.Size = new System.Drawing.Size(40, 31);
             this.ChkBit14.TabIndex = 23;
@@ -956,7 +966,7 @@
             this.ChkBit13.AutoSize = true;
             this.ChkBit13.BackColor = System.Drawing.Color.Red;
             this.ChkBit13.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit13.Location = new System.Drawing.Point(255, 243);
+            this.ChkBit13.Location = new System.Drawing.Point(255, 260);
             this.ChkBit13.Name = "ChkBit13";
             this.ChkBit13.Size = new System.Drawing.Size(40, 31);
             this.ChkBit13.TabIndex = 22;
@@ -970,7 +980,7 @@
             this.ChkBit12.AutoSize = true;
             this.ChkBit12.BackColor = System.Drawing.Color.Red;
             this.ChkBit12.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit12.Location = new System.Drawing.Point(255, 206);
+            this.ChkBit12.Location = new System.Drawing.Point(255, 223);
             this.ChkBit12.Name = "ChkBit12";
             this.ChkBit12.Size = new System.Drawing.Size(40, 31);
             this.ChkBit12.TabIndex = 21;
@@ -984,7 +994,7 @@
             this.ChkBit11.AutoSize = true;
             this.ChkBit11.BackColor = System.Drawing.Color.Red;
             this.ChkBit11.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit11.Location = new System.Drawing.Point(255, 169);
+            this.ChkBit11.Location = new System.Drawing.Point(255, 186);
             this.ChkBit11.Name = "ChkBit11";
             this.ChkBit11.Size = new System.Drawing.Size(40, 31);
             this.ChkBit11.TabIndex = 20;
@@ -998,7 +1008,7 @@
             this.ChkBit10.AutoSize = true;
             this.ChkBit10.BackColor = System.Drawing.Color.Red;
             this.ChkBit10.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit10.Location = new System.Drawing.Point(255, 131);
+            this.ChkBit10.Location = new System.Drawing.Point(255, 148);
             this.ChkBit10.Name = "ChkBit10";
             this.ChkBit10.Size = new System.Drawing.Size(40, 31);
             this.ChkBit10.TabIndex = 19;
@@ -1012,7 +1022,7 @@
             this.ChkBit09.AutoSize = true;
             this.ChkBit09.BackColor = System.Drawing.Color.Red;
             this.ChkBit09.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit09.Location = new System.Drawing.Point(255, 94);
+            this.ChkBit09.Location = new System.Drawing.Point(255, 111);
             this.ChkBit09.Name = "ChkBit09";
             this.ChkBit09.Size = new System.Drawing.Size(40, 31);
             this.ChkBit09.TabIndex = 18;
@@ -1026,7 +1036,7 @@
             this.ChkBit03.AutoSize = true;
             this.ChkBit03.BackColor = System.Drawing.Color.Red;
             this.ChkBit03.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit03.Location = new System.Drawing.Point(16, 169);
+            this.ChkBit03.Location = new System.Drawing.Point(16, 186);
             this.ChkBit03.Name = "ChkBit03";
             this.ChkBit03.Size = new System.Drawing.Size(40, 31);
             this.ChkBit03.TabIndex = 15;
@@ -1040,7 +1050,7 @@
             this.ChkBit07.AutoSize = true;
             this.ChkBit07.BackColor = System.Drawing.Color.Red;
             this.ChkBit07.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit07.Location = new System.Drawing.Point(16, 317);
+            this.ChkBit07.Location = new System.Drawing.Point(16, 334);
             this.ChkBit07.Name = "ChkBit07";
             this.ChkBit07.Size = new System.Drawing.Size(40, 31);
             this.ChkBit07.TabIndex = 6;
@@ -1054,7 +1064,7 @@
             this.ChkBit06.AutoSize = true;
             this.ChkBit06.BackColor = System.Drawing.Color.Red;
             this.ChkBit06.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit06.Location = new System.Drawing.Point(16, 280);
+            this.ChkBit06.Location = new System.Drawing.Point(16, 297);
             this.ChkBit06.Name = "ChkBit06";
             this.ChkBit06.Size = new System.Drawing.Size(40, 31);
             this.ChkBit06.TabIndex = 5;
@@ -1068,7 +1078,7 @@
             this.ChkBit05.AutoSize = true;
             this.ChkBit05.BackColor = System.Drawing.Color.Red;
             this.ChkBit05.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit05.Location = new System.Drawing.Point(16, 243);
+            this.ChkBit05.Location = new System.Drawing.Point(16, 260);
             this.ChkBit05.Name = "ChkBit05";
             this.ChkBit05.Size = new System.Drawing.Size(40, 31);
             this.ChkBit05.TabIndex = 4;
@@ -1082,7 +1092,7 @@
             this.ChkBit04.AutoSize = true;
             this.ChkBit04.BackColor = System.Drawing.Color.Red;
             this.ChkBit04.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit04.Location = new System.Drawing.Point(16, 206);
+            this.ChkBit04.Location = new System.Drawing.Point(16, 223);
             this.ChkBit04.Name = "ChkBit04";
             this.ChkBit04.Size = new System.Drawing.Size(40, 31);
             this.ChkBit04.TabIndex = 3;
@@ -1096,7 +1106,7 @@
             this.ChkBit02.AutoSize = true;
             this.ChkBit02.BackColor = System.Drawing.Color.Red;
             this.ChkBit02.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit02.Location = new System.Drawing.Point(16, 131);
+            this.ChkBit02.Location = new System.Drawing.Point(16, 148);
             this.ChkBit02.Name = "ChkBit02";
             this.ChkBit02.Size = new System.Drawing.Size(40, 31);
             this.ChkBit02.TabIndex = 2;
@@ -1110,7 +1120,7 @@
             this.ChkBit01.AutoSize = true;
             this.ChkBit01.BackColor = System.Drawing.Color.Red;
             this.ChkBit01.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ChkBit01.Location = new System.Drawing.Point(16, 94);
+            this.ChkBit01.Location = new System.Drawing.Point(16, 111);
             this.ChkBit01.Name = "ChkBit01";
             this.ChkBit01.Size = new System.Drawing.Size(40, 31);
             this.ChkBit01.TabIndex = 1;

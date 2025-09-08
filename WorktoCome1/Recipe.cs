@@ -66,8 +66,7 @@ namespace WorktoCome1
     public class DioGroup
     {
         public int NodeID { get; set; }
-        public int SlotID { get; set; }
-        
+        public int SlotID { get; set; } 
         public Dictionary<string, string> Function { get; set; } = new Dictionary<string, string>();
     }
 }

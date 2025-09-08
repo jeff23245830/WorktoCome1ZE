@@ -12,7 +12,7 @@ namespace WorktoCome1
     {
         private readonly AppState _appState;
         private string jsonFilePath = AppPaths.RecipePath;
-
+        private bool _updating = false;
 
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
@@ -110,6 +110,186 @@ namespace WorktoCome1
             dataGridView1.Rows.Add("原點", "");
         }
         #region 非事件方法
+        private void LoadDIByNodeSlot(int nodeId, int slotId)
+        {
+            try
+            {
+                _updating = true;
+
+                // 1) 清空舊值
+                ClearDItextBox();
+
+                // 2) 取目前產品與配方
+                var product = _appState?.CurrentProducTitle;
+                if (string.IsNullOrWhiteSpace(product)) return;
+
+                var root = _appState.RootObject;
+                if (root?.Products == null || !root.Products.TryGetValue(product, out var recipe)) return;
+
+                // 3) 取 DO 區
+                if (!recipe.DioFunctions.TryGetValue("DI", out var doSection)) return;
+                if (doSection?.NodeGroups == null || doSection.NodeGroups.Count == 0) return;
+
+                // 4) 找到 (NodeID, SlotID) 完全匹配的組別
+                string matchGroupName = null;
+                DioGroup matchGroup = null;
+
+                // 先嘗試使用目前功能組選擇（若它剛好符合 node/slot，優先使用）
+                if (!string.IsNullOrWhiteSpace(CbDIfunction.Text) &&
+                    doSection.NodeGroups.TryGetValue(CbDIfunction.Text, out var maybeGroup) &&
+                    maybeGroup.NodeID == nodeId && maybeGroup.SlotID == slotId)
+                {
+                    matchGroupName = CbDIfunction.Text;
+                    matchGroup = maybeGroup;
+                }
+                else
+                {
+                    // 否則就掃描所有群組找第一個吻合的
+                    foreach (var kv in doSection.NodeGroups)
+                    {
+                        var g = kv.Value;
+                        if (g != null && g.NodeID == nodeId && g.SlotID == slotId)
+                        {
+                            matchGroupName = kv.Key;
+                            matchGroup = g;
+                            break;
+                        }
+                    }
+                }
+
+                if (matchGroup == null)
+                {
+                    // 沒有匹配就保持空白（或你也可以提示）
+                    return;
+                }
+
+                // 5) 同步功能組下拉顯示（避免 UI 不一致）
+                int idx = CbDIfunction.Items.IndexOf(matchGroupName);
+                if (idx >= 0) CbDIfunction.SelectedIndex = idx; else CbDIfunction.Text = matchGroupName;
+
+                // 6) 回填 00..15
+                var map = new Dictionary<string, TextBox>
+                {
+                    ["00"] = txtDI00,
+                    ["01"] = txtDI01,
+                    ["02"] = txtDI02,
+                    ["03"] = txtDI03,
+                    ["04"] = txtDI04,
+                    ["05"] = txtDI05,
+                    ["06"] = txtDI06,
+                    ["07"] = txtDI07,
+                    ["08"] = txtDI08,
+                    ["09"] = txtDI09,
+                    ["10"] = txtDI10,
+                    ["11"] = txtDI11,
+                    ["12"] = txtDI12,
+                    ["13"] = txtDI13,
+                    ["14"] = txtDI14,
+                    ["15"] = txtDI15
+                };
+
+                foreach (var kv in map)
+                {
+                    string val = null;
+                    matchGroup.Function?.TryGetValue(kv.Key, out val);
+                    kv.Value.Text = val ?? string.Empty;
+                }
+            }
+            finally
+            {
+                _updating = false;
+            }
+        }
+        private void LoadDoByNodeSlot(int nodeId, int slotId)
+        {
+            try
+            {
+                _updating = true;
+
+                // 1) 清空舊值
+                ClearDOtextBox();
+
+                // 2) 取目前產品與配方
+                var product = _appState?.CurrentProducTitle;
+                if (string.IsNullOrWhiteSpace(product)) return;
+
+                var root = _appState.RootObject;
+                if (root?.Products == null || !root.Products.TryGetValue(product, out var recipe)) return;
+
+                // 3) 取 DO 區
+                if (!recipe.DioFunctions.TryGetValue("DO", out var doSection)) return;
+                if (doSection?.NodeGroups == null || doSection.NodeGroups.Count == 0) return;
+
+                // 4) 找到 (NodeID, SlotID) 完全匹配的組別
+                string matchGroupName = null;
+                DioGroup matchGroup = null;
+
+                // 先嘗試使用目前功能組選擇（若它剛好符合 node/slot，優先使用）
+                if (!string.IsNullOrWhiteSpace(CbDOfunction.Text) &&
+                    doSection.NodeGroups.TryGetValue(CbDOfunction.Text, out var maybeGroup) &&
+                    maybeGroup.NodeID == nodeId && maybeGroup.SlotID == slotId)
+                {
+                    matchGroupName = CbDOfunction.Text;
+                    matchGroup = maybeGroup;
+                }
+                else
+                {
+                    // 否則就掃描所有群組找第一個吻合的
+                    foreach (var kv in doSection.NodeGroups)
+                    {
+                        var g = kv.Value;
+                        if (g != null && g.NodeID == nodeId && g.SlotID == slotId)
+                        {
+                            matchGroupName = kv.Key;
+                            matchGroup = g;
+                            break;
+                        }
+                    }
+                }
+
+                if (matchGroup == null)
+                {
+                    // 沒有匹配就保持空白（或你也可以提示）
+                    return;
+                }
+
+                // 5) 同步功能組下拉顯示（避免 UI 不一致）
+                int idx = CbDOfunction.Items.IndexOf(matchGroupName);
+                if (idx >= 0) CbDOfunction.SelectedIndex = idx; else CbDOfunction.Text = matchGroupName;
+
+                // 6) 回填 00..15
+                var map = new Dictionary<string, TextBox>
+                {
+                    ["00"] = txtDO00,
+                    ["01"] = txtDO01,
+                    ["02"] = txtDO02,
+                    ["03"] = txtDO03,
+                    ["04"] = txtDO04,
+                    ["05"] = txtDO05,
+                    ["06"] = txtDO06,
+                    ["07"] = txtDO07,
+                    ["08"] = txtDO08,
+                    ["09"] = txtDO09,
+                    ["10"] = txtDO10,
+                    ["11"] = txtDO11,
+                    ["12"] = txtDO12,
+                    ["13"] = txtDO13,
+                    ["14"] = txtDO14,
+                    ["15"] = txtDO15
+                };
+
+                foreach (var kv in map)
+                {
+                    string val = null;
+                    matchGroup.Function?.TryGetValue(kv.Key, out val);
+                    kv.Value.Text = val ?? string.Empty;
+                }
+            }
+            finally
+            {
+                _updating = false;
+            }
+        }
         public void LoadFunctionGroups()
         {
 
@@ -199,6 +379,9 @@ namespace WorktoCome1
 
         public void SetNodeIDtoCombobox(List<ushort> nodeId)
         {
+            CbDINodeId.Items.Clear();
+            CbDONodeId.Items.Clear();   
+            CbNodeId.Items.Clear();
             this.slaveNodeIdList = nodeId;
             // 你可以在這裡更新 UI，例如 ComboBox
             foreach (var slave in slaveNodeIdList)
@@ -217,6 +400,10 @@ namespace WorktoCome1
 
         public void SetSlotIDtoCombobox(List<ushort> slotId)
         {
+            CbSlotId.Items.Clear();
+            CbDOSlotId.Items.Clear();
+            CbDISlotId.Items.Clear();
+
             this.slaveSlotIdList = slotId;
             // 你可以在這裡更新 UI，例如 ComboBox
             foreach (var slave in slaveSlotIdList)
@@ -234,10 +421,7 @@ namespace WorktoCome1
                 CbDISlotId.SelectedIndex = 0;
         }
 
-        public void LoadDIOJson(string filePath)
-        {
-             
-        }
+       
         #endregion
         private void RbSrveroOn_CheckedChanged(object sender, EventArgs e)
         {
@@ -341,25 +525,7 @@ namespace WorktoCome1
 
         private void CbDI_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CbDONodeId.SelectedIndex > -1 && CbDOSlotId.SelectedIndex > -1 )
-            {
-                ChkBit00.Enabled = true;
-                ChkBit01.Enabled = true;
-                ChkBit02.Enabled = true;
-                ChkBit03.Enabled = true;
-                ChkBit04.Enabled = true;
-                ChkBit05.Enabled = true;
-                ChkBit06.Enabled = true;
-                ChkBit07.Enabled = true;
-                ChkBit08.Enabled = true;
-                ChkBit09.Enabled = true;
-                ChkBit10.Enabled = true;
-                ChkBit11.Enabled = true;
-                ChkBit12.Enabled = true;
-                ChkBit13.Enabled = true;
-                ChkBit14.Enabled = true;
-                ChkBit15.Enabled = true;
-            }
+
         }
 
         private void TimCheckStatus_Tick(object sender, EventArgs e)
@@ -456,54 +622,68 @@ namespace WorktoCome1
             }
         }
 
-        private void btnDISave_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnDOSave_Click(object sender, EventArgs e)
         {
             // 1) 基本檢查
-            string currentProducTitle = _appState.CurrentProducTitle;
-            string selectedFunctionName = CbDOfunction.Text;
-
-            if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedFunctionName))
+            string currentProductTitle = _appState.CurrentProducTitle;
+            if (string.IsNullOrWhiteSpace(currentProductTitle))
             {
-                MessageBox.Show("請先載入產品並輸入或選擇一個功能組。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("請先載入產品。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2) 取得 RootObject 與目前產品的 Recipe
-            var root = _appState.RootObject; // 你專案已有：載入/反序列化後放進這裡使用
-            if (root == null || root.Products == null || !root.Products.TryGetValue(currentProducTitle, out var recipe))
+            // 2) 讀 Node / Slot（優先 SelectedItem）
+            int nodeId, slotId;
+
+            if (CbDONodeId.SelectedItem is ushort nodeSel)
+                nodeId = nodeSel;
+            else if (!int.TryParse(CbDONodeId.Text, out nodeId))
             {
-                MessageBox.Show($"找不到產品 '{currentProducTitle}' 的資料。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("請選擇正確的 Node-ID。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 3) 取得/建立 DioFunctions["DO"]
-            if (!recipe.DioFunctions.TryGetValue("DO", out var doSection))
+            if (CbDOSlotId.SelectedItem is ushort slotSel)
+                slotId = slotSel;
+            else if (!int.TryParse(CbDOSlotId.Text, out slotId))
+            {
+                MessageBox.Show("請選擇正確的 Slot-ID。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 3) 取 Root/Recipe
+            var root = _appState.RootObject;
+            if (root?.Products == null || !root.Products.TryGetValue(currentProductTitle, out var recipe))
+            {
+                MessageBox.Show($"找不到產品 '{currentProductTitle}' 的資料。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 4) 取/建 DioFunctions["DO"]
+            if (!recipe.DioFunctions.TryGetValue("DO", out var doSection) || doSection == null)
             {
                 doSection = new Dio();
                 recipe.DioFunctions["DO"] = doSection;
             }
-
-            // 4) 取得/建立 指定功能組
-            if (!doSection.NodeGroups.TryGetValue(selectedFunctionName, out var group))
+            if (doSection.NodeGroups == null)
             {
-                group = new DioGroup();
-                doSection.NodeGroups[selectedFunctionName] = group;
+                doSection.NodeGroups = new Dictionary<string, DioGroup>();
             }
 
-
-            // 5) 從 UI 讀取 NodeID / SlotID
-            int nodeId = 0, slotId = 0;
-            int.TryParse(CbDONodeId.Text, out nodeId);
-            int.TryParse(CbDOSlotId.Text, out slotId);
+            // 5) key = "NodeID-SlotID"
+            string key = $"{nodeId}-{slotId}"; 
+            // 6) 取/建群組並回填 Node/Slot
+            if (!doSection.NodeGroups.TryGetValue(key, out var group) || group == null)
+            {
+                group = new DioGroup();
+                doSection.NodeGroups[key] = group;
+            }
             group.NodeID = nodeId;
             group.SlotID = slotId;
 
-            // 6) 把 00..15 的功能字串收集進 Dictionary（保留前導 0）
+            // 7) 收集 00..15
             var textBoxes = new Dictionary<string, TextBox>
             {
                 ["00"] = txtDO00,
@@ -523,74 +703,83 @@ namespace WorktoCome1
                 ["14"] = txtDO14,
                 ["15"] = txtDO15
             };
-
-            // 你可以選擇：保留空字串，或過濾掉空白鍵
             var func = new Dictionary<string, string>();
             foreach (var kv in textBoxes)
-            {
-                var v = kv.Value?.Text?.Trim() ?? "";
-                // 若不想存空白就改成：if (!string.IsNullOrEmpty(v)) func[kv.Key] = v;
-                func[kv.Key] = v;
-            }
-            group.Function = func; // 整包覆蓋
+                func[kv.Key] = kv.Value?.Text?.Trim() ?? string.Empty;
+            group.Function = func;
 
-            // 7) 寫回 Recipe.json 
+            // 8) 存檔
             JsonFunction.SaveJson(jsonFilePath, root);
-              
 
-            MessageBox.Show($"DO 功能組「{selectedFunctionName}」已儲存。", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+            // 9) 更新功能組下拉：顯示 NodeID-SlotID
             LoadFunctionGroups();
+            int idx = CbDOfunction.Items.IndexOf(key);
+            if (idx >= 0) CbDOfunction.SelectedIndex = idx; else CbDOfunction.Text = key;
 
-
-
+            MessageBox.Show($"DO 功能組「{key}」已儲存。", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
-        private void btnDISave_Click_1(object sender, EventArgs e)
+        private void btnDISave_Click(object sender, EventArgs e)
         {
             // 1) 基本檢查
-            string currentProducTitle = _appState.CurrentProducTitle;
-            string selectedFunctionName = CbDIfunction.Text;
-
-            if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedFunctionName))
+            string currentProductTitle = _appState.CurrentProducTitle;
+            if (string.IsNullOrWhiteSpace(currentProductTitle))
             {
-                MessageBox.Show("請先載入產品並輸入或選擇一個功能組。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("請先載入產品。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2) 取得 RootObject 與目前產品的 Recipe
-            var root = _appState.RootObject; // 你專案已有：載入/反序列化後放進這裡使用
-            if (root == null || root.Products == null || !root.Products.TryGetValue(currentProducTitle, out var recipe))
+            // 2) 讀 Node / Slot（優先 SelectedItem）
+            int nodeId, slotId;
+
+            if (CbDINodeId.SelectedItem is ushort nodeSel)
+                nodeId = nodeSel;
+            else if (!int.TryParse(CbDINodeId.Text, out nodeId))
             {
-                MessageBox.Show($"找不到產品 '{currentProducTitle}' 的資料。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("請選擇正確的 Node-ID。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 3) 取得/建立 DioFunctions["DO"]
-            if (!recipe.DioFunctions.TryGetValue("DI", out var doSection))
+            if (CbDISlotId.SelectedItem is ushort slotSel)
+                slotId = slotSel;
+            else if (!int.TryParse(CbDISlotId.Text, out slotId))
+            {
+                MessageBox.Show("請選擇正確的 Slot-ID。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 3) 取 Root/Recipe
+            var root = _appState.RootObject;
+            if (root?.Products == null || !root.Products.TryGetValue(currentProductTitle, out var recipe))
+            {
+                MessageBox.Show($"找不到產品 '{currentProductTitle}' 的資料。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 4) 取/建 DioFunctions["DO"]
+            if (!recipe.DioFunctions.TryGetValue("DI", out var doSection) || doSection == null)
             {
                 doSection = new Dio();
                 recipe.DioFunctions["DI"] = doSection;
             }
-
-            // 4) 取得/建立 指定功能組
-            if (!doSection.NodeGroups.TryGetValue(selectedFunctionName, out var group))
+            if (doSection.NodeGroups == null)
             {
-                group = new DioGroup();
-                doSection.NodeGroups[selectedFunctionName] = group;
+                doSection.NodeGroups = new Dictionary<string, DioGroup>();
             }
 
-
-            // 5) 從 UI 讀取 NodeID / SlotID
-            int nodeId = 0, slotId = 0;
-            int.TryParse(CbDINodeId.Text, out nodeId);
-            int.TryParse(CbDISlotId.Text, out slotId);
+            // 5) key = "NodeID-SlotID"
+            string key = $"{nodeId}-{slotId}";
+            // 6) 取/建群組並回填 Node/Slot
+            if (!doSection.NodeGroups.TryGetValue(key, out var group) || group == null)
+            {
+                group = new DioGroup();
+                doSection.NodeGroups[key] = group;
+            }
             group.NodeID = nodeId;
             group.SlotID = slotId;
 
-            // 6) 把 00..15 的功能字串收集進 Dictionary（保留前導 0）
+            // 7) 收集 00..15
             var textBoxes = new Dictionary<string, TextBox>
             {
                 ["00"] = txtDI00,
@@ -610,92 +799,25 @@ namespace WorktoCome1
                 ["14"] = txtDI14,
                 ["15"] = txtDI15
             };
-
-            // 你可以選擇：保留空字串，或過濾掉空白鍵
             var func = new Dictionary<string, string>();
             foreach (var kv in textBoxes)
-            {
-                var v = kv.Value?.Text?.Trim() ?? "";
-                // 若不想存空白就改成：if (!string.IsNullOrEmpty(v)) func[kv.Key] = v;
-                func[kv.Key] = v;
-            }
-            group.Function = func; // 整包覆蓋
+                func[kv.Key] = kv.Value?.Text?.Trim() ?? string.Empty;
+            group.Function = func;
 
-            // 7) 寫回 Recipe.json 
+            // 8) 存檔
             JsonFunction.SaveJson(jsonFilePath, root);
 
-
-            MessageBox.Show($"DI 功能組「{selectedFunctionName}」已儲存。", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
-
-
+            // 9) 更新功能組下拉：顯示 NodeID-SlotID
             LoadFunctionGroups();
+            int idx = CbDIfunction.Items.IndexOf(key);
+            if (idx >= 0) CbDIfunction.SelectedIndex = idx; else CbDIfunction.Text = key;
+
+            MessageBox.Show($"DI 功能組「{key}」已儲存。", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
-         
 
-        private void CbDOfunction_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ClearDOtextBox();
 
-            string selectedGroup = CbDOfunction.Text;
-            // 你的狀態來源可能是 DI 的 _appState，也可能是靜態 AppState，兩個都嘗試一下
-            string productTitle = _appState?.CurrentProducTitle;
-            if (string.IsNullOrWhiteSpace(productTitle))
-                productTitle = _appState.CurrentProducTitle;  // 備援
 
-            // 1) 基本檢查
-            if (string.IsNullOrWhiteSpace(productTitle) || string.IsNullOrWhiteSpace(selectedGroup))
-                return;
-
-            // 2) 取出目前 RootObject 與該產品的 Recipe
-            var root = _appState.RootObject; // 專案有把反序列化結果放進這裡用
-            if (root == null || root.Products == null || !root.Products.TryGetValue(productTitle, out var recipe))
-                return;
-
-            // 3) 取出 DO 區域
-            if (!recipe.DioFunctions.TryGetValue("DO", out var doSection))
-                return;
-
-            // 4) 取出選定的功能組
-            if (!doSection.NodeGroups.TryGetValue(selectedGroup, out var group) || group == null)
-                return;
-
-            // 5) 回填 NodeID / SlotID（如果你的下拉選單是固定選項，也可以用 SelectedItem/SelectedValue）
-            CbDONodeId.Text = group.NodeID.ToString();
-            CbDOSlotId.Text = group.SlotID.ToString();
-
-            // 6) 回填 00..15 的功能字串
-            var map = new Dictionary<string, TextBox>
-            {
-                ["00"] = txtDO00,
-                ["01"] = txtDO01,
-                ["02"] = txtDO02,
-                ["03"] = txtDO03,
-                ["04"] = txtDO04,
-                ["05"] = txtDO05,
-                ["06"] = txtDO06,
-                ["07"] = txtDO07,
-                ["08"] = txtDO08,
-                ["09"] = txtDO09,
-                ["10"] = txtDO10,
-                ["11"] = txtDO11,
-                ["12"] = txtDO12,
-                ["13"] = txtDO13,
-                ["14"] = txtDO14,
-                ["15"] = txtDO15
-            };
-
-            foreach (var kv in map)
-            {
-                string val = null;
-                if (group.Function != null)
-                    group.Function.TryGetValue(kv.Key, out val);
-                kv.Value.Text = val ?? string.Empty; // 沒存過就留空
-            }
-        }
 
         private void CbDIfunction_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -758,5 +880,38 @@ namespace WorktoCome1
                 kv.Value.Text = val ?? string.Empty; // 沒存過就留空
             }
         }
+
+        private void CbDONodeId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_updating) return;
+            if (!int.TryParse(CbDONodeId.Text, out var nodeId)) return;
+            if (!int.TryParse(CbDOSlotId.Text, out var slotId)) slotId = 0;   // 沒選到 Slot 就當 0
+            LoadDoByNodeSlot(nodeId, slotId);
+        }
+        private void CbDOSlotId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_updating) return;
+            if (!int.TryParse(CbDONodeId.Text, out var nodeId)) return;
+            if (!int.TryParse(CbDOSlotId.Text, out var slotId)) return;
+            LoadDoByNodeSlot(nodeId, slotId);
+        }
+
+        private void CbDINodeId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_updating) return;
+            if (!int.TryParse(CbDINodeId.Text, out var nodeId)) return;
+            if (!int.TryParse(CbDISlotId.Text, out var slotId)) slotId = 0;   // 沒選到 Slot 就當 0
+            LoadDIByNodeSlot(nodeId, slotId);
+        }
+
+        private void CbDISlotId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_updating) return;
+            if (!int.TryParse(CbDINodeId.Text, out var nodeId)) return;
+            if (!int.TryParse(CbDISlotId.Text, out var slotId)) return;
+            LoadDIByNodeSlot(nodeId, slotId);
+        }
+
+        
     }
 }
