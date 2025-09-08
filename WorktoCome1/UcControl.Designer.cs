@@ -106,6 +106,7 @@
             this.ChkBit01 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bt_check = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSV = new System.Windows.Forms.TextBox();
@@ -148,7 +149,14 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
-            this.bt_check = new System.Windows.Forms.Button();
+            this.btnDISave = new System.Windows.Forms.Button();
+            this.btnDOSave = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -191,7 +199,7 @@
             // 
             // bt_cheak
             // 
-            this.bt_cheak.Location = new System.Drawing.Point(417, 419);
+            this.bt_cheak.Location = new System.Drawing.Point(452, 474);
             this.bt_cheak.Name = "bt_cheak";
             this.bt_cheak.Size = new System.Drawing.Size(137, 36);
             this.bt_cheak.TabIndex = 36;
@@ -202,7 +210,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(68, 393);
+            this.label22.Location = new System.Drawing.Point(429, 451);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(65, 12);
             this.label22.TabIndex = 35;
@@ -211,13 +219,16 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(139, 390);
+            this.comboBox2.Location = new System.Drawing.Point(500, 448);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(118, 20);
             this.comboBox2.TabIndex = 34;
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.label8);
+            this.groupBox7.Controls.Add(this.label7);
+            this.groupBox7.Controls.Add(this.btnDOSave);
             this.groupBox7.Controls.Add(this.textBox28);
             this.groupBox7.Controls.Add(this.textBox29);
             this.groupBox7.Controls.Add(this.textBox30);
@@ -254,7 +265,7 @@
             this.groupBox7.Controls.Add(this.LabBit00);
             this.groupBox7.Location = new System.Drawing.Point(492, 6);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(511, 378);
+            this.groupBox7.Size = new System.Drawing.Size(511, 422);
             this.groupBox7.TabIndex = 33;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "DI";
@@ -326,9 +337,9 @@
             // CbDISlotId
             // 
             this.CbDISlotId.FormattingEnabled = true;
-            this.CbDISlotId.Location = new System.Drawing.Point(307, 338);
+            this.CbDISlotId.Location = new System.Drawing.Point(103, 383);
             this.CbDISlotId.Name = "CbDISlotId";
-            this.CbDISlotId.Size = new System.Drawing.Size(170, 20);
+            this.CbDISlotId.Size = new System.Drawing.Size(73, 20);
             this.CbDISlotId.TabIndex = 17;
             // 
             // textBox21
@@ -342,9 +353,9 @@
             // CbDINodeId
             // 
             this.CbDINodeId.FormattingEnabled = true;
-            this.CbDINodeId.Location = new System.Drawing.Point(63, 338);
+            this.CbDINodeId.Location = new System.Drawing.Point(19, 383);
             this.CbDINodeId.Name = "CbDINodeId";
-            this.CbDINodeId.Size = new System.Drawing.Size(170, 20);
+            this.CbDINodeId.Size = new System.Drawing.Size(78, 20);
             this.CbDINodeId.TabIndex = 16;
             // 
             // textBox22
@@ -589,6 +600,11 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.comboBox3);
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.label5);
+            this.groupBox6.Controls.Add(this.btnDISave);
             this.groupBox6.Controls.Add(this.textBox12);
             this.groupBox6.Controls.Add(this.textBox13);
             this.groupBox6.Controls.Add(this.textBox14);
@@ -625,7 +641,7 @@
             this.groupBox6.Controls.Add(this.ChkBit01);
             this.groupBox6.Location = new System.Drawing.Point(6, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(480, 378);
+            this.groupBox6.Size = new System.Drawing.Size(480, 422);
             this.groupBox6.TabIndex = 32;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "DO";
@@ -745,18 +761,18 @@
             // CbDoSlotId
             // 
             this.CbDoSlotId.FormattingEnabled = true;
-            this.CbDoSlotId.Location = new System.Drawing.Point(249, 338);
+            this.CbDoSlotId.Location = new System.Drawing.Point(96, 383);
             this.CbDoSlotId.Name = "CbDoSlotId";
-            this.CbDoSlotId.Size = new System.Drawing.Size(174, 20);
+            this.CbDoSlotId.Size = new System.Drawing.Size(75, 20);
             this.CbDoSlotId.TabIndex = 33;
             this.CbDoSlotId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
             // 
             // CbDoNodeId
             // 
             this.CbDoNodeId.FormattingEnabled = true;
-            this.CbDoNodeId.Location = new System.Drawing.Point(34, 338);
+            this.CbDoNodeId.Location = new System.Drawing.Point(16, 383);
             this.CbDoNodeId.Name = "CbDoNodeId";
-            this.CbDoNodeId.Size = new System.Drawing.Size(174, 20);
+            this.CbDoNodeId.Size = new System.Drawing.Size(74, 20);
             this.CbDoNodeId.TabIndex = 32;
             this.CbDoNodeId.SelectedIndexChanged += new System.EventHandler(this.CbDI_SelectedIndexChanged);
             // 
@@ -1020,6 +1036,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "馬達測試介面";
+            // 
+            // bt_check
+            // 
+            this.bt_check.Location = new System.Drawing.Point(214, 302);
+            this.bt_check.Name = "bt_check";
+            this.bt_check.Size = new System.Drawing.Size(136, 89);
+            this.bt_check.TabIndex = 16;
+            this.bt_check.Text = "檢查到位";
+            this.bt_check.UseVisualStyleBackColor = true;
+            this.bt_check.Click += new System.EventHandler(this.bt_check_Click);
             // 
             // label4
             // 
@@ -1433,15 +1459,77 @@
             // 
             this.TimCheckStatus.Tick += new System.EventHandler(this.TimCheckStatus_Tick);
             // 
-            // bt_check
+            // btnDISave
             // 
-            this.bt_check.Location = new System.Drawing.Point(214, 302);
-            this.bt_check.Name = "bt_check";
-            this.bt_check.Size = new System.Drawing.Size(136, 89);
-            this.bt_check.TabIndex = 16;
-            this.bt_check.Text = "檢查到位";
-            this.bt_check.UseVisualStyleBackColor = true;
-            this.bt_check.Click += new System.EventHandler(this.bt_check_Click);
+            this.btnDISave.Location = new System.Drawing.Point(405, 366);
+            this.btnDISave.Name = "btnDISave";
+            this.btnDISave.Size = new System.Drawing.Size(56, 37);
+            this.btnDISave.TabIndex = 50;
+            this.btnDISave.Text = "存檔";
+            this.btnDISave.UseVisualStyleBackColor = true;
+            this.btnDISave.Click += new System.EventHandler(this.btnDISave_Click);
+            // 
+            // btnDOSave
+            // 
+            this.btnDOSave.Location = new System.Drawing.Point(420, 368);
+            this.btnDOSave.Name = "btnDOSave";
+            this.btnDOSave.Size = new System.Drawing.Size(57, 35);
+            this.btnDOSave.TabIndex = 66;
+            this.btnDOSave.Text = "存檔";
+            this.btnDOSave.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(29, 366);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 12);
+            this.label5.TabIndex = 51;
+            this.label5.Text = "Node-ID";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(109, 366);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 12);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Slot-ID";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(35, 366);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 12);
+            this.label7.TabIndex = 53;
+            this.label7.Text = "Node-ID";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(120, 366);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 12);
+            this.label8.TabIndex = 53;
+            this.label8.Text = "Slot-ID";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(235, 376);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(164, 20);
+            this.comboBox3.TabIndex = 53;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(299, 361);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 12);
+            this.label9.TabIndex = 54;
+            this.label9.Text = "label9";
             // 
             // UcControl
             // 
@@ -1596,5 +1684,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button bt_check;
+        private System.Windows.Forms.Button btnDOSave;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnDISave;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }
