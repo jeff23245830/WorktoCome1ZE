@@ -10,7 +10,7 @@ namespace WorktoCome1
     {
 
         public  string SelectedProductTitle { get; set; }
-        public  string CurrentProductTitle { get; set; }
+        public  string CurrentProducTitle { get; set; }
 
         public RootObject RootObject { get; set; } = new RootObject();
 

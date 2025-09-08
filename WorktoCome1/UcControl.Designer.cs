@@ -37,7 +37,7 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btnDIDelete = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbDIfunction = new System.Windows.Forms.ComboBox();
+            this.CbDIfunction = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnDISave = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnDODelete = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.cbDOfunction = new System.Windows.Forms.ComboBox();
+            this.CbDOfunction = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDOSave = new System.Windows.Forms.Button();
@@ -232,7 +232,7 @@
             // 
             this.groupBox7.Controls.Add(this.btnDIDelete);
             this.groupBox7.Controls.Add(this.label10);
-            this.groupBox7.Controls.Add(this.cbDIfunction);
+            this.groupBox7.Controls.Add(this.CbDIfunction);
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Controls.Add(this.label7);
             this.groupBox7.Controls.Add(this.btnDISave);
@@ -295,13 +295,14 @@
             this.label10.TabIndex = 68;
             this.label10.Text = "功能組";
             // 
-            // cbDIfunction
+            // CbDIfunction
             // 
-            this.cbDIfunction.FormattingEnabled = true;
-            this.cbDIfunction.Location = new System.Drawing.Point(232, 383);
-            this.cbDIfunction.Name = "cbDIfunction";
-            this.cbDIfunction.Size = new System.Drawing.Size(164, 20);
-            this.cbDIfunction.TabIndex = 67;
+            this.CbDIfunction.FormattingEnabled = true;
+            this.CbDIfunction.Location = new System.Drawing.Point(232, 383);
+            this.CbDIfunction.Name = "CbDIfunction";
+            this.CbDIfunction.Size = new System.Drawing.Size(164, 20);
+            this.CbDIfunction.TabIndex = 67;
+            this.CbDIfunction.SelectedIndexChanged += new System.EventHandler(this.CbDIfunction_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -663,7 +664,7 @@
             // 
             this.groupBox6.Controls.Add(this.btnDODelete);
             this.groupBox6.Controls.Add(this.label9);
-            this.groupBox6.Controls.Add(this.cbDOfunction);
+            this.groupBox6.Controls.Add(this.CbDOfunction);
             this.groupBox6.Controls.Add(this.label6);
             this.groupBox6.Controls.Add(this.label5);
             this.groupBox6.Controls.Add(this.btnDOSave);
@@ -726,13 +727,14 @@
             this.label9.TabIndex = 54;
             this.label9.Text = "功能組";
             // 
-            // cbDOfunction
+            // CbDOfunction
             // 
-            this.cbDOfunction.FormattingEnabled = true;
-            this.cbDOfunction.Location = new System.Drawing.Point(235, 383);
-            this.cbDOfunction.Name = "cbDOfunction";
-            this.cbDOfunction.Size = new System.Drawing.Size(164, 20);
-            this.cbDOfunction.TabIndex = 53;
+            this.CbDOfunction.FormattingEnabled = true;
+            this.CbDOfunction.Location = new System.Drawing.Point(235, 383);
+            this.CbDOfunction.Name = "CbDOfunction";
+            this.CbDOfunction.Size = new System.Drawing.Size(164, 20);
+            this.CbDOfunction.TabIndex = 53;
+            this.CbDOfunction.SelectedIndexChanged += new System.EventHandler(this.CbDOfunction_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -1734,10 +1736,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbDOfunction;
+        private System.Windows.Forms.ComboBox CbDOfunction;
         private System.Windows.Forms.TextBox txtDI05;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cbDIfunction;
+        private System.Windows.Forms.ComboBox CbDIfunction;
         private System.Windows.Forms.Button btnDODelete;
         private System.Windows.Forms.Button btnDIDelete;
     }

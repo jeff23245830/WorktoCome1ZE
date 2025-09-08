@@ -42,7 +42,7 @@ namespace WorktoCome1
         {
 
             //1.載入存在APPSTATE的CurrentRecipe
-            string CurrentProduc = _appState.CurrentProductTitle;
+            string CurrentProduc = _appState.CurrentProducTitle;
             if (string.IsNullOrWhiteSpace(CurrentProduc))
             {
                 MessageBox.Show("請先選擇一個產品以載入參數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -119,7 +119,7 @@ namespace WorktoCome1
         private void btnMotionSave_Click(object sender, EventArgs e)
         {
             //1.先確認
-            string currentProducTitle = _appState.CurrentProductTitle;
+            string currentProducTitle = _appState.CurrentProducTitle;
             string selectedMotionName = CbArea.Text;  
 
             if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedMotionName))
@@ -497,7 +497,7 @@ namespace WorktoCome1
         private void btnSaveNodeId_Click(object sender, EventArgs e)
         {
             //1.先確認
-            string currentProducTitle = _appState.CurrentProductTitle;
+            string currentProducTitle = _appState.CurrentProducTitle;
             string selectedMotionName = CbArea.Text;
 
             if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedMotionName))

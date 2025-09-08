@@ -114,7 +114,7 @@ namespace WorktoCome1
         {
 
             //1.載入存在APPSTATE的CurrentRecipe
-            string CurrentProduc = _appState.CurrentProductTitle;
+            string CurrentProduc = _appState.CurrentProducTitle;
             if (string.IsNullOrWhiteSpace(CurrentProduc))
             {
                 MessageBox.Show("請先選擇一個產品以載入參數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,8 +126,8 @@ namespace WorktoCome1
 
                 ClearDItextBox();
                 ClearDOtextBox();
-                cbDOfunction.Items.Clear();
-                cbDIfunction.Items.Clear();
+                CbDOfunction.Items.Clear();
+                CbDIfunction.Items.Clear();
 
                 // 載入 DO 功能組
                 if (_appState.CurrentRecipe.DioFunctions.ContainsKey("DO"))
@@ -135,7 +135,7 @@ namespace WorktoCome1
                     var doGroups = _appState.CurrentRecipe.DioFunctions["DO"].NodeGroups;
                     foreach (var groupName in doGroups.Keys)
                     {
-                        cbDOfunction.Items.Add(groupName);
+                        CbDOfunction.Items.Add(groupName);
                     }
                 }
 
@@ -145,7 +145,7 @@ namespace WorktoCome1
                     var diGroups = _appState.CurrentRecipe.DioFunctions["DI"].NodeGroups;
                     foreach (var groupName in diGroups.Keys)
                     {
-                        cbDIfunction.Items.Add(groupName);
+                        CbDIfunction.Items.Add(groupName);
                     }
                 }
             }
@@ -153,8 +153,8 @@ namespace WorktoCome1
             {
                 ClearDItextBox();
                 ClearDOtextBox();
-                cbDOfunction.Items.Clear();
-                cbDIfunction.Items.Clear();
+                CbDOfunction.Items.Clear();
+                CbDIfunction.Items.Clear();
             }
         }
 
@@ -464,8 +464,8 @@ namespace WorktoCome1
         private void btnDOSave_Click(object sender, EventArgs e)
         {
             // 1) 基本檢查
-            string currentProducTitle = _appState.CurrentProductTitle;
-            string selectedFunctionName = cbDOfunction.Text;
+            string currentProducTitle = _appState.CurrentProducTitle;
+            string selectedFunctionName = CbDOfunction.Text;
 
             if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedFunctionName))
             {
@@ -551,8 +551,8 @@ namespace WorktoCome1
         private void btnDISave_Click_1(object sender, EventArgs e)
         {
             // 1) 基本檢查
-            string currentProducTitle = _appState.CurrentProductTitle;
-            string selectedFunctionName = cbDIfunction.Text;
+            string currentProducTitle = _appState.CurrentProducTitle;
+            string selectedFunctionName = CbDIfunction.Text;
 
             if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedFunctionName))
             {
@@ -633,6 +633,130 @@ namespace WorktoCome1
 
             LoadFunctionGroups();
 
+        }
+         
+
+        private void CbDOfunction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ClearDOtextBox();
+
+            string selectedGroup = CbDOfunction.Text;
+            // 你的狀態來源可能是 DI 的 _appState，也可能是靜態 AppState，兩個都嘗試一下
+            string productTitle = _appState?.CurrentProducTitle;
+            if (string.IsNullOrWhiteSpace(productTitle))
+                productTitle = _appState.CurrentProducTitle;  // 備援
+
+            // 1) 基本檢查
+            if (string.IsNullOrWhiteSpace(productTitle) || string.IsNullOrWhiteSpace(selectedGroup))
+                return;
+
+            // 2) 取出目前 RootObject 與該產品的 Recipe
+            var root = _appState.RootObject; // 專案有把反序列化結果放進這裡用
+            if (root == null || root.Products == null || !root.Products.TryGetValue(productTitle, out var recipe))
+                return;
+
+            // 3) 取出 DO 區域
+            if (!recipe.DioFunctions.TryGetValue("DO", out var doSection))
+                return;
+
+            // 4) 取出選定的功能組
+            if (!doSection.NodeGroups.TryGetValue(selectedGroup, out var group) || group == null)
+                return;
+
+            // 5) 回填 NodeID / SlotID（如果你的下拉選單是固定選項，也可以用 SelectedItem/SelectedValue）
+            CbDONodeId.Text = group.NodeID.ToString();
+            CbDOSlotId.Text = group.SlotID.ToString();
+
+            // 6) 回填 00..15 的功能字串
+            var map = new Dictionary<string, TextBox>
+            {
+                ["00"] = txtDO00,
+                ["01"] = txtDO01,
+                ["02"] = txtDO02,
+                ["03"] = txtDO03,
+                ["04"] = txtDO04,
+                ["05"] = txtDO05,
+                ["06"] = txtDO06,
+                ["07"] = txtDO07,
+                ["08"] = txtDO08,
+                ["09"] = txtDO09,
+                ["10"] = txtDO10,
+                ["11"] = txtDO11,
+                ["12"] = txtDO12,
+                ["13"] = txtDO13,
+                ["14"] = txtDO14,
+                ["15"] = txtDO15
+            };
+
+            foreach (var kv in map)
+            {
+                string val = null;
+                if (group.Function != null)
+                    group.Function.TryGetValue(kv.Key, out val);
+                kv.Value.Text = val ?? string.Empty; // 沒存過就留空
+            }
+        }
+
+        private void CbDIfunction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            ClearDItextBox();
+
+            string selectedGroup = CbDIfunction.Text;
+            // 你的狀態來源可能是 DI 的 _appState，也可能是靜態 AppState，兩個都嘗試一下
+            string productTitle = _appState?.CurrentProducTitle;
+            if (string.IsNullOrWhiteSpace(productTitle))
+                productTitle = _appState.CurrentProducTitle;  // 備援
+
+            // 1) 基本檢查
+            if (string.IsNullOrWhiteSpace(productTitle) || string.IsNullOrWhiteSpace(selectedGroup))
+                return;
+
+            // 2) 取出目前 RootObject 與該產品的 Recipe
+            var root = _appState.RootObject; // 專案有把反序列化結果放進這裡用
+            if (root == null || root.Products == null || !root.Products.TryGetValue(productTitle, out var recipe))
+                return;
+
+            // 3) 取出 DI 區域
+            if (!recipe.DioFunctions.TryGetValue("DI", out var doSection))
+                return;
+
+            // 4) 取出選定的功能組
+            if (!doSection.NodeGroups.TryGetValue(selectedGroup, out var group) || group == null)
+                return;
+
+            // 5) 回填 NodeID / SlotID（如果你的下拉選單是固定選項，也可以用 SelectedItem/SelectedValue）
+            CbDINodeId.Text = group.NodeID.ToString();
+            CbDISlotId.Text = group.SlotID.ToString();
+
+            // 6) 回填 00..15 的功能字串
+            var map = new Dictionary<string, TextBox>
+            {
+                ["00"] = txtDI00,
+                ["01"] = txtDI01,
+                ["02"] = txtDI02,
+                ["03"] = txtDI03,
+                ["04"] = txtDI04,
+                ["05"] = txtDI05,
+                ["06"] = txtDI06,
+                ["07"] = txtDI07,
+                ["08"] = txtDI08,
+                ["09"] = txtDI09,
+                ["10"] = txtDI10,
+                ["11"] = txtDI11,
+                ["12"] = txtDI12,
+                ["13"] = txtDI13,
+                ["14"] = txtDI14,
+                ["15"] = txtDI15
+            };
+
+            foreach (var kv in map)
+            {
+                string val = null;
+                if (group.Function != null)
+                    group.Function.TryGetValue(kv.Key, out val);
+                kv.Value.Text = val ?? string.Empty; // 沒存過就留空
+            }
         }
     }
 }
