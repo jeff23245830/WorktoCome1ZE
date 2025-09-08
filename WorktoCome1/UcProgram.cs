@@ -91,7 +91,7 @@ namespace WorktoCome1
 
                 // 5) 套用到狀態 + UI
                 _appState.RootObject = rootObject;
-                _appState.CurrentProductTitle = productName;
+                _appState.CurrentProducTitle = productName;
                 _appState.CurrentRecipe = rootObject.Products[productName];
                 txtCurrentProduct.Text = productName;
 
@@ -294,7 +294,7 @@ namespace WorktoCome1
             }
             txtCurrentProduct.Text = txtSelectedProduct.Text;
 
-            _appState.CurrentProductTitle = txtCurrentProduct.Text;
+            _appState.CurrentProducTitle = txtCurrentProduct.Text;
 
 
             //讀出JSON檔案
@@ -304,13 +304,13 @@ namespace WorktoCome1
             _appState.RootObject = rootObject;
 
 
-            string productName = _appState.CurrentProductTitle;
+            string productName = _appState.CurrentProducTitle;
             if (_appState.RootObject.Products.ContainsKey(productName))
             {
                 _appState.CurrentRecipe = _appState.RootObject.Products[productName];
 
                 //存進DEFAULT RECIPE
-                _appState.RootObject.Default_Recipe = _appState.CurrentProductTitle;
+                _appState.RootObject.Default_Recipe = _appState.CurrentProducTitle;
                 JsonFunction.SaveJson(filePath, _appState.RootObject);
             }
             else

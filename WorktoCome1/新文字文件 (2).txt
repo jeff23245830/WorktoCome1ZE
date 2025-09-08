@@ -22,10 +22,47 @@
           }
         }
       },
-      "DioFunctions": {}
+      "DioFunctions": {
+        "DO": {
+          "NodeGroups": {
+            "第1組": {
+	      "NodeID":1,
+	      "SlotID":0,
+	      "Function":{
+		"00":"ClampOn",
+              	"01":"ClampOff",
+		"02":"motomove"
+	      }
+            }
+          }
+        },
+	"DI":{
+	  "NodeGroups":{
+	    "第一組": {
+	      "NodeID":1,
+	      "SlotID":0,
+	      "Function":{
+		"00":"ClampOn",
+              	"01":"ClampOff",
+		"02":"motomove"
+	      }
+            },
+	    "第二組":{
+		"NodeID":2,
+		"SlotID":0,
+	      	"Function":{
+		  "00":"ClampOn",
+              	  "01":"ClampOff",
+		  "02":"motomove"
+	      }
+	    }
+	  }
+	}
     }
   }
 }
+
+
 
 ---------------------------------------------------
 {

@@ -71,7 +71,6 @@ namespace WorktoCome1
             loadUserControl(ucSetting);
             ucSetting.ClearData();
             ucSetting.LoadRecipe();
-            
         }
 
         private void btnControl_Click(object sender, EventArgs e)
@@ -81,6 +80,7 @@ namespace WorktoCome1
             ucControl.SetNodeIDtoCombobox(slaveNodeIdList);
             ucControl.SetSlotIDtoCombobox(slaveSlotIdList);
             ucControl.nESCExistCards = cardManager.CardCount;
+            ucControl.LoadFunctionGroups();
             loadUserControl(ucControl);
         }
 

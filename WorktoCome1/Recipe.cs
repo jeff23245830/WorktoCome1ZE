@@ -61,7 +61,12 @@ namespace WorktoCome1
     // 新增 DIO 類別以處理 DO 功能
     public class Dio
     {
-        public Dictionary<string, Dictionary<string, string>> NodeGroups { get; set; } = new Dictionary<string, Dictionary<string, string>>();
+        public Dictionary<string, DioGroup> NodeGroups { get; set; } = new Dictionary<string, DioGroup>();
     }
-
+    public class DioGroup
+    {
+        public int NodeID { get; set; }
+        public int SlotID { get; set; } 
+        public Dictionary<string, string> Function { get; set; } = new Dictionary<string, string>();
+    }
 }
