@@ -142,7 +142,6 @@
             // 
             // btnSetting
             // 
-            this.btnSetting.Enabled = false;
             this.btnSetting.Location = new System.Drawing.Point(3, 139);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(153, 62);

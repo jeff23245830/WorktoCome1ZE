@@ -779,16 +779,17 @@ namespace WorktoCome1
             int y = CbY_NodeId.SelectedIndex;
             int z = CbZ_NodeId.SelectedIndex;
             int r = CbR_NodeId.SelectedIndex;
+            // 僅保留有效的選項（排除 -1 與 0）
+            var values = new List<int> { x, y, z, r }
+                .Where(val => val > 0) // 只要大於 0 的才算
+                .ToList();
 
-            // 還沒選好就先不檢查
-            //if (x < 0 || y < 0 || z < 0 || r < 0) return;
-
-            // 任兩個一樣就視為重複
-            if (x == y || x == z || x == r )
+            // 檢查是否有重複
+            if (values.Count != values.Distinct().Count())
             {
                 _suppressNodeCheck = true;
                 MessageBox.Show("Node 選擇重複", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cb.SelectedIndex = -1;     // 回到初始（未選取）
+                cb.SelectedIndex = -1;  // 回到初始（未選取）
                 _suppressNodeCheck = false;
             }
         }
@@ -804,16 +805,17 @@ namespace WorktoCome1
             int y = CbY_NodeId.SelectedIndex;
             int z = CbZ_NodeId.SelectedIndex;
             int r = CbR_NodeId.SelectedIndex;
+            // 僅保留有效的選項（排除 -1 與 0）
+            var values = new List<int> { x, y, z, r }
+                .Where(val => val > 0) // 只要大於 0 的才算
+                .ToList();
 
-            // 還沒選好就先不檢查
-            //if (x < 0 || y < 0 || z < 0 || r < 0) return;
-
-            // 任兩個一樣就視為重複
-            if (y == x || y == z || y == r)
+            // 檢查是否有重複
+            if (values.Count != values.Distinct().Count())
             {
                 _suppressNodeCheck = true;
                 MessageBox.Show("Node 選擇重複", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cb.SelectedIndex = -1;     // 回到初始（未選取）
+                cb.SelectedIndex = -1;  // 回到初始（未選取）
                 _suppressNodeCheck = false;
             }
         }
@@ -830,15 +832,17 @@ namespace WorktoCome1
             int z = CbZ_NodeId.SelectedIndex;
             int r = CbR_NodeId.SelectedIndex;
 
-            // 還沒選好就先不檢查
-            //if (x < 0 || y < 0 || z < 0 || r < 0) return;
+            // 僅保留有效的選項（排除 -1 與 0）
+            var values = new List<int> { x, y, z, r }
+                .Where(val => val > 0) // 只要大於 0 的才算
+                .ToList();
 
-            // 任兩個一樣就視為重複
-            if (z == x || z == y || z == r)
+            // 檢查是否有重複
+            if (values.Count != values.Distinct().Count())
             {
                 _suppressNodeCheck = true;
                 MessageBox.Show("Node 選擇重複", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cb.SelectedIndex = -1;     // 回到初始（未選取）
+                cb.SelectedIndex = -1;  // 回到初始（未選取）
                 _suppressNodeCheck = false;
             }
         }
@@ -855,15 +859,17 @@ namespace WorktoCome1
             int z = CbZ_NodeId.SelectedIndex;
             int r = CbR_NodeId.SelectedIndex;
 
-            // 還沒選好就先不檢查
-            //if (x < 0 || y < 0 || z < 0 || r < 0) return;
+            // 僅保留有效的選項（排除 -1 與 0）
+            var values = new List<int> { x, y, z, r }
+                .Where(val => val > 0) // 只要大於 0 的才算
+                .ToList();
 
-            // 任兩個一樣就視為重複
-            if (r == x || r == z || r == y)
+            // 檢查是否有重複
+            if (values.Count != values.Distinct().Count())
             {
                 _suppressNodeCheck = true;
                 MessageBox.Show("Node 選擇重複", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cb.SelectedIndex = -1;     // 回到初始（未選取）
+                cb.SelectedIndex = -1;  // 回到初始（未選取）
                 _suppressNodeCheck = false;
             }
         }
