@@ -97,7 +97,7 @@ namespace EtherCATFunction
                     for (uNID = 0; uNID < uNodeNum; uNID++)
                     {
                         g_uRet = CEtherCAT_DLL.CS_ECAT_Master_Get_Slave_Info(g_uESCCardNo, uNID, ref uReMapNodeID, ref uVendorID, ref uProductCode, ref uRevisionNo, ref uSlaveDCTime);
-
+                        //uVendorID 和 uProductCode 會決定是什麼裝置 目前先不管 未來有多數量的話 再來做
                         if ((uVendorID == 0x1A05 || uVendorID == 0x1DD) && (uProductCode == 0x7062 || uProductCode == 0x70A2 || uProductCode == 0x71A2)) //Ec16Out
                         {
                             FoundSlaves.Add(new SlaveInfo { NodeID = uNID, SlotID = (ushort)nSID, Description = "Ec16Out" });

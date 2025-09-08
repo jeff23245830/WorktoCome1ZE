@@ -39,6 +39,9 @@ namespace WorktoCome1
             ucInfo = new UcInfo(_appState);
             ucLanguage = new UcLanguage(_appState);
 
+
+            //讀Default recipe
+            ucProgram.LoadDefaultRecipe();
         }
         private void loadUserControl(UserControl userControl)
         {
@@ -73,6 +76,8 @@ namespace WorktoCome1
 
         private void btnControl_Click(object sender, EventArgs e)
         {
+
+            ///////////////////
             ucControl.SetNodeIDtoCombobox(slaveNodeIdList);
             ucControl.SetSlotIDtoCombobox(slaveSlotIdList);
             ucControl.nESCExistCards = cardManager.CardCount;
@@ -106,7 +111,7 @@ namespace WorktoCome1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //把Default 
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -138,21 +143,33 @@ namespace WorktoCome1
             {
                 //g_uESCNodeID = cardManager.g_ESCNodeID_u;
                 //g_uESCSlotID = cardManager.g_ESCSlotID_u;
-                btnControl.Enabled = true;
+                
+
                 tbError.Text = "所有卡片已成功FindSlave！";
+                btnControl.Enabled = true;
+
+                //Setting 按鈕可能會需要打開 為了管理員做點為設定
+                btnSetting.Enabled = true;
+
+                ucSetting.EnabledServoOnOffBtn();
+
+                
             }
             else
             {
                 // AddErrMsg("初始化失敗，請檢查卡片連線。", true);
                 tbError.Text = "FindSlave失敗，請檢查卡片連線。";
             }
-             
+            //先把Node Id 與 Slot Id 放到LIST
             foreach (var slave in cardManager.FoundSlaves)
             {
                 slaveNodeIdList.Add(slave.NodeID);
                 slaveSlotIdList.Add(slave.SlotID);
+               
             }
-             
+            //1.再給給Setting
+            ucSetting.SetNodeID(slaveNodeIdList);
+            ucSetting.SetSlotID(slaveSlotIdList);
         }
 
         private void Bt_Logout_Click(object sender, EventArgs e)

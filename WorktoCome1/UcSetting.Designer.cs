@@ -37,11 +37,11 @@
             this.BtnSVON = new System.Windows.Forms.Button();
             this.BtnStartMove = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPointName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.CbR_NodeId = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveNodeId = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,14 +59,22 @@
             this.btnMoveTop = new System.Windows.Forms.Button();
             this.btnMotionSave = new System.Windows.Forms.Button();
             this.DgMotionPoint = new System.Windows.Forms.DataGridView();
-            this.點位名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.R = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnStopMove = new System.Windows.Forms.Button();
+            this.IsAbs = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.SCurve = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Tdec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tacc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndVel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConstVel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StrVel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.R = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.點位名稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -120,15 +128,16 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.btnStopMove);
             this.tabPage5.Controls.Add(this.BtnSVOFF);
             this.tabPage5.Controls.Add(this.BtnSVON);
             this.tabPage5.Controls.Add(this.BtnStartMove);
             this.tabPage5.Controls.Add(this.button2);
-            this.tabPage5.Controls.Add(this.textBox1);
+            this.tabPage5.Controls.Add(this.txtPointName);
             this.tabPage5.Controls.Add(this.label7);
             this.tabPage5.Controls.Add(this.label6);
             this.tabPage5.Controls.Add(this.CbR_NodeId);
-            this.tabPage5.Controls.Add(this.button1);
+            this.tabPage5.Controls.Add(this.btnSaveNodeId);
             this.tabPage5.Controls.Add(this.label5);
             this.tabPage5.Controls.Add(this.label4);
             this.tabPage5.Controls.Add(this.label3);
@@ -149,30 +158,36 @@
             // 
             // BtnSVOFF
             // 
-            this.BtnSVOFF.Location = new System.Drawing.Point(732, 263);
+            this.BtnSVOFF.Enabled = false;
+            this.BtnSVOFF.Location = new System.Drawing.Point(625, 318);
             this.BtnSVOFF.Name = "BtnSVOFF";
-            this.BtnSVOFF.Size = new System.Drawing.Size(110, 43);
+            this.BtnSVOFF.Size = new System.Drawing.Size(102, 43);
             this.BtnSVOFF.TabIndex = 18;
-            this.BtnSVOFF.Text = "SVON";
+            this.BtnSVOFF.Text = "SVOFF";
             this.BtnSVOFF.UseVisualStyleBackColor = true;
+            this.BtnSVOFF.Click += new System.EventHandler(this.BtnSVOFF_Click);
             // 
             // BtnSVON
             // 
+            this.BtnSVON.Enabled = false;
             this.BtnSVON.Location = new System.Drawing.Point(625, 263);
             this.BtnSVON.Name = "BtnSVON";
             this.BtnSVON.Size = new System.Drawing.Size(102, 43);
             this.BtnSVON.TabIndex = 17;
             this.BtnSVON.Text = "SVON";
             this.BtnSVON.UseVisualStyleBackColor = true;
+            this.BtnSVON.Click += new System.EventHandler(this.BtnSVON_Click);
             // 
             // BtnStartMove
             // 
+            this.BtnStartMove.Enabled = false;
             this.BtnStartMove.Location = new System.Drawing.Point(848, 264);
             this.BtnStartMove.Name = "BtnStartMove";
             this.BtnStartMove.Size = new System.Drawing.Size(86, 42);
             this.BtnStartMove.TabIndex = 16;
             this.BtnStartMove.Text = "移動";
             this.BtnStartMove.UseVisualStyleBackColor = true;
+            this.BtnStartMove.Click += new System.EventHandler(this.BtnStartMove_Click);
             // 
             // button2
             // 
@@ -183,12 +198,12 @@
             this.button2.Text = "教導";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtPointName
             // 
-            this.textBox1.Location = new System.Drawing.Point(647, 215);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(287, 22);
-            this.textBox1.TabIndex = 14;
+            this.txtPointName.Location = new System.Drawing.Point(647, 215);
+            this.txtPointName.Name = "txtPointName";
+            this.txtPointName.Size = new System.Drawing.Size(287, 22);
+            this.txtPointName.TabIndex = 14;
             // 
             // label7
             // 
@@ -215,16 +230,17 @@
             this.CbR_NodeId.Name = "CbR_NodeId";
             this.CbR_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbR_NodeId.TabIndex = 11;
+            this.CbR_NodeId.SelectedIndexChanged += new System.EventHandler(this.CbR_NodeId_SelectedIndexChanged);
             // 
-            // button1
+            // btnSaveNodeId
             // 
-            this.button1.Location = new System.Drawing.Point(919, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "儲存NodeId";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSaveNodeId.Location = new System.Drawing.Point(919, 151);
+            this.btnSaveNodeId.Name = "btnSaveNodeId";
+            this.btnSaveNodeId.Size = new System.Drawing.Size(75, 35);
+            this.btnSaveNodeId.TabIndex = 10;
+            this.btnSaveNodeId.Text = "儲存NodeId";
+            this.btnSaveNodeId.UseVisualStyleBackColor = true;
+            this.btnSaveNodeId.Click += new System.EventHandler(this.btnSaveNodeId_Click);
             // 
             // label5
             // 
@@ -260,6 +276,7 @@
             this.CbZ_NodeId.Name = "CbZ_NodeId";
             this.CbZ_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbZ_NodeId.TabIndex = 6;
+            this.CbZ_NodeId.SelectedIndexChanged += new System.EventHandler(this.CbZ_NodeId_SelectedIndexChanged);
             // 
             // CbY_NodeId
             // 
@@ -268,6 +285,7 @@
             this.CbY_NodeId.Name = "CbY_NodeId";
             this.CbY_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbY_NodeId.TabIndex = 5;
+            this.CbY_NodeId.SelectedIndexChanged += new System.EventHandler(this.CbY_NodeId_SelectedIndexChanged);
             // 
             // CbX_NodeId
             // 
@@ -276,6 +294,7 @@
             this.CbX_NodeId.Name = "CbX_NodeId";
             this.CbX_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbX_NodeId.TabIndex = 4;
+            this.CbX_NodeId.SelectedIndexChanged += new System.EventHandler(this.CbX_NodeId_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -390,47 +409,21 @@
             this.X,
             this.Y,
             this.Z,
-            this.R});
+            this.R,
+            this.StrVel,
+            this.ConstVel,
+            this.EndVel,
+            this.Tacc,
+            this.Tdec,
+            this.SCurve,
+            this.IsAbs});
             this.DgMotionPoint.Location = new System.Drawing.Point(48, 21);
             this.DgMotionPoint.Name = "DgMotionPoint";
             this.DgMotionPoint.RowTemplate.Height = 24;
             this.DgMotionPoint.Size = new System.Drawing.Size(413, 428);
             this.DgMotionPoint.TabIndex = 0;
             this.DgMotionPoint.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgMotionPoint_CellContentClick);
-            // 
-            // 點位名稱
-            // 
-            this.點位名稱.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.點位名稱.HeaderText = "點位名稱";
-            this.點位名稱.Name = "點位名稱";
-            // 
-            // X
-            // 
-            this.X.FillWeight = 50F;
-            this.X.HeaderText = "X";
-            this.X.Name = "X";
-            this.X.Width = 50;
-            // 
-            // Y
-            // 
-            this.Y.FillWeight = 50F;
-            this.Y.HeaderText = "Y";
-            this.Y.Name = "Y";
-            this.Y.Width = 50;
-            // 
-            // Z
-            // 
-            this.Z.FillWeight = 50F;
-            this.Z.HeaderText = "Z";
-            this.Z.Name = "Z";
-            this.Z.Width = 50;
-            // 
-            // R
-            // 
-            this.R.FillWeight = 50F;
-            this.R.HeaderText = "R";
-            this.R.Name = "R";
-            this.R.Width = 50;
+            this.DgMotionPoint.SelectionChanged += new System.EventHandler(this.DgMotionPoint_SelectionChanged);
             // 
             // tabPage6
             // 
@@ -461,6 +454,114 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "速度設定";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnStopMove
+            // 
+            this.btnStopMove.Location = new System.Drawing.Point(848, 318);
+            this.btnStopMove.Name = "btnStopMove";
+            this.btnStopMove.Size = new System.Drawing.Size(86, 43);
+            this.btnStopMove.TabIndex = 19;
+            this.btnStopMove.Text = "停止";
+            this.btnStopMove.UseVisualStyleBackColor = true;
+            // 
+            // IsAbs
+            // 
+            this.IsAbs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.IsAbs.FillWeight = 50F;
+            this.IsAbs.HeaderText = "IsAbs";
+            this.IsAbs.Name = "IsAbs";
+            this.IsAbs.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsAbs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.IsAbs.Width = 56;
+            // 
+            // SCurve
+            // 
+            this.SCurve.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.SCurve.FillWeight = 50F;
+            this.SCurve.HeaderText = "SCurve";
+            this.SCurve.Name = "SCurve";
+            this.SCurve.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.SCurve.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.SCurve.Width = 65;
+            // 
+            // Tdec
+            // 
+            this.Tdec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Tdec.FillWeight = 50F;
+            this.Tdec.HeaderText = "Tdec";
+            this.Tdec.Name = "Tdec";
+            this.Tdec.Width = 53;
+            // 
+            // Tacc
+            // 
+            this.Tacc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Tacc.FillWeight = 50F;
+            this.Tacc.HeaderText = "Tacc";
+            this.Tacc.Name = "Tacc";
+            this.Tacc.Width = 52;
+            // 
+            // EndVel
+            // 
+            this.EndVel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.EndVel.FillWeight = 50F;
+            this.EndVel.HeaderText = "EndVel";
+            this.EndVel.Name = "EndVel";
+            this.EndVel.Width = 65;
+            // 
+            // ConstVel
+            // 
+            this.ConstVel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.ConstVel.FillWeight = 50F;
+            this.ConstVel.HeaderText = "ConstVel";
+            this.ConstVel.Name = "ConstVel";
+            this.ConstVel.Width = 73;
+            // 
+            // StrVel
+            // 
+            this.StrVel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.StrVel.FillWeight = 50F;
+            this.StrVel.HeaderText = "StrVel";
+            this.StrVel.Name = "StrVel";
+            this.StrVel.Width = 59;
+            // 
+            // R
+            // 
+            this.R.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.R.FillWeight = 50F;
+            this.R.HeaderText = "R";
+            this.R.Name = "R";
+            this.R.Width = 38;
+            // 
+            // Z
+            // 
+            this.Z.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Z.FillWeight = 50F;
+            this.Z.HeaderText = "Z";
+            this.Z.Name = "Z";
+            this.Z.Width = 37;
+            // 
+            // Y
+            // 
+            this.Y.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Y.FillWeight = 50F;
+            this.Y.HeaderText = "Y";
+            this.Y.Name = "Y";
+            this.Y.Width = 38;
+            // 
+            // X
+            // 
+            this.X.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.X.FillWeight = 50F;
+            this.X.HeaderText = "X";
+            this.X.Name = "X";
+            this.X.Width = 38;
+            // 
+            // 點位名稱
+            // 
+            this.點位名稱.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.點位名稱.HeaderText = "點位名稱";
+            this.點位名稱.Name = "點位名稱";
+            this.點位名稱.Width = 78;
             // 
             // UcSetting
             // 
@@ -507,19 +608,27 @@
         private System.Windows.Forms.ComboBox CbY_NodeId;
         private System.Windows.Forms.ComboBox CbX_NodeId;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 點位名稱;
-        private System.Windows.Forms.DataGridViewTextBoxColumn X;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Z;
-        private System.Windows.Forms.DataGridViewTextBoxColumn R;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveNodeId;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox CbR_NodeId;
         private System.Windows.Forms.Button BtnSVOFF;
         private System.Windows.Forms.Button BtnSVON;
         private System.Windows.Forms.Button BtnStartMove;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPointName;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnStopMove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 點位名稱;
+        private System.Windows.Forms.DataGridViewTextBoxColumn X;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Z;
+        private System.Windows.Forms.DataGridViewTextBoxColumn R;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StrVel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConstVel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndVel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tacc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tdec;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn SCurve;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsAbs;
     }
 }
