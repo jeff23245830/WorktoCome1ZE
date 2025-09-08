@@ -4,12 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace WorktoCome1
 {
     public partial class UcControl : UserControl
     {
         private readonly AppState _appState;
+        private string jsonFilePath = AppPaths.RecipePath;
+
+
         private List<ushort> slaveNodeIdList = new List<ushort>();
         private List<ushort> slaveSlotIdList = new List<ushort>();
         CheckBox[] g_pOutputLab = new CheckBox[16];
@@ -22,43 +26,7 @@ namespace WorktoCome1
 
         public ushort nESCExistCards;
 
-        public void SetNodeIDtoCombobox(List<ushort> nodeId)
-        {
-            this.slaveNodeIdList = nodeId;
-            // 你可以在這裡更新 UI，例如 ComboBox
-            foreach (var slave in slaveNodeIdList)
-            {
-                CbNodeId.Items.Add(slave);
-                CbDoNodeId.Items.Add(slave);
-                CbDINodeId.Items.Add(slave);
-            }
-            if (CbNodeId.Items.Count > 0)
-                CbNodeId.SelectedIndex = 0;
-            if (CbDoNodeId.Items.Count > 0)
-                CbDoNodeId.SelectedIndex = 0;
-           if (CbDINodeId.Items.Count > 0)
-                CbDINodeId.SelectedIndex = 0;
-        }
-
-        public void SetSlotIDtoCombobox(List<ushort> slotId)
-        {
-            this.slaveSlotIdList = slotId;
-            // 你可以在這裡更新 UI，例如 ComboBox
-            foreach (var slave in slaveSlotIdList)
-            {
-                CbSlotId.Items.Add(slave);
-                CbDoSlotId.Items.Add(slave);
-                CbDISlotId.Items.Add(slave);
-            }
-
-            if (CbSlotId.Items.Count > 0)
-                CbSlotId.SelectedIndex = 0;
-            if (CbDoSlotId.Items.Count > 0)
-                CbDoSlotId.SelectedIndex = 0;
-            if (CbDISlotId.Items.Count > 0)
-                CbDISlotId.SelectedIndex = 0;
-        }
-
+        
         public UcControl(AppState appState)
         {
             _appState = appState;
@@ -141,7 +109,136 @@ namespace WorktoCome1
             dataGridView1.Rows.Add("正極限", "");
             dataGridView1.Rows.Add("原點", "");
         }
+        #region 非事件方法
+        public void LoadFunctionGroups()
+        {
 
+            //1.載入存在APPSTATE的CurrentRecipe
+            string CurrentProduc = _appState.CurrentProductTitle;
+            if (string.IsNullOrWhiteSpace(CurrentProduc))
+            {
+                MessageBox.Show("請先選擇一個產品以載入參數。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (_appState.CurrentRecipe?.DioFunctions != null)
+            {
+
+                ClearDItextBox();
+                ClearDOtextBox();
+                cbDOfunction.Items.Clear();
+                cbDIfunction.Items.Clear();
+
+                // 載入 DO 功能組
+                if (_appState.CurrentRecipe.DioFunctions.ContainsKey("DO"))
+                {
+                    var doGroups = _appState.CurrentRecipe.DioFunctions["DO"].NodeGroups;
+                    foreach (var groupName in doGroups.Keys)
+                    {
+                        cbDOfunction.Items.Add(groupName);
+                    }
+                }
+
+                // 載入 DI 功能組
+                if (_appState.CurrentRecipe.DioFunctions.ContainsKey("DI"))
+                {
+                    var diGroups = _appState.CurrentRecipe.DioFunctions["DI"].NodeGroups;
+                    foreach (var groupName in diGroups.Keys)
+                    {
+                        cbDIfunction.Items.Add(groupName);
+                    }
+                }
+            }
+            else
+            {
+                ClearDItextBox();
+                ClearDOtextBox();
+                cbDOfunction.Items.Clear();
+                cbDIfunction.Items.Clear();
+            }
+        }
+
+        void ClearDItextBox()
+        {
+            txtDI00.Text = "";
+            txtDI01.Text = "";
+            txtDI02.Text = "";
+            txtDI03.Text = "";
+            txtDI04.Text = "";
+            txtDI05.Text = "";
+            txtDI06.Text = "";
+            txtDI07.Text = "";
+            txtDI08.Text = "";
+            txtDI09.Text = "";
+            txtDI10.Text = "";
+            txtDI11.Text = "";
+            txtDI12.Text = "";
+            txtDI13.Text = "";
+            txtDI14.Text = "";
+            txtDI15.Text = "";
+        }
+        void ClearDOtextBox()
+        {
+            txtDO00.Text = "";
+            txtDO01.Text = "";
+            txtDO02.Text = "";
+            txtDO03.Text = "";
+            txtDO04.Text = "";
+            txtDO05.Text = "";
+            txtDO06.Text = "";
+            txtDO07.Text = "";
+            txtDO08.Text = "";
+            txtDO09.Text = "";
+            txtDO10.Text = "";
+            txtDO11.Text = "";
+            txtDO12.Text = "";
+            txtDO13.Text = "";
+            txtDO14.Text = "";
+            txtDO15.Text = "";
+        }
+
+        public void SetNodeIDtoCombobox(List<ushort> nodeId)
+        {
+            this.slaveNodeIdList = nodeId;
+            // 你可以在這裡更新 UI，例如 ComboBox
+            foreach (var slave in slaveNodeIdList)
+            {
+                CbNodeId.Items.Add(slave);
+                CbDONodeId.Items.Add(slave);
+                CbDINodeId.Items.Add(slave);
+            }
+            if (CbNodeId.Items.Count > 0)
+                CbNodeId.SelectedIndex = 0;
+            if (CbDONodeId.Items.Count > 0)
+                CbDONodeId.SelectedIndex = 0;
+            if (CbDINodeId.Items.Count > 0)
+                CbDINodeId.SelectedIndex = 0;
+        }
+
+        public void SetSlotIDtoCombobox(List<ushort> slotId)
+        {
+            this.slaveSlotIdList = slotId;
+            // 你可以在這裡更新 UI，例如 ComboBox
+            foreach (var slave in slaveSlotIdList)
+            {
+                CbSlotId.Items.Add(slave);
+                CbDOSlotId.Items.Add(slave);
+                CbDISlotId.Items.Add(slave);
+            }
+
+            if (CbSlotId.Items.Count > 0)
+                CbSlotId.SelectedIndex = 0;
+            if (CbDOSlotId.Items.Count > 0)
+                CbDOSlotId.SelectedIndex = 0;
+            if (CbDISlotId.Items.Count > 0)
+                CbDISlotId.SelectedIndex = 0;
+        }
+
+        public void LoadDIOJson(string filePath)
+        {
+             
+        }
+        #endregion
         private void RbSrveroOn_CheckedChanged(object sender, EventArgs e)
         {
             ushort ESCNodeID = (ushort)CbNodeId.SelectedItem;
@@ -239,12 +336,12 @@ namespace WorktoCome1
             }
              
             //之後要加入Set_nESCExistCards
-            bool Ret = iOControl.DOcontorlOutOrOff((ushort)nStat, (ushort)CbDoNodeId.SelectedItem, (ushort)CbDoSlotId.SelectedItem);
+            bool Ret = iOControl.DOcontorlOutOrOff((ushort)nStat, (ushort)CbDONodeId.SelectedItem, (ushort)CbDOSlotId.SelectedItem);
         }
 
         private void CbDI_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CbDoNodeId.SelectedIndex > -1 && CbDoSlotId.SelectedIndex > -1 )
+            if (CbDONodeId.SelectedIndex > -1 && CbDOSlotId.SelectedIndex > -1 )
             {
                 ChkBit00.Enabled = true;
                 ChkBit01.Enabled = true;
@@ -334,7 +431,7 @@ namespace WorktoCome1
         private void btn_check_Click(object sender, EventArgs e)
         {
             ushort uValue = 0;
-            iOControl.DOcontrolRead((ushort)CbDoNodeId.SelectedItem, (ushort)CbDoSlotId.SelectedItem, ref uValue);
+            iOControl.DOcontrolRead((ushort)CbDONodeId.SelectedItem, (ushort)CbDOSlotId.SelectedItem, ref uValue);
         }
 
         private void BtHome_Click(object sender, EventArgs e)
@@ -361,6 +458,180 @@ namespace WorktoCome1
 
         private void btnDISave_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnDOSave_Click(object sender, EventArgs e)
+        {
+            // 1) 基本檢查
+            string currentProducTitle = _appState.CurrentProductTitle;
+            string selectedFunctionName = cbDOfunction.Text;
+
+            if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedFunctionName))
+            {
+                MessageBox.Show("請先載入產品並輸入或選擇一個功能組。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2) 取得 RootObject 與目前產品的 Recipe
+            var root = _appState.RootObject; // 你專案已有：載入/反序列化後放進這裡使用
+            if (root == null || root.Products == null || !root.Products.TryGetValue(currentProducTitle, out var recipe))
+            {
+                MessageBox.Show($"找不到產品 '{currentProducTitle}' 的資料。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 3) 取得/建立 DioFunctions["DO"]
+            if (!recipe.DioFunctions.TryGetValue("DO", out var doSection))
+            {
+                doSection = new Dio();
+                recipe.DioFunctions["DO"] = doSection;
+            }
+
+            // 4) 取得/建立 指定功能組
+            if (!doSection.NodeGroups.TryGetValue(selectedFunctionName, out var group))
+            {
+                group = new DioGroup();
+                doSection.NodeGroups[selectedFunctionName] = group;
+            }
+
+
+            // 5) 從 UI 讀取 NodeID / SlotID
+            int nodeId = 0, slotId = 0;
+            int.TryParse(CbDONodeId.Text, out nodeId);
+            int.TryParse(CbDOSlotId.Text, out slotId);
+            group.NodeID = nodeId;
+            group.SlotID = slotId;
+
+            // 6) 把 00..15 的功能字串收集進 Dictionary（保留前導 0）
+            var textBoxes = new Dictionary<string, TextBox>
+            {
+                ["00"] = txtDO00,
+                ["01"] = txtDO01,
+                ["02"] = txtDO02,
+                ["03"] = txtDO03,
+                ["04"] = txtDO04,
+                ["05"] = txtDO05,
+                ["06"] = txtDO06,
+                ["07"] = txtDO07,
+                ["08"] = txtDO08,
+                ["09"] = txtDO09,
+                ["10"] = txtDO10,
+                ["11"] = txtDO11,
+                ["12"] = txtDO12,
+                ["13"] = txtDO13,
+                ["14"] = txtDO14,
+                ["15"] = txtDO15
+            };
+
+            // 你可以選擇：保留空字串，或過濾掉空白鍵
+            var func = new Dictionary<string, string>();
+            foreach (var kv in textBoxes)
+            {
+                var v = kv.Value?.Text?.Trim() ?? "";
+                // 若不想存空白就改成：if (!string.IsNullOrEmpty(v)) func[kv.Key] = v;
+                func[kv.Key] = v;
+            }
+            group.Function = func; // 整包覆蓋
+
+            // 7) 寫回 Recipe.json 
+            JsonFunction.SaveJson(jsonFilePath, root);
+              
+
+            MessageBox.Show($"DO 功能組「{selectedFunctionName}」已儲存。", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            LoadFunctionGroups();
+
+
+
+
+        }
+
+        private void btnDISave_Click_1(object sender, EventArgs e)
+        {
+            // 1) 基本檢查
+            string currentProducTitle = _appState.CurrentProductTitle;
+            string selectedFunctionName = cbDIfunction.Text;
+
+            if (string.IsNullOrWhiteSpace(currentProducTitle) || string.IsNullOrWhiteSpace(selectedFunctionName))
+            {
+                MessageBox.Show("請先載入產品並輸入或選擇一個功能組。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2) 取得 RootObject 與目前產品的 Recipe
+            var root = _appState.RootObject; // 你專案已有：載入/反序列化後放進這裡使用
+            if (root == null || root.Products == null || !root.Products.TryGetValue(currentProducTitle, out var recipe))
+            {
+                MessageBox.Show($"找不到產品 '{currentProducTitle}' 的資料。", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 3) 取得/建立 DioFunctions["DO"]
+            if (!recipe.DioFunctions.TryGetValue("DI", out var doSection))
+            {
+                doSection = new Dio();
+                recipe.DioFunctions["DI"] = doSection;
+            }
+
+            // 4) 取得/建立 指定功能組
+            if (!doSection.NodeGroups.TryGetValue(selectedFunctionName, out var group))
+            {
+                group = new DioGroup();
+                doSection.NodeGroups[selectedFunctionName] = group;
+            }
+
+
+            // 5) 從 UI 讀取 NodeID / SlotID
+            int nodeId = 0, slotId = 0;
+            int.TryParse(CbDINodeId.Text, out nodeId);
+            int.TryParse(CbDISlotId.Text, out slotId);
+            group.NodeID = nodeId;
+            group.SlotID = slotId;
+
+            // 6) 把 00..15 的功能字串收集進 Dictionary（保留前導 0）
+            var textBoxes = new Dictionary<string, TextBox>
+            {
+                ["00"] = txtDI00,
+                ["01"] = txtDI01,
+                ["02"] = txtDI02,
+                ["03"] = txtDI03,
+                ["04"] = txtDI04,
+                ["05"] = txtDI05,
+                ["06"] = txtDI06,
+                ["07"] = txtDI07,
+                ["08"] = txtDI08,
+                ["09"] = txtDI09,
+                ["10"] = txtDI10,
+                ["11"] = txtDI11,
+                ["12"] = txtDI12,
+                ["13"] = txtDI13,
+                ["14"] = txtDI14,
+                ["15"] = txtDI15
+            };
+
+            // 你可以選擇：保留空字串，或過濾掉空白鍵
+            var func = new Dictionary<string, string>();
+            foreach (var kv in textBoxes)
+            {
+                var v = kv.Value?.Text?.Trim() ?? "";
+                // 若不想存空白就改成：if (!string.IsNullOrEmpty(v)) func[kv.Key] = v;
+                func[kv.Key] = v;
+            }
+            group.Function = func; // 整包覆蓋
+
+            // 7) 寫回 Recipe.json 
+            JsonFunction.SaveJson(jsonFilePath, root);
+
+
+            MessageBox.Show($"DI 功能組「{selectedFunctionName}」已儲存。", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+
+
+            LoadFunctionGroups();
 
         }
     }

@@ -14,10 +14,7 @@ namespace WorktoCome1
 
         public RootObject RootObject { get; set; } = new RootObject();
 
-        public Recipe CurrentRecipe { get; set; }
-
-        //Default Recipe
-
+        public Recipe CurrentRecipe { get; set; } 
 
     }
 

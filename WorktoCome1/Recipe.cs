@@ -67,9 +67,7 @@ namespace WorktoCome1
     {
         public int NodeID { get; set; }
         public int SlotID { get; set; }
-
-        // 這裡一定要用 Dictionary<string,string> 才能保留 "00" 這種前導 0 的鍵
-        [JsonPropertyName("Function")]
+        
         public Dictionary<string, string> Function { get; set; } = new Dictionary<string, string>();
     }
 }
