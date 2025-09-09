@@ -56,6 +56,7 @@ namespace WorktoCome1
             else // 未知權限，全部按鈕禁用
             {
                 ucSetting.UserRole();
+                ucControl.UserRole();
             }
         }
         private void loadUserControl(UserControl userControl)

@@ -113,8 +113,47 @@ namespace WorktoCome1
 
         public void UserRole()
         {
-           btnDOSave.Enabled = false;
-           btnDISave.Enabled = false;
+            btnDOSave.Enabled = false;
+            btnDISave.Enabled = false;
+            txtDO00.Enabled = false;
+            txtDO01.Enabled = false;
+            txtDO02.Enabled = false;
+            txtDO03.Enabled = false;
+            txtDO04.Enabled = false;
+            txtDO05.Enabled = false;
+            txtDO06.Enabled = false;
+            txtDO07.Enabled = false;
+            txtDO08.Enabled = false;
+            txtDO09.Enabled = false;
+            txtDO10.Enabled = false;
+            txtDO11.Enabled = false;
+            txtDO12.Enabled = false;
+            txtDO13.Enabled = false;
+            txtDO14.Enabled = false;
+            txtDO15.Enabled = false;
+            txtDI00.Enabled = false;
+            txtDI01.Enabled = false;
+            txtDI02.Enabled = false;
+            txtDI03.Enabled = false;
+            txtDI04.Enabled = false;
+            txtDI05.Enabled = false;
+            txtDI06.Enabled = false;
+            txtDI07.Enabled = false;
+            txtDI08.Enabled = false;
+            txtDI09.Enabled = false;
+            txtDI10.Enabled = false;
+            txtDI11.Enabled = false;
+            txtDI12.Enabled = false;
+            txtDI13.Enabled = false;
+            txtDI14.Enabled = false;
+            txtDI15.Enabled = false;
+            CbDONodeId.DropDownStyle = ComboBoxStyle.DropDownList;
+            CbDOSlotId.DropDownStyle = ComboBoxStyle.DropDownList;
+            CbDINodeId.DropDownStyle = ComboBoxStyle.DropDownList;  
+            CbDISlotId.DropDownStyle = ComboBoxStyle.DropDownList;
+
+
+
         }
 
         public void EngerRole()

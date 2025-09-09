@@ -51,6 +51,11 @@ namespace WorktoCome1
             CbR_NodeId.Enabled = false;
             btnSaveNodeId.Enabled = false;
             btnRemoveing.Enabled = false;
+            CbArea.DropDownStyle = ComboBoxStyle.DropDownList;
+            DgMotionPoint.EditMode = DataGridViewEditMode.EditOnEnter;
+            DgMotionPoint.ReadOnly = true;  
+            DgMotionPoint.AllowUserToAddRows = false;
+            DgMotionPoint.AllowUserToDeleteRows = false;
         }
 
         public void LoadRecipe()
