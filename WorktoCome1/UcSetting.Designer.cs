@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -75,6 +76,7 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -630,5 +632,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tdec;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SCurve;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAbs;
+        private System.Windows.Forms.Timer timer1;
     }
 }
