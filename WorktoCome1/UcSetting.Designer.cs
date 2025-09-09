@@ -34,6 +34,8 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.txtCheckDone = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.btnStopMove = new System.Windows.Forms.Button();
             this.BtnSVOFF = new System.Windows.Forms.Button();
             this.BtnSVON = new System.Windows.Forms.Button();
@@ -130,6 +132,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.txtCheckDone);
+            this.tabPage5.Controls.Add(this.label11);
             this.tabPage5.Controls.Add(this.btnStopMove);
             this.tabPage5.Controls.Add(this.BtnSVOFF);
             this.tabPage5.Controls.Add(this.BtnSVON);
@@ -158,9 +162,26 @@
             this.tabPage5.Text = "點位架設";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // txtCheckDone
+            // 
+            this.txtCheckDone.Location = new System.Drawing.Point(665, 53);
+            this.txtCheckDone.Multiline = true;
+            this.txtCheckDone.Name = "txtCheckDone";
+            this.txtCheckDone.Size = new System.Drawing.Size(236, 190);
+            this.txtCheckDone.TabIndex = 21;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(762, 38);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "馬達狀態";
+            // 
             // btnStopMove
             // 
-            this.btnStopMove.Location = new System.Drawing.Point(848, 318);
+            this.btnStopMove.Location = new System.Drawing.Point(846, 430);
             this.btnStopMove.Name = "btnStopMove";
             this.btnStopMove.Size = new System.Drawing.Size(86, 43);
             this.btnStopMove.TabIndex = 19;
@@ -170,7 +191,7 @@
             // BtnSVOFF
             // 
             this.BtnSVOFF.Enabled = false;
-            this.BtnSVOFF.Location = new System.Drawing.Point(625, 318);
+            this.BtnSVOFF.Location = new System.Drawing.Point(623, 430);
             this.BtnSVOFF.Name = "BtnSVOFF";
             this.BtnSVOFF.Size = new System.Drawing.Size(102, 43);
             this.BtnSVOFF.TabIndex = 18;
@@ -181,7 +202,7 @@
             // BtnSVON
             // 
             this.BtnSVON.Enabled = false;
-            this.BtnSVON.Location = new System.Drawing.Point(625, 263);
+            this.BtnSVON.Location = new System.Drawing.Point(623, 375);
             this.BtnSVON.Name = "BtnSVON";
             this.BtnSVON.Size = new System.Drawing.Size(102, 43);
             this.BtnSVON.TabIndex = 17;
@@ -192,17 +213,17 @@
             // BtnStartMove
             // 
             this.BtnStartMove.Enabled = false;
-            this.BtnStartMove.Location = new System.Drawing.Point(848, 264);
+            this.BtnStartMove.Location = new System.Drawing.Point(846, 376);
             this.BtnStartMove.Name = "BtnStartMove";
             this.BtnStartMove.Size = new System.Drawing.Size(86, 42);
             this.BtnStartMove.TabIndex = 16;
             this.BtnStartMove.Text = "移動";
             this.BtnStartMove.UseVisualStyleBackColor = true;
-            this.BtnStartMove.Click += new System.EventHandler(this.BtnStartMove_Click);
+            this.BtnStartMove.Click += new System.EventHandler(this.BtnStartMove_ClickAsync);
             // 
             // btnRemoveing
             // 
-            this.btnRemoveing.Location = new System.Drawing.Point(940, 204);
+            this.btnRemoveing.Location = new System.Drawing.Point(938, 316);
             this.btnRemoveing.Name = "btnRemoveing";
             this.btnRemoveing.Size = new System.Drawing.Size(71, 39);
             this.btnRemoveing.TabIndex = 15;
@@ -211,7 +232,7 @@
             // 
             // txtPointName
             // 
-            this.txtPointName.Location = new System.Drawing.Point(647, 215);
+            this.txtPointName.Location = new System.Drawing.Point(645, 327);
             this.txtPointName.Name = "txtPointName";
             this.txtPointName.Size = new System.Drawing.Size(287, 22);
             this.txtPointName.TabIndex = 14;
@@ -219,7 +240,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(582, 222);
+            this.label7.Location = new System.Drawing.Point(580, 334);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 13;
@@ -228,7 +249,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(868, 151);
+            this.label6.Location = new System.Drawing.Point(866, 263);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 12);
             this.label6.TabIndex = 12;
@@ -237,7 +258,7 @@
             // CbR_NodeId
             // 
             this.CbR_NodeId.FormattingEnabled = true;
-            this.CbR_NodeId.Location = new System.Drawing.Point(846, 166);
+            this.CbR_NodeId.Location = new System.Drawing.Point(844, 278);
             this.CbR_NodeId.Name = "CbR_NodeId";
             this.CbR_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbR_NodeId.TabIndex = 11;
@@ -245,7 +266,7 @@
             // 
             // btnSaveNodeId
             // 
-            this.btnSaveNodeId.Location = new System.Drawing.Point(919, 151);
+            this.btnSaveNodeId.Location = new System.Drawing.Point(917, 263);
             this.btnSaveNodeId.Name = "btnSaveNodeId";
             this.btnSaveNodeId.Size = new System.Drawing.Size(75, 35);
             this.btnSaveNodeId.TabIndex = 10;
@@ -256,7 +277,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(805, 151);
+            this.label5.Location = new System.Drawing.Point(803, 263);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(12, 12);
             this.label5.TabIndex = 9;
@@ -265,7 +286,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(741, 151);
+            this.label4.Location = new System.Drawing.Point(739, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 12);
             this.label4.TabIndex = 8;
@@ -274,7 +295,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(678, 151);
+            this.label3.Location = new System.Drawing.Point(676, 263);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 12);
             this.label3.TabIndex = 7;
@@ -283,7 +304,7 @@
             // CbZ_NodeId
             // 
             this.CbZ_NodeId.FormattingEnabled = true;
-            this.CbZ_NodeId.Location = new System.Drawing.Point(783, 166);
+            this.CbZ_NodeId.Location = new System.Drawing.Point(781, 278);
             this.CbZ_NodeId.Name = "CbZ_NodeId";
             this.CbZ_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbZ_NodeId.TabIndex = 6;
@@ -292,7 +313,7 @@
             // CbY_NodeId
             // 
             this.CbY_NodeId.FormattingEnabled = true;
-            this.CbY_NodeId.Location = new System.Drawing.Point(720, 166);
+            this.CbY_NodeId.Location = new System.Drawing.Point(718, 278);
             this.CbY_NodeId.Name = "CbY_NodeId";
             this.CbY_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbY_NodeId.TabIndex = 5;
@@ -301,7 +322,7 @@
             // CbX_NodeId
             // 
             this.CbX_NodeId.FormattingEnabled = true;
-            this.CbX_NodeId.Location = new System.Drawing.Point(657, 166);
+            this.CbX_NodeId.Location = new System.Drawing.Point(655, 278);
             this.CbX_NodeId.Name = "CbX_NodeId";
             this.CbX_NodeId.Size = new System.Drawing.Size(57, 20);
             this.CbX_NodeId.TabIndex = 4;
@@ -310,7 +331,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(611, 169);
+            this.label2.Location = new System.Drawing.Point(609, 281);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 12);
             this.label2.TabIndex = 3;
@@ -633,5 +654,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn SCurve;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAbs;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox txtCheckDone;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -11,8 +11,10 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 namespace WorktoCome1
 {
     public partial class UcSetting : UserControl
@@ -24,7 +26,8 @@ namespace WorktoCome1
         private bool _suppressNodeCheck = false;
         private EtherCATFunction.MotorMove cATFunction = new MotorMove();
 
-
+        private CancellationTokenSource _moveCts;
+        private readonly object _logLock = new object();
 
 
         public UcSetting(AppState appState  )
@@ -36,7 +39,64 @@ namespace WorktoCome1
 
 
         #region 非介面事件方法
+        private async Task WaitUntilAllStoppedAsync(
+   ushort[] nodeIds,
+   ushort[] slotIds,
+   int pollMs,
+   CancellationToken token)
+        {
+            if (nodeIds == null || slotIds == null || nodeIds.Length != slotIds.Length)
+                throw new ArgumentException("nodeIds 與 slotIds 長度需一致");
 
+            var stopped = new bool[nodeIds.Length];
+            var sw = System.Diagnostics.Stopwatch.StartNew();
+
+            while (true)
+            {
+                token.ThrowIfCancellationRequested();
+                bool allStopped = true;
+
+                for (int i = 0; i < nodeIds.Length; i++)
+                {
+                    if (stopped[i]) continue; // 這軸已停，略過
+
+                    bool ok = cATFunction.checkDone(nodeIds[i], slotIds[i]); // 你現在版：uDone==0 => true(已停)
+                    if (ok)
+                    {
+                        stopped[i] = true;
+                        AppendLog($"✅ 停止 (Node={nodeIds[i]}, Slot={slotIds[i]})");
+                    }
+                    else
+                    {
+                        allStopped = false;
+                        // 想更安靜就改成每 N 次再印一次
+                        AppendLog($"…移動中 (Node={nodeIds[i]}, Slot={slotIds[i]})");
+                    }
+                }
+
+                if (allStopped)
+                {
+                    sw.Stop();
+                    AppendLog($"🎯 全部軸皆停止，耗時 {sw.Elapsed.TotalSeconds:F2}s");
+                    break;
+                }
+
+                await Task.Delay(pollMs, token); // 不要阻塞 UI
+            }
+        }
+
+        private void AppendLog(string line)
+        {
+            if (txtCheckDone.InvokeRequired)
+            {
+                txtCheckDone.Invoke(new Action(() => AppendLog(line)));
+                return;
+            }
+            lock (_logLock)
+            {
+                txtCheckDone.AppendText($"[{DateTime.Now:HH:mm:ss.fff}] {line}{Environment.NewLine}");
+            }
+        }
         public void UserRole()
         {
             btnMoveTop.Enabled = false;
@@ -633,83 +693,110 @@ namespace WorktoCome1
 
         }
 
-        private void BtnStartMove_Click(object sender, EventArgs e)
+        private async void BtnStartMove_ClickAsync(object sender, EventArgs e)
         {
-            // 先把勾選/編輯中的值提交
-            DgMotionPoint.CommitEdit(DataGridViewDataErrorContexts.Commit);
-            DgMotionPoint.EndEdit();
-
-            var row = DgMotionPoint.CurrentRow;
-            if (row == null) return;
-
-            var nodeIds = new List<ushort>();
-            var slotIds = new List<ushort>();
-            var moveVals = new List<int>();
-
-            // 讀 XYZR（注意大小寫）
-            int x = Convert.ToInt32(row.Cells["X"].Value);
-            int y = Convert.ToInt32(row.Cells["Y"].Value);
-            int z = Convert.ToInt32(row.Cells["Z"].Value);
-            int r = Convert.ToInt32(row.Cells["R"].Value);
-
-            // 只在成功取得且 nodeId>0 時才加入
-            if (TryGetNodeId(CbX_NodeId, out var nx)) { nodeIds.Add(nx); slotIds.Add(0); moveVals.Add(x); }
-            if (TryGetNodeId(CbY_NodeId, out var ny)) { nodeIds.Add(ny); slotIds.Add(0); moveVals.Add(y); }
-            if (TryGetNodeId(CbZ_NodeId, out var nz)) { nodeIds.Add(nz); slotIds.Add(0); moveVals.Add(z); }
-            if (TryGetNodeId(CbR_NodeId, out var nr)) { nodeIds.Add(nr); slotIds.Add(0); moveVals.Add(r); }
-
-            if (nodeIds.Count == 0)
+            try
             {
-                MessageBox.Show("至少選一軸的 NodeID（且不是 0）才能移動", "提醒",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                // 先把勾選/編輯中的值提交
+                DgMotionPoint.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                DgMotionPoint.EndEdit();
+
+                var row = DgMotionPoint.CurrentRow;
+                if (row == null) return;
+
+                var nodeIds = new List<ushort>();
+                var slotIds = new List<ushort>();
+                var moveVals = new List<int>();
+
+                // 讀 XYZR（注意大小寫）
+                int x = Convert.ToInt32(row.Cells["X"].Value);
+                int y = Convert.ToInt32(row.Cells["Y"].Value);
+                int z = Convert.ToInt32(row.Cells["Z"].Value);
+                int r = Convert.ToInt32(row.Cells["R"].Value);
+
+                // 只在成功取得且 nodeId>0 時才加入
+                if (TryGetNodeId(CbX_NodeId, out var nx)) { nodeIds.Add(nx); slotIds.Add(0); moveVals.Add(x); }
+                if (TryGetNodeId(CbY_NodeId, out var ny)) { nodeIds.Add(ny); slotIds.Add(0); moveVals.Add(y); }
+                if (TryGetNodeId(CbZ_NodeId, out var nz)) { nodeIds.Add(nz); slotIds.Add(0); moveVals.Add(z); }
+                if (TryGetNodeId(CbR_NodeId, out var nr)) { nodeIds.Add(nr); slotIds.Add(0); moveVals.Add(r); }
+
+                if (nodeIds.Count == 0)
+                {
+                    MessageBox.Show("至少選一軸的 NodeID（且不是 0）才能移動", "提醒",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // 其他參數
+                int nStrVel = Convert.ToInt32(row.Cells["StrVel"].Value);
+                int nConstVel = Convert.ToInt32(row.Cells["ConstVel"].Value);
+                int nEndVel = Convert.ToInt32(row.Cells["EndVel"].Value);
+                double dTAcc = Convert.ToDouble(row.Cells["Tacc"].Value);
+                double dTDec = Convert.ToDouble(row.Cells["Tdec"].Value);
+                bool bSCurve = row.Cells["SCurve"].Value is bool b1 && b1;
+                bool bkAbsMove = row.Cells["IsAbs"].Value is bool b2 && b2;
+
+                int nDir = 1; // 相對移動才會用到
+
+
+
+                ushort[] nodeIdsArray = new ushort[nodeIds.Count];
+                // 2. 使用 for 迴圈來手動轉換並複製元素
+                for (int i = 0; i < nodeIds.Count; i++)
+                {
+                    nodeIdsArray[i] = nodeIds[i];
+                }
+
+                ushort[] slotIdsArray = new ushort[slotIds.Count];
+                // 2. 使用 for 迴圈來手動轉換並複製元素
+                for (int i = 0; i < slotIds.Count; i++)
+                {
+                    slotIdsArray[i] = slotIds[i];
+                }
+
+                int[] moveValsArray = new int[moveVals.Count];
+                // 2. 使用 for 迴圈來手動轉換並複製元素
+                for (int i = 0; i < moveVals.Count; i++)
+                {
+                    moveValsArray[i] = moveVals[i];
+                }
+
+                // 呼叫（用 ToArray 確保長度一致）
+                ushort rt = cATFunction.MultiAxesMove(
+                    nDir,
+                    nodeIdsArray,
+                    slotIdsArray,
+                    moveValsArray,
+                    nStrVel, nConstVel, nEndVel,
+                    dTAcc, dTDec,
+                    bSCurve, bkAbsMove
+                );
+
+                //bool test = false;
+                //while(!test)
+                //{
+                //   test = cATFunction.checkDone(nodeIds[0], slotIds[0]);
+                //}
+                // 建立 / 重置取消權杖
+                _moveCts?.Cancel();
+                _moveCts = new CancellationTokenSource();
+
+                // 多軸等待：全部停止才回來
+                await WaitUntilAllStoppedAsync(
+                    nodeIdsArray,
+                    slotIdsArray,
+                    pollMs: 100,
+                    token: _moveCts.Token
+                );
             }
-
-            // 其他參數
-            int nStrVel = Convert.ToInt32(row.Cells["StrVel"].Value);
-            int nConstVel = Convert.ToInt32(row.Cells["ConstVel"].Value);
-            int nEndVel = Convert.ToInt32(row.Cells["EndVel"].Value);
-            double dTAcc = Convert.ToDouble(row.Cells["Tacc"].Value);
-            double dTDec = Convert.ToDouble(row.Cells["Tdec"].Value);
-            bool bSCurve = row.Cells["SCurve"].Value is bool b1 && b1;
-            bool bkAbsMove = row.Cells["IsAbs"].Value is bool b2 && b2;
-
-            int nDir = 1; // 相對移動才會用到
-
-
-
-            ushort[] nodeIdsArray = new ushort[nodeIds.Count]; 
-            // 2. 使用 for 迴圈來手動轉換並複製元素
-            for (int i = 0; i < nodeIds.Count; i++)
+            catch (OperationCanceledException)
             {
-                nodeIdsArray[i] = nodeIds[i];
+                AppendLog("已取消檢查。");
             }
-
-            ushort[] slotIdsArray = new ushort[slotIds.Count];
-            // 2. 使用 for 迴圈來手動轉換並複製元素
-            for (int i = 0; i < slotIds.Count; i++)
+            catch (Exception ex)
             {
-                slotIdsArray[i] = slotIds[i];
+                AppendLog($"檢查時發生錯誤：{ex.Message}");
             }
-
-            int[] moveValsArray = new int[moveVals.Count];
-            // 2. 使用 for 迴圈來手動轉換並複製元素
-            for (int i = 0; i < moveVals.Count; i++)
-            {
-                moveValsArray[i] = moveVals[i];
-            }
-
-            // 呼叫（用 ToArray 確保長度一致）
-            ushort rt = cATFunction.MultiAxesMove(
-                nDir,
-                nodeIdsArray,
-                slotIdsArray,
-                moveValsArray,
-                nStrVel, nConstVel, nEndVel,
-                dTAcc, dTDec,
-                bSCurve, bkAbsMove
-            );
-
 
         }
 

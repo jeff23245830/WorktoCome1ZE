@@ -179,6 +179,8 @@ namespace WorktoCome1
             //先把Node Id 與 Slot Id 放到LIST
             foreach (var slave in cardManager.FoundSlaves)
             {
+                //將NodeID與SlotID與DeviceName打包成物件 以便分類
+
                 slaveNodeIdList.Add(slave.NodeID);
                 slaveSlotIdList.Add(slave.SlotID);
                

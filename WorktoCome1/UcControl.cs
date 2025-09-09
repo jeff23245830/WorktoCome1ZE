@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace WorktoCome1
@@ -520,7 +521,15 @@ namespace WorktoCome1
                 TargetNumb = 1000;
             }
 
-            ppmove.AxisMove(1, false, 1000, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+            ppmove.AxisMove(1, false, 1000, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem);
+
+            bool check = false;
+            do
+            {
+                check = false;//cATFunction.checkDone();
+
+                // 可以加個延遲，避免吃滿 CPU
+            } while (check);
         }
 
         private void BtnMoveLeft_Click(object sender, EventArgs e)
@@ -547,11 +556,17 @@ namespace WorktoCome1
                 TargetNumb = 1000;
             }
 
-            ppmove.AxisMove(0, false, TargetNumb, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
-        
-        
-        
-        
+            ppmove.AxisMove(0, false, TargetNumb, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem);
+
+            bool check = false;
+            do
+            {
+                check = false;//cATFunction.checkDone();
+
+                // 可以加個延遲，避免吃滿 CPU
+            } while (check);
+
+
         }
 
         private void ChkBit_CheckedChanged(object sender, EventArgs e)
