@@ -32,12 +32,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.bt_cheak = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.CbDIfunction = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.CbDOfunction = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.btnDIDelete = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.CbDIfunction = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnDISave = new System.Windows.Forms.Button();
@@ -76,9 +77,6 @@
             this.LabBit01 = new System.Windows.Forms.Label();
             this.LabBit00 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.btnDODelete = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.CbDOfunction = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDOSave = new System.Windows.Forms.Button();
@@ -216,6 +214,37 @@
             this.bt_cheak.Visible = false;
             this.bt_cheak.Click += new System.EventHandler(this.btn_check_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(795, 436);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 12);
+            this.label10.TabIndex = 68;
+            this.label10.Text = "功能組";
+            this.label10.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(190, 436);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 12);
+            this.label9.TabIndex = 54;
+            this.label9.Text = "功能組";
+            this.label9.Visible = false;
+            // 
+            // CbDIfunction
+            // 
+            this.CbDIfunction.Enabled = false;
+            this.CbDIfunction.FormattingEnabled = true;
+            this.CbDIfunction.Location = new System.Drawing.Point(731, 451);
+            this.CbDIfunction.Name = "CbDIfunction";
+            this.CbDIfunction.Size = new System.Drawing.Size(164, 20);
+            this.CbDIfunction.TabIndex = 67;
+            this.CbDIfunction.Visible = false;
+            this.CbDIfunction.SelectedIndexChanged += new System.EventHandler(this.CbDIfunction_SelectedIndexChanged);
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -225,6 +254,16 @@
             this.label22.TabIndex = 35;
             this.label22.Text = "CmbCardNo";
             this.label22.Visible = false;
+            // 
+            // CbDOfunction
+            // 
+            this.CbDOfunction.Enabled = false;
+            this.CbDOfunction.FormattingEnabled = true;
+            this.CbDOfunction.Location = new System.Drawing.Point(126, 451);
+            this.CbDOfunction.Name = "CbDOfunction";
+            this.CbDOfunction.Size = new System.Drawing.Size(164, 20);
+            this.CbDOfunction.TabIndex = 53;
+            this.CbDOfunction.Visible = false;
             // 
             // comboBox2
             // 
@@ -237,7 +276,6 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.btnDIDelete);
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Controls.Add(this.label7);
             this.groupBox7.Controls.Add(this.btnDISave);
@@ -282,36 +320,6 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "DI";
             // 
-            // btnDIDelete
-            // 
-            this.btnDIDelete.Location = new System.Drawing.Point(403, 21);
-            this.btnDIDelete.Name = "btnDIDelete";
-            this.btnDIDelete.Size = new System.Drawing.Size(56, 24);
-            this.btnDIDelete.TabIndex = 56;
-            this.btnDIDelete.Text = "刪除";
-            this.btnDIDelete.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(795, 436);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 12);
-            this.label10.TabIndex = 68;
-            this.label10.Text = "功能組";
-            this.label10.Visible = false;
-            // 
-            // CbDIfunction
-            // 
-            this.CbDIfunction.Enabled = false;
-            this.CbDIfunction.FormattingEnabled = true;
-            this.CbDIfunction.Location = new System.Drawing.Point(731, 451);
-            this.CbDIfunction.Name = "CbDIfunction";
-            this.CbDIfunction.Size = new System.Drawing.Size(164, 20);
-            this.CbDIfunction.TabIndex = 67;
-            this.CbDIfunction.Visible = false;
-            this.CbDIfunction.SelectedIndexChanged += new System.EventHandler(this.CbDIfunction_SelectedIndexChanged);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -332,7 +340,7 @@
             // 
             // btnDISave
             // 
-            this.btnDISave.Location = new System.Drawing.Point(403, 379);
+            this.btnDISave.Location = new System.Drawing.Point(402, 23);
             this.btnDISave.Name = "btnDISave";
             this.btnDISave.Size = new System.Drawing.Size(57, 35);
             this.btnDISave.TabIndex = 66;
@@ -672,7 +680,6 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.btnDODelete);
             this.groupBox6.Controls.Add(this.label6);
             this.groupBox6.Controls.Add(this.label5);
             this.groupBox6.Controls.Add(this.btnDOSave);
@@ -717,35 +724,6 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "DO";
             // 
-            // btnDODelete
-            // 
-            this.btnDODelete.Location = new System.Drawing.Point(405, 12);
-            this.btnDODelete.Name = "btnDODelete";
-            this.btnDODelete.Size = new System.Drawing.Size(56, 24);
-            this.btnDODelete.TabIndex = 55;
-            this.btnDODelete.Text = "刪除";
-            this.btnDODelete.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(190, 436);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 12);
-            this.label9.TabIndex = 54;
-            this.label9.Text = "功能組";
-            this.label9.Visible = false;
-            // 
-            // CbDOfunction
-            // 
-            this.CbDOfunction.Enabled = false;
-            this.CbDOfunction.FormattingEnabled = true;
-            this.CbDOfunction.Location = new System.Drawing.Point(126, 451);
-            this.CbDOfunction.Name = "CbDOfunction";
-            this.CbDOfunction.Size = new System.Drawing.Size(164, 20);
-            this.CbDOfunction.TabIndex = 53;
-            this.CbDOfunction.Visible = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -766,7 +744,7 @@
             // 
             // btnDOSave
             // 
-            this.btnDOSave.Location = new System.Drawing.Point(405, 379);
+            this.btnDOSave.Location = new System.Drawing.Point(405, 21);
             this.btnDOSave.Name = "btnDOSave";
             this.btnDOSave.Size = new System.Drawing.Size(56, 37);
             this.btnDOSave.TabIndex = 50;
@@ -1750,7 +1728,5 @@
         private System.Windows.Forms.TextBox txtDI05;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox CbDIfunction;
-        private System.Windows.Forms.Button btnDODelete;
-        private System.Windows.Forms.Button btnDIDelete;
     }
 }

@@ -35,8 +35,23 @@ namespace WorktoCome1
         }
 
 
-        #region 特別(非介面事件)方法
+        #region 非介面事件方法
 
+        public void UserRole()
+        {
+            btnMoveTop.Enabled = false;
+            btnMoveUp.Enabled = false;
+            btnMoveDown.Enabled = false;
+            btnMoveBottom.Enabled = false;
+            btnTransfer.Enabled = false;
+            btnMotionSave.Enabled = false;
+            CbX_NodeId.Enabled = false;
+            CbY_NodeId.Enabled = false;
+            CbZ_NodeId.Enabled = false;
+            CbR_NodeId.Enabled = false;
+            btnSaveNodeId.Enabled = false;
+            btnRemoveing.Enabled = false;
+        }
 
         public void LoadRecipe()
         {

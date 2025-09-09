@@ -110,6 +110,18 @@ namespace WorktoCome1
             dataGridView1.Rows.Add("原點", "");
         }
         #region 非事件方法
+
+        public void UserRole()
+        {
+           btnDOSave.Enabled = false;
+           btnDISave.Enabled = false;
+        }
+
+        public void EngerRole()
+        {
+
+        }
+
         private void LoadDIByNodeSlot(int nodeId, int slotId)
         {
             try
@@ -912,6 +924,9 @@ namespace WorktoCome1
             LoadDIByNodeSlot(nodeId, slotId);
         }
 
-        
+        private void btnDODelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

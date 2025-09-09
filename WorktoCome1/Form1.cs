@@ -42,6 +42,21 @@ namespace WorktoCome1
 
             //讀Default recipe
             ucProgram.LoadDefaultRecipe();
+
+
+            //全域權限管理
+            if (_loginLevel == "管理員")
+            {
+                
+            }
+            else if (_loginLevel == "工程師")
+            {
+                
+            }
+            else // 未知權限，全部按鈕禁用
+            {
+                ucSetting.UserRole();
+            }
         }
         private void loadUserControl(UserControl userControl)
         {
