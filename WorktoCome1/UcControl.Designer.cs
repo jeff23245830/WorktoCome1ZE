@@ -32,12 +32,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.bt_cheak = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.CbDIfunction = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.CbDOfunction = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.btnDIDelete = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.CbDIfunction = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnDISave = new System.Windows.Forms.Button();
@@ -76,9 +77,6 @@
             this.LabBit01 = new System.Windows.Forms.Label();
             this.LabBit00 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.btnDODelete = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.CbDOfunction = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDOSave = new System.Windows.Forms.Button();
@@ -118,7 +116,6 @@
             this.ChkBit01 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bt_check = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSV = new System.Windows.Forms.TextBox();
@@ -127,8 +124,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtOffset = new System.Windows.Forms.TextBox();
             this.NudHomeMod = new System.Windows.Forms.NumericUpDown();
-            this.CbSlotId = new System.Windows.Forms.ComboBox();
-            this.CbNodeId = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.RbSrveroOff = new System.Windows.Forms.RadioButton();
             this.RbSrveroOn = new System.Windows.Forms.RadioButton();
@@ -161,6 +156,10 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimCheckStatus = new System.Windows.Forms.Timer(this.components);
+            this.CbNodeId = new System.Windows.Forms.ComboBox();
+            this.CbSlotId = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCheckDone = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -216,6 +215,37 @@
             this.bt_cheak.Visible = false;
             this.bt_cheak.Click += new System.EventHandler(this.btn_check_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(795, 436);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 12);
+            this.label10.TabIndex = 68;
+            this.label10.Text = "功能組";
+            this.label10.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(190, 436);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 12);
+            this.label9.TabIndex = 54;
+            this.label9.Text = "功能組";
+            this.label9.Visible = false;
+            // 
+            // CbDIfunction
+            // 
+            this.CbDIfunction.Enabled = false;
+            this.CbDIfunction.FormattingEnabled = true;
+            this.CbDIfunction.Location = new System.Drawing.Point(731, 451);
+            this.CbDIfunction.Name = "CbDIfunction";
+            this.CbDIfunction.Size = new System.Drawing.Size(164, 20);
+            this.CbDIfunction.TabIndex = 67;
+            this.CbDIfunction.Visible = false;
+            this.CbDIfunction.SelectedIndexChanged += new System.EventHandler(this.CbDIfunction_SelectedIndexChanged);
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -225,6 +255,16 @@
             this.label22.TabIndex = 35;
             this.label22.Text = "CmbCardNo";
             this.label22.Visible = false;
+            // 
+            // CbDOfunction
+            // 
+            this.CbDOfunction.Enabled = false;
+            this.CbDOfunction.FormattingEnabled = true;
+            this.CbDOfunction.Location = new System.Drawing.Point(126, 451);
+            this.CbDOfunction.Name = "CbDOfunction";
+            this.CbDOfunction.Size = new System.Drawing.Size(164, 20);
+            this.CbDOfunction.TabIndex = 53;
+            this.CbDOfunction.Visible = false;
             // 
             // comboBox2
             // 
@@ -237,7 +277,6 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.btnDIDelete);
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Controls.Add(this.label7);
             this.groupBox7.Controls.Add(this.btnDISave);
@@ -282,36 +321,6 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "DI";
             // 
-            // btnDIDelete
-            // 
-            this.btnDIDelete.Location = new System.Drawing.Point(403, 21);
-            this.btnDIDelete.Name = "btnDIDelete";
-            this.btnDIDelete.Size = new System.Drawing.Size(56, 24);
-            this.btnDIDelete.TabIndex = 56;
-            this.btnDIDelete.Text = "刪除";
-            this.btnDIDelete.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(795, 436);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 12);
-            this.label10.TabIndex = 68;
-            this.label10.Text = "功能組";
-            this.label10.Visible = false;
-            // 
-            // CbDIfunction
-            // 
-            this.CbDIfunction.Enabled = false;
-            this.CbDIfunction.FormattingEnabled = true;
-            this.CbDIfunction.Location = new System.Drawing.Point(731, 451);
-            this.CbDIfunction.Name = "CbDIfunction";
-            this.CbDIfunction.Size = new System.Drawing.Size(164, 20);
-            this.CbDIfunction.TabIndex = 67;
-            this.CbDIfunction.Visible = false;
-            this.CbDIfunction.SelectedIndexChanged += new System.EventHandler(this.CbDIfunction_SelectedIndexChanged);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -332,7 +341,7 @@
             // 
             // btnDISave
             // 
-            this.btnDISave.Location = new System.Drawing.Point(403, 379);
+            this.btnDISave.Location = new System.Drawing.Point(402, 23);
             this.btnDISave.Name = "btnDISave";
             this.btnDISave.Size = new System.Drawing.Size(57, 35);
             this.btnDISave.TabIndex = 66;
@@ -672,7 +681,6 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.btnDODelete);
             this.groupBox6.Controls.Add(this.label6);
             this.groupBox6.Controls.Add(this.label5);
             this.groupBox6.Controls.Add(this.btnDOSave);
@@ -717,35 +725,6 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "DO";
             // 
-            // btnDODelete
-            // 
-            this.btnDODelete.Location = new System.Drawing.Point(405, 12);
-            this.btnDODelete.Name = "btnDODelete";
-            this.btnDODelete.Size = new System.Drawing.Size(56, 24);
-            this.btnDODelete.TabIndex = 55;
-            this.btnDODelete.Text = "刪除";
-            this.btnDODelete.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(190, 436);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 12);
-            this.label9.TabIndex = 54;
-            this.label9.Text = "功能組";
-            this.label9.Visible = false;
-            // 
-            // CbDOfunction
-            // 
-            this.CbDOfunction.Enabled = false;
-            this.CbDOfunction.FormattingEnabled = true;
-            this.CbDOfunction.Location = new System.Drawing.Point(126, 451);
-            this.CbDOfunction.Name = "CbDOfunction";
-            this.CbDOfunction.Size = new System.Drawing.Size(164, 20);
-            this.CbDOfunction.TabIndex = 53;
-            this.CbDOfunction.Visible = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -766,7 +745,7 @@
             // 
             // btnDOSave
             // 
-            this.btnDOSave.Location = new System.Drawing.Point(405, 379);
+            this.btnDOSave.Location = new System.Drawing.Point(405, 21);
             this.btnDOSave.Name = "btnDOSave";
             this.btnDOSave.Size = new System.Drawing.Size(56, 37);
             this.btnDOSave.TabIndex = 50;
@@ -1141,7 +1120,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.bt_check);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtSV);
@@ -1160,25 +1138,15 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(840, 493);
+            this.groupBox1.Size = new System.Drawing.Size(967, 493);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "馬達測試介面";
             // 
-            // bt_check
-            // 
-            this.bt_check.Location = new System.Drawing.Point(214, 302);
-            this.bt_check.Name = "bt_check";
-            this.bt_check.Size = new System.Drawing.Size(136, 89);
-            this.bt_check.TabIndex = 16;
-            this.bt_check.Text = "檢查到位";
-            this.bt_check.UseVisualStyleBackColor = true;
-            this.bt_check.Click += new System.EventHandler(this.bt_check_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(618, 246);
+            this.label4.Location = new System.Drawing.Point(610, 289);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 12);
             this.label4.TabIndex = 15;
@@ -1187,7 +1155,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(623, 340);
+            this.label3.Location = new System.Drawing.Point(615, 383);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(19, 12);
             this.label3.TabIndex = 14;
@@ -1195,7 +1163,7 @@
             // 
             // txtSV
             // 
-            this.txtSV.Location = new System.Drawing.Point(662, 337);
+            this.txtSV.Location = new System.Drawing.Point(654, 380);
             this.txtSV.Name = "txtSV";
             this.txtSV.Size = new System.Drawing.Size(100, 22);
             this.txtSV.TabIndex = 13;
@@ -1203,7 +1171,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(623, 312);
+            this.label2.Location = new System.Drawing.Point(615, 355);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(19, 12);
             this.label2.TabIndex = 12;
@@ -1211,7 +1179,7 @@
             // 
             // txtFv
             // 
-            this.txtFv.Location = new System.Drawing.Point(662, 309);
+            this.txtFv.Location = new System.Drawing.Point(654, 352);
             this.txtFv.Name = "txtFv";
             this.txtFv.Size = new System.Drawing.Size(100, 22);
             this.txtFv.TabIndex = 11;
@@ -1219,7 +1187,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(623, 284);
+            this.label1.Location = new System.Drawing.Point(615, 327);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 12);
             this.label1.TabIndex = 10;
@@ -1227,36 +1195,22 @@
             // 
             // TxtOffset
             // 
-            this.TxtOffset.Location = new System.Drawing.Point(662, 281);
+            this.TxtOffset.Location = new System.Drawing.Point(654, 324);
             this.TxtOffset.Name = "TxtOffset";
             this.TxtOffset.Size = new System.Drawing.Size(100, 22);
             this.TxtOffset.TabIndex = 9;
             // 
             // NudHomeMod
             // 
-            this.NudHomeMod.Location = new System.Drawing.Point(662, 244);
+            this.NudHomeMod.Location = new System.Drawing.Point(654, 287);
             this.NudHomeMod.Name = "NudHomeMod";
             this.NudHomeMod.Size = new System.Drawing.Size(155, 22);
             this.NudHomeMod.TabIndex = 8;
             // 
-            // CbSlotId
-            // 
-            this.CbSlotId.FormattingEnabled = true;
-            this.CbSlotId.Location = new System.Drawing.Point(299, 265);
-            this.CbSlotId.Name = "CbSlotId";
-            this.CbSlotId.Size = new System.Drawing.Size(76, 20);
-            this.CbSlotId.TabIndex = 7;
-            // 
-            // CbNodeId
-            // 
-            this.CbNodeId.FormattingEnabled = true;
-            this.CbNodeId.Location = new System.Drawing.Point(208, 265);
-            this.CbNodeId.Name = "CbNodeId";
-            this.CbNodeId.Size = new System.Drawing.Size(76, 20);
-            this.CbNodeId.TabIndex = 6;
-            // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.txtCheckDone);
+            this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.RbSrveroOff);
             this.groupBox5.Controls.Add(this.RbSrveroOn);
             this.groupBox5.Controls.Add(this.BtHome);
@@ -1275,7 +1229,7 @@
             this.groupBox5.Controls.Add(this.label17);
             this.groupBox5.Location = new System.Drawing.Point(208, 91);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(609, 132);
+            this.groupBox5.Size = new System.Drawing.Size(753, 132);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "速度測試";
@@ -1587,6 +1541,38 @@
             // 
             this.TimCheckStatus.Tick += new System.EventHandler(this.TimCheckStatus_Tick);
             // 
+            // CbNodeId
+            // 
+            this.CbNodeId.FormattingEnabled = true;
+            this.CbNodeId.Location = new System.Drawing.Point(208, 304);
+            this.CbNodeId.Name = "CbNodeId";
+            this.CbNodeId.Size = new System.Drawing.Size(76, 20);
+            this.CbNodeId.TabIndex = 6;
+            // 
+            // CbSlotId
+            // 
+            this.CbSlotId.FormattingEnabled = true;
+            this.CbSlotId.Location = new System.Drawing.Point(299, 304);
+            this.CbSlotId.Name = "CbSlotId";
+            this.CbSlotId.Size = new System.Drawing.Size(76, 20);
+            this.CbSlotId.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(632, 22);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "馬達狀態";
+            // 
+            // txtCheckDone
+            // 
+            this.txtCheckDone.Location = new System.Drawing.Point(590, 37);
+            this.txtCheckDone.Name = "txtCheckDone";
+            this.txtCheckDone.Size = new System.Drawing.Size(133, 22);
+            this.txtCheckDone.TabIndex = 19;
+            // 
             // UcControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1670,8 +1656,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.RadioButton RbSrveroOff;
         private System.Windows.Forms.RadioButton RbSrveroOn;
-        private System.Windows.Forms.ComboBox CbNodeId;
-        private System.Windows.Forms.ComboBox CbSlotId;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.ComboBox CbDONodeId;
         private System.Windows.Forms.ComboBox CbDOSlotId;
@@ -1738,7 +1722,6 @@
         private System.Windows.Forms.TextBox txtFv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button bt_check;
         private System.Windows.Forms.Button btnDISave;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -1750,7 +1733,9 @@
         private System.Windows.Forms.TextBox txtDI05;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox CbDIfunction;
-        private System.Windows.Forms.Button btnDODelete;
-        private System.Windows.Forms.Button btnDIDelete;
+        private System.Windows.Forms.ComboBox CbSlotId;
+        private System.Windows.Forms.ComboBox CbNodeId;
+        private System.Windows.Forms.TextBox txtCheckDone;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -9,7 +9,7 @@ namespace EtherCATFunction
     {
         private ushort g_uRet = 0;
         ushort g_uESCCardNo = 0;
- 
+
         /// <summary>
         /// 單軸移動
         /// </summary>
@@ -21,9 +21,9 @@ namespace EtherCATFunction
         /// <param name="uDeceleration">負加速度</param>
         /// <param name="ESCNodeID"></param>
         /// <param name="ESCSlotID"></param>
-        public void AxisMove(int nDir ,bool ChkAbsMove , int nTargetPos , uint uConstVel, uint uAcceleration, uint uDeceleration , ushort ESCNodeID, ushort ESCSlotID)
-        { 
-            ushort uAbsMove = 0; 
+        public void AxisMove(int nDir, bool ChkAbsMove, int nTargetPos, uint uConstVel, uint uAcceleration, uint uDeceleration, ushort ESCNodeID, ushort ESCSlotID)
+        {
+            ushort uAbsMove = 0;
 
             if (ChkAbsMove == true)
                 uAbsMove = 1; // 0：相對位移(Default) 1：絕對位移
@@ -91,7 +91,7 @@ namespace EtherCATFunction
                 int iii = 0;
             }
 
-                if (rt == CEtherCAT_DLL_Err.ERR_ECAT_NEED_RALM) // 4356 = 0x1104
+            if (rt == CEtherCAT_DLL_Err.ERR_ECAT_NEED_RALM) // 4356 = 0x1104
             {
                 for (int i = 0; i < g_uESCNodeID.Length; i++)
                 {
@@ -129,7 +129,7 @@ namespace EtherCATFunction
         //    }
         //}
 
-        public void MultiServoOnOrOff(bool RdoSVON,int g_nSelectAxesCount, ushort[] g_uESCNodeID, ushort[] g_uESCSlotID)
+        public void MultiServoOnOrOff(bool RdoSVON, int g_nSelectAxesCount, ushort[] g_uESCNodeID, ushort[] g_uESCSlotID)
         {
             if (g_uESCNodeID == null || g_uESCSlotID == null) return;
             // 真實可用的軸數：以兩個陣列的最小長度為準；不信 caller 傳的 g_nSelectAxesCount
@@ -159,7 +159,7 @@ namespace EtherCATFunction
         }
 
 
-        public void ServoOnOrOff(bool RdoSVON, ushort ESCNodeID , ushort ESCSlotID)
+        public void ServoOnOrOff(bool RdoSVON, ushort ESCNodeID, ushort ESCSlotID)
         {
             ushort uCheckOnOff = RdoSVON == false ? (ushort)0 : (ushort)1;
 
@@ -171,9 +171,9 @@ namespace EtherCATFunction
             }
         }
 
-        public void MoveHome(ushort ESCNodeID, ushort ESCSlotID, ushort uMode, int nOffset,uint nFV, uint nSV, uint uDeceleration)
-        { 
-            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_Home_Config(g_uESCCardNo, ESCNodeID , ESCSlotID, uMode, nOffset, nFV, nSV, uDeceleration);
+        public void MoveHome(ushort ESCNodeID, ushort ESCSlotID, ushort uMode, int nOffset, uint nFV, uint nSV, uint uDeceleration)
+        {
+            g_uRet = CEtherCAT_DLL.CS_ECAT_Slave_Home_Config(g_uESCCardNo, ESCNodeID, ESCSlotID, uMode, nOffset, nFV, nSV, uDeceleration);
 
             if (g_uRet != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR)
             {
@@ -199,11 +199,57 @@ namespace EtherCATFunction
                 //AddErrMsg("CS_ECAT_Slave_PP_Get_Done, ErrorCode = " + g_uRet.ToString(), true);
                 return false;
             }
-            if (uDone == 1)
+            if (uDone == 0)
                 return true;
             else
                 return false;
         }
 
+
+
+
+
+
+        #region AI生的
+        //public bool IsTargetReached(ushort node, ushort slot)
+        //{
+        //    ushort sw = 0;
+        //    var rc = CEtherCAT_DLL.CS_ECAT_Slave_Motion_Get_StatusWord(g_uESCCardNo, node, slot, ref sw);
+        //    if (rc != CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR) return false;
+
+        //    // CiA-402 常見：bit10 = Target reached (不同機型可能略有差異)
+        //    bool targetReached = ((sw >> 10) & 0x1) == 1;
+        //    return targetReached;
+        //}
+        ////public bool TryGetAlarm(ushort node, ushort slot, out ushort alm)
+        ////{
+        ////    alm = 0;
+        ////    var rc = CEtherCAT_DLL.CS_ECAT_Slave_User_Motion_Control_Get_Alm(g_uESCCardNo, node, slot, ref alm);
+        ////    return rc == CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR;
+        ////}
+
+        //public bool TryGetSoftLimit(ushort node, ushort slot, out ushort status)
+        //{
+        //    status = 0;
+        //    var rc = CEtherCAT_DLL.CS_ECAT_Slave_CSP_Get_SoftLimit_Status(g_uESCCardNo, node, slot, ref status);
+        //    return rc == CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR;
+        //}
+
+        //public bool TryGetStatusWord(ushort node, ushort slot, out ushort sw)
+        //{
+        //    sw = 0;
+        //    var rc = CEtherCAT_DLL.CS_ECAT_Slave_Motion_Get_StatusWord(g_uESCCardNo, node, slot, ref sw);
+        //    return rc == CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR;
+        //}
+
+        //// 若你有實速API就實作；沒有就讓它回 false -> 會忽略速度條件
+        //public bool TryGetActualVelocity(ushort node, ushort slot, out int vel)
+        //{
+        //    vel = 0;
+        //    // 例：var rc = CEtherCAT_DLL._ECAT_Slave_Motion_Get_ActualVelocity(g_uESCCardNo, node, slot, ref vel);
+        //    // return rc == CEtherCAT_DLL_Err.ERR_ECAT_NO_ERROR;
+        //    return false; // 沒有API就先關閉速度判斷
+        //}
+        #endregion
     }
 }

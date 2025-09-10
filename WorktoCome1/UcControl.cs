@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace WorktoCome1
@@ -110,6 +111,57 @@ namespace WorktoCome1
             dataGridView1.Rows.Add("原點", "");
         }
         #region 非事件方法
+
+        public void UserRole()
+        {
+            btnDOSave.Enabled = false;
+            btnDISave.Enabled = false;
+            txtDO00.Enabled = false;
+            txtDO01.Enabled = false;
+            txtDO02.Enabled = false;
+            txtDO03.Enabled = false;
+            txtDO04.Enabled = false;
+            txtDO05.Enabled = false;
+            txtDO06.Enabled = false;
+            txtDO07.Enabled = false;
+            txtDO08.Enabled = false;
+            txtDO09.Enabled = false;
+            txtDO10.Enabled = false;
+            txtDO11.Enabled = false;
+            txtDO12.Enabled = false;
+            txtDO13.Enabled = false;
+            txtDO14.Enabled = false;
+            txtDO15.Enabled = false;
+            txtDI00.Enabled = false;
+            txtDI01.Enabled = false;
+            txtDI02.Enabled = false;
+            txtDI03.Enabled = false;
+            txtDI04.Enabled = false;
+            txtDI05.Enabled = false;
+            txtDI06.Enabled = false;
+            txtDI07.Enabled = false;
+            txtDI08.Enabled = false;
+            txtDI09.Enabled = false;
+            txtDI10.Enabled = false;
+            txtDI11.Enabled = false;
+            txtDI12.Enabled = false;
+            txtDI13.Enabled = false;
+            txtDI14.Enabled = false;
+            txtDI15.Enabled = false;
+            CbDONodeId.DropDownStyle = ComboBoxStyle.DropDownList;
+            CbDOSlotId.DropDownStyle = ComboBoxStyle.DropDownList;
+            CbDINodeId.DropDownStyle = ComboBoxStyle.DropDownList;  
+            CbDISlotId.DropDownStyle = ComboBoxStyle.DropDownList;
+
+
+
+        }
+
+        public void EngerRole()
+        {
+
+        }
+
         private void LoadDIByNodeSlot(int nodeId, int slotId)
         {
             try
@@ -469,7 +521,15 @@ namespace WorktoCome1
                 TargetNumb = 1000;
             }
 
-            ppmove.AxisMove(1, false, 1000, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
+            ppmove.AxisMove(1, false, 1000, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem);
+
+            bool check = false;
+            do
+            {
+                check = false;//cATFunction.checkDone();
+
+                // 可以加個延遲，避免吃滿 CPU
+            } while (check);
         }
 
         private void BtnMoveLeft_Click(object sender, EventArgs e)
@@ -496,11 +556,17 @@ namespace WorktoCome1
                 TargetNumb = 1000;
             }
 
-            ppmove.AxisMove(0, false, TargetNumb, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem); 
-        
-        
-        
-        
+            ppmove.AxisMove(0, false, TargetNumb, ConstVel, Acceleration, Deceleration, (ushort)CbNodeId.SelectedItem, (ushort)CbSlotId.SelectedItem);
+
+            bool check = false;
+            do
+            {
+                check = false;//cATFunction.checkDone();
+
+                // 可以加個延遲，避免吃滿 CPU
+            } while (check);
+
+
         }
 
         private void ChkBit_CheckedChanged(object sender, EventArgs e)
@@ -912,6 +978,9 @@ namespace WorktoCome1
             LoadDIByNodeSlot(nodeId, slotId);
         }
 
-        
+        private void btnDODelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
